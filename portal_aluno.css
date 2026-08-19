@@ -1,0 +1,561 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+
+/* ==========================================
+   BARRA DE ROLAGEM
+========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050912;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8a2be2;
+    border-radius: 6px;
+    border: 2px solid #050912;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9932cc;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cabecalho {
+    width: 100%;
+    height: 700px;
+
+    background-image: url("background_portal.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.rolar {
+    margin: 0 0 35px 35px;
+
+    color: rgb(16, 12, 12);
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 800;
+    font-family: 'Sora', sans-serif;
+
+    transform-origin: center;
+}
+
+.rolar i {
+    margin-left: 6px;
+}
+
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 80px;
+
+    position: relative;
+}
+
+
+/* ==========================================
+   BARRA SUPERIOR
+========================================== */
+
+.barra-portal {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* ==========================================
+   BOTÃO DO MENU FECHADO
+========================================== */
+
+.botao-menu {
+    position: absolute;
+
+    left: 48px;
+
+    width: 91px;
+    height: 265px;
+
+    border: none;
+    border-radius: 45px;
+
+    background-color: #303030;
+
+    color: #f28cff;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 37px;
+
+    font-size: 32px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.2s ease;
+}
+
+.botao-menu:hover {
+    background-color: #363636;
+}
+
+.botao-menu i {
+    font-size: 30px;
+}
+
+
+/* ==========================================
+   PESQUISA
+========================================== */
+
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+
+    width: min(400px, 90%);
+
+    padding: 10px 15px;
+
+    border: 1px solid black;
+
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+.caixa-pesquisa input {
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    color: black;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: #777;
+}
+
+.caixa-pesquisa i {
+    color: #888;
+
+    font-size: 15px;
+
+    margin-left: 6px;
+}
+
+
+/* ==========================================
+   CAMPUS
+========================================== */
+
+.campus {
+    position: absolute;
+
+    right: 110px;
+
+    padding: 12px 20px;
+
+    color: #FFF93F;
+
+    font-weight: 700;
+
+    font-family: 'Sora', sans-serif;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 249, 63, 0.08),
+        rgba(255, 200, 0, 0.03)
+    );
+
+    box-shadow:
+        0 0 15px rgba(255, 249, 63, 0.08),
+        0 5px 20px rgba(0, 0, 0, 0.8);
+
+    border: 1px solid #ebe76b5d;
+}
+
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+.perfil {
+    position: absolute;
+
+    right: 50px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid #fafafa;
+
+    background-color: #240D31;
+
+    color: white;
+
+    font-family: 'Sora', sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px rgba(255, 249, 63, 0.25);
+}
+
+
+/* ==========================================
+   LINHA
+========================================== */
+
+hr {
+    width: 100%;
+
+    border: none;
+    border-top: 1px solid white;
+
+    margin-top: 30px;
+}
+
+
+/* ==========================================
+   MENU LATERAL
+========================================== */
+
+.menu {
+    position: absolute;
+
+    left: 48px;
+    top: 130%;
+
+    width: 91px;
+    height: 265px;
+
+    overflow: hidden;
+
+    border-radius: 45px;
+
+    background-color: #303030;
+
+    z-index: 1000;
+
+    transition:
+        width 0.45s ease,
+        height 0.45s ease,
+        border-radius 0.45s ease;
+}
+
+
+/* ==========================================
+   MENU ABERTO
+========================================== */
+
+.menu.aberto {
+    width: 325px;
+    height: 590px;
+
+    border-radius: 30px;
+}
+
+
+/* ==========================================
+   CABEÇALHO DO MENU
+========================================== */
+
+.menu-cabecalho {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 20px;
+
+    color: #f28cff;
+
+    font-family: 'Sora', sans-serif;
+
+    font-size: 26px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.menu-cabecalho span {
+    margin-left: 18px;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.menu.aberto .menu-cabecalho span {
+    opacity: 1;
+
+    transition-delay: 0.25s;
+}
+
+
+/* ==========================================
+   BOTÃO DENTRO DO MENU ABERTO
+========================================== */
+
+.botao-menu-fechar {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    background: transparent;
+
+    color: #f28cff;
+
+    cursor: pointer;
+
+    font-size: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.menu.aberto .botao-menu-fechar {
+    display: flex;
+}
+
+
+/* ==========================================
+   NAVEGAÇÃO
+========================================== */
+
+.menu-navegacao {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 0 20px 25px 48px;
+}
+
+
+/* ==========================================
+   ITENS DO MENU
+========================================== */
+
+.item-menu {
+    width: 100%;
+
+    padding: 8px 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #c9c9c9;
+
+    font-family: 'Sora', sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.25s ease;
+
+    opacity: 0;
+}
+
+
+/* Quando o menu estiver aberto */
+
+.menu.aberto .item-menu {
+    opacity: 1;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.item-menu:hover {
+    color: #f28cff;
+
+    transform: translateX(4px);
+}
+
+
+/* ==========================================
+   FECHAR ITENS QUANDO MENU ESTÁ FECHADO
+========================================== */
+
+.menu:not(.aberto) .menu-navegacao {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   ÁREA DO CONTEÚDO
+========================================== */
+
+.area-conteudo {
+    width: 100%;
+}
+
+
+/* ==========================================
+   CONTEÚDO INICIAL
+========================================== */
+
+.conteudo-inicio {
+    width: 100%;
+
+    margin-top: 80px;
+
+    padding: 0 40px;
+
+    z-index: 2;
+}
+
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+.titulo-inicio {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.titulo-um {
+    font-family: "Sora", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    color: white;
+}
+
+.titulo-dois {
+    margin-top: 15px;
+
+    font-family: "Sora", sans-serif;
+
+    font-size: 65px;
+
+    font-weight: 700;
+
+    color: #E3AC6C;
+
+    line-height: .95;
+}
+
+.titulo-tres {
+    font-family: "Sora", sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    color: white;
+
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+
+/* ==========================================
+   PÁGINAS DO MENU
+========================================== */
+
+.pagina {
+    width: 100%;
+
+    padding: 40px;
+
+    color: white;
+
+    font-family: 'Sora', sans-serif;
+}
+
+.pagina h1 {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.pagina p {
+    font-size: 18px;
+
+    color: #c9c9c9;
+}

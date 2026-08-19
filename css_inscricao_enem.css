@@ -1,0 +1,471 @@
+/* =====================================
+       NÃO TOCAR NA BARRA DE ROLAGEM 
+       ===================================== */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #050912;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #8a2be2;
+        border-radius: 6px;
+        border: 2px solid #050912;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #9932cc;
+    }
+
+    /* =====================================
+       1. CONFIGURAÇÕES GERAIS E ESTRUTURA
+       ===================================== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #050912;
+    }
+
+    .header-graduacao {
+        background: #050912;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 28px;
+        border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+
+    .conteudo-graduacao {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: #050912;
+    }
+
+    .bg-graduacao {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: .15;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .graduacao-container {
+        width: 1180px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .logo-graduacao img {
+        width: 72px;
+        transition: .35s;
+    }
+
+    .logo-graduacao img:hover {
+        transform: translateY(-3px);
+    }
+
+    .titulo-header {
+        font-family: 'Rye', serif;
+        color: white;
+        font-size: 30px;
+        font-weight: normal;
+    }
+
+    .botao-sair {
+        width: 110px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,.45);
+        border-radius: 18px;
+        transition: .3s;
+    }
+
+    .botao-sair:hover {
+        background: rgba(255,255,255,.08);
+    }
+
+    /* Títulos centrais do formulário */
+    .titulo-inscricao-container {
+        text-align: center;
+        margin: 55px auto 40px;
+    }
+
+    .titulo-principal-form {
+        color: #E3AC6C;
+        font-size: 34px;
+        font-weight: normal;
+        margin-bottom: 20px;
+    }
+
+    .subtitulo-processo-form {
+        color: white;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .subtitulo-abaixo {
+        color: white;
+        font-size: 1.5rem;
+        margin-top: 40px;
+        text-align: left;
+    }
+
+    .descricao-caixa-form {
+        color: #E3AC6C;
+        font-size: 1.3rem;
+        border-left: 2px solid #E3AC6C;
+        padding-left: 15px;
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    /* =====================================
+       2. FORMULÁRIOS
+       ===================================== */
+    .formulario-container {
+        max-width: 980px;
+        margin: 50px auto 0;
+    }
+
+    .titulo-etapa {
+        color: #E3AC6C;
+        font-size: 1.8rem;
+        font-weight: normal;
+        margin-bottom: 35px;
+    }
+
+    /* Container de cada linha do formulário usando Flexbox */
+    .campo-formulario {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        color: white;
+        font-size: 1rem;
+    }
+
+    /* Estilo das listas com bolinha branca igual ao Figma */
+    .campo-formulario::before {
+        content: "•";
+        color: white;
+        margin-right: 15px;
+        font-size: 1.2rem;
+    }
+
+    .campo-formulario label {
+        white-space: nowrap;
+        margin-right: 10px;
+
+        width:260px;
+        flex-shrink:0;
+    }
+
+    
+    /* O input agora como uma caixa fechada e elegante */
+.campo-formulario input,
+.campo-formulario select {
+
+    flex:1;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:8px;
+    color:#ffffff;
+    font-size:1rem;
+    padding:12px 15px;
+    outline:none;
+    transition:.3s;
+
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus{
+
+    border-color:#E3AC6C;
+
+    background:rgba(255,255,255,.07);
+
+}
+.campo-formulario select{
+
+    appearance:none;
+
+    cursor:pointer;
+
+}
+.campo-formulario option{
+
+    background:#0b1220;
+
+    color:#ffffff;
+
+}
+
+    /* =====================================
+       3. BOTÕES E TRANSIÇÕES
+       ===================================== */
+    .container-botoes-form {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 60px;
+        margin-bottom: 100px;
+    }
+
+    .botao-avancar-form {
+    /* Width: 220px; */
+        width:auto;
+
+        min-width:180px;
+
+        padding:0 28px;
+        height: 55px;
+        background: transparent;
+        color: #F39CFF;
+        border: 1px solid rgba(255,255,255,.5);
+        border-radius: 30px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .botao-avancar-form:hover {
+        background: rgba(243,156,255,.08);
+        border-color: #F39CFF;
+        box-shadow: 0 0 12px rgba(243,156,255,.45), 0 0 24px rgba(243,156,255,.25);
+        transform: translateY(-2px);
+    }
+
+    .botao-avancar-form:active {
+        transform: translateY(0);
+    }
+
+    /* Classe crucial para o JavaScript ocultar as próximas etapas */
+    .etapa-escondida {
+        display: none !important;
+    }
+
+    /* Classe de erro(quando o úsuario não preenche tudo): Borda vermelha e sombra sutil */
+    .campo-erro {
+        border-color: #ff4d4d !important;
+        background: rgba(255, 77, 77, 0.05) !important;
+        box-shadow: 0 0 8px rgba(255, 77, 77, 0.3);
+        animation: balanco 0.3s ease-in-out;
+    }
+
+    /* Animação charmosa de balanço quando der erro */
+    @keyframes balanco {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-4px); }
+        75% { transform: translateX(4px); }
+    }
+
+    /* ===========================================
+       3. PREFERÊNCIAS ACADÊMICAS
+       =========================================== */
+
+    /* Estilo dos blocos de seleção */
+    .grupo-selecao {
+        margin-bottom: 35px;
+        color: white;
+    }
+
+    .rotulo-grupo {
+        font-size: 1.25rem;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .lista-opcoes {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-left: 20px;
+    }
+
+    /* Container do clique */
+    .opcao-radio {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        transition: .2s;
+    }
+
+    .opcao-radio:hover {
+        color: white;
+    }
+
+    /* Esconde o rádio padrão feio do navegador */
+    .opcao-radio input[type="radio"] {
+        display: none;
+    }
+
+    /* Desenha a bolinha vazia do Figma usando pseudo-elemento */
+    .opcao-radio span::before {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        margin-right: 12px;
+        vertical-align: middle;
+        transition: all 0.25s ease;
+        background: transparent;
+    }
+
+    /* Quando clicado: a bolinha ganha brilho e a cor roxa/rosa do Nebula */
+    .opcao-radio input[type="radio"]:checked + span::before {
+        border-color: #F39CFF;
+        background: #F39CFF;
+        box-shadow: 0 0 8px #F39CFF, 0 0 15px rgba(243, 156, 255, 0.6);
+    }
+
+    /* Destaca o texto da opção selecionada */
+    .opcao-radio input[type="radio"]:checked + span {
+        color: #F39CFF;
+        font-weight: 500;
+    }
+
+    /* ===========================================
+       4. DOCUMENTOS E DECLARAÇÕES
+   =========================================== */
+
+    /* Caixa de Informações */
+    .caixa-informacoes {
+        background: rgba(255, 255, 255, 0.08);
+        border-left:4px solid #E3AC6C;
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 40px;
+        color:rgba(255,255,255,.85);
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
+    .lista-atencao{
+
+        margin-top:15px;
+        padding-left:22px;
+
+    }
+
+    .lista-atencao li{
+
+        margin-bottom:8px;
+        line-height:1.6;
+
+    }
+    .descricao-upload-opcional{
+
+    color:rgba(255,255,255,.7);
+
+    margin-bottom:15px;
+
+    font-size:1rem;
+
+    }
+
+    .grupo-upload-moderno {
+        margin-bottom: 35px;
+    }
+
+    .titulo-upload {
+        color: white;
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+
+    /* Área de envio de arquivos */
+    .area-dropzone {
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.3rem;
+        transition: 0.3s;
+    }
+
+    .area-dropzone:hover {
+        border-color: #E3AC6C;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .area-dropzone input[type="file"] {
+        display: none;
+    }
+
+    .texto-destaque {
+        color: #E3AC6C;
+        font-weight: normal;
+    }
+
+    /* Status do Upload */
+    .status-upload {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 30px;
+        padding: 8px 20px;
+        margin-top: 10px;
+        font-size: 0.95rem;
+    }
+
+    /* Estados de Status: Pendente vs Selecionado */
+    .status-pendente .status-texto-esquerda { color: #ff4d4d; }
+    .status-pendente .status-texto-direita { color: #ff4d4d; font-weight: bold; }
+
+    .status-selecionado .status-texto-esquerda { color: #4dff4d; }
+    .status-selecionado .status-texto-direita { color: #4dff4d; font-weight: bold; }
+
+#bloco-cotas,
+#upload-laudo-pcd{
+
+    animation:fadeFormulario .35s ease;
+
+}
+
+@keyframes fadeFormulario{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+#campo-nome-social{
+    margin-top:25px;
+}

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciências Atmosféricas - FTAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+    <!-- X para o histórico, relógio para histórico e entre outros, como a Font Sora -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+    /* NÃO TOCAR NA BARRA DE ROLAGEM POR NADA */
+            ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050912;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #8a2be2;
+            border-radius: 6px;
+            border: 2px solid #050912;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #9932cc;
+        }
+    /* =====================================
+   1. CABEÇALHO DA PÁGINA DE GRADUAÇÃO
+      ===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#050912;
+}
+
+.header-graduacao{
+
+    background:#050912;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 28px;
+
+    border-bottom:1px solid rgba(255,255,255,.25);
+
+}
+.conteudo-graduacao{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    background:#050912;
+}
+
+.bg-graduacao{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.15;
+    z-index:1;
+    pointer-events:none;
+}
+
+.graduacao-container{
+
+    width:1180px;
+
+    margin:0 auto;
+
+    padding:0;
+
+}
+
+.logo-graduacao img{
+
+    width:72px;
+
+    transition:.35s;
+
+}
+
+.logo-graduacao img:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.titulo-header{
+
+    font-family:'Sora', serif;
+    font-size:40px;
+
+    color:white;
+
+    font-weight:normal;
+
+}
+
+.botao-sair{
+
+    width:110px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.botao-sair:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+.titulo-graduacao{
+    color:#E3AC6C;
+    font-size:34px;
+    font-weight:bold;
+    margin:0;
+}
+
+.titulo-graduacao-container{
+
+    width:fit-content;
+
+    margin:70px auto 0;
+
+    position:relative;
+
+}
+
+.linha-graduacao{
+
+    position:absolute;
+
+    left:100%;
+
+    top:50%;
+
+    margin-left:18px;
+
+    width:160px;
+
+    height:2px;
+    background:#E3AC6C;
+
+    transform:translateY(-50%);
+
+}
+
+.icone-lua{
+    position:absolute;
+    right:0;
+    bottom:0px;
+
+    width:22px;
+    height:auto;
+}
+
+.subtitulo-graduacao{
+    display:flex;
+    align-items:center;
+
+    width:760px;
+
+    margin:55px auto 0;
+    justify-content:space-between;
+}
+
+.subtitulo-graduacao span{
+    color:white;
+    font-size:2rem;
+}
+
+.bolinha{
+
+    color:white;
+    margin:0 20px;
+
+    font-size:1.2rem;
+
+    line-height:1;
+
+}
+
+.secao-graduacao{
+
+    width:980px;
+
+    margin:70px auto 0;
+
+    margin-top:70px;
+}
+
+.titulo-secao-graduacao{
+
+    color:#E3AC6C;
+    font-size:2rem;
+    font-weight:normal;
+    margin-bottom:28px;
+
+}
+
+.lista-graduacao{
+
+    margin-left:28px;
+
+}
+
+.lista-graduacao li{
+
+    color:white;
+    font-size:1.2rem;
+    line-height:1.55;
+    margin-bottom:34px;
+
+}
+
+.lista-graduacao strong{
+
+    font-weight:normal;
+
+}
+.footer{
+    position:relative;
+    z-index:2;
+    background:#171414;
+    border-top:1px solid rgba(255,255,255,.45);
+    margin-top:130px; /* ajuste aqui */
+}
+
+.footer-conteudo{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:48px 24px 38px;
+}
+
+.footer-esquerda img{
+    width:95px;
+    margin-bottom:28px;
+}
+
+.footer-esquerda p,
+.footer-direita p{
+    color:#ECECEC;
+    font-size:1.15rem;
+    line-height:1.7;
+}
+
+.footer-direita h3{
+    color:#F39CFF;
+    font-size:2rem;
+    font-weight:normal;
+    margin-bottom:28px;
+}
+
+.footer-copy{
+    border-top:1px solid rgba(255,255,255,.45);
+    text-align:center;
+    padding:28px 20px;
+    color:#AFAFAF;
+    font-size:1.05rem;
+}
+
+/* Botões + conversa com a home */
+.menu-graduacao a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#E3AC6C;
+
+    transform:translateX(-50%);
+
+    transition:.3s;
+
+}
+
+.menu-graduacao a:hover::after{
+
+    width:100%;
+
+}
+.menu-graduacao .ativo{
+
+    color:#E3AC6C;
+
+}
+
+.menu-graduacao .ativo::after{
+
+    width:100%;
+
+}
+.menu-graduacao{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:45px;
+
+    padding:18px 0;
+
+    border-top:1px solid rgba(255,255,255,.10);
+    border-bottom:1px solid rgba(255,255,255,.10);
+
+    background:#050912;
+
+}
+.menu-graduacao a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-family: 'Sora', serif;
+    font-size: 18px;
+
+    transition:.30s;
+
+    position:relative;
+
+}
+.menu-graduacao a:hover{
+
+    color:#E3AC6C;
+
+}
+
+.menu-graduacao a:hover::after{
+
+    width:100%;
+
+}
+
+.menu-graduacao .ativo::after{
+
+    width:100%;
+
+}
+
+.botao-inscricao{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:80px;
+
+    margin-right:80px;
+
+}
+.botao-inscricao button{
+
+    width:260px;
+
+    height:60px;
+
+    background:transparent;
+
+    color:#F39CFF;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:30px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+.botao-inscricao button:hover{
+
+    background:rgba(243,156,255,.08);
+
+    border-color:#F39CFF;
+
+    color:#F39CFF;
+
+    box-shadow:
+        0 0 12px rgba(243,156,255,.45),
+        0 0 24px rgba(243,156,255,.25);
+
+    transform:translateY(-2px);
+
+}
+/* Botão afundar */
+.botao-inscricao button:active{
+
+    transform:translateY(0);
+
+}
+.secao-matriz{
+
+    width:900px;
+
+    margin:70px auto 0;
+
+}
+
+.titulo-matriz{
+
+    color:#E3AC6C;
+
+    font-size:22px;
+
+    margin-bottom:50px;
+
+}
+
+.cabecalho-tabela{
+
+    margin-bottom:18px;
+
+}
+
+.coluna-info,
+.coluna-detalhes{
+
+    display:inline-block;
+
+    vertical-align:top;
+
+}
+
+.coluna-info{
+
+    width:240px;
+
+    color:#E3AC6C;
+
+}
+
+.coluna-detalhes{
+
+    width:520px;
+
+    color:white;
+
+}
+
+.linha-tabela{
+
+    border-top:1px solid rgba(255,255,255,.18);
+
+    padding:12px 0;
+
+}
+
+/* ============================
+   Teste semestres 
+   ============================*/
+.semestres{
+    width:1180px;
+    margin:90px auto 0;
+    font-size:0; /* remove o espaço entre inline-block */
+}
+
+.semestre{
+    display:inline-block;
+    vertical-align:top;
+    width:47%;
+    font-size:16px;
+    margin-bottom:70px;
+}
+
+.semestre-direita{
+    margin-left:6%;
+}
+
+.semestre h3{
+    color:#E3AC6C;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.semestre ul{
+    margin-left:25px;
+}
+
+.semestre li{
+    color:white;
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.semestre strong{
+    color:white;
+}
+</style>
+
+</head>
+<body>
+
+<header class="header-graduacao">
+
+    <a href="Home.html" class="logo-graduacao">
+        <img src="logo-ucen.png" alt="Logo FTAN">
+    </a>
+
+    <h1 class="titulo-header">
+        Faculdade Técnica Astronômica Nebula
+    </h1>
+
+    <a href="Home.html" class="botao-sair">
+        Sair
+    </a>
+
+</header>
+
+<nav class="menu-graduacao">
+<a href="astrofisica_home.html">
+    Astrofísica
+</a>
+<a href="astronomia_home.html">
+    Astronomia
+</a>
+<a href="geofisica_home.html">
+    Geofísica
+</a>
+<a href="Ciencias_Atmosfericas_home.html" class="ativo">Ciências Atmosféricas</a>
+</nav>
+
+<!-- TODO O CONTEÚDO DA PÁGINA VAI AQUI -->
+<main class="conteudo-graduacao">
+
+    <img src="fundo_universo.jpg"
+         class="bg-graduacao"
+         alt="">
+
+    <div class="graduacao-container">
+
+<!-- Catálogo vem antes de Astrofísica -->
+<div class="subtitulo-graduacao">
+
+    <span>Catálogo de Graduação</span>
+
+    <span class="bolinha">•</span>
+
+    <span>Ciências Espaciais</span>
+
+</div>
+    <div class="titulo-graduacao-container">
+    <h2 class="titulo-graduacao">
+        CIÊNCIAS ATMOSFÉRICAS
+    </h2>
+    <div class="linha-graduacao">
+        <img src="bandeira.png" class="icone-lua">
+    </div>
+</div>
+
+<section class="secao-matriz">
+
+    <div class="titulo-matriz">
+        │ Matriz Curricular • 08 Semestres
+    </div>
+
+    <div class="cabecalho-tabela">
+
+        <div class="coluna-info">
+            Informação
+        </div>
+
+        <div class="coluna-info">
+            Detalhes
+        </div>
+
+    </div>
+
+    <div class="linha-tabela">
+
+        <div class="coluna-info">
+            Duração
+        </div>
+
+        <div class="coluna-detalhes">
+            08 semestres (04 anos)
+        </div>
+
+    </div>
+
+    <div class="linha-tabela">
+
+        <div class="coluna-info">
+            Carga Horária
+        </div>
+
+        <div class="coluna-detalhes">
+            Aproximadamente 3.400 horas*
+        </div>
+
+    </div>
+
+    <div class="linha-tabela">
+
+        <div class="coluna-info">
+            Modalidade
+        </div>
+
+        <div class="coluna-detalhes">
+            Presencial, Semi-Presencial e EaD
+        </div>
+
+    </div>
+
+    <div class="linha-tabela">
+
+        <div class="coluna-info">
+            Turnos disponíveis
+        </div>
+
+        <div class="coluna-detalhes">
+            Matutino, Vespertino e Noturno
+        </div>
+
+    </div>
+
+</section>
+
+<section class="semestres">
+    <section class="semestres">
+
+    <!-- 1 -->
+    <div class="semestre">
+
+        <h3>1• Semestre - Introdução ao Sistema Terrestre</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Introdução às Ciências Atmosféricas I<br>
+                Introdução às Ciências da Terra e do Universo<br>
+                Física I (Mecânica)<br>
+                Física Experimental I<br>
+                Vetores e Geometria<br>
+                Cálculo Diferencial e Integral I
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Introdução à Física e ao Cálculo<br>
+                História da Ciência e da Meteorologia<br>
+                Geologia Geral<br>
+                Introdução à Programação Computacional para Exatas
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 2 -->
+    <div class="semestre semestre-direita">
+
+        <h3>2• Semestre - Bases da Física e Astronomia</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Introdução às Ciências Atmosféricas II<br>
+                Instrumentação Meteorológica e Métodos de Observação<br>
+                Física II (Oscilações, Ondas e Termodinâmica)<br>
+                Física Experimental II<br>
+                Álgebra Linear I<br>
+                Cálculo Diferencial e Integral II
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Laboratório de Física da Terra e do Universo<br>
+                Experimentos em Ciências da Terra e do Universo<br>
+                Astronomia: Uma Visão Geral I<br>
+                Introdução à Geofísica<br>
+                Projetos de Cultura e Extensão I
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 3 -->
+    <div class="semestre">
+
+        <h3>3• Semestre - Termodinâmica da Atmosfera e Fluidos</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+              Termodinâmica da Atmosfera<br>
+              Escoamento de Fluidos Geofísicos<br>
+              Física III (Eletromagnetismo)<br>
+              Física Experimental III<br>
+              Cálculo Diferencial e Integral III
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Termodinâmica da Atmosfera<br>
+                Escoamento de Fluidos Geofísicos<br>
+                Física III (Eletromagnetismo)<br>
+                Física Experimental III<br>
+                Cálculo Diferencial e Integral III
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 4 -->
+    <div class="semestre semestre-direita">
+
+        <h3>4• Semestre - Dinâmica Atmosférica e Computação Avançada</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Dinâmica da Atmosfera I<br>
+                Radiação Atmosférica<br>
+                Física IV (Óptica e Física Moderna)<br>
+                Introdução à Computação para Ciências Exatas e Tecnologia<br>
+                Cálculo Diferencial e Integral IV
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Física Experimental IV<br>
+                Atividade Solar e Suas Implicações na Terra<br>
+                Problemas Integrados em Ciências da Terra II<br>
+                Introdução à Oceanografia Física<br>
+                Projetos de Cultura e Extensão III
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 5 -->
+    <div class="semestre">
+
+        <h3>5• Semestre - Sistemas de Tempo e Climatologia</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Dinâmica da Atmosfera II<br>
+                Climatologia Geral e Física<br>
+                Estatística Aplicada às Ciências Atmosféricas<br>
+                Métodos Matemáticos para Ciências Atmosféricas
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Astronomia de Posição<br>
+                Paleontologia Geral<br>
+                Introdução à Ciência dos Dados Climáticos<br>
+                Poluição Atmosférica e Qualidade do Ar<br>
+                Mudanças Climáticas Globais: Passado e Presente
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 6 -->
+    <div class="semestre semestre-direita">
+
+        <h3>6• Semestre - Previsão Numérica e Física de Nuvens</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+               Meteorologia Sinótica I (Análise de Sistemas de Tempo)<br>
+               Física de Nuvens e Precipitação<br>
+               Hidrologia Superficial<br>
+               Cálculo Numérico Aplicado
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Fundamentos de Astronomia<br>
+                Sensoriamento Remoto da Atmosfera por Satélite<br>
+                Eletrônica Básica para Instrumentação Meteorológica<br>
+                Interação Oceano-Atmosfera<br>
+                Micrometeorologia e Camada Limite Planetária
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 7 -->
+    <div class="semestre">
+
+        <h3>7• Semestre - Meteorologia de Mesoescala e Projetos</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Meteorologia Sinótica II (Previsão do Tempo Prática)<br>
+                Modelagem Numérica do Tempo e Clima<br>
+                Trabalho de Conclusão de Curso I (Projeto)
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Fenômenos Severos de Mesoescala ( Tornados e Furacões)<br>
+                Agrometeorologia e Biometeorologia<br>
+                Química da Atmosfera e Ciclos Biogeoquímicos<br>
+                Energia Renovável: Eólica e Solar Atmosférica<br>
+                Sistemas de Informação Geográfica (SIG) aplicados ao Clima
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 8 -->
+    <div class="semestre semestre-direita">
+
+        <h3>8• Semestre - Cosmologia e Fronteiras do Universo</h3>
+
+        <ul>
+            <li>
+                <strong>Disciplinas obrigatórias</strong><br>
+                Climatologia Dinâmica e Variabilidade Climática<br>
+                Trabalho de Conclusão de Curso II (Final)
+            </li>
+
+            <li>
+                <strong>Optativas sugeridas</strong><br>
+                Previsão Climática Sazonal e Eventos Extremos (El Niño / La Niña)<br>
+                Paleoclimatologia<br>
+                Meteorologia Aeronáutica e de Radar<br>
+                Simulação Estocástica de Processos Atmosféricos<br>
+                Tópicos Avançados de Fronteira em Ciências Atmosféricas
+            </li>
+        </ul>
+
+    </div>
+
+</section>
+</section>
+    
+    <div class="botao-inscricao">
+        
+    <!-- Irá para a página de inscrição no futuro -->
+    <button onclick="location.href='inscricao.html'">
+
+        Escolher Ciências Atmosféricas!
+
+    </button>
+
+</div>
+</section>
+
+
+</div>
+<!-- Rodapé -->
+<footer class="footer">
+
+    <div class="footer-conteudo">
+
+        <div class="footer-esquerda">
+            <img src="logo-ftan3.png" alt="Logo FTAN">
+
+            <p>
+                Campus central: Avenida das Estrelas, nº 372,
+            </p>
+
+            <p>
+                Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+            </p>
+        </div>
+
+        <div class="footer-direita">
+
+            <h3>Suporte ao aluno</h3>
+
+            <p>E-mail: suporte.ftan@gmail.com</p>
+            <p>Telefone: 4006-8947</p>
+            <p>WhatsApp: (11) 94562-2899</p>
+            <p>Horário: Seg à Sex das 08h às 22:30h</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 Faculdade Técnica Astronômica Nebula.<br>
+        Todos os direitos reservados.
+    </div>
+
+</footer>
+
+
+</main>
+
+</body>
+</html>

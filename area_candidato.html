@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Candidato - FTAN</title>
+
+    <!-- Esses dois links fazem o navegador puxar mais rápido a fonte Rye -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- E essa é quem dá a fonte Rye -->
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+
+    <!-- X para o histórico, relógio para histórico e entre outros, como a Font Sora -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="area_css_candidato.css">
+</head>
+<body>
+     <header>
+        <div class="header-top">
+            <div class="logo">
+                <a href="Home.html">
+                    <img src="logo-ucen.png" alt="Logo">
+                </a>
+                
+            </div>
+            </div>
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="home_bolsas.html">Bolsas</a></li>
+                <li><a href="home_descontos_e_parcelas.html">Desconto e parcelas</a></li>
+                <li><a href="home_contato.html">Contato</a></li>
+                <li><a href="home_ajuda.html">Ajuda</a></li>               
+            </ul>
+        </nav>
+
+        <a href="Home.html" class="botao-sair">
+        Sair
+       </a>
+    </header>
+    
+    <section class="hero-section">
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="fundo_univ_candidato.mp4" type="video/mp4">
+    </video>
+
+    <div class="main-container">
+
+        <div class="titulo-candidato">
+        <h2>Área do candidato!</h2>
+        <p>Sua jornada começa aqui!</p>
+    </div>
+
+    <div class="content-box">
+
+        <div class="topo-info">
+
+            <span class="status">
+                Inscrição confirmada!
+            </span>
+
+            <span class="contador" id="contador">
+                Faltam xxx dias para o exame.
+            </span>
+
+        </div>
+
+        <hr>
+
+        <h4>Vestibular agendado - Novembro 2026</h4>
+
+        <p class="descricao">
+            Sua avaliação acontecerá dia 26/11/2026 entre 12h às 15h (Horário de Brasília). Mantenha seus dados atualizados.
+        </p>
+
+        <div class="dados">
+
+            <div>
+                <span class="titulo-info">NÚMERO DE REGISTRO</span>
+                <strong>#9872-CAND</strong>
+            </div>
+
+            <div>
+                <span class="titulo-info">Local / Ambiente da prova</span>
+                Campus central: Avenida das Estrelas, nº 372, Jardim Primavera.
+            </div>
+
+            <div>
+                <span class="titulo-info">MODALIDADE</span>
+                Presencial
+            </div>
+
+        </div>
+
+        <div class="botoes">
+
+            <!-- Irá para a página de inscrição no futuro -->
+            <button onclick="location.href='...'">
+                Instruções do vestibular
+            </button>
+
+            <button onclick="location.href='...'">
+                Trocar de graduação
+            </button>
+        </div>
+    </div>
+</div>
+</section>
+
+ <script src="area_JS_candidato.js"></script>       
+</body>
+</html>

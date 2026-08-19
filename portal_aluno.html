@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal do Aluno - FTAN</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="portal_aluno.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="cabecalho">
+
+        <div class="rolar">
+            Role para baixo!
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+    </header>
+
+
+
+    <!-- MENU LATERAL -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button
+                class="botao-menu-fechar"
+                id="botaoMenuFechar"
+                type="button"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+
+        <nav class="menu-navegacao">
+
+            <button class="item-menu" data-pagina="inicio">
+                Início
+            </button>
+
+            <button class="item-menu" data-pagina="graduacao">
+                Minha Graduação
+            </button>
+
+            <button class="item-menu" data-pagina="pastas">
+                Pastas
+            </button>
+
+            <button class="item-menu" data-pagina="agenda">
+                Agenda
+            </button>
+
+            <button class="item-menu" data-pagina="calendario">
+                Calendário de provas
+            </button>
+
+            <button class="item-menu" data-pagina="documentos">
+                Documentos
+            </button>
+
+            <button class="item-menu" data-pagina="financeiro">
+                Financeiro
+            </button>
+
+            <button class="item-menu" data-pagina="eventos">
+                Eventos
+            </button>
+
+            <button class="item-menu" data-pagina="avisos">
+                Avisos
+            </button>
+
+            <button class="item-menu" data-pagina="perfil">
+                Meu perfil
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="conteudo">
+
+
+        <!-- BARRA SUPERIOR -->
+
+        <div class="barra-portal">
+
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa">
+
+                <input
+                    type="text"
+                    placeholder="Pesquisar"
+                >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+
+            <!-- CAMPUS -->
+
+            <div class="campus">
+                Campus Avenida das Estrelas
+            </div>
+
+
+            <!-- PERFIL -->
+
+            <button class="perfil" type="button">
+                M
+            </button>
+
+
+        </div>
+
+
+
+        <!-- LINHA -->
+
+        <hr>
+
+
+
+        <!-- ÁREA DE CONTEÚDO -->
+
+        <div class="area-conteudo" id="areaConteudo">
+
+
+            <!-- PÁGINA INICIAL -->
+
+            <section class="pagina pagina-inicio">
+
+                <div class="conteudo-inicio">
+
+                    <div class="titulo-inicio">
+
+                        <span class="titulo-um">
+                            SEXTA-FEIRA, 08 DE AGOSTO DE 2026
+                        </span>
+
+                        <span class="titulo-dois">
+                            Olá, Matheus!
+                        </span>
+
+                        <span class="titulo-tres">
+                            Acompanhe os principais assuntos de hoje!
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="portal_aluno.js" defer></script>
+</body>
+
+</html>
