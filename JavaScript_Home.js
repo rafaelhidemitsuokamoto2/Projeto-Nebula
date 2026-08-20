@@ -296,8 +296,16 @@ sr.reveal('.marquee', {
     origin: 'bottom'
 });
 
-sr.reveal('.footer-superior', {
-    origin: 'bottom'
+sr.reveal('.block-left', {
+    origin: 'left'
+});
+
+sr.reveal('.block-right', {
+    origin: 'right'
+});
+
+sr.reveal('.block-center', {
+    origin: 'left'
 });
 
 /* Caso queiramos deixar mais controlavel a questão de pixels pro mobile sem depender do (mobile: false) da biblioteca
@@ -364,10 +372,6 @@ if (window.innerWidth > 768) {
         origin: 'bottom'
     });
 
-    sr.reveal('.footer-superior', {
-        origin: 'bottom'
-    });
-
 } */
 
 // ===============================================
@@ -394,23 +398,24 @@ const resultadoPesquisa = document.querySelector(".resultado-pesquisa");
 caixaPesquisa.addEventListener("click", () => {
 
     overlay.classList.add("ativo");
+    document.body.style.overflow = "hidden";
 
     inputHeader.value = "";
-
     resultadoPesquisa.style.display = "none";
 
     listaHeader.forEach(item => {
-
         item.style.display = "none";
-
     });
 
     mensagemHeader.style.display = "none";
-
     inputHeader.focus();
 
-});
+     // Aguarda 50ms para a animação do overlay/CSS acontecer e foca direto no input
+    setTimeout(() => {
+        inputHeader.focus();
+    }, 50);
 
+});
 
 // ===============================================
 // Fechar pesquisa
@@ -419,6 +424,7 @@ caixaPesquisa.addEventListener("click", () => {
 fecharPesquisa.addEventListener("click", () => {
 
     overlay.classList.remove("ativo");
+    document.body.style.overflow = "auto";
 
 });
 
@@ -432,6 +438,7 @@ overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
 
         overlay.classList.remove("ativo");
+        document.body.style.overflow = "auto";
 
     }
 
@@ -510,13 +517,10 @@ function filtrarHeader(){
         resultadoPesquisa.style.display = "none";
 
         listaHeader.forEach(item => {
-
             item.style.display = "none";
-
         });
 
         mensagemHeader.style.display = "none";
-
         return;
 
     }
@@ -545,8 +549,8 @@ function filtrarHeader(){
 
     });
 
-    mensagemHeader.style.display =
-        encontrados === 0 ? "block" : "none";
+    // Mostra a mensagem quando não houver resultados
+    mensagemHeader.style.display = encontrados === 0 ? "block" : "none";
 
 }
 

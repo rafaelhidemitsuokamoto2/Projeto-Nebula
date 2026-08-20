@@ -8,6 +8,20 @@ body {
     background-color: black;
 }
 
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo img {
+    width: 125px;
+    height: auto;
+    display: block;
+    transition: .35s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
 
 /* ==========================================
    BARRA DE ROLAGEM
@@ -34,115 +48,35 @@ body {
 
 /* ==========================================
    HEADER
+   Campus + Pesquisa + Perfil
 ========================================== */
 
 .cabecalho {
     width: 100%;
-    height: 700px;
+    height: 90px;
 
-    background-image: url("background_portal.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #050505;
 
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-
-.rolar {
-    margin: 0 0 35px 35px;
-
-    color: rgb(16, 12, 12);
-    font-size: clamp(14px, 1.2vw, 18px);
-    font-weight: 800;
-    font-family: 'Sora', sans-serif;
-
-    transform-origin: center;
-}
-
-.rolar i {
-    margin-left: 6px;
-}
-
-
-/* ==========================================
-   CONTEÚDO PRINCIPAL
-========================================== */
-
-.conteudo {
-    width: 100%;
-    min-height: 100vh;
-
-    background-color: black;
-
-    display: flex;
-    flex-direction: column;
     align-items: center;
 
-    padding-top: 80px;
+    z-index: 900;
 
-    position: relative;
+    border-bottom: 1px solid #292929;
 }
 
 
 /* ==========================================
-   BARRA SUPERIOR
+   BARRA DO PORTAL
 ========================================== */
 
 .barra-portal {
     width: 100%;
-
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    position: relative;
+    justify-content: space-between; /* Espaça igualmente: Logo na ponta esquerda, Pesquisa no meio, Perfil na ponta direita */
+    padding: 0 40px; /* Margem das bordas da tela */
 }
-
-
-/* ==========================================
-   BOTÃO DO MENU FECHADO
-========================================== */
-
-.botao-menu {
-    position: absolute;
-
-    left: 48px;
-
-    width: 91px;
-    height: 265px;
-
-    border: none;
-    border-radius: 45px;
-
-    background-color: #303030;
-
-    color: #f28cff;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-
-    padding-top: 37px;
-
-    font-size: 32px;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.2s ease;
-}
-
-.botao-menu:hover {
-    background-color: #363636;
-}
-
-.botao-menu i {
-    font-size: 30px;
-}
-
 
 /* ==========================================
    PESQUISA
@@ -156,7 +90,7 @@ body {
 
     padding: 10px 15px;
 
-    border: 1px solid black;
+    border: 1px solid #333;
 
     border-radius: 20px;
 
@@ -188,12 +122,168 @@ body {
     margin-left: 6px;
 }
 
+/* ===========================
+    Pesquisa Cabeçalho
+   =========================== */
+
+.overlay-pesquisa{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:5000;
+
+}
+
+.overlay-pesquisa.ativo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.painel-pesquisa{
+
+    width:100%;
+
+    background:#050912;
+
+    padding:35px;
+
+    transform:translateY(-30px);
+
+    transition:.35s;
+
+}
+
+.overlay-pesquisa.ativo .painel-pesquisa{
+
+    transform:translateY(0);
+
+}
+
+.barra-expandida{
+
+    display:flex;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:50px;
+
+    padding:15px 25px;
+
+}
+
+.barra-expandida input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-size:20px;
+
+    margin:0 15px;
+
+}
+
+#fecharPesquisa{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+
+.resultado-pesquisa{
+
+    margin-top:30px;
+    display:none;
+
+}
+
+.resultado-pesquisa li{
+
+    list-style:none;
+
+    color:#e47de4d9;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    transition:
+        background-color .25s,
+        padding-left .25s;
+
+}
+
+.resultado-pesquisa li:hover{
+
+    background:#111d33;
+    padding-left:20px;
+
+}
+
+/* Esconde os resultados inicialmente */
+
+#lista-header li{
+
+    display:none;
+
+}
+
+#mensagem-header{
+
+    display:none;
+
+    padding:18px 12px;
+
+    color:#9b9b9b;
+
+    font-family:"Sora", sans-serif;
+
+    font-size:16px;
+
+}
+
+.barra-expandida i{
+
+    font-size:22px;
+
+    color:#666;
+
+}
 
 /* ==========================================
    CAMPUS
-========================================== */
 
-.campus {
+   .campus {
     position: absolute;
 
     right: 110px;
@@ -220,40 +310,31 @@ body {
 
     border: 1px solid #ebe76b5d;
 }
+========================================== */
+
+
 
 
 /* ==========================================
    PERFIL
 ========================================== */
-
 .perfil {
-    position: absolute;
-
-    right: 50px;
-
+    /* Removido position: absolute e right: 50px */
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
-
     border: 1px solid #fafafa;
-
     background-color: #240D31;
-
     color: white;
-
     font-family: 'Sora', sans-serif;
-
     font-size: 16px;
     font-weight: 700;
-
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: 0.2s;
+    flex-shrink: 0; /* Impede o botão de deformar */
 }
 
 .perfil:hover {
@@ -265,31 +346,77 @@ body {
 
 
 /* ==========================================
-   LINHA
+   BANNER DO PORTAL
 ========================================== */
 
-hr {
+.banner-portal {
     width: 100%;
+    height: 650px;
 
-    border: none;
-    border-top: 1px solid white;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("background_portal.jpg");
 
-    margin-top: 30px;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
 }
 
 
 /* ==========================================
-   MENU LATERAL
+   BOX SOBRE A IMAGEM
+========================================== */
+
+.box-portal {
+    width: min(850px, 90%);
+
+    min-height: 350px;
+
+    padding: 50px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================
+   MENU LATERAL FIXO
 ========================================== */
 
 .menu {
-    position: absolute;
+    position: fixed;
 
     left: 48px;
-    top: 130%;
+    top: 50%;
+
+    transform: translateY(-50%);
 
     width: 91px;
-    height: 265px;
+    height: 240px;
 
     overflow: hidden;
 
@@ -312,7 +439,7 @@ hr {
 
 .menu.aberto {
     width: 325px;
-    height: 590px;
+    height: 555px;
 
     border-radius: 30px;
 }
@@ -356,7 +483,7 @@ hr {
 
 
 /* ==========================================
-   BOTÃO DENTRO DO MENU ABERTO
+   BOTÃO DO MENU
 ========================================== */
 
 .botao-menu-fechar {
@@ -364,6 +491,7 @@ hr {
     height: 45px;
 
     border: none;
+
     background: transparent;
 
     color: #f28cff;
@@ -373,6 +501,7 @@ hr {
     font-size: 40px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -403,44 +532,48 @@ hr {
 
 .item-menu {
     width: 100%;
-
-    padding: 8px 0;
-
+    padding: 12px 22px;
     border: none;
-
     background: transparent;
-
     color: #c9c9c9;
 
     font-family: 'Sora', sans-serif;
-
     font-size: 25px;
-
     font-weight: 500;
-
     text-align: left;
-
     cursor: pointer;
 
-    white-space: nowrap;
+    border-left: 3px solid transparent;   /* espaço para a barra */
+    transition: .25s;
+}
 
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease,
-        opacity 0.25s ease;
+/* Hover */
+.item-menu:hover {
+    background: #303030;      /* Mesma cor de fundo */
+    color: #ffffff;
+    border-left-color: #E879F9; /* barra rosa */
+}
 
-    opacity: 0;
+/* Página atual */
+.item-menu.ativo {
+    background: #0D1F4A;
+    color: #F08CFF;
+    border-left-color: #E879F9;
 }
 
 
-/* Quando o menu estiver aberto */
+/* ==========================================
+   MOSTRAR ITENS QUANDO ABERTO
+========================================== */
 
 .menu.aberto .item-menu {
     opacity: 1;
 }
 
 
-/* Efeito ao passar o mouse */
+/* ==========================================
+   HOVER DOS ITENS
+========================================== */
 
 .item-menu:hover {
     color: #f28cff;
@@ -450,7 +583,7 @@ hr {
 
 
 /* ==========================================
-   FECHAR ITENS QUANDO MENU ESTÁ FECHADO
+   ESCONDER ITENS QUANDO FECHADO
 ========================================== */
 
 .menu:not(.aberto) .menu-navegacao {
@@ -458,6 +591,28 @@ hr {
 
     pointer-events: none;
 }
+
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    width: 100%;
+
+    min-height: 100vh;
+
+    background-color: black;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+}
+
 
 /* ==========================================
    ÁREA DO CONTEÚDO
@@ -475,9 +630,7 @@ hr {
 .conteudo-inicio {
     width: 100%;
 
-    margin-top: 80px;
-
-    padding: 0 40px;
+    padding: 80px 40px;
 
     z-index: 2;
 }
@@ -493,24 +646,36 @@ hr {
     flex-direction: column;
 
     align-items: center;
+
+    gap: 15px;
 }
+
+
+/* ==========================================
+   DATA
+========================================== */
 
 .titulo-um {
     font-family: "Sora", sans-serif;
 
-    font-size: 15px;
+    font-size: 13px;
 
     font-weight: 300;
 
     color: white;
+
+    letter-spacing: 1.5px;
 }
 
-.titulo-dois {
-    margin-top: 15px;
 
+/* ==========================================
+   TÍTULO PRINCIPAL
+========================================== */
+
+.titulo-dois {
     font-family: "Sora", sans-serif;
 
-    font-size: 65px;
+    font-size: 60px;
 
     font-weight: 700;
 
@@ -519,18 +684,21 @@ hr {
     line-height: .95;
 }
 
+
+/* ==========================================
+   SUBTÍTULO
+========================================== */
+
 .titulo-tres {
     font-family: "Sora", sans-serif;
 
-    font-size: 25px;
+    font-size: 20px;
 
     font-weight: 500;
 
     color: white;
 
     text-align: center;
-
-    margin-top: 15px;
 }
 
 
@@ -541,21 +709,426 @@ hr {
 .pagina {
     width: 100%;
 
-    padding: 40px;
+    min-height: 100vh;
 
     color: white;
 
     font-family: 'Sora', sans-serif;
 }
 
-.pagina h1 {
-    font-size: 40px;
 
-    margin-bottom: 15px;
+/* ==========================================
+   PÁGINAS INTERNAS
+========================================== */
+
+.pagina-interna {
+    display: none;
+
+    min-height: calc(100vh - 90px);
+
+    padding: 35px 8% 40px 180px;
+
+    background-color: transparent;
 }
 
-.pagina p {
-    font-size: 18px;
 
-    color: #c9c9c9;
+/* ==========================================
+   CABEÇALHO DA PÁGINA
+========================================== */
+
+.cabecalho-pagina {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 0;
+}
+
+
+/* ==========================================
+   CATEGORIA
+========================================== */
+
+.categoria-pagina {
+    width: 100%;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    color: white;
+
+    text-align: left;
+
+    margin-bottom: 4px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================
+   TÍTULO + LINHA
+========================================== */
+
+.titulo-linha {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.titulo-linha h1 {
+    margin: 0;
+
+    color: #E3AC6C;
+
+    font-size: 58px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   LINHA AO LADO DO TÍTULO
+========================================== */
+
+.titulo-linha span {
+    height: 1px;
+
+    flex: 1;
+
+    max-width: 420px;
+
+    background-color: #E3AC6C;
+
+    opacity: 0.8;
+}
+
+
+/* ==========================================
+   SUBTÍTULO
+========================================== */
+
+.cabecalho-pagina p {
+    width: 100%;
+
+    margin-top: 18px;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    color: white;
+
+    text-align: center;
+}
+
+/* ========================================= 
+   RODAPÉ COM O FOOTER  
+   ========================================= */
+footer{
+
+    width:100%;
+    background:#151515;
+    margin-top: 210px;
+
+}
+
+.footer-superior{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:50px 70px;
+
+}
+
+.footer-esquerda{
+
+    display:flex;
+    flex-direction:column;
+    margin-left: 105px;
+
+}
+
+.footer-direita{
+
+    position: relative;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    left: -65px;
+
+}
+
+.footer-esquerda img{
+
+    width:80px;
+    margin-bottom:25px;
+
+}
+
+.titulo-footer{
+
+    color:#D78EDB;
+    font-size:2rem;
+    margin-bottom:20px;
+    font-weight:normal;
+
+}
+
+.texto-footer{
+
+    color:white;
+    font-size:1.1rem;
+    line-height:1.7;
+    font-weight:normal;
+
+}
+
+.footer-inferior{
+
+    border-top:1px solid #5d5d5d;
+    background:#101010;
+    text-align:center;
+    padding:28px 20px;
+
+}
+
+.copyright{
+
+    color:#d6d6d6;
+    font-size:1rem;
+    font-weight:normal;
+    line-height:1.5;
+
+}
+
+/* ===============================
+    Box início
+   =============================== */
+   /* Card Container */
+.card-proxima-aula {
+    background-color: #242424;
+    border: 1px solid rgba(254, 254, 254, 0.4);
+    border-radius: 20px;
+    padding: 75px 280px;
+    max-width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+/* Subtítulo superior */
+.subtitulo-card {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 2.5px;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* Título em Destaque */
+.titulo-materia {
+    font-size: 2.8rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #f3ca7e;
+    text-shadow: 0 0 18px rgba(243, 202, 126, 0.55);
+    margin: 10px 0 15px 0;
+}
+
+/* Detalhes de Horário e Sala */
+.horario-aula {
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 25px;
+    text-align: right; /* Alinhado à direita conforme o layout */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Regras mantidas conforme o seu padrão original */
+.botao-vestibular {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-inscricao {
+    display: inline-block;
+    padding: 12px 45px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    background: transparent;
+    color: #E7B6E6;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-inscricao:hover {
+    background: rgba(231, 182, 230, 0.22);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(231, 182, 230, 0.35);
+}
+
+/* Segundo Card - Avaliações Container */
+.card-avaliacoes {
+    background-color: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 30px 40px;
+    max-width: 850px; /* Mantém a mesma largura do primeiro card */
+    margin: 30px auto; /* Centraliza horizontalmente */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+/* Cabeçalho do Card */
+.cabecalho-avaliacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.titulo-avaliacoes {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+/* Divisores */
+.divisor-card {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.divisor-item {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 15px 0;
+}
+
+/* Linha de Cada Avaliação */
+.item-avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Badge de Data */
+.data-badge {
+    background-color: #3b3b3e;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+
+.data-badge .dia {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.data-badge .mes {
+    font-size: 0.75rem;
+    color: #a0a0a0;
+    font-weight: bold;
+}
+
+/* Informações da Matéria */
+.info-materia {
+    flex: 1;
+}
+
+.info-materia h3 {
+    font-size: 1.1rem;
+    color: #e7b6e6;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.info-materia p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+/* Botões de link (Ver todas / Ver mais) */
+.btn-link-calendario {
+    background: transparent;
+    border: none;
+    color: #A943D7;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+    text-decoration: none; /* Garante que não tenha o underline padrão do navegador */
+}
+
+/* Efeito ao passar o mouse (:hover) */
+.btn-link-calendario:hover {
+    color: #A943D7; /* Mantém a mesma cor roxa */
+    text-decoration: underline; /* Aplica a linha inferior */
+    text-underline-offset: 4px;  /* Afasta levemente a linha do texto para ficar igual ao design */
+    text-shadow: 0 0 10px rgba(231, 182, 230, 0.6); /* Efeito de brilho roxo */
+}
+
+.link-item {
+    font-size: 15px;
+}
+
+/* ==========================================
+   FUNDO DA PÁGINA INÍCIO
+========================================== */
+
+.pagina-inicio {
+    position: relative;        /* Permite que o ::before seja posicionado em relação a esta seção */
+    background: #0f0814;       /* Cor de fundo caso a imagem demore para carregar */
+
+    overflow: hidden;          /* Esconde qualquer parte da imagem que ultrapasse a seção */
+    z-index: 1;                /* Mantém a seção acima da camada de fundo */
+}
+
+.pagina-inicio::before {
+    content: ""; /* Cria o pseudo-elemento. Sem essa linha o ::before não existe. */
+    position: absolute; /* Permite ocupar toda a área da seção */
+    inset: 0; /* Equivale a: top: 0; right: 0; bottom: 0; left: 0; Ou seja, preenche 100% da seção. */
+    background: url("fundo-inicio-portal.jpg") center -100px / cover no-repeat; /* "center -100px"  Posição: center = centralizada na horizontal
+    -100px = sobe a imagem 100px. O "cover" é:Tamanho: cover faz a imagem cobrir toda a área. E "no-repeat" Impede com que a imagem se repita*/
+    opacity: 0.15;
+    pointer-events: none; /* A camada ignora cliques do mouse, permitindo clicar nos elementos acima */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo, assim não a sobressaindo por cima do restante do site */
 }

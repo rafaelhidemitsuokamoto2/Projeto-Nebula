@@ -6,34 +6,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portal do Aluno - FTAN</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Portal do Aluno - FTAN</title>
 
     <link rel="stylesheet" href="portal_aluno.css">
 
 </head>
-
-
 <body>
 
 
-    <!-- HEADER -->
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
 
     <header class="cabecalho">
 
-        <div class="rolar">
-            Role para baixo!
-            <i class="fa-solid fa-arrow-down"></i>
+        <div class="barra-portal">
+            <div class="logo">
+                <img src="logo-ucen.png" alt="Logo">
+            </div>
+
+            <!-- CAMPUS -->
+
+           <!-- <div class="campus">
+                Campus Avenida das Estrelas
+            </div> --> 
+
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input
+                    type="text"
+                    placeholder="Pesquisar..." readonly
+                >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+    <div class="painel-pesquisa">
+
+        <div class="barra-expandida">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="pesquisa-header"
+                placeholder="Pesquisar..."
+                autocomplete="off">
+
+            <button id="fecharPesquisa">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="resultado-pesquisa">
+
+            <ul id="lista-header">
+                <li data-pagina="inicio">Início</li>
+                <li data-pagina="graduacao">Minha Graduação</li>
+                <li data-pagina="pastas">Arquivos</li>
+                <li data-pagina="agenda">Agenda</li>
+                <li data-pagina="calendario">Calendário</li>
+                <li data-pagina="documentos">Documentos</li>
+                <li data-pagina="financeiro">Financeiro</li>
+                <li data-pagina="perfil">Meu perfil</li>
+            </ul>
+
+            <div id="mensagem-header">
+                Nenhum resultado encontrado.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+            <!-- PERFIL -->
+
+            <button type="button" class="perfil" onclick="document.querySelector('.item-menu[data-pagina=\'perfil\']').click()">
+                M
+            </button>
+
+
         </div>
 
     </header>
 
 
 
-    <!-- MENU LATERAL -->
+    <!-- ==========================================
+         BANNER PRINCIPAL
+    ========================================== -->
+
+    <section class="banner-portal">
+
+        <div class="box-portal">
+
+            <div class="titulo-inicio">
+
+                <span class="titulo-um">
+                    SEXTA-FEIRA, 08 DE AGOSTO DE 2026
+                </span>
+
+                <span class="titulo-dois">
+                    Olá, Matheus!
+                </span>
+
+                <span class="titulo-tres">
+                    Acompanhe os principais assuntos de hoje!
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
 
     <aside class="menu" id="menu">
+
+
+        <!-- CABEÇALHO DO MENU -->
 
         <div class="menu-cabecalho">
 
@@ -42,7 +153,9 @@
                 id="botaoMenuFechar"
                 type="button"
             >
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
 
             <span>Menu</span>
@@ -50,47 +163,61 @@
         </div>
 
 
+
+        <!-- NAVEGAÇÃO -->
+
         <nav class="menu-navegacao">
+
 
             <button class="item-menu" data-pagina="inicio">
                 Início
             </button>
 
+
             <button class="item-menu" data-pagina="graduacao">
                 Minha Graduação
             </button>
 
+
             <button class="item-menu" data-pagina="pastas">
-                Pastas
+                Arquivos
             </button>
+
 
             <button class="item-menu" data-pagina="agenda">
                 Agenda
             </button>
 
+
             <button class="item-menu" data-pagina="calendario">
-                Calendário de provas
+                Calendário
             </button>
+
 
             <button class="item-menu" data-pagina="documentos">
                 Documentos
             </button>
 
+
             <button class="item-menu" data-pagina="financeiro">
                 Financeiro
             </button>
 
-            <button class="item-menu" data-pagina="eventos">
-                Eventos
-            </button>
 
-            <button class="item-menu" data-pagina="avisos">
+          <!-- <button class="item-menu" data-pagina="eventos">
+                Eventos
+            </button> --> 
+
+
+           <!-- <button class="item-menu" data-pagina="avisos">
                 Avisos
-            </button>
+            </button> --> 
+
 
             <button class="item-menu" data-pagina="perfil">
                 Meu perfil
             </button>
+
 
         </nav>
 
@@ -98,88 +225,378 @@
 
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
 
     <main class="conteudo">
 
-
-        <!-- BARRA SUPERIOR -->
-
-        <div class="barra-portal">
+       <div class="area-conteudo" id="areaConteudo">
 
 
-            <!-- PESQUISA -->
+    <!-- ==========================================
+         INÍCIO
+    ========================================== -->
 
-            <div class="caixa-pesquisa">
+<section class="pagina pagina-inicio">
 
-                <input
-                    type="text"
-                    placeholder="Pesquisar"
-                >
+    <div class="conteudo-inicio">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+        <!-- Card Próxima Aula -->
+        <div class="card-proxima-aula">
+            <span class="subtitulo-card">PRÓXIMA AULA</span>
 
-            </div>
+            <h2 class="titulo-materia">Banco de Dados</h2>
 
+            <p class="horario-aula">Hoje, 19h às 22h - Sala: 25</p>
 
-            <!-- CAMPUS -->
-
-            <div class="campus">
-                Campus Avenida das Estrelas
-            </div>
-
-
-            <!-- PERFIL -->
-
-            <button class="perfil" type="button">
-                M
+            <div class="botao-vestibular">
+            <button type="button" id="btnVerAgenda" class="btn-inscricao">
+                Ver Agenda
             </button>
+            </div>
 
+        </div>
+
+        <!-- Card Próximas Avaliações -->
+        <div class="card-avaliacoes">
+
+        <div class="cabecalho-avaliacoes">
+            <div>
+                <span class="subtitulo-card">ACOMPANHE</span>
+                <h2 class="titulo-avaliacoes">Próximas Avaliações</h2>
+            </div>
+            <!-- Antigo "Ver Todas" -->
+            <button type="button" id="btnVerTodasAvaliações" class="btn-link-calendario">
+                Ver mais
+            </button>
+        </div>
+
+        <hr class="divisor-card">
+
+        <div class="lista-avaliacoes">
+
+        <!-- Item 1 -->
+        <div class="item-avaliacao">
+            <div class="data-badge">
+                <span class="dia">11</span>
+                <span class="mes">NOV</span>
+            </div>
+            <div class="info-materia">
+                <h3>PHP com MySql</h3>
+                <p>19:00 - Sala: 25</p>
+            </div>
+           <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
+                Ver mais
+            </button> --> 
+        </div>
+
+        <hr class="divisor-item">
+
+        <!-- Item 2 -->
+        <div class="item-avaliacao">
+            <div class="data-badge">
+                <span class="dia">25</span>
+                <span class="mes">NOV</span>
+            </div>
+            <div class="info-materia">
+                <h3>Arquitetura WEb</h3>
+                <p>20:30 - Sala: 25</p>
+            </div>
+          <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
+                Ver mais
+            </button> -->  
+        </div>
+
+        <hr class="divisor-item">
+
+        <!-- Item 3 -->
+        <div class="item-avaliacao">
+            <div class="data-badge">
+                <span class="dia">03</span>
+                <span class="mes">DEZ</span>
+            </div>
+            <div class="info-materia">
+                <h3>MongoDB</h3>
+                <p>19:00 - Sala: 25</p>
+            </div>
+          <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
+                Ver mais
+            </button> -->  
+        </div>
+    </div>
+
+</div>
+    </div>
+
+        <!-- Página final - Rodapé -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+
+            <!-- Esquerda -->
+            <div class="footer-esquerda">
+
+                <img src="logo-ucen.png" alt="Logo">
+
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+
+
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+
+            </div>
+
+
+            <!-- Direita -->
+            <div class="footer-direita">
+
+                <h3 class="titulo-footer">
+                    Suporte ao aluno
+                </h3>
+
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+
+
+                    Telefone: 4006-8947<br>
+
+
+                    WhatsApp: (11) 94562-2899<br>
+
+
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+
+            </div>
 
         </div>
 
 
+        <div class="footer-inferior">
 
-        <!-- LINHA -->
-
-        <hr>
-
-
-
-        <!-- ÁREA DE CONTEÚDO -->
-
-        <div class="area-conteudo" id="areaConteudo">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
 
 
-            <!-- PÁGINA INICIAL -->
+                Todos os direitos reservados.
+            </h3>
 
-            <section class="pagina pagina-inicio">
-
-                <div class="conteudo-inicio">
-
-                    <div class="titulo-inicio">
-
-                        <span class="titulo-um">
-                            SEXTA-FEIRA, 08 DE AGOSTO DE 2026
-                        </span>
-
-                        <span class="titulo-dois">
-                            Olá, Matheus!
-                        </span>
-
-                        <span class="titulo-tres">
-                            Acompanhe os principais assuntos de hoje!
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </section>
         </div>
+
+    </footer>
+
+</section>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MINHA GRADUAÇÃO
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="graduacao">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                ACADÊMICO
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Minha Graduação
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Ciências da Computação - Bacharelado&nbsp; · &nbsp;Noturno
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         ARQUIVOS
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="pastas">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                ACADÊMICO
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Arquivos
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Entre nos últimos materiais adicionados!
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         DOCUMENTOS
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="documentos">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                SECRETARIA
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Documentos
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Envie solicitações e veja seus documentos de forma online.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         FINANCEIRO
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="financeiro">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                FINANCEIRO
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Financeiro
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         AGENDA
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="agenda">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                PLANEJAMENTO
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Agenda
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Seu horário, avaliações e compromissos acadêmicos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CALENDÁRIO DE PROVAS
+    ========================================== -->
+
+    <section class="pagina pagina-interna" data-conteudo="calendario">
+
+        <div class="cabecalho-pagina">
+
+            <span class="categoria-pagina">
+                PLANEJAMENTO
+            </span>
+
+            <div class="titulo-linha">
+
+                <h1>
+                    Calendário de Provas
+                </h1>
+
+                <span></span>
+
+            </div>
+
+            <p>
+                Seu horário, avaliações e compromissos acadêmicos.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
     </main>
 
-    <script src="portal_aluno.js" defer></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        src="portal_aluno.js"
+        defer
+    ></script>
+
+
 </body>
 
 </html>

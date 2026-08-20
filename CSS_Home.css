@@ -332,7 +332,17 @@
 }
 
 #mensagem-header{
-    display: none;
+
+    display:none;
+
+    padding:18px 12px;
+
+    color:#9b9b9b;
+
+    font-family:"Sora", sans-serif;
+
+    font-size:16px;
+
 }
 .barra-expandida i{
 
@@ -1308,6 +1318,9 @@ footer{
     display:flex;
     flex-direction:column;
 
+}
+.logo-footer {
+    width: 120px;
 }
 
 .footer-direita{
