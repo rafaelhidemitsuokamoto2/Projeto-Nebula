@@ -26,10 +26,11 @@
     <header class="cabecalho">
 
         <div class="barra-portal">
-            <div class="logo">
+            <div class="logo" id="btnLogoInicio" style="cursor: pointer;">
                 <img src="logo-ucen.png" alt="Logo">
             </div>
 
+            
             <!-- CAMPUS -->
 
            <!-- <div class="campus">
@@ -393,35 +394,240 @@
 
 
 
-    <!-- ==========================================
-         MINHA GRADUAÇÃO
-    ========================================== -->
+<!-- ==========================================
+     MINHA GRADUAÇÃO
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="graduacao">
 
-    <section class="pagina pagina-interna" data-conteudo="graduacao">
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Minha Graduação</h1>
+            <span></span>
+        </div>
+        <p>Ciências da Computação - Bacharelado · Noturno</p>
+    </div>
 
-        <div class="cabecalho-pagina">
+    <!-- BOTOES DE NAVEGAÇÃO -->
+    <div class="container-botoes-graduacao">
+        <button type="button" class="btn-opcao ativo" data-aba="notas">Minhas notas e Semestres</button>
+        <button type="button" class="btn-opcao" data-aba="certificados">Certificados</button>
+    </div>
 
-            <span class="categoria-pagina">
-                ACADÊMICO
-            </span>
+    <!-- ABA 1: MINHAS NOTAS E SEMESTRES (Contém cards, botões de semestre e tabelas) -->
+    <div class="conteudo-aba ativo" id="aba-notas">
 
-            <div class="titulo-linha">
-
-                <h1>
-                    Minha Graduação
-                </h1>
-
-                <span></span>
-
+        <div class="grid-cards-estatisticas">
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">MÉDIA GLOBAL (CRA)</span>
+                <h2 class="valor-estatistica">8.92</h2>
             </div>
 
-            <p>
-                Ciências da Computação - Bacharelado&nbsp; · &nbsp;Noturno
-            </p>
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">FREQUÊNCIA MÉDIA</span>
+                <h2 class="valor-estatistica">96.4%</h2>
+            </div>
+
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">CRÉDITOS CONCLUÍDOS</span>
+                <h2 class="valor-estatistica">124/240</h2>
+            </div>
+
+            <div class="card-estatistica card-verde">
+                <span class="subtitulo-estatistica">STATUS DA MATRÍCULA</span>
+                <h2 class="valor-estatistica">Regular</h2>
+            </div>
+        </div>
+
+        <!-- LISTA DE SEMESTRES -->
+        <div class="container-semestres">
+            <button type="button" class="btn-semestre" data-semestre="1">1° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="2">2° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="3">3° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="4">4° Semestre</button>
+            <button type="button" class="btn-semestre ativo" data-semestre="5">5° Semestre</button>
+            
+            <button type="button" class="btn-semestre bloqueado" data-semestre="6">
+                6° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
+            </button>
+            <button type="button" class="btn-semestre bloqueado" data-semestre="7">
+                7° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
+            </button>
+            <button type="button" class="btn-semestre bloqueado" data-semestre="8">
+                8° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
+            </button>
+        </div>
+
+        <!-- CONTEÚDO EXCLUSIVO DO 5º SEMESTRE -->
+        <div class="conteudo-semestre ativo" data-conteudo-semestre="5">
+            
+            <!-- 1ª BOX: DISCIPLINAS OBRIGATÓRIAS -->
+            <div class="box-detalhes-semestre">
+                <div class="cabecalho-box-semestre">
+                    <h2 class="titulo-semestre-materia">
+                        <span class="destaque-rosa">5º Semestre - Mecânica Analítica I</span> 
+                    </h2>
+                    <span class="badge-status-curso">Cursando Atualmente</span>
+                </div>
+
+                <div class="container-tabela-disciplinas">
+                    <table class="tabela-disciplinas">
+                        <thead>
+                            <tr>
+                                <th class="col-disciplina">DISCIPLINA</th>
+                                <th class="col-tipo">TIPO</th>
+                                <th class="col-nota">NOTA FINAL</th>
+                                <th class="col-frequencia">FREQUÊNCIA</th>
+                                <th class="col-situacao">ACOMPANHAMENTO / SITUAÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Análise, Projeto e Otimização de Algoritmos</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">98%</td>
+                                <td class="situacao-texto">P1: 8.8 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Engenharia de Software Avançada e Arquitetura de Sistemas</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">96%</td>
+                                <td class="situacao-texto">P1: 7.9 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Introdução à Construção de Compiladores</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">95%</td>
+                                <td class="situacao-texto">P1: 8.5 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Sistemas Distribuídos e Computação Paralela</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">92%</td>
+                                <td class="situacao-texto">P1: 7.2 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Métodos Numéricos e Cálculo Computacional</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">100%</td>
+                                <td class="situacao-texto">Relatórios: OK</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2ª BOX: DISCIPLINAS OPTATIVAS -->
+            <div class="box-detalhes-semestre box-optativas">
+                <div class="cabecalho-box-semestre cabecalho-optativas">
+                    <span class="badge-optativas">OPTATIVAS</span>
+                </div>
+
+                <div class="container-tabela-disciplinas">
+                    <table class="tabela-disciplinas">
+                        <thead>
+                            <tr>
+                                <th class="col-disciplina">DISCIPLINA</th>
+                                <th class="col-tipo">TIPO</th>
+                                <th class="col-nota">NOTA FINAL</th>
+                                <th class="col-frequencia">FREQUÊNCIA</th>
+                                <th class="col-situacao">ACOMPANHAMENTO / SITUAÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Física do Interior da Terra e Ondas Sísmicas</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">98%</td>
+                                <td class="situacao-texto">P1: 8.8 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Programação Científica Avançada em Python</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em aberta</td>
+                                <td class="frequencia-destaque">--</td>
+                                <td class="situacao-texto">--</td>
+                            </tr>
+                            <tr>
+                                <td>Termodinâmica de Sistemas Fora do Equilíbrio</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">95%</td>
+                                <td class="situacao-texto">P1: 8.5 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Tópicos de Astronomia de Posição</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em aberta</td>
+                                <td class="frequencia-destaque">--</td>
+                                <td class="situacao-texto">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         </div>
 
-    </section>
+    </div>
+
+<!-- ABA 2: CERTIFICADOS -->
+<div class="conteudo-aba" id="aba-certificados">
+
+    <div class="container-certificados">
+        <h2 class="titulo-certificados">Seus Certificados:</h2>
+        <p class="subtitulo-certificados">Aqui estão tanto os seus certificados parciais de competência técnica:</p>
+
+        <div class="grid-cards-certificados">
+
+            <!-- Card 1 -->
+            <div class="card-certificado">
+                <div class="barra-lateral-card"></div>
+                <div class="conteudo-card-cert">
+                    <span class="badge-certificacao">Certificação Qualificada</span>
+                    <h3 class="titulo-cert">Assistente de Laboratório de Exatas</h3>
+                    <p class="descricao-cert">
+                        Módulo prático e competência em laboratório validados após a conclusão de Matrizes I, II e III.
+                    </p>
+                    <hr class="divisor-cert">
+                    <div class="rodape-card-cert">
+                        <span class="status-cert">Válido por 90 dias</span>
+                        <a href="certificados/logo%20UCEN.pdf" download="Certificado_Assistente_Fisica.pdf" class="btn-baixar-pdf">Baixar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-certificado">
+                <div class="barra-lateral-card"></div>
+                <div class="conteudo-card-cert">
+                    <span class="badge-certificacao">Certificação Qualificada</span>
+                    <h3 class="titulo-cert">Programador Científico Júnior</h3>
+                    <p class="descricao-cert">
+                        Atribuído pelo cumprimento das matérias de Computação Científica e modelagem aplicada a Bando de Dados.
+                    </p>
+                    <hr class="divisor-cert">
+                    <div class="rodape-card-cert">
+                        <span class="status-cert">Atualizado hoje</span>
+                        <a href="certificados/logo%20UCEN.pdf" download="Certificado_Programador_Cientifico_Junior.pdf" class="btn-baixar-pdf"> Baixar PDF</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</section>
 
 
 
@@ -493,31 +699,196 @@
          FINANCEIRO
     ========================================== -->
 
-    <section class="pagina pagina-interna" data-conteudo="financeiro">
+<section class="pagina pagina-interna" data-conteudo="financeiro">
 
-        <div class="cabecalho-pagina">
+    <div class="cabecalho-pagina">
 
-            <span class="categoria-pagina">
-                FINANCEIRO
-            </span>
+        <span class="categoria-pagina">
+            FINANCEIRO
+        </span>
 
-            <div class="titulo-linha">
+        <div class="titulo-linha">
 
-                <h1>
-                    Financeiro
-                </h1>
+            <h1>
+                Financeiro
+            </h1>
 
-                <span></span>
-
-            </div>
-
-            <p>
-                Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.
-            </p>
+            <span></span>
 
         </div>
 
-    </section>
+        <p>
+            Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.
+        </p>
+
+    </div>
+
+    <!-- BOX DE SALDO EM ABERTO -->
+    <div class="card-saldo-financeiro">
+        <div class="info-saldo">
+            <span class="subtitulo-saldo">SALDO EM ABERTO</span>
+            <h2 class="valor-saldo">R$ 1.200,00</h2>
+            <p class="vencimento-saldo">Próximo vencimento: 10/09/2026</p>
+        </div>
+        <button type="button" id="btnPagarMensalidade" class="btn-pagar-mensalidade">
+            Pagar mensalidade
+        </button>
+    </div>
+
+    <!-- MODAL PAGAMENTO VIA PIX (ADICIONAR AQUI) -->
+    <div id="modalPix" class="modal-pix-overlay">
+        <div class="modal-pix-conteudo">
+            <button type="button" class="btn-fechar-modal" id="btnFecharPix">&times;</button>
+            
+            <h2 class="titulo-modal-pix">Pagamento via Pix</h2>
+            <p class="subtitulo-modal-pix">Mensalidade Setembro/2026 - R$ 1.200,00</p>
+            
+            <!-- Área do QR Code -->
+            <div class="container-qrcode">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" alt="QR Code Pix" class="img-qrcode">
+            </div>
+            
+            <p class="instrucao-pix">
+                Escaneie o QR Code acima com o app do seu banco<br>ou copie o código Pix abaixo:
+            </p>
+            
+            <div class="caixa-codigo-pix">
+                <input type="text" id="chavePixInput" value="00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" readonly>
+            </div>
+            
+            <button type="button" id="btnCopiarPix" class="btn-copiar-pix">
+                Copiar chave pix
+            </button>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO DE MENSALIDADES -->
+<div class="container-historico-mensalidades">
+    <h2 class="titulo-historico">Histórico de Mensalidades:</h2>
+
+    <!-- Item 1: Em Aberto -->
+    <div class="card-historico em-aberto">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Novembro 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/11/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status em-aberto">Em aberto</span>
+            </div>
+
+            <div class="coluna-acao">
+                <!-- Botão que abre o Modal Pix -->
+                <button type="button" class="btn-acao-historico btn-abrir-pix">Pagar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 2: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Outubro 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/10/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 3: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Setembro 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/09/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 4: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Agosto 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/08/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
 
 
 

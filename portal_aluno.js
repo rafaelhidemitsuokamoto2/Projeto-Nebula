@@ -321,3 +321,154 @@ listaHeader.forEach(item => {
     });
 
 });
+
+// ========================================
+// Clique na logo direciona para o Início
+// ========================================
+
+document.getElementById('btnLogoInicio')?.addEventListener('click', () => {
+    abrirPagina('inicio');
+});
+
+// ========================================
+// Graduação - Alternar Abas (Notas / Certificados)
+// ========================================
+const botoesGraduacao = document.querySelectorAll('.btn-opcao');
+const abasGraduacao = document.querySelectorAll('.conteudo-aba');
+
+botoesGraduacao.forEach(botao => {
+    botao.addEventListener('click', () => {
+        const abaAlvo = botao.getAttribute('data-aba');
+
+        // Alterna o botão ativo
+        botoesGraduacao.forEach(b => b.classList.remove('ativo'));
+        botao.classList.add('ativo');
+
+        // Alterna a exibição das abas
+        abasGraduacao.forEach(aba => aba.classList.remove('ativo'));
+        
+        if (abaAlvo) {
+            document.getElementById(`aba-${abaAlvo}`)?.classList.add('ativo');
+        }
+    });
+});
+
+// =========================================
+// Alternar seleção dos botões de semestre
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const botoesSemestre = document.querySelectorAll('.btn-semestre');
+    const conteudosSemestre = document.querySelectorAll('.conteudo-semestre');
+    let timerTooltip = null;
+
+    botoesSemestre.forEach(botao => {
+        botao.addEventListener('click', () => {
+            
+            // 1. Tratamento para Semestres Bloqueados (Com cadeado)
+            if (botao.classList.contains('bloqueado')) {
+                const tooltip = botao.querySelector('.tooltip-bloqueado');
+                
+                if (tooltip) {
+                    // Esconde qualquer outro tooltip que esteja visível no momento
+                    document.querySelectorAll('.tooltip-bloqueado').forEach(t => t.classList.remove('visivel'));
+                    
+                    // Exibe o tooltip do botão clicado
+                    tooltip.classList.add('visivel');
+                    
+                    // Reinicia o temporizador caso o usuário clique novamente
+                    clearTimeout(timerTooltip);
+                    
+                    // Esconde a mensagem após 2.5 segundos (2500 ms)
+                    timerTooltip = setTimeout(() => {
+                        tooltip.classList.remove('visivel');
+                    }, 2500);
+                }
+                
+                return; // Interrompe a execução para não alterar o conteúdo abaixo
+            }
+
+            // 2. Tratamento para Semestres Liberados
+            const numSemestre = botao.getAttribute('data-semestre');
+
+            // Desmarca todos os botões e destaca o clicado
+            botoesSemestre.forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            // Esconde todas as caixas de conteúdos de semestres
+            conteudosSemestre.forEach(c => c.classList.remove('ativo'));
+
+            // Exibe a caixa correspondente ao semestre clicado
+            const caixaAlvo = document.querySelector(`.conteudo-semestre[data-conteudo-semestre="${numSemestre}"]`);
+            if (caixaAlvo) {
+                caixaAlvo.classList.add('ativo');
+            }
+        });
+    });
+});
+
+// ==========================================
+// LÓGICA DO MODAL PIX
+// ==========================================
+
+const modalPix = document.getElementById("modalPix");
+const btnPagar = document.getElementById("btnPagarMensalidade");
+const btnFecharPix = document.getElementById("btnFecharPix");
+const btnCopiarPix = document.getElementById("btnCopiarPix");
+const chavePixInput = document.getElementById("chavePixInput");
+
+// Abrir Modal
+btnPagar?.addEventListener("click", () => {
+    modalPix?.classList.add("ativo");
+    document.body.style.overflow = "hidden"; // Evita rolagem de fundo
+});
+
+// Fechar Modal no X
+btnFecharPix?.addEventListener("click", () => {
+    modalPix?.classList.remove("ativo");
+    document.body.style.overflow = "auto";
+});
+
+// Fechar ao clicar fora do conteúdo
+modalPix?.addEventListener("click", (e) => {
+    if (e.target === modalPix) {
+        modalPix.classList.remove("ativo");
+        document.body.style.overflow = "auto";
+    }
+});
+
+// Copiar Chave Pix
+btnCopiarPix?.addEventListener("click", () => {
+    if (chavePixInput) {
+        chavePixInput.select();
+        navigator.clipboard.writeText(chavePixInput.value);
+
+        const textoOriginal = btnCopiarPix.textContent;
+        btnCopiarPix.textContent = "Chave copiada!";
+        btnCopiarPix.style.background = "#2e7d32";
+
+        setTimeout(() => {
+            btnCopiarPix.textContent = textoOriginal;
+            btnCopiarPix.style.background = "#6a0dad";
+        }, 2000);
+    }
+});
+
+// Seleciona todos os botões que devem abrir o Pix (o principal e o botão Pagar do histórico)
+const botoesAbrirPix = document.querySelectorAll("#btnPagarMensalidade, .btn-abrir-pix");
+
+botoesAbrirPix.forEach(botao => {
+    botao.addEventListener("click", () => {
+        modalPix?.classList.add("ativo");
+        document.body.style.overflow = "hidden";
+    });
+});
+
+// Ação para os botões 'Recibo' (Clicáveis, sem alerta nem erro)
+const botoesRecibo = document.querySelectorAll(".btn-recibo");
+
+botoesRecibo.forEach(botao => {
+    botao.addEventListener("click", () => {
+        // Reservado para funcionalidade futura
+    });
+});

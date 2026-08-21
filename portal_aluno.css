@@ -1132,3 +1132,822 @@ footer{
     pointer-events: none; /* A camada ignora cliques do mouse, permitindo clicar nos elementos acima */
     z-index: -1; /* Coloca a imagem atrás do conteúdo, assim não a sobressaindo por cima do restante do site */
 }
+
+/* ======================
+    Minha Graduação
+   =====================
+/* Container alinhando os botões nas extremidades */
+.container-botoes-graduacao {
+    display: flex;
+    justify-content: space-between; /* Empurra um para cada lado */
+    align-items: center;
+    width: 100%;
+    margin-top: 35px;
+    
+    margin-top: 80px; /* Diminua para aproximar do título ou aumente para afastar */
+    padding: 0 100px; /* Altere este 50px para empurrar mais ou menos para o centro */
+    
+    box-sizing: border-box; /* Garante que o padding não quebre a largura da tela */
+}
+/* Estilo base dos botões pill */
+.btn-opcao {
+    background-color: #121214;
+    color: #e1e1e6;
+    border: 1px solid #323238;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.btn-opcao:hover {
+    border-color: #6a0ba9;
+}
+
+/* Estado Ativo: Mantém a borda original e aplica o degradê de luz roxa */
+.btn-opcao.ativo {
+    background-color: #16121e;
+    
+    /* Mantém a mesma cor de borda do estado normal */
+    border-color: #323238; 
+    
+    /* Aplica apenas o degradê de brilho/sombra roxa */
+    box-shadow: 0px 8px 22px rgba(168, 85, 247, 0.4);
+}
+
+.btn-opcao.ativo:hover {
+    border-color: #6a0ba9; /* Cor do tracado quando passar o mouse no selecionado */
+}
+
+/* Grid para organizar os 4 cards em linha */
+.grid-cards-estatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 100px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+/* Base do Card */
+.card-estatistica {
+    background-color: #1a1a1e;
+    border: 1px solid #2e2e35;
+    border-radius: 18px;
+    padding: 24px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Subtítulo superior */
+.subtitulo-estatistica {
+    color: #c4c4cc;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+/* Valor principal */
+.valor-estatistica {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* --- ESTILO ROXO (#E15EFF) --- */
+.card-estatistica.card-roxo .valor-estatistica {
+    color: #E15EFF;
+    text-shadow: 0px 0px 12px rgba(225, 94, 255, 0.3);
+}
+
+.card-estatistica.card-roxo {
+    box-shadow: 0px 8px 22px rgba(225, 94, 255, 0.25);
+}
+
+/* --- ESTILO VERDE (#94FF69) --- */
+.card-estatistica.card-verde .valor-estatistica {
+    color: #94FF69;
+    text-shadow: 0px 0px 12px rgba(148, 255, 105, 0.3);
+}
+
+.card-estatistica.card-verde {
+    box-shadow: 0px 8px 22px rgba(148, 255, 105, 0.25);
+}
+
+/* Container alinhando a lista de semestres */
+.container-semestres {
+    display: flex;
+    flex-wrap: wrap; /* Quebra para a linha de baixo quando não couber na tela */
+    gap: 12px;
+    width: 100%;
+    margin-top: 100px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+/* Base dos botões de semestre */
+.btn-semestre {
+    background-color: #121214;
+    color: #ffffff;
+    border: 0.5px solid #646464;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Estado Ativo: Fundo roxo sólido e borda roxa clara (sem degradê e sem hover) */
+.btn-semestre.ativo {
+    background-color: #4c005c; 
+    color: #ffffff;
+}
+
+/* Ícone do cadeado */
+.img-cadeado {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+}
+
+/* Container Principal da Box */
+.box-detalhes-semestre {
+    background-color: #16161a;
+    border: 1px solid #282830;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 35px;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho superior dentro da box */
+.cabecalho-box-semestre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.titulo-semestre-materia {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.destaque-rosa {
+    color: #E15EFF;
+}
+
+/* Badge 'Cursando Atualmente' azul */
+.badge-status-curso {
+    background-color: #0d2c63;
+    color: #2f80ed;
+    border: 1px solid #1a4da1;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0px 0px 12px rgba(47, 128, 237, 0.3);
+}
+
+/* Estrutura da Tabela */
+.container-tabela-disciplinas {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-disciplinas {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Cabeçalho da Tabela */
+.tabela-disciplinas th {
+    color: #7b93a4;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Alinhamento de colunas da tabela */
+.col-tipo { text-align: center; }
+.col-nota { text-align: center; }
+.col-frequencia { text-align: center; }
+.col-situacao { text-align: center; }
+
+/* Linhas e Células */
+.tabela-disciplinas td {
+    color: #ffffff;
+    font-size: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid #2a2a32;
+}
+
+/* Pílula para tipo 'Obrigatória' */
+.tag-tipo {
+    background-color: #2b2b32;
+    color: #c4c4cc;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.tabela-disciplinas td:nth-child(2) {
+    text-align: center;
+}
+
+/* Texto azul 'Em curso' */
+.status-curso {
+    color: #3182ce;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Frequência em negrito e centralizado */
+.frequencia-destaque {
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Situação e notas centralizadas */
+.situacao-texto {
+    color: #d1d5db;
+    text-align: center;
+}
+
+/* Esconde as caixas dos semestres por padrão */
+.conteudo-semestre {
+    display: none;
+}
+
+/* Mostra apenas a caixa do semestre selecionado */
+.conteudo-semestre.ativo {
+    display: block;
+}
+
+/* Espaçamento entre a box de cima e a box de optativas */
+.box-optativas {
+    margin-top: 30px;
+}
+
+/* Alinha o badge verde à direita */
+.cabecalho-optativas {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Badge 'OPTATIVAS' Verde */
+.badge-optativas {
+    background-color: #1a3818;
+    color: #94FF69;
+    border: 1px solid rgba(148, 255, 105, 0.4);
+    border-radius: 20px;
+    padding: 6px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 14px rgba(148, 255, 105, 0.25);
+}
+
+/* Permite que o balão se posicione em relação ao botão */
+.btn-semestre.bloqueado {
+    position: relative;
+}
+
+/* Balão do aviso */
+.tooltip-bloqueado {
+    position: absolute;
+    top: calc(100% + 8px); /* Fica logo abaixo do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1a1a1e;
+    color: #8da1bf;
+    border: 1px solid #2e2e38;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    
+    /* Controle de visibilidade/animação */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+/* Seta (flechinha) superior do balão */
+.tooltip-bloqueado::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 20%; /* Posição ajustada para o canto esquerdo como no print */
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #1a1a1e transparent;
+}
+
+/* Classe ativada via JS para mostrar o aviso */
+.tooltip-bloqueado.visivel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.conteudo-aba {
+    display: none;
+    color: #8da1bf; 
+    margin-top: 40px;
+    margin-left: 100px; /* Empurra o conteúdo um pouco para a direita */
+}
+
+.conteudo-aba.ativo {
+    display: block;
+}
+
+/* ======================================
+   Container Geral de Certificados 
+   ====================================== */
+
+.container-certificados {
+    margin-top: 25px;
+}
+
+.titulo-certificados {
+    color: #EE9D06; 
+    font-size: 26px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-family: 'Sora' sans-serif; 
+}
+
+.subtitulo-certificados {
+    color: #d1d5db;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-family: 'Sora' sans-serif;
+}
+
+/* Grid com os Cards */
+.grid-cards-certificados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+
+    margin-top: 55px; /* Espaçamento/altura */
+}
+
+/* Estrutura do Card */
+.card-certificado {
+    background-color: #212328;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Barra vertical amarela na esquerda */
+.barra-lateral-card {
+    width: 6px;
+    background-color: #B6933A;
+    flex-shrink: 0;
+}
+
+.conteudo-card-cert {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Badge Amarela/Dourada */
+.badge-certificacao {
+    display: inline-block;
+    background-color: #B6933A;
+    color: #ECF327;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.titulo-cert {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-family: serif;
+}
+
+.descricao-cert {
+    color: #c2c7cf;
+    font-size: 13.5px;
+    line-height: 1.5;
+    min-height: 55px;
+    margin-bottom: 15px;
+    font-family: 'Sora' sans-serif;
+}
+
+.divisor-cert {
+    border: none;
+    border-top: 1px solid #34373d;
+    margin-bottom: 15px;
+}
+
+/* Rodapé do Card (Status e Botão) */
+.rodape-card-cert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-cert {
+    color: #e5e7eb;
+    font-size: 13px;
+    font-family: serif;
+}
+
+/* Botão de Download PDF */
+.btn-baixar-pdf {
+    background-color: #383a40;
+    color: #ffffff;
+    border: 1px solid #525660;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-family: serif;
+}
+
+.btn-baixar-pdf:hover {
+    background-color: #4a4d55;
+    border-color: #e5a000;
+}
+
+/* ==========================================
+   CARD SALDO EM ABERTO (FINANCEIRO)
+========================================== */
+
+.card-saldo-financeiro {
+    width: 100%;
+    max-width: 1050px;
+    margin: 40px auto 0 auto;
+    padding: 35px 40px;
+    border-radius: 18px;
+    margin-top:110px;
+    
+    /* Borda Gradiente em volta de toda a box */
+    border: 1px solid transparent;
+    background-image: 
+        linear-gradient(#1c1c1f, #1c1c1f), 
+        linear-gradient(180deg, rgba(255, 255, 255, 0.25) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    /* Sombra e Brilho Neon Roxo na parte inferior */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6),
+                0 10px 25px rgba(138, 43, 226, 0.35);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'Sora', sans-serif;
+}
+
+.info-saldo {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitulo-saldo {
+    font-size: 13px;
+    color: #a0a0a0;
+    letter-spacing: 1.8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.valor-saldo {
+    font-size: 52px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.vencimento-saldo {
+    font-size: 15px;
+    color: #FFCC00;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Botão Pagar Mensalidade Clicável */
+.btn-pagar-mensalidade {
+    background: #6a0dad;
+    color: #ffffff;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(106, 13, 173, 0.8);
+}
+
+.btn-pagar-mensalidade:hover {
+    background: #7b1fa2;
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(123, 31, 162, 1);
+}
+
+.btn-pagar-mensalidade:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   MODAL PIX (FINANCEIRO)
+========================================== */
+
+/* Fundo escuro transparente */
+.modal-pix-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: none; /* Inicialmente escondido */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-pix-overlay.ativo {
+    display: flex;
+}
+
+/* Caixa principal do Modal */
+.modal-pix-conteudo {
+    position: relative;
+    background-color: #383a3d;
+    width: 90%;
+    max-width: 500px;
+    padding: 35px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+}
+
+/* Botão Fechar (X) */
+.btn-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-fechar-modal:hover {
+    color: #ffffff;
+}
+
+/* Títulos */
+.titulo-modal-pix {
+    color: #F9A94E; /* Tom dourado da imagem */
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+}
+
+.subtitulo-modal-pix {
+    color: #c2c7cf;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+/* QR Code */
+.container-qrcode {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.img-qrcode {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+.instrucao-pix {
+    color: #b0b5bd;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* Caixa com a Chave Copia e Cola */
+.caixa-codigo-pix {
+    background-color: #2b2c30;
+    border: 1px dashed #525660;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+}
+
+.caixa-codigo-pix input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #d1d5db;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    font-family: monospace;
+}
+
+/* Botão Copiar */
+.btn-copiar-pix {
+    width: 100%;
+    background: #6a0dad;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 18px rgba(106, 13, 173, 0.7);
+}
+
+.btn-copiar-pix:hover {
+    background: #7b1fa2;
+    box-shadow: 0 0 25px rgba(123, 31, 162, 0.9);
+}
+
+/* ==========================================
+   HISTÓRICO DE MENSALIDADES
+========================================== */
+
+.container-historico-mensalidades {
+    width: 100%;
+    max-width: 1050px;
+    margin: 45px auto;
+    font-family: 'Sora', sans-serif;
+
+    margin-top: 100px;
+}
+
+.titulo-historico {
+    color: #F9A94E;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.card-historico {
+    background-color: #212226;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Barra lateral do card */
+.barra-status {
+    width: 6px;
+    flex-shrink: 0;
+}
+
+.card-historico.em-aberto .barra-status {
+    background-color: #D7B415; 
+}
+
+.card-historico.pago .barra-status {
+    background-color: #33D64B; 
+}
+
+/* Conteúdo interno alinhado em colunas */
+.conteudo-historico {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+}
+
+/* Mantém o texto das outras colunas alinhado à esquerda */
+.coluna-historico {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+/* O :nth-child(4) pega automaticamente a 4ª coluna (que é a do STATUS) e centraliza só ela */
+.coluna-historico:nth-child(4) {
+    align-items: center;
+}
+
+.label-historico {
+    font-size: 11px;
+    color: #9e9e9e;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.valor-coluna {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Define largura fixa para as badges não desalinharem */
+.badge-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px; /* Largura padronizada para todas as badges */
+    height: 32px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.badge-status.em-aberto {
+    background-color: #D7B415;
+    color: #7D690F;
+    box-shadow: 0 0 12px rgba(212, 163, 23, 0.5);
+}
+
+.badge-status.pago {
+    background-color: #70D457;
+    color: #245013;
+    box-shadow: 0 0 12px rgba(46, 125, 50, 0.6);
+}
+
+/* Padroniza o tamanho dos botões de ação */
+.btn-acao-historico {
+    background: transparent;
+    color: #D7B415;
+    border: 1px solid #D7B415;
+    width: 100px; /* Largura fixa para Pagar e Recibo ficarem idênticos */
+    height: 36px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Sora', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-acao-historico:hover {
+    background-color: rgba(229, 160, 0, 0.1);
+    border-color: #e5a000;
+}
+
+.btn-acao-historico:active {
+    transform: scale(0.98);
+}
