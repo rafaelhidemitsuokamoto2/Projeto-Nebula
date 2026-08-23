@@ -453,30 +453,33 @@ document.getElementById('btnLogoInicio')?.addEventListener('click', () => {
 
 
 // ========================================
-// Graduação - Alternar Abas (Notas / Certificados)
+// ALTERNAR ABAS (função reutilizável)
+// Usada tanto pela Graduação (data-aba / #aba-x)
+// quanto pelos Documentos (data-doc / #doc-x),
+// já que as duas seções faziam exatamente a mesma coisa.
 // ========================================
+function configurarAbas(botoes, paineis, atributoDado, prefixoId) {
+    botoes.forEach(botao => {
+        botao.addEventListener('click', () => {
+            const alvo = botao.getAttribute(`data-${atributoDado}`);
+
+            botoes.forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            paineis.forEach(p => p.classList.remove('ativo'));
+
+            if (alvo) {
+                document.getElementById(`${prefixoId}-${alvo}`)?.classList.add('ativo');
+            }
+        });
+    });
+}
+
+
+// Graduação - Alternar Abas (Notas / Certificados)
 const botoesGraduacao = document.querySelectorAll('.btn-opcao');
 const abasGraduacao = document.querySelectorAll('.conteudo-aba');
-
-
-botoesGraduacao.forEach(botao => {
-    botao.addEventListener('click', () => {
-        const abaAlvo = botao.getAttribute('data-aba');
-
-
-        // Alterna o botão ativo
-        botoesGraduacao.forEach(b => b.classList.remove('ativo'));
-        botao.classList.add('ativo');
-
-
-        // Alterna a exibição das abas
-        abasGraduacao.forEach(aba => aba.classList.remove('ativo'));
-       
-        if (abaAlvo) {
-            document.getElementById(`aba-${abaAlvo}`)?.classList.add('ativo');
-        }
-    });
-});
+configurarAbas(botoesGraduacao, abasGraduacao, 'aba', 'aba');
 
 
 // =========================================
@@ -548,17 +551,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const modalPix = document.getElementById("modalPix");
-const btnPagar = document.getElementById("btnPagarMensalidade");
 const btnFecharPix = document.getElementById("btnFecharPix");
 const btnCopiarPix = document.getElementById("btnCopiarPix");
 const chavePixInput = document.getElementById("chavePixInput");
-
-
-// Abrir Modal
-btnPagar?.addEventListener("click", () => {
-    modalPix?.classList.add("ativo");
-    document.body.style.overflow = "hidden"; // Evita rolagem de fundo
-});
 
 
 // Fechar Modal no X
@@ -620,27 +615,12 @@ botoesRecibo.forEach(botao => {
 });
 
 // ========================================
-// DOCUMENTOS - Alternar Abas
+// DOCUMENTOS - Alternar Abas (reutiliza configurarAbas)
 // ========================================
 
 const botoesDocumentos = document.querySelectorAll(".btn-opcao-documentos");
 const abasDocumentos = document.querySelectorAll(".conteudo-documento");
-
-botoesDocumentos.forEach(botao => {
-    botao.addEventListener("click", () => {
-
-        const abaAlvo = botao.dataset.doc;
-
-        // Alterna botão ativo
-        botoesDocumentos.forEach(b => b.classList.remove("ativo"));
-        botao.classList.add("ativo");
-
-        // Alterna conteúdo
-        abasDocumentos.forEach(aba => aba.classList.remove("ativo"));
-        document.getElementById(`doc-${abaAlvo}`)?.classList.add("ativo");
-
-    });
-});
+configurarAbas(botoesDocumentos, abasDocumentos, 'doc', 'doc');
 
 // ==========================================
 // REQUISIÇÕES - CONTADOR DE CARACTERES
@@ -901,26 +881,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-});
-
-// ============================
-// PERFIL
-// ============================
-
-document.addEventListener('DOMContentLoaded', () => {
+    // ============================
+    // PERFIL
+    // ============================
 
     // ============================
     // 1. UPLOAD DE FOTO (PREVIEW)
     // ============================
 
-    const btnTriggerFoto = document.getElementById('btn-trigger-foto');
     const inputUploadFoto = document.getElementById('upload-foto');
     const imgPerfil = document.getElementById('foto-perfil-img');
     const avatarPlaceholder = document.getElementById('avatar-placeholder');
-
-    btnTriggerFoto?.addEventListener('click', () => {
-        inputUploadFoto.click();
-    });
 
     inputUploadFoto?.addEventListener('change', (e) => {
 
@@ -1010,7 +981,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log('Dados prontos para salvar:', dadosAtualizados);
 
-        alert('Dados cadastrais atualizados com sucesso!');
 
     });
 
@@ -1022,7 +992,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnAlterarSenha?.addEventListener('click', () => {
 
-        alert('Redirecionando para redefinição de senha...');
 
     });
 
