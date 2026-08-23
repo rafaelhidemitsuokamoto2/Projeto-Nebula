@@ -470,6 +470,53 @@ body {
     background: rgba(255, 255, 255, .07);
 }
 
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+
+    flex:1;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:8px;
+    color:#ffffff;
+    font-size:1rem;
+    padding:12px 15px;
+    outline:none;
+    transition:.3s;
+    font-family:inherit;
+    resize:vertical;
+
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus{
+
+    border-color:#E3AC6C;
+
+    background:rgba(255,255,255,.07);
+
+}
+
+.campo-formulario textarea::placeholder{
+
+    color:rgba(255,255,255,.5);
+
+}
+.campo-formulario select{
+
+    appearance:none;
+
+    cursor:pointer;
+
+}
+.campo-formulario option{
+
+    background:#0b1220;
+
+    color:#ffffff;
+
+}
 
 /* =========================================================
    ERRO DE PREENCHIMENTO
@@ -600,7 +647,7 @@ body {
     width: 14px;
     height: 14px;
     border: 2px solid rgba(255, 255, 255, .6);
-    border-radius: 50%;
+    border-radius: 50px;
     margin-right: 12px;
     vertical-align: middle;
     transition: .25s ease;
@@ -880,7 +927,7 @@ body {
 
 .status-pendente {
     border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.035);
+    background: rgba(84, 238, 57, 0.035);
     color: rgba(255, 255, 255, 0.65);
 }
 
@@ -892,6 +939,9 @@ body {
 
 .status-texto-direita {
     flex-shrink: 0;
+}
+.status-selecionado {
+    color: #8DFFB3;
 }
 
 /* =========================================================
@@ -905,6 +955,8 @@ body {
     border: 1px solid rgba(243, 156, 255, 0.2);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.035);
+
+    margin-top: 25px;
 }
 
 /* Título de cada bloco */
