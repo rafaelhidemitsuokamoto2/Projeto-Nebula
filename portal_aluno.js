@@ -909,49 +909,57 @@ document.addEventListener("DOMContentLoaded", () => {
         reader.readAsDataURL(file);
     });
 
-    // ============================
-    // 2. BUSCA AUTOMÁTICA DE CEP
-    // ============================
+// ============================
+// 2. BUSCA AUTOMÁTICA DE CEP
+// ============================
 
-    const inputCep = document.getElementById('cep');
-    const inputLogradouro = document.getElementById('logradouro');
-    const inputBairro = document.getElementById('bairro');
-    const inputCidade = document.getElementById('cidade');
-    const selectUf = document.getElementById('uf');
+const inputCep = document.getElementById("cep");
+const inputLogradouro = document.getElementById("logradouro");
+const inputBairro = document.getElementById("bairro");
+const inputCidade = document.getElementById("cidade");
+const selectUf = document.getElementById("uf");
 
-    inputCep?.addEventListener('blur', async () => {
+inputCep?.addEventListener("blur", consultarCEP);
 
-        const cepLimpo = inputCep.value.replace(/\D/g, '');
+async function consultarCEP() {
 
-        if (cepLimpo.length !== 8) return;
+    const cep = inputCep.value.replace(/\D/g, "");
 
-        try {
+    if (cep.length !== 8)
+        return;
 
-            const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-            const data = await response.json();
+    try {
 
-            if (!data.erro) {
+        const resposta = await fetch(
+            `https://viacep.com.br/ws/${cep}/json/`
+        );
 
-                inputLogradouro.value = data.logradouro;
-                inputBairro.value = data.bairro;
-                inputCidade.value = data.localidade;
-                selectUf.value = data.uf;
+        const dados = await resposta.json();
 
-                document.getElementById('numero').focus();
+        if (dados.erro) {
 
-            } else {
+            alert("CEP não encontrado.");
 
-                alert('CEP não encontrado.');
-
-            }
-
-        } catch (erro) {
-
-            console.error('Erro ao buscar CEP:', erro);
+            return;
 
         }
 
-    });
+        inputLogradouro.value = dados.logradouro || "";
+        inputBairro.value = dados.bairro || "";
+        inputCidade.value = dados.localidade || "";
+        selectUf.value = dados.uf || "";
+
+        document.getElementById("numero").focus();
+
+    }
+
+    catch (erro) {
+
+        console.error("Erro ao consultar o CEP:", erro);
+
+    }
+
+}
 
     // ============================
     // 3. SALVAR FORMULÁRIO
