@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="portal_professor.css">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <div class="logo" id="btnLogoInicio" style="cursor: pointer;">
+                <img src="logo-ucen.png" alt="Logo">
+            </div>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-pagina="inicio">Início</li>
+                            <li data-pagina="turmas">Minhas Turmas</li>
+                            <li data-pagina="arquivos">Arquivos</li>
+                            <li data-pagina="notas">Notas e Frequência</li>
+                            <li data-pagina="agenda">Agenda</li>
+                            <li data-pagina="calendario">Calendário</li>
+                            <li data-pagina="perfil">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <button type="button" class="perfil" onclick="document.querySelector('.item-menu[data-pagina=\'perfil\']').click()">
+                I
+            </button>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         BANNER PRINCIPAL
+    ========================================== -->
+
+    <section class="banner-portal">
+
+        <div class="box-portal">
+
+            <div class="titulo-inicio">
+
+                <span class="titulo-um">
+                    SEXTA-FEIRA, 21 DE AGOSTO DE 2026
+                </span>
+
+                <span class="titulo-dois">
+                    Olá, Professor Israel!
+                </span>
+
+                <span class="titulo-tres">
+                    Acompanhe os principais assuntos das suas turmas hoje!
+                </span>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <button class="item-menu" data-pagina="inicio">
+                Início
+            </button>
+
+            <button class="item-menu" data-pagina="turmas">
+                Minhas Turmas
+            </button>
+
+            <button class="item-menu" data-pagina="arquivos">
+                Arquivos
+            </button>
+
+            <button class="item-menu" data-pagina="notas">
+                Notas e Frequência
+            </button>
+
+            <button class="item-menu" data-pagina="agenda">
+                Agenda
+            </button>
+
+            <button class="item-menu" data-pagina="calendario">
+                Calendário
+            </button>
+
+            <button class="item-menu" data-pagina="perfil">
+                Meu perfil
+            </button>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+<!-- ==========================================
+     INÍCIO
+========================================== -->
+
+<section class="pagina pagina-inicio">
+
+    <div class="conteudo-inicio">
+
+        <!-- Card Próxima Aula -->
+        <div class="card-proxima-aula">
+            <span class="subtitulo-card">PRÓXIMA AULA</span>
+            <h2 class="titulo-materia">Banco de Dados</h2>
+            <p class="horario-aula">Hoje, 19h às 22h - Sala: 25 - 3º Semestre</p>
+
+            <div class="botao-vestibular">
+                <button type="button" id="btnVerAgenda" class="btn-inscricao">
+                    Ver Agenda
+                </button>
+            </div>
+        </div>
+
+        <!-- Card Próximas Avaliações -->
+        <div class="card-avaliacoes">
+            <div class="cabecalho-avaliacoes">
+                <div>
+                    <span class="subtitulo-card">ACOMPANHE</span>
+                    <h2 class="titulo-avaliacoes">Próximas Avaliações</h2>
+                </div>
+                <button type="button" id="btnVerTodasAvaliações" class="btn-link-calendario">
+                    Ver mais
+                </button>
+            </div>
+
+            <hr class="divisor-card">
+
+            <div class="lista-avaliacoes">
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">11</span>
+                        <span class="mes">NOV</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>Prova - Banco de Dados</h3>
+                        <p>19:00 - Sala: 25 - 3º Semestre</p>
+                    </div>
+                </div>
+
+                <hr class="divisor-item">
+
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">20</span>
+                        <span class="mes">NOV</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>Entrega - Trabalho de Programação</h3>
+                        <p>23:59 - Envio online - 2º Semestre</p>
+                    </div>
+                </div>
+
+                <hr class="divisor-item">
+
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">03</span>
+                        <span class="mes">DEZ</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>Apresentação - Engenharia de Software</h3>
+                        <p>19:00 - Sala: 25 - 5º Semestre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Avisos Importantes -->
+        <div class="card-avisos">
+            <span class="subtitulo-card">FIQUE ATENTO</span>
+            <h2 class="titulo-avisos">Avisos Importantes</h2>
+
+            <div class="lista-avisos">
+
+                <div class="item-aviso urgente">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="texto-aviso">
+                        <h4>Lançamento de notas do P2 encerra em 3 dias</h4>
+                        <p>Turmas: Banco de Dados e Programação - prazo até 24/11.</p>
+                    </div>
+                </div>
+
+                <div class="item-aviso">
+                    <i class="fa-solid fa-bell"></i>
+                    <div class="texto-aviso">
+                        <h4>Reunião pedagógica de fim de semestre</h4>
+                        <p>Sala de reuniões da coordenação - 27/11 às 18h.</p>
+                    </div>
+                </div>
+
+                <div class="item-aviso">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                    <div class="texto-aviso">
+                        <h4>3 alunos abaixo da frequência mínima</h4>
+                        <p>Verifique a aba Notas e Frequência da turma de Engenharia de Software.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Resumo das Turmas -->
+        <div class="secao-resumo-turmas">
+            <h2>Resumo das Turmas</h2>
+
+            <div class="grid-resumo-turmas">
+
+                <div class="card-resumo-turma" data-abrir-turma="bd">
+                    <span class="semestre-tag">3º SEMESTRE</span>
+                    <h3>Banco de Dados</h3>
+                    <div class="mini-stats-turma">
+                        <div><strong>28</strong>Alunos</div>
+                        <div><strong>8.4</strong>Média</div>
+                        <div><strong>94%</strong>Frequência</div>
+                    </div>
+                </div>
+
+                <div class="card-resumo-turma" data-abrir-turma="prog">
+                    <span class="semestre-tag">2º SEMESTRE</span>
+                    <h3>Programação</h3>
+                    <div class="mini-stats-turma">
+                        <div><strong>32</strong>Alunos</div>
+                        <div><strong>7.9</strong>Média</div>
+                        <div><strong>91%</strong>Frequência</div>
+                    </div>
+                </div>
+
+                <div class="card-resumo-turma" data-abrir-turma="es">
+                    <span class="semestre-tag">5º SEMESTRE</span>
+                    <h3>Engenharia de Software</h3>
+                    <div class="mini-stats-turma">
+                        <div><strong>24</strong>Alunos</div>
+                        <div><strong>7.2</strong>Média</div>
+                        <div><strong>85%</strong>Frequência</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Rodapé do Portal -->
+<footer id="contato">
+
+    <div class="footer-superior">
+        <div class="footer-esquerda">
+            <img src="logo-ucen.png" alt="Logo">
+            <h3 class="texto-footer">
+                Campus central: Avenida das Estrelas, nº 372,<br>
+                Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+            </h3>
+        </div>
+
+        <div class="footer-direita">
+            <h3 class="titulo-footer">
+                Suporte ao professor
+            </h3>
+            <h3 class="texto-footer">
+                E-mail: suporte.ftan@gmail.com<br>
+                Telefone: 4006-8947<br>
+                WhatsApp: (11) 94562-2899<br>
+                Horário: Seg à Sex das 08h às 22:30h
+            </h3>
+        </div>
+    </div>
+
+    <div class="footer-inferior">
+        <h3 class="copyright">
+            © 2026 Universidade de Ciências e Exatas Nebula<br>
+            Todos os direitos reservados.
+        </h3>
+    </div>
+
+</footer>
+
+</section>
+
+<!-- ==========================================
+     MINHAS TURMAS
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="turmas">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Minhas Turmas</h1>
+            <span></span>
+        </div>
+        <p>Selecione uma turma para acessar arquivos, notas, frequência e agenda.</p>
+    </div>
+
+    <!-- LISTAGEM DE TURMAS -->
+    <div class="grid-turmas" id="listaTurmas">
+
+        <div class="card-turma" data-turma="bd">
+            <span class="semestre-tag">3º SEMESTRE</span>
+            <h3>Banco de Dados</h3>
+            <div class="detalhes-card-turma">
+                <span><i class="fa-solid fa-users"></i>28 alunos matriculados</span>
+                <span><i class="fa-solid fa-door-open"></i>Sala 25 · Seg, Ter, Qua, Sex</span>
+                <span><i class="fa-solid fa-chart-line"></i>Média da turma: 8.4</span>
+            </div>
+            <div class="rodape-card-turma">
+                <span class="badge-status-curso">Em andamento</span>
+                <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+            </div>
+        </div>
+
+        <div class="card-turma" data-turma="prog">
+            <span class="semestre-tag">2º SEMESTRE</span>
+            <h3>Programação</h3>
+            <div class="detalhes-card-turma">
+                <span><i class="fa-solid fa-users"></i>32 alunos matriculados</span>
+                <span><i class="fa-solid fa-door-open"></i>Sala 25 · Seg, Qua, Qui, Sex</span>
+                <span><i class="fa-solid fa-chart-line"></i>Média da turma: 7.9</span>
+            </div>
+            <div class="rodape-card-turma">
+                <span class="badge-status-curso">Em andamento</span>
+                <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+            </div>
+        </div>
+
+        <div class="card-turma" data-turma="es">
+            <span class="semestre-tag">5º SEMESTRE</span>
+            <h3>Engenharia de Software</h3>
+            <div class="detalhes-card-turma">
+                <span><i class="fa-solid fa-users"></i>24 alunos matriculados</span>
+                <span><i class="fa-solid fa-door-open"></i>Sala 25 · Qui, Sex</span>
+                <span><i class="fa-solid fa-chart-line"></i>Média da turma: 7.2</span>
+            </div>
+            <div class="rodape-card-turma">
+                <span class="badge-status-curso">Em andamento</span>
+                <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DETALHE DA TURMA -->
+    <div class="turma-detalhe" id="detalheTurma">
+
+        <button type="button" class="btn-voltar-turmas" id="btnVoltarTurmas">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para Minhas Turmas
+        </button>
+
+        <div class="cabecalho-turma-detalhe">
+            <div>
+                <h2 id="tituloTurmaDetalhe">Banco de Dados</h2>
+                <p id="subtituloTurmaDetalhe">3º Semestre · Sala 25</p>
+            </div>
+            <div class="stats-rapidas-turma">
+                <div><strong id="statAlunosTurma">28</strong><span>Alunos</span></div>
+                <div><strong id="statMediaTurma">8.4</strong><span>Média</span></div>
+                <div><strong id="statFreqTurma">94%</strong><span>Frequência</span></div>
+            </div>
+        </div>
+
+        <div class="container-botoes-turma">
+            <button type="button" class="btn-opcao ativo" data-aba-turma="visao">Visão Geral</button>
+            <button type="button" class="btn-opcao" data-aba-turma="arquivos">Arquivos</button>
+            <button type="button" class="btn-opcao" data-aba-turma="notas">Notas e Frequência</button>
+            <button type="button" class="btn-opcao" data-aba-turma="agenda">Agenda</button>
+        </div>
+
+        <!-- ABA VISÃO GERAL -->
+        <div class="conteudo-aba-turma ativo" data-conteudo-aba="visao">
+            <div class="box-detalhes-semestre">
+                <div class="cabecalho-box-semestre">
+                    <h2 class="titulo-semestre-materia">
+                        <span class="destaque-rosa" id="visaoTurmaNome">Sobre a turma</span>
+                    </h2>
+                </div>
+                <p style="color:#cfcfcf; font-size:14px; line-height:1.7;" id="visaoTurmaDescricao">
+                    Turma de Banco de Dados do 3º semestre de Ciências da Computação. Encontros às segundas,
+                    terças, quartas e sextas, sempre na Sala 25. Conteúdo focado em modelagem relacional, SQL e MongoDB.
+                </p>
+            </div>
+        </div>
+
+        <!-- ABA ARQUIVOS -->
+        <div class="conteudo-aba-turma" data-conteudo-aba="arquivos">
+            <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                Os arquivos desta turma também aparecem na seção geral de <strong>Arquivos</strong>, já filtrados por disciplina.
+            </p>
+            <button type="button" class="btn-nova-pasta" id="btnIrArquivosTurma">
+                <i class="fa-solid fa-folder-open"></i> Abrir Arquivos da turma
+            </button>
+        </div>
+
+        <!-- ABA NOTAS -->
+        <div class="conteudo-aba-turma" data-conteudo-aba="notas">
+            <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                Lance notas e frequência desta turma diretamente na seção <strong>Notas e Frequência</strong>.
+            </p>
+            <button type="button" class="btn-nova-pasta" id="btnIrNotasTurma">
+                <i class="fa-solid fa-clipboard-list"></i> Abrir Notas e Frequência
+            </button>
+        </div>
+
+        <!-- ABA AGENDA -->
+        <div class="conteudo-aba-turma" data-conteudo-aba="agenda">
+            <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                Veja todos os horários e compromissos desta turma na <strong>Agenda</strong> geral.
+            </p>
+            <button type="button" class="btn-nova-pasta" id="btnIrAgendaTurma">
+                <i class="fa-solid fa-calendar-days"></i> Abrir Agenda
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     ARQUIVOS
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="arquivos">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Arquivos</h1>
+            <span></span>
+        </div>
+        <p>Organize e compartilhe os materiais das suas turmas.</p>
+    </div>
+
+    <!-- FILTRO POR TURMA -->
+    <div class="filtro-turma-arquivos" id="filtroTurmaArquivos">
+        <button type="button" class="btn-turma-notas ativo" data-filtro-turma="todas">Todas as turmas</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="bd">Banco de Dados</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="prog">Programação</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="es">Engenharia de Software</button>
+    </div>
+
+    <!-- CAIXA DOS ARQUIVOS -->
+    <div class="materiais-box">
+
+        <div class="materiais-topo">
+            <h3>Materiais</h3>
+
+            <div class="topo-acoes-arquivos">
+                <button id="btnNovaPasta" class="btn-nova-pasta">
+                    <i class="fa-solid fa-folder-plus"></i> Nova pasta
+                </button>
+                <button id="btnAdicionarArquivo" class="btn-adicionar-arquivo">
+                    <i class="fa-solid fa-file-arrow-up"></i> Adicionar arquivo
+                </button>
+                <button id="ordenar-btn" class="btn-ordenar">
+                    <span id="texto-ordem" class="ascendente">Ascendente</span>
+                    <i class="fa-solid fa-chevron-down" id="chevron"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="breadcrumb-arquivos" id="breadcrumbArquivos">
+            <span data-caminho="">Início</span>
+        </div>
+
+        <div class="cabecalho-arquivos professor">
+            <span>Arquivo</span>
+            <span>Modificado</span>
+            <span>Turma</span>
+            <span></span>
+        </div>
+
+        <div id="lista-arquivos" class="lista-arquivos">
+            <!-- JavaScript gera as linhas aqui -->
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MODAL: NOVA PASTA -->
+<div id="modalNovaPasta" class="modal-generico-overlay">
+    <div class="modal-generico-conteudo">
+        <button type="button" class="btn-fechar-modal" id="fecharModalPasta">&times;</button>
+        <h2>Criar nova pasta</h2>
+        <form id="formNovaPasta">
+            <div class="input-group">
+                <label for="nomeNovaPasta">Nome da pasta</label>
+                <input type="text" id="nomeNovaPasta" placeholder="Ex: Slides - Unidade 1" required>
+            </div>
+            <div class="input-group">
+                <label for="turmaNovaPasta">Turma / Disciplina</label>
+                <select id="turmaNovaPasta">
+                    <option value="bd">Banco de Dados</option>
+                    <option value="prog">Programação</option>
+                    <option value="es">Engenharia de Software</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-principal"><i class="fa-solid fa-check"></i> Criar pasta</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- MODAL: ADICIONAR ARQUIVO -->
+<div id="modalAdicionarArquivo" class="modal-generico-overlay">
+    <div class="modal-generico-conteudo">
+        <button type="button" class="btn-fechar-modal" id="fecharModalArquivo">&times;</button>
+        <h2>Adicionar material</h2>
+        <form id="formAdicionarArquivo">
+            <div class="input-group">
+                <label for="nomeArquivo">Nome do arquivo</label>
+                <input type="text" id="nomeArquivo" placeholder="Ex: Slides - Normalização.pdf" required>
+            </div>
+            <div class="input-group">
+                <label for="tipoArquivo">Tipo</label>
+                <select id="tipoArquivo">
+                    <option value="pdf">PDF</option>
+                    <option value="slide">Slides</option>
+                    <option value="atividade">Atividade</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="turmaArquivo">Turma / Disciplina</label>
+                <select id="turmaArquivo">
+                    <option value="bd">Banco de Dados</option>
+                    <option value="prog">Programação</option>
+                    <option value="es">Engenharia de Software</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="uploadArquivo">Arquivo</label>
+                <input type="file" id="uploadArquivo">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-principal"><i class="fa-solid fa-upload"></i> Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ==========================================
+     NOTAS E FREQUÊNCIA
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="notas">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Notas e Frequência</h1>
+            <span></span>
+        </div>
+        <p>Lance notas, registre frequência e acompanhe o desempenho da turma.</p>
+    </div>
+
+    <!-- SELEÇÃO DE TURMA -->
+    <div class="selecao-turma-notas" id="selecaoTurmaNotas">
+        <button type="button" class="btn-turma-notas ativo" data-turma-notas="bd">Banco de Dados - 3º Sem.</button>
+        <button type="button" class="btn-turma-notas" data-turma-notas="prog">Programação - 2º Sem.</button>
+        <button type="button" class="btn-turma-notas" data-turma-notas="es">Engenharia de Software - 5º Sem.</button>
+    </div>
+
+    <!-- CARDS DE ESTATÍSTICA -->
+    <div class="grid-cards-estatisticas" id="statsNotas" style="margin-top: 30px;">
+        <div class="card-estatistica card-roxo">
+            <span class="subtitulo-estatistica">MÉDIA DA TURMA</span>
+            <h2 class="valor-estatistica" id="mediaTurmaGeral">8.4</h2>
+        </div>
+        <div class="card-estatistica card-roxo">
+            <span class="subtitulo-estatistica">FREQUÊNCIA MÉDIA</span>
+            <h2 class="valor-estatistica" id="freqTurmaGeral">94%</h2>
+        </div>
+        <div class="card-estatistica card-verde">
+            <span class="subtitulo-estatistica">ALUNOS MATRICULADOS</span>
+            <h2 class="valor-estatistica" id="totalAlunosGeral">28</h2>
+        </div>
+        <div class="card-estatistica" style="background-color:#2a1414; border-color:#4d2323;">
+            <span class="subtitulo-estatistica">ABAIXO DA FREQ. MÍNIMA</span>
+            <h2 class="valor-estatistica" style="color:#ff5a5a;" id="abaixoMinimoGeral">2</h2>
+        </div>
+    </div>
+
+    <!-- TABELA DE ALUNOS -->
+    <div class="tabela-notas-container">
+        <table class="tabela-notas">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>P1</th>
+                    <th>P2</th>
+                    <th>Média</th>
+                    <th>Frequência</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabelaNotas">
+                <!-- JS gera as linhas -->
+            </tbody>
+        </table>
+
+        <div class="rodape-tabela-notas">
+            <button type="button" class="btn-principal" id="btnSalvarNotas">
+                <i class="fa-solid fa-floppy-disk"></i> Salvar alterações
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AGENDA
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="agenda">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">PLANEJAMENTO</span>
+        <div class="titulo-linha">
+            <h1>Agenda</h1>
+            <span></span>
+        </div>
+        <p>Suas aulas, provas, trabalhos e reuniões da semana.</p>
+    </div>
+
+    <!-- SEMANA -->
+    <div class="semana-agenda">
+        23 - 27 de novembro de 2026
+    </div>
+
+    <!-- AGENDA -->
+    <div class="agenda-semanal">
+
+        <div class="coluna-horas">
+            <div class="topo-vazio"></div>
+            <div class="hora">19h</div>
+            <div class="hora">20h</div>
+            <div class="hora">21h</div>
+            <div class="hora">22h</div>
+        </div>
+
+        <!-- SEGUNDA -->
+        <div class="dia-agenda">
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Seg.</span>
+                    <strong>23</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de Dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula vermelho"></div>
+            </div>
+
+            <div class="aula linha21">
+                <h4>Programação</h4>
+                <p>21:00 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula verde"></div>
+            </div>
+        </div>
+
+        <!-- TERÇA -->
+        <div class="dia-agenda">
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Ter.</span>
+                    <strong>24</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de Dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+        </div>
+
+        <!-- QUARTA -->
+        <div class="dia-agenda">
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Quar.</span>
+                    <strong>25</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de Dados</h4>
+                <p>19:00 - 20:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha20">
+                <h4>Programação</h4>
+                <p>20:30 - 21:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>Reunião pedagógica</h4>
+                <p>21:30 - 22:00</p>
+                <span>Coordenação</span>
+                <div class="cor-aula azul"></div>
+            </div>
+        </div>
+
+        <!-- QUINTA -->
+        <div class="dia-agenda">
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Quin.</span>
+                    <strong>26</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Programação</h4>
+                <p>19:00 - 20:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>Engenharia de Software</h4>
+                <p>20:30 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+        </div>
+
+        <!-- SEXTA -->
+        <div class="dia-agenda">
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Sex.</span>
+                    <strong>27</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de Dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula azul"></div>
+            </div>
+
+            <div class="aula linha21">
+                <h4>Programação</h4>
+                <p>21:00 - 21:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>Engenharia de Software</h4>
+                <p>21:30 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LEGENDA DA AGENDA -->
+    <div class="legenda-agenda">
+        <h3>Tipos de compromisso:</h3>
+
+        <div class="grid-legenda">
+
+            <div class="item-legenda">
+                <div class="cabecalho-item">
+                    <span class="quadradinho azul-legenda"></span>
+                    <strong>Reunião / Evento</strong>
+                </div>
+                <p>Reuniões pedagógicas, colegiados e eventos institucionais.</p>
+            </div>
+
+            <div class="item-legenda">
+                <div class="cabecalho-item">
+                    <span class="quadradinho vermelho-legenda"></span>
+                    <strong>Prova</strong>
+                </div>
+                <p>Avaliações formais aplicadas em sala com peso na média.</p>
+            </div>
+
+            <div class="item-legenda">
+                <div class="cabecalho-item">
+                    <span class="quadradinho verde-legenda"></span>
+                    <strong>Entrega de trabalho</strong>
+                </div>
+                <p>Prazos de entrega de atividades e trabalhos das turmas.</p>
+            </div>
+
+            <div class="item-legenda">
+                <div class="cabecalho-item">
+                    <span class="quadradinho branco-legenda"></span>
+                    <strong>Aula regular</strong>
+                </div>
+                <p>Encontros normais de sala de aula, sem avaliação.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     CALENDÁRIO
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="calendario">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">PLANEJAMENTO</span>
+        <div class="titulo-linha">
+            <h1>Calendário</h1>
+            <span></span>
+        </div>
+        <p>Provas, entregas, reuniões e datas acadêmicas das suas turmas.</p>
+    </div>
+
+    <div class="container-calendario-secao">
+
+        <div class="box-calendario">
+            <div class="topo-calendario">
+                <button class="btn-nav-cal" id="btn-prev">&lt;</button>
+                <h2 id="mes-ano-titulo">Novembro de 2026</h2>
+                <button class="btn-nav-cal" id="btn-next">&gt;</button>
+            </div>
+
+            <div class="dias-semana-cal">
+                <span>Dom.</span>
+                <span>Seg.</span>
+                <span>Ter.</span>
+                <span>Qua.</span>
+                <span>Qui.</span>
+                <span>Sex.</span>
+                <span>Sáb.</span>
+            </div>
+
+            <div class="grade-dias-cal" id="grade-dias">
+                <!-- JS -->
+            </div>
+        </div>
+
+        <div class="box-eventos">
+            <div class="lista-eventos-cal" id="lista-eventos">
+                <!-- JS -->
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MODAL ANUAL -->
+<div id="modal-visao-anual" class="modal-overlay-anual">
+    <div class="modal-container-anual">
+        <div class="header-modal-anual">
+            <h2 id="titulo-ano-modal">Ano de 2026</h2>
+            <button class="btn-fechar-modal" id="fechar-modal-anual" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="grid-meses-ano" id="grid-meses-ano">
+            <!-- JavaScript gera os 12 meses -->
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     MEU PERFIL
+========================================== -->
+<section class="pagina pagina-interna perfil-container" data-conteudo="perfil">
+
+    <section class="perfil-header-card">
+
+        <label for="upload-foto" class="avatar-wrapper" id="avatar-container">
+            <div class="avatar-placeholder" id="avatar-placeholder">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <img src="" alt="Foto de Perfil" id="foto-perfil-img" style="display: none;">
+
+            <input type="file" id="upload-foto" accept="image/*" style="display: none;">
+
+            <div class="btn-alterar-foto" title="Alterar Foto">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+        </label>
+
+        <div class="perfil-header-info">
+            <div class="nome-status-wrapper">
+                <h2>Israel Dias</h2>
+                <span class="badge-status ativo">Docente Ativo</span>
+            </div>
+            <p class="meta-info"><i class="fa-solid fa-chalkboard-user"></i> Departamento de Ciências da Computação</p>
+            <p class="meta-info"><i class="fa-solid fa-id-card"></i> Matrícula Funcional: <strong>PRF-00427</strong></p>
+        </div>
+
+    </section>
+
+    <!-- Bloco: Acesso & Segurança -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Acesso & Segurança</h3>
+        </div>
+        <div class="form-grid-2">
+            <div class="input-group">
+                <label>E-mail de Login</label>
+                <input type="email" value="israel.dias@ucen.edu.br" readonly class="input-bloqueado">
+            </div>
+            <div class="input-group btn-align-bottom">
+                <button type="button" class="btn-secundario" id="btn-alterar-senha">
+                    <i class="fa-solid fa-key"></i> Alterar Senha
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloco: Dados Pessoais -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo-com-alerta">
+            <div class="secao-titulo">
+                <i class="fa-solid fa-id-card-clip"></i>
+                <h3>Dados Pessoais</h3>
+            </div>
+            <div class="alerta-secretaria">
+                <i class="fa-solid fa-lock"></i> Dados alteráveis apenas via Secretaria
+            </div>
+        </div>
+
+        <div class="form-grid-3">
+            <div class="input-group span-2">
+                <label>Nome Completo</label>
+                <div class="input-com-icone">
+                    <input type="text" value="ISRAEL DIAS SANTOS" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>CPF</label>
+                <div class="input-com-icone">
+                    <input type="text" value="332.184.760-05" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>RG / Documento</label>
+                <div class="input-com-icone">
+                    <input type="text" value="41.223.905-2" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Data de Admissão</label>
+                <div class="input-com-icone">
+                    <input type="text" value="02/03/2019" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Regime de Trabalho</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Tempo Parcial - Noturno" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloco: Informações Profissionais -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Informações Profissionais</h3>
+        </div>
+
+        <div class="form-grid-3" style="margin-bottom: 20px;">
+            <div class="input-group">
+                <label>Titulação</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Mestre em Ciência da Computação" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Departamento</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Ciências da Computação" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Coordenação</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Prof. Marcelo Andrade" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+        </div>
+
+        <label style="font-size:12px; font-family:'Sora',sans-serif; color:rgba(255,255,255,0.7); font-weight:500; margin-bottom:10px; display:block;">
+            Disciplinas que leciona
+        </label>
+        <div class="tags-disciplinas">
+            <span class="tag-disciplina">Banco de Dados - 3º Semestre</span>
+            <span class="tag-disciplina">Programação - 2º Semestre</span>
+            <span class="tag-disciplina">Engenharia de Software - 5º Semestre</span>
+        </div>
+    </section>
+
+    <!-- Bloco: Contato & Endereço -->
+    <section class="perfil-secao-card">
+        <form id="form-contato-endereco">
+            <div class="secao-titulo">
+                <i class="fa-solid fa-address-book"></i>
+                <h3>Contato & Endereço</h3>
+            </div>
+
+            <div class="form-grid-3">
+                <div class="input-group">
+                    <label for="celular">Celular (WhatsApp)</label>
+                    <input type="text" id="celular" value="(11) 98765-4321" placeholder="(00) 00000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="tel-recado">Telefone Residencial / Recado</label>
+                    <input type="text" id="tel-recado" value="" placeholder="(00) 0000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="email-secundario">E-mail Pessoal / Secundário</label>
+                    <input type="email" id="email-secundario" value="" placeholder="exemplo@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" value="01311-000" placeholder="00000-000">
+                </div>
+                <div class="input-group span-2">
+                    <label for="logradouro">Logradouro / Rua</label>
+                    <input type="text" id="logradouro" value="AV PAULISTA">
+                </div>
+
+                <div class="input-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" value="1578">
+                </div>
+                <div class="input-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" value="" placeholder="Apt, Bloco, etc.">
+                </div>
+                <div class="input-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" value="BELA VISTA">
+                </div>
+
+                <div class="input-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" value="SÃO PAULO">
+                </div>
+                <div class="input-group">
+                    <label for="uf">Estado (UF)</label>
+                    <select id="uf">
+                        <option value="SP" selected>São Paulo (SP)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PR">Paraná (PR)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-principal">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Bloco: Configurações -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo">
+            <i class="fa-solid fa-gear"></i>
+            <h3>Configurações</h3>
+        </div>
+
+        <div class="lista-configuracoes">
+
+            <div class="item-configuracao">
+                <div class="texto-configuracao">
+                    <h4>Notificações por e-mail</h4>
+                    <p>Receber avisos sobre entregas, prazos e mensagens de alunos.</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="item-configuracao">
+                <div class="texto-configuracao">
+                    <h4>Lembrete de aulas</h4>
+                    <p>Receber um lembrete 30 minutos antes de cada aula.</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="item-configuracao">
+                <div class="texto-configuracao">
+                    <h4>Alertas de frequência baixa</h4>
+                    <p>Ser notificado quando um aluno ficar abaixo da frequência mínima.</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="item-configuracao">
+                <div class="texto-configuracao">
+                    <h4>Perfil visível para alunos</h4>
+                    <p>Permitir que os alunos vejam suas informações de contato profissional.</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal para Visualizar Foto em Destaque -->
+    <div id="modal-foto-perfil" class="modal-foto-overlay">
+        <div class="modal-foto-content">
+            <img id="img-modal-zoom" src="" alt="Foto de Perfil Ampliada">
+        </div>
+    </div>
+
+</section>
+
+        </div>
+    </main>
+    <!-- JAVASCRIPT -->
+    <script src="portal_professor.js" defer></script>
+</body>
+</html>

@@ -392,6 +392,51 @@ body {
 }
 
 
+/* ==========================================
+   CAMPUS
+
+
+   .campus {
+    position: absolute;
+
+
+    right: 110px;
+
+
+    padding: 12px 20px;
+
+
+    color: #FFF93F;
+
+
+    font-weight: 700;
+
+
+    font-family: 'Sora', sans-serif;
+
+
+    border-radius: 20px;
+
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 249, 63, 0.08),
+        rgba(255, 200, 0, 0.03)
+    );
+
+
+    box-shadow:
+        0 0 15px rgba(255, 249, 63, 0.08),
+        0 5px 20px rgba(0, 0, 0, 0.8);
+
+
+    border: 1px solid #ebe76b5d;
+}
+========================================== */
+
+
+
+
 
 
 
@@ -1473,9 +1518,8 @@ footer{
    
     box-sizing: border-box; /* Garante que o padding não quebre a largura da tela */
 }
-/* Estilo base dos botões pill — reutilizado por .btn-opcao (Graduação) e .btn-opcao-documentos (Documentos) */
-.btn-opcao,
-.btn-opcao-documentos {
+/* Estilo base dos botões pill */
+.btn-opcao {
     background-color: #121214;
     color: #e1e1e6;
     border: 1px solid #323238;
@@ -1484,32 +1528,30 @@ footer{
     font-size: 15px;
     font-family: inherit;
     cursor: pointer;
+    outline: none;
     transition: all 0.3s ease;
 }
 
 
-.btn-opcao {
-    outline: none;
-}
-
-
-.btn-opcao:hover,
-.btn-opcao-documentos:hover {
+.btn-opcao:hover {
     border-color: #6a0ba9;
 }
 
 
 /* Estado Ativo: Mantém a borda original e aplica o degradê de luz roxa */
-.btn-opcao.ativo,
-.btn-opcao-documentos.ativo {
+.btn-opcao.ativo {
     background-color: #16121e;
+   
+    /* Mantém a mesma cor de borda do estado normal */
     border-color: #323238;
+   
+    /* Aplica apenas o degradê de brilho/sombra roxa */
     box-shadow: 0px 8px 22px rgba(168, 85, 247, 0.4);
 }
 
 
 .btn-opcao.ativo:hover {
-    border-color: #6a0ba9; /* Cor do tracado quando passar o mouse no selecionado (comportamento exclusivo da Graduação) */
+    border-color: #6a0ba9; /* Cor do tracado quando passar o mouse no selecionado */
 }
 
 
@@ -2128,28 +2170,21 @@ footer{
 }
 
 
-/* Botão Fechar (X) — reutilizado pelo modal Pix, modal anual e modal de foto */
+/* Botão Fechar (X) */
 .btn-fechar-modal {
     position: absolute;
     top: 15px;
     right: 20px;
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
+    background: none;
     border: none;
-    border-radius: 10px;
-    color: rgba(255, 255, 255, 0.55);
+    color: #a0a0a0;
     font-size: 28px;
     cursor: pointer;
-    transition: .2s;
+    transition: color 0.2s;
 }
 
 
 .btn-fechar-modal:hover {
-    background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
 }
 
@@ -2391,6 +2426,28 @@ footer{
 /* ==========================================
    DOCUMENTOS - ABAS
 ========================================== */
+
+.btn-opcao-documentos {
+    background-color: #121214;
+    color: #e1e1e6;
+    border: 1px solid #323238;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.btn-opcao-documentos:hover {
+    border-color: #6a0ba9;
+}
+
+.btn-opcao-documentos.ativo {
+    background-color: #16121e;
+    border-color: #323238;
+    box-shadow: 0 8px 22px rgba(168, 85, 247, .4);
+}
 
 .conteudo-documento {
     display: none;
@@ -3075,6 +3132,29 @@ footer{
     font-weight:600;
 }
 
+.btn-fechar-modal{
+    width:34px;
+    height:34px;
+
+    border:none;
+    border-radius:10px;
+
+    background:transparent;
+    color:rgba(255,255,255,.55);
+
+    cursor:pointer;
+    transition:.2s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-fechar-modal:hover{
+    background:rgba(255,255,255,.08);
+    color:#fff;
+}
+
 /* Grade */
 
 .grid-meses-ano{
@@ -3654,4 +3734,636 @@ footer{
 
     color:#fff;
     font-size:14px;
+}
+
+/* ==========================================================
+   PORTAL DO PROFESSOR — ESTILOS ADICIONAIS
+   (mantém o mesmo sistema visual do Portal do Aluno)
+========================================================== */
+
+/* ---------- AVISOS IMPORTANTES (Início) ---------- */
+.card-avisos {
+    background-color: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 30px 40px;
+    max-width: 850px;
+    margin: 30px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.titulo-avisos {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 2px 0 0 0;
+}
+
+.lista-avisos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.item-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #E879F9;
+    border-radius: 10px;
+}
+
+.item-aviso.urgente {
+    border-left-color: #ff5a5a;
+}
+
+.item-aviso i {
+    color: #f28cff;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.item-aviso.urgente i {
+    color: #ff5a5a;
+}
+
+.texto-aviso h4 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.texto-aviso p {
+    font-size: 13px;
+    color: #b9b9b9;
+}
+
+/* ---------- RESUMO DAS TURMAS (Início) ---------- */
+.secao-resumo-turmas {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 0 0 60px 0;
+}
+
+.secao-resumo-turmas h2 {
+    color: #E3AC6C;
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.grid-resumo-turmas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card-resumo-turma {
+    background-color: #1a1a1e;
+    border: 1px solid #2e2e35;
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.card-resumo-turma:hover {
+    border-color: #E879F9;
+    transform: translateY(-3px);
+}
+
+.card-resumo-turma .semestre-tag {
+    color: #a0a0a0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-resumo-turma h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 8px 0 14px 0;
+}
+
+.mini-stats-turma {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #cfcfcf;
+}
+
+.mini-stats-turma strong {
+    display: block;
+    color: #F08CFF;
+    font-size: 15px;
+}
+
+/* ---------- MINHAS TURMAS (listagem) ---------- */
+.grid-turmas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.card-turma {
+    background-color: #16161a;
+    border: 1px solid #282830;
+    border-radius: 20px;
+    padding: 26px;
+    cursor: pointer;
+    transition: .25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-turma::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #E879F9, #8a2be2);
+}
+
+.card-turma:hover {
+    border-color: #E879F9;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(232, 121, 249, 0.15);
+}
+
+.card-turma .semestre-tag {
+    color: #a0a0a0;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.card-turma h3 {
+    color: #E3AC6C;
+    font-size: 24px;
+    margin: 10px 0 16px 0;
+}
+
+.detalhes-card-turma {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: #cfcfcf;
+    margin-bottom: 18px;
+}
+
+.detalhes-card-turma i {
+    width: 16px;
+    color: #f28cff;
+    margin-right: 8px;
+}
+
+.rodape-card-turma {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 14px;
+}
+
+.rodape-card-turma .btn-entrar-turma {
+    background: transparent;
+    border: 1px solid #E879F9;
+    color: #f28cff;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.rodape-card-turma .btn-entrar-turma:hover {
+    background: rgba(232, 121, 249, 0.15);
+}
+
+/* ---------- DETALHE DA TURMA ---------- */
+.turma-detalhe {
+    display: none;
+    margin-top: 35px;
+}
+
+.turma-detalhe.ativo {
+    display: block;
+}
+
+.grid-turmas.escondido {
+    display: none;
+}
+
+.btn-voltar-turmas {
+    background: transparent;
+    border: none;
+    color: #f28cff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.btn-voltar-turmas:hover {
+    color: #ffffff;
+}
+
+.cabecalho-turma-detalhe {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #16161a;
+    border: 1px solid #282830;
+    border-radius: 20px;
+    padding: 26px 30px;
+    margin-bottom: 25px;
+}
+
+.cabecalho-turma-detalhe h2 {
+    color: #E3AC6C;
+    font-size: 28px;
+}
+
+.cabecalho-turma-detalhe p {
+    color: #cfcfcf;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.stats-rapidas-turma {
+    display: flex;
+    gap: 28px;
+}
+
+.stats-rapidas-turma div {
+    text-align: center;
+}
+
+.stats-rapidas-turma strong {
+    display: block;
+    font-size: 22px;
+    color: #E15EFF;
+}
+
+.stats-rapidas-turma span {
+    font-size: 11px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.container-botoes-turma {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.conteudo-aba-turma {
+    display: none;
+}
+
+.conteudo-aba-turma.ativo {
+    display: block;
+}
+
+/* ---------- ARQUIVOS (professor) ---------- */
+.topo-acoes-arquivos {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-nova-pasta,
+.btn-adicionar-arquivo {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 9px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: .2s;
+}
+
+.btn-nova-pasta:hover,
+.btn-adicionar-arquivo:hover {
+    background: rgba(232, 121, 249, 0.15);
+    border-color: #E879F9;
+    color: #f28cff;
+}
+
+.filtro-turma-arquivos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 25px 0 15px 0;
+}
+
+.breadcrumb-arquivos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a0a0a0;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.breadcrumb-arquivos span {
+    cursor: pointer;
+}
+
+.breadcrumb-arquivos span:hover,
+.breadcrumb-arquivos span:last-child {
+    color: #f28cff;
+}
+
+.cabecalho-arquivos.professor {
+    grid-template-columns: 2fr 1fr 1fr 90px;
+}
+
+.arquivo-item.professor {
+    grid-template-columns: 2fr 1fr 1fr 90px;
+}
+
+.acoes-arquivo {
+    display: flex;
+    gap: 10px;
+    justify-self: end;
+}
+
+.btn-icone-acao {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.btn-icone-acao:hover {
+    color: #f28cff;
+}
+
+.btn-icone-acao.excluir:hover {
+    color: #ff5a5a;
+}
+
+/* ---------- MODAL GENÉRICO (nova pasta / adicionar arquivo) ---------- */
+.modal-generico-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 6000;
+}
+
+.modal-generico-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-generico-conteudo {
+    background: #16161a;
+    border: 1px solid #2e2e35;
+    border-radius: 20px;
+    padding: 30px;
+    width: min(420px, 90%);
+    position: relative;
+}
+
+.modal-generico-conteudo h2 {
+    color: #E3AC6C;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-generico-conteudo .input-group {
+    margin-bottom: 16px;
+}
+
+.modal-generico-conteudo .form-actions {
+    margin-top: 10px;
+}
+
+/* ---------- NOTAS E FREQUÊNCIA ---------- */
+.selecao-turma-notas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 40px 0 10px 0;
+}
+
+.btn-turma-notas {
+    background-color: #121214;
+    color: #ffffff;
+    border: 0.5px solid #646464;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-turma-notas.ativo {
+    background-color: #4c005c;
+}
+
+.tabela-notas-container {
+    background-color: #16161a;
+    border: 1px solid #282830;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+.tabela-notas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-notas th {
+    color: #7b93a4;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.tabela-notas th:first-child {
+    text-align: left;
+}
+
+.tabela-notas td {
+    color: #ffffff;
+    font-size: 14px;
+    padding: 12px 6px;
+    border-bottom: 1px solid #2a2a32;
+    text-align: center;
+}
+
+.tabela-notas td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.input-nota,
+.input-frequencia {
+    width: 60px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 8px;
+    color: #ffffff;
+    text-align: center;
+    padding: 6px 4px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+}
+
+.input-nota:focus,
+.input-frequencia:focus {
+    border-color: #E879F9;
+    outline: none;
+}
+
+.media-calculada {
+    font-weight: 700;
+    color: #E15EFF;
+}
+
+.badge-frequencia {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-frequencia.ok {
+    background: rgba(148, 255, 105, 0.12);
+    color: #94FF69;
+}
+
+.badge-frequencia.abaixo {
+    background: rgba(255, 90, 90, 0.15);
+    color: #ff5a5a;
+}
+
+.rodape-tabela-notas {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* ---------- PERFIL PROFESSOR: DISCIPLINAS ---------- */
+.tags-disciplinas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-disciplina {
+    background: rgba(232, 121, 249, 0.12);
+    border: 1px solid rgba(232, 121, 249, 0.35);
+    color: #f28cff;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ---------- CONFIGURAÇÕES (toggles) ---------- */
+.lista-configuracoes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-configuracao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.item-configuracao:last-child {
+    border-bottom: none;
+}
+
+.texto-configuracao h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.texto-configuracao p {
+    color: #a0a0a0;
+    font-size: 12px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: rgba(255,255,255,.15);
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background-color: #E879F9;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(20px);
 }
