@@ -104,14 +104,16 @@
             gap: 2px;
         }
         .account-links a {
-            font-family: 'Rye', serif; 
+            font-family: 'Sora', sans-serif; 
+            text-decoration: none;
             color: white;
-            text-decoration: underline;
-            font-size: 14px;
+            
+            font-size: 18px;
         }
 
         .account-links a:hover {
             color: #cccccc;
+            text-decoration: underline;
         }
 
         .main-navigation ul {
