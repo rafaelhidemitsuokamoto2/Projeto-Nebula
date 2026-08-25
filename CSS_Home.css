@@ -1051,11 +1051,13 @@
   opacity: 0.8;
 }
 */
-    /* Controla o tamanho e alinhamento das suas novas imagens */
+    /* Controla o tamanho e alinhamento da imagem de escola */
     .card-icon-img {
      width: 32px;  
      height: auto;
      object-fit: contain;
+     color: #E7B6E6;
+     font-size: 23px;
     }
 
  /* =====================
