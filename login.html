@@ -206,6 +206,60 @@ z-index: -1;
     color:#E7B6E6;
 }
 
+.separador{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:10px 0;
+}
+
+.linha-ou{
+
+    flex:1;
+
+    height:1px;
+
+    background:#b7b7b7;
+}
+
+.separador span{
+
+    color:white;
+
+    font-size:16px;
+}
+
+.botao-social{
+
+    width:305px;
+
+    padding:12px;
+
+    background:transparent;
+
+    border:1px solid #c575cc;
+
+    color:#E7B6E6;
+
+    transition:.3s;
+}
+
+.botao-social:hover{
+
+    cursor:pointer;
+
+    background:rgba(197,117,204,.12);
+
+    color:white;
+
+    box-shadow:
+        0 0 10px rgba(197,117,204,.3);
+}
+
     </style>
 </head>
 <body>
@@ -245,6 +299,21 @@ z-index: -1;
     <button class="botao-logar" type="submit">
         Logar
     </button>
+
+    <div class="separador">
+    <div class="linha-ou"></div>
+    <span>ou</span>
+    <div class="linha-ou"></div>
+    </div>
+
+    <button class="botao-social" type="button">
+    Receber código por E-mail
+    </button>
+
+    <button class="botao-social" type="button">
+    Continuar com Google
+    </button>
+
     </form>
 
     </div>
