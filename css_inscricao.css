@@ -408,3 +408,51 @@
 
     .status-selecionado .status-texto-esquerda { color: #4dff4d; }
     .status-selecionado .status-texto-direita { color: #4dff4d; font-weight: bold; }
+
+/* ==========================================
+   DECLARAÇÃO - POLÍTICA E TERMOS
+========================================== */
+
+.caixa-confirmacao{
+    margin-top:30px;
+    padding:18px 20px;
+    border:1px solid rgba(227,172,108,.3);
+    border-radius:8px;
+    background:rgba(227,172,108,.035);
+}
+
+.checkbox-confirmacao{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    cursor:pointer;
+}
+
+.checkbox-confirmacao input{
+    width:18px;
+    height:18px;
+    margin-top:3px;
+    accent-color:#E3AC6C;
+    flex-shrink:0;
+}
+
+.texto-confirmacao{
+    color:rgba(255,255,255,.82);
+    font-family:'Sora',sans-serif;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.link-declaracao{
+    color:#E3AC6C;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px dashed rgba(227,172,108,.6);
+    transition:.25s;
+}
+
+.link-declaracao:hover{
+    color:#F39CFF;
+    border-bottom-color:#F39CFF;
+}

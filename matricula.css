@@ -1053,6 +1053,19 @@ body {
     cursor: pointer;
 }
 
+/* Links de Política de Privacidade / Termos dentro da declaração */
+.link-declaracao {
+    color: #E3AC6C;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(227, 172, 108, 0.6);
+    transition: .25s;
+}
+
+.link-declaracao:hover {
+    color: #F39CFF;
+    border-bottom-color: rgba(243, 156, 255, 0.7);
+}
+
 /* =========================================================
    MODAL PIX — ETAPA 04 / PAGAMENTO
 ========================================================= */
