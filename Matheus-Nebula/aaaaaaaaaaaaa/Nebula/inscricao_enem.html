@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição — Vestibular Unificado Nebula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css_inscricao_enem.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon/entrar.svg">
+
+</head>
+<body>
+
+<header class="header-graduacao">
+    <a href="Home.php" class="logo-graduacao">
+        <img src="logo-ucen.png" alt="Logo UCEN">
+    </a>
+    <h1 class="titulo-header">
+        Universidade de Ciências Exatas Nebula
+    </h1>
+    <a href="Home.php" class="botao-sair">
+        Sair
+    </a>
+</header>
+
+<main class="conteudo-graduacao">
+    <img src="fundo_universo.jpg" class="bg-graduacao" alt="">
+
+    <div class="graduacao-container">
+        
+        <!-- Cabeçalho do Formulário -->
+        <div class="titulo-inscricao-container">
+            <h2 class="titulo-principal-form">Ficha de Inscrição — Vestibular Unificado Nebula</h2>
+            <div class="subtitulo-processo-form">
+                <span>Processo Seletivo via ENEM</span>
+                <span>•</span>
+                <span>Nebula </span>
+            </div>
+        </div>
+
+        <h3 class="subtitulo-abaixo">Formulário de Inscrição</h3>
+        <p class="descricao-caixa-form">Preencha seus dados para garantir sua vaga na Nebula!</p>
+
+        <!-- Início do Formulário Único -->
+        <form id="formulario-nebula">
+
+
+            <!-- ETAPA 1: Dados Pessoais -->
+<div class="formulario-container" id="etapa-1">
+
+    <h4 class="titulo-etapa">Dados do Candidato</h4>
+
+    <div class="campo-formulario"> 
+        <label for="nome-completo">Nome Completo:</label> 
+        <input 
+        type="text" 
+        id="nome-completo" 
+        name="nome-completo" 
+        autocomplete="name"
+        maxlength="120"
+        autocomplete="name" required> 
+    </div>
+
+    <div class="campo-formulario">
+    <label for="cpf">CPF:</label>
+
+    <input
+        type="text"
+        id="cpf"
+        name="cpf"
+        inputmode="numeric"
+        maxlength="14"
+        autocomplete="username"
+        placeholder="000.000.000-00"
+        autocomplete="off"
+        required>
+</div>
+
+    <div class="campo-formulario">
+    <label for="rg">RG:</label>
+
+    <input
+        type="text"
+        id="rg"
+        name="rg"
+        inputmode="numeric"
+        maxlength="12"
+        placeholder="00.000.000-0"
+        autocomplete="off"
+        required>
+</div>
+
+    <div class="campo-formulario">
+        <label for="data-nascimento">Data de Nascimento:</label>
+        <input
+            type="date"
+            id="data-nascimento"
+            name="data-nascimento"
+            autocomplete="bday"
+            autocomplete="bday"
+            required>
+    </div>
+
+    <div class="campo-formulario">
+        <label for="email-principal">E-mail Principal:</label>
+        <input
+            type="email"
+            id="email-principal"
+            name="email-principal"
+            autocomplete="email"
+            maxlength="120"
+            autocomplete="email"
+            required>
+    </div>
+
+    <div class="campo-formulario">
+        <label for="email-secundario">E-mail Secundário (Opcional):</label>
+        <input
+            type="email"
+            id="email-secundario"
+            name="email-secundario"
+            maxlength="120"
+            autocomplete="email">
+    </div>
+
+    <div class="campo-formulario">
+        <label for="telefone-principal">
+        Celular / WhatsApp:
+        </label>
+        <input
+            type="tel"
+            id="telefone-principal"
+            name="telefone-principal"
+            autocomplete="tel"
+            maxlength="15"
+            required>
+    </div>
+
+    <div class="campo-formulario">
+        <label for="telefone-reserva">Telefone Secundário (Opcional):</label>
+        <input
+            type="tel"
+            id="telefone-reserva"
+            maxlength="15"
+            name="telefone-reserva"
+            autocomplete="tel">
+    </div>
+
+    <div class="campo-formulario">
+        <label for="cidade">Cidade:</label>
+        <input
+            type="text"
+            id="cidade"
+            name="cidade"
+            maxlength="80"
+            autocomplete="address-level2"
+            required>
+    </div>
+
+    <div class="campo-formulario">
+        <label for="estado">Estado:</label>
+
+        <select id="estado" name="estado" required>
+
+            <option value="">Selecione...</option>
+
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+    </div>
+
+    <div class="container-botoes-form">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(1,2)">
+
+            Avançar!
+
+        </button>
+
+    </div>
+</div>
+
+            <!-- ETAPA 2: Preferências Acadêmicas -->
+<div class="formulario-container etapa-escondida" id="etapa-2">
+
+    <h4 class="titulo-etapa">Preferências Acadêmicas</h4>
+
+    <!-- Ano do ENEM -->
+    <div class="campo-formulario">
+
+        <label for="ano-enem">Ano de realização do ENEM:</label>
+
+        <select id="ano-enem" name="ano-enem" required>
+
+            <option value="">Selecione...</option>
+
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+
+        </select>
+
+    </div>
+
+    <!-- Curso - Primeira Opção -->
+    <div class="grupo-selecao">
+
+        <p class="rotulo-grupo">
+            • Curso Pretendido (Primeira Opção):
+        </p>
+
+        <div class="lista-opcoes">
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Astronomia" required><span>Astronomia</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Geofísica"><span>Geofísica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Astrofísica"><span>Astrofísica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Ciências Atmosféricas"><span>Ciências Atmosféricas</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Engenharia Aeroespacial"><span>Engenharia Aeroespacial</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Engenharia Elétrica"><span>Engenharia Elétrica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Física"><span>Física</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Matemática"><span>Matemática</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Ciências da Computação"><span>Ciências da Computação</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao1" value="Engenharia de Telecomunicações"><span>Engenharia de Telecomunicações</span></label>
+
+        </div>
+
+    </div>
+
+    <!-- Curso - Segunda Opção -->
+    <div class="grupo-selecao">
+
+        <p class="rotulo-grupo">
+            • Curso Pretendido (Segunda Opção):
+        </p>
+
+        <div class="lista-opcoes">
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Astronomia" required><span>Astronomia</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Geofísica"><span>Geofísica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Astrofísica"><span>Astrofísica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Ciências Atmosféricas"><span>Ciências Atmosféricas</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Engenharia Aeroespacial"><span>Engenharia Aeroespacial</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Engenharia Elétrica"><span>Engenharia Elétrica</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Física"><span>Física</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Matemática"><span>Matemática</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Ciências da Computação"><span>Ciências da Computação</span></label>
+
+            <label class="opcao-radio"><input type="radio" name="curso-opcao2" value="Engenharia de Telecomunicações"><span>Engenharia de Telecomunicações</span></label>
+
+        </div>
+
+    </div>
+    <!-- Escolha da Modalidade -->
+    <div class="grupo-selecao">
+
+    <p class="rotulo-grupo">
+        • Modalidade de ensino:
+    </p>
+
+    <div class="lista-opcoes">
+
+        <label class="opcao-radio">
+            <input type="radio" name="modalidade" value="Presencial" required>
+            <span>Presencial</span>
+        </label>
+
+        <label class="opcao-radio">
+            <input type="radio" name="modalidade" value="Semipresencial">
+            <span>Semipresencial</span>
+        </label>
+
+        <label class="opcao-radio">
+            <input type="radio" name="modalidade" value="EaD">
+            <span>EaD</span>
+        </label>
+    </div>
+</div>
+
+    <!-- Turno -->
+    <div class="grupo-selecao">
+
+        <p class="rotulo-grupo">
+            • Turno de preferência:
+        </p>
+
+        <div class="lista-opcoes">
+
+            <label class="opcao-radio">
+                <input type="radio" name="turno" value="Matutino" required>
+                <span>Matutino</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input type="radio" name="turno" value="Vespertino">
+                <span>Vespertino</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input type="radio" name="turno" value="Noturno">
+                <span>Noturno</span>
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- Botões -->
+    <div class="container-botoes-form" style="justify-content: space-between;">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color:#ffffff;border-color:rgba(255,255,255,.3);"
+            onclick="voltarEtapa(2,1)">
+
+            Voltar
+
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(2,3)">
+
+            Avançar!
+
+        </button>
+
+    </div>
+
+</div>
+
+            <!-- ETAPA 3: Modalidade de Concorrência -->
+<div class="formulario-container etapa-escondida" id="etapa-3">
+
+    <h4 class="titulo-etapa">Modalidade de Ingresso e Ações Afirmativas</h4>
+
+    <!-- Modalidade -->
+    <div class="grupo-selecao">
+
+        <p class="rotulo-grupo">• Modalidade de Ingresso e Ações Afirmativas:</p>
+
+        <div class="lista-opcoes">
+
+            <label class="opcao-radio">
+                <input type="radio" name="concorrencia" value="Ampla" onclick="toggleCotas(false)" required>
+                <span>Ampla Concorrência</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input type="radio" name="concorrencia" value="Cotas" onclick="toggleCotas(true)">
+                <span>Cotas</span>
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- Bloco das cotas -->
+    <div id="bloco-cotas" class="etapa-escondida">
+
+        <!-- Escola -->
+        <div class="grupo-selecao">
+
+            <p class="rotulo-grupo">• Ensino Médio:</p>
+
+            <div class="lista-opcoes">
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ensino-medio" value="Publica">
+                    <span>Integralmente em escola pública</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ensino-medio" value="Bolsa">
+                    <span>Escola privada com bolsa integral</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ensino-medio" value="Privada">
+                    <span>Integralmente em escola privada</span>
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- PPI -->
+        <div class="grupo-selecao">
+
+            <p class="rotulo-grupo">• Autodeclaração Étnico-Racial:</p>
+
+            <div class="lista-opcoes">
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ppi" value="Nao">
+                    <span>Não se aplica</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ppi" value="Preta">
+                    <span>Pessoa Preta</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ppi" value="Parda">
+                    <span>Pessoa Parda</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="ppi" value="Indigena">
+                    <span>Pessoa Indígena</span>
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- PcD -->
+        <div class="grupo-selecao">
+
+            <p class="rotulo-grupo">• Pessoa com Deficiência (PcD):</p>
+
+            <div class="lista-opcoes">
+
+                <label class="opcao-radio">
+                    <input type="radio" name="pcd" value="Nao" onclick="toggleLaudo(false)">
+                    <span>Não</span>
+                </label>
+
+                <label class="opcao-radio">
+                    <input type="radio" name="pcd" value="Sim" onclick="toggleLaudo(true)">
+                    <span>Sim</span>
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Nome Social -->
+<div class="grupo-selecao">
+
+    <p class="rotulo-grupo">
+        • Deseja utilizar nome social?
+    </p>
+
+    <div class="lista-opcoes">
+
+        <label class="opcao-radio">
+
+            <input
+                type="radio"
+                name="utiliza-nome-social"
+                value="nao">
+
+            <span>Não</span>
+
+        </label>
+
+        <label class="opcao-radio">
+
+            <input
+                type="radio"
+                name="utiliza-nome-social"
+                value="sim">
+
+            <span>Sim</span>
+
+        </label>
+    </div>
+</div>
+
+<div
+    class="campo-formulario etapa-escondida"
+    id="campo-nome-social">
+
+    <label for="nome-social">
+        Nome social:
+    </label>
+
+    <input
+        type="text"
+        id="nome-social"
+        name="nome-social"
+        maxlength="120"
+        placeholder="Informe seu nome social">
+
+</div>
+
+    <!-- Botões -->
+    <div class="container-botoes-form" style="justify-content: space-between;">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color:#ffffff;border-color:rgba(255,255,255,.3);"
+            onclick="voltarEtapa(3,2)">
+            Voltar
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(3,4)">
+            Avançar!
+        </button>
+
+    </div>
+
+</div>
+
+            <!-- ETAPA 4: Envio do Boletim do ENEM -->
+<div class="formulario-container etapa-escondida" id="etapa-4">
+
+    <h4 class="titulo-etapa">Documentos e Declarações</h4>
+
+    <p class="descricao-caixa-form" style="margin-bottom:30px;">
+        Anexe os documentos necessários para concluir sua inscrição no Processo Seletivo via ENEM.
+    </p>
+
+    <!-- Caixa de informação -->
+    <div class="caixa-informacoes">
+
+    <strong>Importante:</strong>
+
+    <ul class="lista-atencao">
+
+        <li>Apenas arquivos em <strong>PDF</strong> serão aceitos.</li>
+
+        <li>O Boletim Individual de Desempenho do ENEM é obrigatório.</li>
+
+        <li>O laudo médico deverá ser anexado apenas pelos candidatos que concorrerem às vagas PcD.</li>
+
+    </ul>
+
+</div>
+
+    <!-- Upload -->
+    <div class="grupo-upload-moderno">
+
+        <p class="titulo-upload">
+            Boletim de Desempenho Individual do ENEM
+        </p>
+
+        <label class="area-dropzone" for="boletim-enem">
+
+            <input
+                type="file"
+                id="boletim-enem"
+                name="boletim-enem"
+                accept=".pdf"
+                required
+                onchange="atualizarStatusArquivo(this, 'status-enem')">
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="texto-destaque">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div class="status-upload status-pendente" id="status-enem">
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+        
+    </div>
+        <!-- Upload (PcD)-->
+    <div class="grupo-upload-moderno etapa-escondida"
+    id="upload-laudo-pcd">
+
+        <p class="titulo-upload">
+            Laudo Médico (PcD)
+        </p>
+
+        <p class="descricao-upload-opcional">
+        Obrigatório apenas para candidatos que optaram pela modalidade PcD.
+        </p>
+
+        <label class="area-dropzone" for="laudo-pcd">
+
+            <input
+                type="file"
+                id="laudo-pcd"
+                name="laudo-pcd"
+                accept=".pdf"
+                onchange="atualizarStatusArquivo(this, 'status-laudo-pcd')">
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="texto-destaque">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div class="status-upload status-pendente" id="status-laudo-pcd">
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Botões -->
+    <div class="container-botoes-form"
+         style="justify-content:space-between; margin-top:45px;">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color:#ffffff;border-color:rgba(255,255,255,.3);"
+            onclick="voltarEtapa(4,3)">
+
+            Voltar
+
+        </button>
+
+        <button
+            type="submit"
+            class="botao-avancar-form"
+            style="color:#E3AC6C;border-color:#E3AC6C;">
+
+            Enviar Inscrição
+
+        </button>
+
+    </div>
+
+</div>
+</form>
+</div>
+</main>
+<script src="js_inscricao_enem.js"></script>
+</body>
+</html>

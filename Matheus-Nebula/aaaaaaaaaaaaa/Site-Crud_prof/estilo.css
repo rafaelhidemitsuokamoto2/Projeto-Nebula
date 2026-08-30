@@ -1,0 +1,347 @@
+               /* Arquivo css formatação do site */    
+
+       /* -------------------Formatação geral--------------------------*/                                                                                     /**/
+
+	*{
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	text-decoration: none;
+	list-style: none;
+	
+	}
+
+	                
+	   /* ------------------------ TOPO DO SITE ---------------------------- */
+
+
+    #topo{
+    position: relative;
+	
+	width: 100%;
+	height: 200px;
+	float: left;
+	background-color:black;
+}
+	.logo{
+		position: relative;
+		width: 200px;
+		height: 200;
+		float: left;
+		margin: 20px;
+	}
+	.link_top{
+		float: right;
+		padding: 10px;
+		margin-left: 5px;
+		background-color:#008B8B;
+		color: #FFF;
+		margin: 5px 2px;
+}
+
+	.link_top:hover{
+
+		background-color:#fff;
+		color:black;
+
+	}
+
+ /*----------------------------FIM DO TOPO ----------------------  */
+
+
+ /*----------------------------COMEÇO DO MENU--------------------------- */
+
+	
+    #menu{
+    position: relative;
+
+	width: 100%;
+	height: 40px;
+	float: left;
+	background-color: #008B8B;
+
+
+}
+    .link_menu  li a{
+    	float: left;
+    	margin-top: -1px;
+    	padding: 15px;
+    	background-color:#008B8B;
+    	color: #fff;
+
+}
+
+
+/*---------------EFEITO QUANDO PASSAR MOUSE POR CIMA  -----------*/
+		.link_menu li a:hover{
+
+		background-color:#fff;
+		color:black;
+	}
+
+
+
+
+/*-------------------------FIM DO MENU--------------------- */
+
+
+/*-------------------------INICIO DO CONTEUDO----------------------*/
+
+
+    .imagem{
+
+    	width: 100%;
+    }
+	#conteudo{
+    position: relative;
+	width: 100%;
+	height: 700px;
+	float: left;
+	background-color: #FFF;
+	padding-left: 15px;
+	}
+
+	#conteudo_principal{
+		width: 67.5%;
+		height: 570px;
+		float: left;
+		border: 1px solid black;
+		margin: 15px 10px;
+	}
+
+	
+	#recentes{
+		width: 27%;
+		height: 570px;
+		float: left;
+		border: 1px solid black;
+		margin: 15px 10px;
+	}
+	.postagens{
+		width: 100%;
+		height:600px;
+		overflow: hidden;
+		float: left;
+		margin: 0 0 10px 0;
+		border: 0px solid red;
+	}
+
+	.postagens_recentes{
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		float: left;
+		margin: 0 0 10px 0;
+		border: 0px solid red;
+
+
+
+
+	}
+
+	.titulos{
+			font-size: 20px;
+			font-family:calibri,sans-serif;
+			float: left;
+			width: 96%;
+			margin: 10px 2%;
+			text-align: center;
+	}
+	.titulos a:hover{
+
+		color:#59F;
+
+
+
+	}
+
+	.paragrafo,.data{
+		font-size: 20px;
+		color: #111;
+		float: left;
+		width: 96%;
+		font-family: calibri,sans-serif;
+		margin: 10px 2%;
+
+	}
+/*-----------------------FIM DO CONTEUDO----------------------------*/
+
+
+
+
+
+
+/* ----------------------PAGINA DE CONTATO--------------------------*/
+
+	.campos,.campos_cad,#botoes,.botoes{
+
+		width: 80%;
+		margin: 10px 10%;
+		min-height: 30px;
+		float: left;
+	}
+	#box_form{
+		width: 80%;
+		min-height: 300px;
+		background-color: #fff;
+		margin: 40px auto;overflow: hidden;
+	}
+
+	.bt_cad{
+		float: left;
+		font-size: 16px;
+		padding: 5px;
+		margin-right: 5px;
+	}
+
+	.form_link{
+		color: #59f;
+		font-size: 16px;
+		float: left;
+		
+	}
+	.p_form{
+		color: #333;
+		font-size: 20px;
+		float: left;
+		width: 100%;
+		
+	}
+
+
+
+
+
+
+
+
+/*-----------------------FIM DA PAGINA DE CONTATO-------------------*/
+
+/*----------------------iNICIO DO RODAPE ---------------------------*/
+
+	#rodape{
+    position: relative;
+	width: 100%;
+	height: 70px;
+	float: left;
+	background-color:black;
+	color: white;
+	}
+
+	.direitos{
+
+     color: #fff;
+     text-align: center;
+     margin-top: 15px;
+
+
+	}
+/*-----------------------FIM DO RODAPE-------------------------*/
+	#geral{
+	max-width: 1000px;
+	height: 1100px;
+	overflow:hidden;
+	margin: 0 auto;
+	}
+
+	body{
+	background-color: #ffD;
+
+
+	}
+
+/* ==============================================*/
+.container-login {
+    width: 500px;
+    margin: 50px auto;
+    padding: 65px;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+    background-color: rgb(48, 48, 48);
+    border-radius: 10px;
+    color: white;
+
+    box-shadow:
+        0 0 8px rgba(93, 195, 255, 0.67),
+        0 0 14px rgba(6, 95, 211, 0.25);
+}
+
+.legenda {
+    margin-left: 5px;    /* joga para direita */
+}
+.campos {
+	position: relative;
+	top: -35px;
+	left: 45px;
+	padding: 5px;
+}
+.senha_login {
+	position: relative;
+	top: -20px;
+	left: 82px;
+	padding: 5px;
+}
+
+
+.bt_enviar {
+    display: block;
+    width: 250%;
+    margin-top: 20px;
+    padding: 15px;
+
+    background-color: rgb(40, 120, 185);
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bt_enviar:hover {
+    background: rgba(243, 156, 255, .08);
+    color: #4781cc;
+
+    box-shadow:
+        0 0 12px rgba(93, 195, 255, 0.671),
+        0 0 24px rgba(6, 95, 211, 0.25);
+
+    transform: translateY(-2px);
+}
+
+#cadastro {
+	padding-left: 15px;
+	padding: 15px;
+}
+/*--------------------*/
+#conteudoReg {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    float: left;
+    background-color: #FFF;
+}
+
+#cadastroReg {
+    width: 67.5%;
+    height: 520px;
+    float: left;
+    border: 1px solid black;
+    margin: 50px 161px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(48, 48, 48);
+    border-radius: 10px;
+    padding: 35px;
+    color: white;
+
+    box-shadow:
+        0 0 8px rgba(93, 195, 255, 0.67),
+        0 0 14px rgba(6, 95, 211, 0.25);
+
+    box-sizing: border-box;
+}
+#cadastroReg table {
+    margin: 50px auto 0;
+}

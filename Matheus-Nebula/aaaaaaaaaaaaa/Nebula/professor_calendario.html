@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Calendário - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_calendario.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu ativo" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - CALENDÁRIO
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="calendario">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">PLANEJAMENTO</span>
+                    <div class="titulo-linha">
+                        <h1>Calendário</h1>
+                        <span></span>
+                    </div>
+                    <p>Provas, entregas, reuniões e datas acadêmicas das suas turmas.</p>
+                </div>
+
+                <div class="container-calendario-secao">
+
+                    <div class="box-calendario">
+                        <div class="topo-calendario">
+                            <button class="btn-nav-cal" id="btn-prev">&lt;</button>
+                            <h2 id="mes-ano-titulo">Novembro de 2026</h2>
+                            <button class="btn-nav-cal" id="btn-next">&gt;</button>
+                        </div>
+
+                        <div class="dias-semana-cal">
+                            <span>Dom.</span>
+                            <span>Seg.</span>
+                            <span>Ter.</span>
+                            <span>Qua.</span>
+                            <span>Qui.</span>
+                            <span>Sex.</span>
+                            <span>Sáb.</span>
+                        </div>
+
+                        <div class="grade-dias-cal" id="grade-dias">
+                            <!-- JS -->
+                        </div>
+                    </div>
+
+                    <div class="box-eventos">
+                        <div class="lista-eventos-cal" id="lista-eventos">
+                            <!-- JS -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL ANUAL -->
+    <div id="modal-visao-anual" class="modal-overlay-anual">
+        <div class="modal-container-anual">
+            <div class="header-modal-anual">
+                <h2 id="titulo-ano-modal">Ano de 2026</h2>
+                <button class="btn-fechar-modal" id="fechar-modal-anual" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="grid-meses-ano" id="grid-meses-ano">
+                <!-- JavaScript gera os 12 meses -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_calendario.js" defer></script>
+</body>
+</html>

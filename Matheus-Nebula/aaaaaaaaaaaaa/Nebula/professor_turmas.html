@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Minhas Turmas - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_turmas.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu ativo" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - MINHAS TURMAS
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="turmas">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">ACADÊMICO</span>
+                    <div class="titulo-linha">
+                        <h1>Minhas Turmas</h1>
+                        <span></span>
+                    </div>
+                    <p>Selecione uma turma para acessar arquivos, notas, frequência e agenda.</p>
+                </div>
+
+                <!-- LISTAGEM DE TURMAS -->
+                <div class="grid-turmas" id="listaTurmas">
+
+                    <div class="card-turma" data-turma="bd">
+                        <span class="semestre-tag">3º SEMESTRE</span>
+                        <h3>Banco de Dados</h3>
+                        <div class="detalhes-card-turma">
+                            <span><i class="fa-solid fa-users"></i>28 alunos matriculados</span>
+                            <span><i class="fa-solid fa-door-open"></i>Sala 25 · Seg, Ter, Qua, Sex</span>
+                            <span><i class="fa-solid fa-chart-line"></i>Média da turma: 8.4</span>
+                        </div>
+                        <div class="rodape-card-turma">
+                            <span class="badge-status-curso">Em andamento</span>
+                            <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+                        </div>
+                    </div>
+
+                    <div class="card-turma" data-turma="prog">
+                        <span class="semestre-tag">2º SEMESTRE</span>
+                        <h3>Programação</h3>
+                        <div class="detalhes-card-turma">
+                            <span><i class="fa-solid fa-users"></i>32 alunos matriculados</span>
+                            <span><i class="fa-solid fa-door-open"></i>Sala 25 · Seg, Qua, Qui, Sex</span>
+                            <span><i class="fa-solid fa-chart-line"></i>Média da turma: 7.9</span>
+                        </div>
+                        <div class="rodape-card-turma">
+                            <span class="badge-status-curso">Em andamento</span>
+                            <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+                        </div>
+                    </div>
+
+                    <div class="card-turma" data-turma="es">
+                        <span class="semestre-tag">5º SEMESTRE</span>
+                        <h3>Engenharia de Software</h3>
+                        <div class="detalhes-card-turma">
+                            <span><i class="fa-solid fa-users"></i>24 alunos matriculados</span>
+                            <span><i class="fa-solid fa-door-open"></i>Sala 25 · Qui, Sex</span>
+                            <span><i class="fa-solid fa-chart-line"></i>Média da turma: 7.2</span>
+                        </div>
+                        <div class="rodape-card-turma">
+                            <span class="badge-status-curso">Em andamento</span>
+                            <button type="button" class="btn-entrar-turma">Entrar na turma</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DETALHE DA TURMA -->
+                <div class="turma-detalhe" id="detalheTurma">
+
+                    <button type="button" class="btn-voltar-turmas" id="btnVoltarTurmas">
+                        <i class="fa-solid fa-arrow-left"></i> Voltar para Minhas Turmas
+                    </button>
+
+                    <div class="cabecalho-turma-detalhe">
+                        <div>
+                            <h2 id="tituloTurmaDetalhe">Banco de Dados</h2>
+                            <p id="subtituloTurmaDetalhe">3º Semestre · Sala 25</p>
+                        </div>
+                        <div class="stats-rapidas-turma">
+                            <div><strong id="statAlunosTurma">28</strong><span>Alunos</span></div>
+                            <div><strong id="statMediaTurma">8.4</strong><span>Média</span></div>
+                            <div><strong id="statFreqTurma">94%</strong><span>Frequência</span></div>
+                        </div>
+                    </div>
+
+                    <div class="container-botoes-turma">
+                        <button type="button" class="btn-opcao ativo" data-aba-turma="visao">Visão Geral</button>
+                        <button type="button" class="btn-opcao" data-aba-turma="arquivos">Arquivos</button>
+                        <button type="button" class="btn-opcao" data-aba-turma="notas">Notas e Frequência</button>
+                        <button type="button" class="btn-opcao" data-aba-turma="agenda">Agenda</button>
+                    </div>
+
+                    <!-- ABA VISÃO GERAL -->
+                    <div class="conteudo-aba-turma ativo" data-conteudo-aba="visao">
+                        <div class="box-detalhes-semestre">
+                            <div class="cabecalho-box-semestre">
+                                <h2 class="titulo-semestre-materia">
+                                    <span class="destaque-rosa" id="visaoTurmaNome">Sobre a turma</span>
+                                </h2>
+                            </div>
+                            <p style="color:#cfcfcf; font-size:14px; line-height:1.7;" id="visaoTurmaDescricao">
+                                Turma de Banco de Dados do 3º semestre de Ciências da Computação. Encontros às segundas,
+                                terças, quartas e sextas, sempre na Sala 25. Conteúdo focado em modelagem relacional, SQL e MongoDB.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ABA ARQUIVOS -->
+                    <div class="conteudo-aba-turma" data-conteudo-aba="arquivos">
+                        <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                            Os arquivos desta turma também aparecem na seção geral de <strong>Arquivos</strong>, já filtrados por disciplina.
+                        </p>
+                        <a class="btn-nova-pasta" id="btnIrArquivosTurma" href="professor_arquivos.html?turma=bd">
+                            <i class="fa-solid fa-folder-open"></i> Abrir Arquivos da turma
+                        </a>
+                    </div>
+
+                    <!-- ABA NOTAS -->
+                    <div class="conteudo-aba-turma" data-conteudo-aba="notas">
+                        <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                            Lance notas e frequência desta turma diretamente na seção <strong>Notas e Frequência</strong>.
+                        </p>
+                        <a class="btn-nova-pasta" id="btnIrNotasTurma" href="professor_notas.html?turma=bd">
+                            <i class="fa-solid fa-clipboard-list"></i> Abrir Notas e Frequência
+                        </a>
+                    </div>
+
+                    <!-- ABA AGENDA -->
+                    <div class="conteudo-aba-turma" data-conteudo-aba="agenda">
+                        <p style="color:#cfcfcf; font-size:14px; margin-bottom: 10px;">
+                            Veja todos os horários e compromissos desta turma na <strong>Agenda</strong> geral.
+                        </p>
+                        <a class="btn-nova-pasta" id="btnIrAgendaTurma" href="professor_agenda.html?turma=bd">
+                            <i class="fa-solid fa-calendar-days"></i> Abrir Agenda
+                        </a>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_turmas.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrícula — Universidade de Ciências Exatas Nebula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="matricula.css">
+
+</head>
+<body>
+
+<header class="header-graduacao">
+    <a href="Home.php" class="logo-graduacao">
+        <img src="logo-ucen.png" alt="Logo UCEN">
+    </a>
+    <h1 class="titulo-header">
+        Universidade de Ciências Exatas Nebula
+    </h1>
+    <a href="Home.php" class="botao-sair">
+        Sair
+    </a>
+</header>
+
+<main class="conteudo-graduacao">
+    <img src="fundo_universo.jpg" class="bg-graduacao" alt="">
+
+    <div class="graduacao-container">
+        
+        <!-- Cabeçalho do Formulário -->
+        <div class="titulo-inscricao-container">
+            <h2 class="titulo-principal-form">Ficha de Matrícula — Universidade de Ciências Exatas Nebula</h2>
+            <div class="subtitulo-processo-form">
+                <span>Matrícula</span>
+                <span>•</span>
+                <span>Nebula</span>
+            </div>
+        </div>
+
+        <h3 class="subtitulo-abaixo">Formulário de Matrícula</h3>
+        <p class="descricao-caixa-form">Preencha e confirme seus dados para efetivar sua matrícula na Nebula.</p>
+
+        <!-- Início do Formulário Único -->
+        <form id="formulario-nebula" onsubmit="event.preventDefault();">
+
+<!-- ETAPA 1: Dados Pessoais e de Contato -->
+<div class="formulario-container" id="etapa-1">
+    <h4 class="titulo-etapa">Dados Pessoais e de Contato</h4>
+
+    <div class="campo-formulario">
+        <label for="nome-completo">Nome Completo:</label>
+        <input
+            type="text"
+            id="nome-completo"
+            name="nome-completo"
+            autocomplete="name"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="cpf">CPF:</label>
+        <input
+            type="text"
+            id="cpf"
+            name="cpf"
+            inputmode="numeric"
+            autocomplete="username"
+            placeholder="000.000.000-00"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="rg">RG:</label>
+        <input
+            type="text"
+            id="rg"
+            name="rg"
+            inputmode="numeric"
+            placeholder="00.000.000-0"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="orgao-expedidor">Órgão Expedidor:</label>
+        <input
+            type="text"
+            id="orgao-expedidor"
+            name="orgao-expedidor"
+            placeholder="Ex.: SSP"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="uf-rg">UF do Órgão Expedidor:</label>
+        <select id="uf-rg" name="uf-rg" required>
+            <option value="" selected disabled>Selecione o estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+    </div>
+
+    <div class="campo-formulario">
+        <label for="data-nascimento">Data de Nascimento:</label>
+        <input
+            type="date"
+            id="data-nascimento"
+            name="data-nascimento"
+            autocomplete="bday"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="nome-mae">Nome Completo da Mãe:</label>
+        <input
+            type="text"
+            id="nome-mae"
+            name="nome-mae"
+            autocomplete="off"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="nome-pai">Nome Completo do Pai:</label>
+        <input
+            type="text"
+            id="nome-pai"
+            name="nome-pai"
+            autocomplete="off"
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="email-principal">E-mail Principal:</label>
+        <input
+            type="email"
+            id="email-principal"
+            name="email"
+            autocomplete="email"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="telefone">Telefone / WhatsApp:</label>
+        <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            autocomplete="tel"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="telefone-reserva">Telefone / WhatsApp (Reserva):</label>
+        <input
+            type="tel"
+            id="telefone-reserva"
+            name="telefone-reserva"
+        >
+    </div>
+
+    <!-- Botão de Avançar desta Etapa -->
+    <div class="container-botoes-form">
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(1, 2)"
+        >
+            Avançar!
+        </button>
+    </div>
+</div>
+
+ <!-- ETAPA 2: Endereço -->
+<div class="formulario-container etapa-escondida" id="etapa-2">
+    <h4 class="titulo-etapa">Endereço Residencial</h4>
+
+    <div class="campo-formulario">
+        <label for="cep">CEP:</label>
+        <input
+            type="text"
+            id="cep"
+            name="cep"
+            inputmode="numeric"
+            autocomplete="postal-code"
+            placeholder="00000-000"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="logradouro">Logradouro:</label>
+        <input
+            type="text"
+            id="logradouro"
+            name="logradouro"
+            autocomplete="street-address"
+            placeholder="Ex.: Rua das Estrelas"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="numero">Número:</label>
+        <input
+            type="text"
+            id="numero"
+            name="numero"
+            inputmode="text"
+            placeholder="Ex.: 123 ou 123-A"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="complemento">Complemento:</label>
+        <input
+            type="text"
+            id="complemento"
+            name="complemento"
+            autocomplete="address-line2"
+            placeholder="Ex.: Apartamento 42, Bloco B"
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="bairro">Bairro:</label>
+        <input
+            type="text"
+            id="bairro"
+            name="bairro"
+            autocomplete="address-level3"
+            placeholder="Digite seu bairro"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="cidade">Cidade:</label>
+        <input
+            type="text"
+            id="cidade"
+            name="cidade"
+            autocomplete="address-level2"
+            placeholder="Digite sua cidade"
+            required
+        >
+    </div>
+
+    <div class="campo-formulario">
+        <label for="uf-endereco">UF:</label>
+        <select
+            id="uf-endereco"
+            name="uf-endereco"
+            autocomplete="address-level1"
+            required
+        >
+            <option value="" selected disabled>Selecione o estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+    </div>
+
+    <!-- Botões de Navegação -->
+    <div class="container-botoes-form" style="justify-content: space-between;">
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #ffffff; border-color: rgba(255,255,255,0.3);"
+            onclick="voltarEtapa(2, 1)"
+        >
+            Voltar
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(2, 3)"
+        >
+            Avançar!
+        </button>
+    </div>
+</div>
+
+<!-- =========================================================
+     ETAPA 3: Perfil Socioeconômico e Vínculos
+     
+     ATENÇÃO:
+     Alguns campos desta etapa possuem comportamento condicional.
+     O HTML abaixo já está preparado para que o JS controle
+     futuramente a exibição desses campos.
+     
+     O PHP/backend será responsável futuramente por receber,
+     validar e cadastrar essas informações no sistema.
+========================================================= -->
+
+<div class="formulario-container etapa-escondida" id="etapa-3">
+
+    <h4 class="titulo-etapa">Perfil Socioeconômico e Vínculos</h4>
+
+    <!-- Estado Civil -->
+    <div class="campo-formulario">
+        <label for="estado-civil">Estado Civil:</label>
+        <select id="estado-civil" name="estado-civil" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="solteiro">Solteiro(a)</option>
+            <option value="casado">Casado(a)</option>
+            <option value="divorciado">Divorciado(a)</option>
+            <option value="viuvo">Viúvo(a)</option>
+            <option value="uniao-estavel">União estável</option>
+        </select>
+    </div>
+
+    <!-- Nacionalidade -->
+    <div class="campo-formulario">
+        <label for="nacionalidade">Nacionalidade:</label>
+        <select id="nacionalidade" name="nacionalidade" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="brasileiro">Brasileiro(a)</option>
+            <option value="naturalizado">Brasileiro naturalizado(a)</option>
+            <option value="estrangeiro">Estrangeiro(a)</option>
+        </select>
+    </div>
+
+    <!-- Cidade de Nascimento -->
+    <div class="campo-formulario">
+        <label for="cidade-nascimento">Cidade de Nascimento:</label>
+        <input
+            type="text"
+            id="cidade-nascimento"
+            name="cidade-nascimento"
+            placeholder="Ex.: Osasco"
+            required
+        >
+    </div>
+
+    <!-- UF de Nascimento -->
+    <div class="campo-formulario">
+        <label for="uf-nascimento">UF de Nascimento:</label>
+        <select id="uf-nascimento" name="uf-nascimento" required>
+            <option value="" selected disabled>Selecione o estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+    </div>
+
+    <!-- Atendimento Especializado -->
+    <div class="grupo-selecao">
+        <p class="rotulo-grupo">• Necessita de atendimento especializado ou recurso de acessibilidade?</p>
+
+        <div class="lista-opcoes">
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="acessibilidade"
+                    value="nao"
+                    required
+                >
+                <span>Não</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="acessibilidade"
+                    value="sim"
+                >
+                <span>Sim</span>
+            </label>
+        </div>
+
+        <!--
+            JS FUTURO:
+            Caso o aluno selecione "Sim", o JavaScript poderá
+            abrir uma caixa adicional para que ele informe
+            qual atendimento ou recurso de acessibilidade necessita.
+
+            PHP FUTURO:
+            Essas informações deverão ser recebidas e cadastradas
+            no sistema acadêmico para que a universidade possa
+            preparar o atendimento adequado.
+        -->
+
+        <div class="campo-formulario etapa-escondida" id="campo-acessibilidade">
+            <label for="necessidade-acessibilidade">
+                Informe qual atendimento ou recurso necessita:
+            </label>
+
+            <textarea
+                id="necessidade-acessibilidade"
+                name="necessidade-acessibilidade"
+                rows="4"
+                placeholder="Descreva sua necessidade de atendimento ou recurso de acessibilidade."
+            ></textarea>
+        </div>
+    </div>
+
+    <!-- Situação Profissional -->
+    <div class="campo-formulario">
+        <label for="situacao-profissional">Situação Profissional:</label>
+
+        <select
+            id="situacao-profissional"
+            name="situacao-profissional"
+            required
+        >
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="empregado">Empregado(a)</option>
+            <option value="desempregado">Desempregado(a)</option>
+            <option value="autonomo">Autônomo(a)</option>
+            <option value="estudante">Estudante</option>
+            <option value="outro">Outro</option>
+        </select>
+    </div>
+
+    <!-- Moradia -->
+    <div class="grupo-selecao">
+        <p class="rotulo-grupo">• Você mora sozinho(a)?</p>
+
+        <div class="lista-opcoes">
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="mora-sozinho"
+                    value="sim"
+                    required
+                >
+                <span>Sim</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="mora-sozinho"
+                    value="nao"
+                >
+                <span>Não</span>
+            </label>
+        </div>
+
+        <!--
+            JS FUTURO:
+            Se "Sim" for selecionado, o campo de renda individual
+            deverá ser exibido.
+
+            Se "Não" for selecionado, os campos referentes ao
+            grupo familiar deverão ser exibidos.
+        -->
+    </div>
+
+    <!-- Renda individual -->
+    <div class="campo-formulario etapa-escondida" id="campo-renda-individual">
+        <label for="renda-individual">Renda mensal individual:</label>
+
+        <input
+            type="number"
+            id="renda-individual"
+            name="renda-individual"
+            min="0"
+            step="0.01"
+            placeholder="Ex.: 2500.00"
+        >
+
+        <!--
+            PHP FUTURO:
+            O valor informado aqui deverá ser armazenado como
+            renda individual do aluno quando ele declarar
+            que mora sozinho.
+        -->
+    </div>
+
+    <!-- Informações do grupo familiar -->
+    <div class="grupo-familiar etapa-escondida" id="grupo-familiar">
+
+        <div class="campo-formulario">
+            <label for="quantidade-moradores">
+                Quantas pessoas moram na residência?
+            </label>
+
+            <input
+                type="number"
+                id="quantidade-moradores"
+                name="quantidade-moradores"
+                min="2"
+                step="1"
+                placeholder="Ex.: 4"
+            >
+        </div>
+
+        <div class="campo-formulario">
+            <label for="renda-familiar">
+                Renda mensal familiar:
+            </label>
+
+            <input
+                type="number"
+                id="renda-familiar"
+                name="renda-familiar"
+                min="0"
+                step="0.01"
+                placeholder="Ex.: 5000.00"
+            >
+        </div>
+
+        <!--
+            PHP FUTURO:
+            Esses dados serão utilizados para registrar a composição
+            básica do grupo familiar e sua renda mensal.
+
+            JS FUTURO:
+            Este bloco será exibido somente quando o aluno informar
+            que mora com outras pessoas.
+        -->
+
+    </div>
+
+    <!-- Graduação anterior -->
+    <div class="grupo-selecao">
+        <p class="rotulo-grupo">• Você possui alguma graduação anterior?</p>
+
+        <div class="lista-opcoes">
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="graduacao-anterior"
+                    value="sim"
+                    required
+                >
+                <span>Sim</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="graduacao-anterior"
+                    value="nao"
+                >
+                <span>Não</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Outro vínculo acadêmico -->
+    <div class="grupo-selecao">
+        <p class="rotulo-grupo">
+            • Você possui outro vínculo ou matrícula em uma instituição de ensino?
+        </p>
+
+        <div class="lista-opcoes">
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="outro-vinculo"
+                    value="sim"
+                    required
+                >
+                <span>Sim</span>
+            </label>
+
+            <label class="opcao-radio">
+                <input
+                    type="radio"
+                    name="outro-vinculo"
+                    value="nao"
+                >
+                <span>Não</span>
+            </label>
+        </div>
+    </div>
+
+    <!--
+        BACKEND FUTURO — IMPORTANTE:
+
+        Os dados desta etapa serão enviados posteriormente ao PHP
+        junto com os demais dados da matrícula.
+
+        O PHP poderá utilizar essas informações para:
+        - cadastrar o perfil socioeconômico;
+        - registrar vínculos acadêmicos;
+        - armazenar informações de acessibilidade;
+        - relacionar os dados ao aluno matriculado.
+
+        NENHUMA dessas funções de backend está sendo implementada
+        agora. Neste momento, estamos apenas estruturando os campos
+        HTML que futuramente serão utilizados pelo sistema.
+    -->
+
+    <!-- Botões de Navegação -->
+    <div class="container-botoes-form" style="justify-content: space-between;">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #ffffff; border-color: rgba(255,255,255,0.3);"
+            onclick="voltarEtapa(3, 2)"
+        >
+            Voltar
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            onclick="proximaEtapa(3, 4)"
+        >
+            Avançar!
+        </button>
+
+    </div>
+
+</div>
+
+ <!-- ETAPA 4: Taxa de Matrícula -->
+<div class="formulario-container etapa-escondida" id="etapa-4">
+
+    <h4 class="titulo-etapa">Taxa de Matrícula</h4>
+
+    <!-- ==========================================
+         INFORMAÇÕES DA TAXA
+    ========================================== -->
+
+    <div class="grupo-selecao">
+
+        <div class="texto-informativo">
+            <span>• Valor da Taxa de Matrícula: <strong>R$ 130,00</strong></span>
+        </div>
+
+        <div class="texto-informativo">
+            <span>• Vencimento: <strong>20/02/2027</strong></span>
+        </div>
+
+        <div class="texto-informativo">
+            <span>
+                • A taxa de matrícula é independente das mensalidades do curso.
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         OPÇÕES DE PAGAMENTO
+    ========================================== -->
+
+    <div class="grupo-selecao">
+
+        <p class="rotulo-grupo">• Opção de Pagamento:</p>
+
+        <div class="lista-opcoes">
+
+            <!-- PIX -->
+            <label class="opcao-radio">
+
+                <input
+                    type="radio"
+                    name="pagamento"
+                    value="PIX"
+                    required
+                >
+
+                <span>
+                    PIX: pagamento instantâneo da taxa de matrícula.
+                </span>
+
+            </label>
+
+
+            <!-- ==================================================
+                 FUTURO BACKEND/PHP — ISENÇÃO DA TAXA
+
+                 Esta opção permanece comentada propositalmente.
+
+                 No futuro, o PHP poderá verificar se o aluno
+                 possui direito à isenção da taxa de matrícula
+                 com base na isenção obtida durante o vestibular.
+
+                 Nesse caso, esta opção poderá ser exibida
+                 automaticamente para o aluno elegível.
+
+                 A isenção NÃO será analisada novamente nesta
+                 etapa da matrícula.
+            ================================================== -->
+
+            <!--
+            <label id="opcao-isencao" class="opcao-radio">
+
+                <input
+                    type="radio"
+                    name="pagamento"
+                    value="Isencao"
+                >
+
+                <span>
+                    Isenção da Taxa: você possui direito à isenção
+                    concedida no processo seletivo.
+                </span>
+
+            </label>
+            -->
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         BOTÕES DE NAVEGAÇÃO
+    ========================================== -->
+
+    <div class="container-botoes-form" style="justify-content: space-between;">
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #ffffff; border-color: rgba(255,255,255,0.3);"
+            onclick="voltarEtapa(4, 3)"
+        >
+            Voltar
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #F39CFF; border-color: #F39CFF;"
+            onclick="verificarDestinoEtapa4()"
+        >
+            Avançar!
+        </button>
+
+    </div>
+</div>
+
+<!-- ==================================================
+     ETAPA 5: DOCUMENTAÇÃO DA MATRÍCULA
+================================================== -->
+
+<div class="formulario-container etapa-escondida" id="etapa-5">
+
+    <h4 class="titulo-etapa">Documentação da Matrícula</h4>
+
+    <p class="descricao-caixa-form">
+        Envie os documentos necessários para concluir sua matrícula.
+    </p>
+
+    <!--
+    ==================================================
+    REGRAS IMPORTANTES — IMPLEMENTAÇÃO FUTURA
+    ==================================================
+
+    1. A validação real dos arquivos deverá ser feita pelo JavaScript
+       e também pelo backend/PHP.
+
+    2. Cada arquivo deverá possuir tamanho máximo de 5 MB.
+
+    3. O atributo "accept" abaixo serve apenas como orientação para
+       o navegador e NÃO substitui a validação do backend.
+
+    4. Formatos aceitos para documentos:
+       PDF, PNG, JPG e JPEG.
+
+    5. Formatos aceitos para a foto:
+       PNG, JPG e JPEG.
+
+    6. A regra de isenção NÃO será tratada nesta etapa.
+
+    7. Alunos que receberam isenção da taxa no vestibular terão
+       automaticamente a taxa de matrícula isenta.
+
+    8. Essa condição deverá ser verificada futuramente pelo
+       backend/PHP com base no cadastro do vestibular.
+
+    9. NÃO solicitar novamente documentos relacionados à isenção.
+
+    ==================================================
+    -->
+
+    <!-- 1. DOCUMENTO OFICIAL COM FOTO -->
+    <div class="grupo-upload-moderno">
+
+        <p class="rotulo-upload">
+            1. Documento Oficial com Foto
+        </p>
+
+        <label class="area-dropzone" for="doc-identificacao">
+
+            <input
+                type="file"
+                id="doc-identificacao"
+                name="doc-identificacao"
+                accept=".pdf,.png,.jpg,.jpeg"
+                onchange="atualizarStatusArquivo(this, 'status-identificacao')"
+                required
+            >
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="destaque-upload">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div
+            class="barra-status-upload status-pendente"
+            id="status-identificacao"
+        >
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- 2. CERTIDÃO DE NASCIMENTO -->
+    <div class="grupo-upload-moderno">
+
+        <p class="rotulo-upload">
+            2. Certidão de Nascimento
+        </p>
+
+        <label class="area-dropzone" for="doc-certidao">
+
+            <input
+                type="file"
+                id="doc-certidao"
+                name="doc-certidao"
+                accept=".pdf,.png,.jpg,.jpeg"
+                onchange="atualizarStatusArquivo(this, 'status-certidao')"
+                required
+            >
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="destaque-upload">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div
+            class="barra-status-upload status-pendente"
+            id="status-certidao"
+        >
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- 3. COMPROVANTE DE RESIDÊNCIA -->
+    <div class="grupo-upload-moderno">
+
+        <p class="rotulo-upload">
+            3. Comprovante de Residência Atualizado
+            (Emitido nos últimos 60 dias)
+        </p>
+
+        <label class="area-dropzone" for="doc-residencia">
+
+            <input
+                type="file"
+                id="doc-residencia"
+                name="doc-residencia"
+                accept=".pdf,.png,.jpg,.jpeg"
+                onchange="atualizarStatusArquivo(this, 'status-residencia')"
+                required
+            >
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="destaque-upload">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div
+            class="barra-status-upload status-pendente"
+            id="status-residencia"
+        >
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- 4. CERTIFICADO DE CONCLUSÃO DO ENSINO MÉDIO -->
+    <div class="grupo-upload-moderno">
+
+        <p class="rotulo-upload">
+            4. Certificado de Conclusão do Ensino Médio
+        </p>
+
+        <label class="area-dropzone" for="doc-certificado-ensino-medio">
+
+            <input
+                type="file"
+                id="doc-certificado-ensino-medio"
+                name="doc-certificado-ensino-medio"
+                accept=".pdf,.png,.jpg,.jpeg"
+                onchange="atualizarStatusArquivo(this, 'status-certificado-ensino-medio')"
+                required
+            >
+
+            <span>
+                Arraste seu arquivo aqui ou
+                <strong class="destaque-upload">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div
+            class="barra-status-upload status-pendente"
+            id="status-certificado-ensino-medio"
+        >
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- 5. FOTO 3x4 -->
+    <div class="grupo-upload-moderno">
+
+        <p class="rotulo-upload">
+            5. Foto 3x4
+        </p>
+
+        <p class="descricao-upload">
+            Envie uma foto recente, de frente e com boa iluminação.
+        </p>
+
+        <label class="area-dropzone" for="doc-foto">
+
+            <input
+                type="file"
+                id="doc-foto"
+                name="doc-foto"
+                accept=".png,.jpg,.jpeg"
+                onchange="atualizarStatusArquivo(this, 'status-foto')"
+                required
+            >
+
+            <span>
+                Arraste sua foto aqui ou
+                <strong class="destaque-upload">
+                    procure no dispositivo
+                </strong>
+            </span>
+
+        </label>
+
+        <div
+            class="barra-status-upload status-pendente"
+            id="status-foto"
+        >
+            <span class="status-texto-esquerda">
+                • Nenhum arquivo selecionado
+            </span>
+
+            <span class="status-texto-direita">
+                Pendente
+            </span>
+        </div>
+
+    </div>
+
+
+    <!--
+    ==================================================
+    REGRA FUTURA — VALIDAÇÃO DOS DOCUMENTOS
+    ==================================================
+
+    O JavaScript deverá futuramente verificar:
+
+    • Se todos os documentos obrigatórios foram enviados.
+    • Se cada arquivo possui no máximo 5 MB.
+    • Se o formato do arquivo é permitido.
+    • Se o comprovante de residência está dentro da regra
+      dos últimos 60 dias (essa verificação poderá depender
+      da leitura/validação do documento no backend).
+    
+    O backend/PHP deverá realizar novamente essas validações
+    antes de armazenar definitivamente os arquivos.
+
+    ==================================================
+    -->
+
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <div
+        class="container-botoes-form"
+        style="justify-content: space-between; margin-top: 50px;"
+    >
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #ffffff; border-color: rgba(255,255,255,0.3);"
+            onclick="voltarEtapa(5, 4)"
+        >
+            Voltar
+        </button>
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #F39CFF; border-color: #F39CFF;"
+            onclick="proximaEtapa(5, 6)"
+        >
+            Avançar!
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==================================================
+     ETAPA 6: REVISÃO E CONFIRMAÇÃO DA MATRÍCULA
+================================================== -->
+
+<div class="formulario-container etapa-escondida" id="etapa-6">
+
+    <h4 class="titulo-etapa">Revisão e Confirmação</h4>
+
+    <p class="descricao-caixa-form">
+        Revise cuidadosamente seus dados antes de confirmar sua matrícula.
+    </p>
+
+    <!--
+    ==================================================
+    IMPORTANTE — IMPLEMENTAÇÃO FUTURA
+    ==================================================
+
+    Esta etapa é apenas uma tela de revisão.
+
+    Os dados exibidos aqui deverão ser preenchidos futuramente
+    pelo JavaScript a partir dos campos das etapas anteriores.
+
+    Quando o backend/PHP estiver implementado, os dados exibidos
+    também deverão ser conferidos com as informações armazenadas
+    no servidor antes da efetivação da matrícula.
+
+    NÃO criar novos campos de preenchimento nesta etapa.
+
+    ==================================================
+    -->
+
+
+    <!-- ==================================================
+         DADOS PESSOAIS
+    ================================================== -->
+
+    <div class="resumo-matricula">
+
+        <h5 class="titulo-resumo">Dados Pessoais e de Contato</h5>
+
+        <div class="dados-resumo">
+
+            <div class="item-resumo">
+                <span>Nome Completo</span>
+                <strong id="resumo-nome">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>CPF</span>
+                <strong id="resumo-cpf">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>RG</span>
+                <strong id="resumo-rg">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Órgão Expedidor</span>
+                <strong id="resumo-orgao-expedidor">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>UF do RG</span>
+                <strong id="resumo-uf-rg">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Data de Nascimento</span>
+                <strong id="resumo-data-nascimento">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Nome da Mãe</span>
+                <strong id="resumo-nome-mae">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Nome do Pai</span>
+                <strong id="resumo-nome-pai">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Nacionalidade</span>
+                <strong id="resumo-nacionalidade">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Cidade de Nascimento</span>
+                <strong id="resumo-cidade-nascimento">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>UF de Nascimento</span>
+                <strong id="resumo-uf-nascimento">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>E-mail</span>
+                <strong id="resumo-email">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Telefone / WhatsApp</span>
+                <strong id="resumo-telefone">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Telefone / WhatsApp (Reserva)</span>
+                <strong id="resumo-telefone-reserva">—</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         ENDEREÇO
+    ================================================== -->
+
+    <div class="resumo-matricula">
+
+        <h5 class="titulo-resumo">Endereço Residencial</h5>
+
+        <div class="dados-resumo">
+
+            <div class="item-resumo">
+                <span>CEP</span>
+                <strong id="resumo-cep">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Logradouro</span>
+                <strong id="resumo-logradouro">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Número</span>
+                <strong id="resumo-numero">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Complemento</span>
+                <strong id="resumo-complemento">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Bairro</span>
+                <strong id="resumo-bairro">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Cidade</span>
+                <strong id="resumo-cidade">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>UF</span>
+                <strong id="resumo-uf-endereco">—</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         CURSO E VÍNCULO ACADÊMICO
+    ================================================== -->
+
+    <div class="resumo-matricula">
+
+        <h5 class="titulo-resumo">Curso e Vínculo Acadêmico</h5>
+
+        <div class="dados-resumo">
+
+            <!--
+            IMPORTANTE — REGRA FUTURA DE BACKEND:
+
+            O curso, turno, modalidade e forma de ingresso não devem
+            ser escolhidos ou alterados nesta etapa.
+
+            Essas informações deverão vir do resultado da aprovação
+            do vestibular e, futuramente, do backend/PHP.
+            -->
+
+            <div class="item-resumo">
+                <span>Curso</span>
+                <strong id="resumo-curso">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Turno</span>
+                <strong id="resumo-turno">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Modalidade</span>
+                <strong id="resumo-modalidade">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Forma de Ingresso</span>
+                <strong id="resumo-forma-ingresso">Vestibular Nebula 2026</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         SITUAÇÃO DA TAXA DE MATRÍCULA
+    ================================================== -->
+
+    <div class="resumo-matricula">
+
+        <h5 class="titulo-resumo">Taxa de Matrícula</h5>
+
+        <div class="dados-resumo">
+
+            <div class="item-resumo">
+                <span>Valor da Taxa</span>
+                <strong id="resumo-valor-taxa">R$ 130,00</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Forma de Pagamento</span>
+                <strong id="resumo-forma-pagamento">—</strong>
+            </div>
+
+            <div class="item-resumo">
+                <span>Vencimento da Primeira Mensalidade</span>
+                <strong>20/02/2027</strong>
+            </div>
+
+        </div>
+
+        <!--
+        ==================================================
+        REGRA FUTURA — ISENÇÃO AUTOMÁTICA
+        ==================================================
+
+        Se o aluno possuir isenção registrada no vestibular,
+        o backend/PHP deverá substituir futuramente:
+
+            R$ 130,00
+
+        por algo como:
+
+            Isenta
+
+        e informar que a isenção foi concedida automaticamente
+        com base no benefício obtido no vestibular.
+
+        Essa verificação NÃO deverá ser feita pelo aluno.
+
+        ==================================================
+        -->
+
+    </div>
+
+
+    <!-- ==================================================
+         DOCUMENTAÇÃO
+    ================================================== -->
+
+    <div class="resumo-matricula">
+
+        <h5 class="titulo-resumo">Documentação Enviada</h5>
+
+        <div class="lista-documentos-resumo">
+
+            <div class="documento-resumo">
+                <span>✓</span>
+                <strong>Documento oficial com foto</strong>
+            </div>
+
+            <div class="documento-resumo">
+                <span>✓</span>
+                <strong>Certidão de nascimento</strong>
+            </div>
+
+            <div class="documento-resumo">
+                <span>✓</span>
+                <strong>Comprovante de residência</strong>
+            </div>
+
+            <div class="documento-resumo">
+                <span>✓</span>
+                <strong>Certificado de conclusão do Ensino Médio</strong>
+            </div>
+
+            <div class="documento-resumo">
+                <span>✓</span>
+                <strong>Foto 3x4</strong>
+            </div>
+
+        </div>
+
+        <!--
+        IMPORTANTE — IMPLEMENTAÇÃO FUTURA:
+
+        O JavaScript deverá substituir os indicadores acima
+        conforme os arquivos realmente enviados.
+
+        O backend/PHP deverá validar novamente os documentos
+        antes da efetivação definitiva da matrícula.
+        -->
+
+    </div>
+
+
+    <!-- ==================================================
+         DECLARAÇÃO E TERMOS
+    ================================================== -->
+
+    <div class="caixa-confirmacao-matricula">
+
+        <label class="opcao-confirmacao">
+
+            <input
+                type="checkbox"
+                id="confirmacao-matricula"
+                name="confirmacao-matricula"
+                required
+            >
+
+            <span>
+                Declaro que todas as informações fornecidas neste
+                formulário são verdadeiras e estou ciente das
+                condições da matrícula na Universidade de Ciências
+                Exatas Nebula.
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <!--
+    ==================================================
+    IMPORTANTE — EFETIVAÇÃO DA MATRÍCULA
+    ==================================================
+
+    O botão abaixo NÃO deverá, no futuro, simplesmente considerar
+    a matrícula efetivada pelo JavaScript.
+
+    Ao confirmar:
+
+        1. JavaScript valida os dados.
+        2. Os dados são enviados ao backend/PHP.
+        3. O backend verifica a aprovação no vestibular.
+        4. O backend verifica a situação da taxa ou isenção.
+        5. O backend registra a matrícula.
+        6. A matrícula recebe o status correspondente.
+        7. O vínculo acadêmico é criado.
+        8. O aluno poderá posteriormente receber acesso ao Portal.
+        9. A alocação de turma será realizada conforme as regras
+           acadêmicas da Nebula.
+
+    O suporte/secretaria poderá acompanhar esses registros pelo
+    sistema, mas não deverá precisar cadastrar cada aluno
+    manualmente.
+
+    ==================================================
+    -->
+
+
+    <!-- ==================================================
+         BOTÕES DE NAVEGAÇÃO
+    ================================================== -->
+
+    <div
+        class="container-botoes-form"
+        style="justify-content: space-between; margin-top: 50px;"
+    >
+
+        <button
+            type="button"
+            class="botao-avancar-form"
+            style="color: #ffffff; border-color: rgba(255,255,255,0.3);"
+            onclick="voltarEtapa(6, 5)"
+        >
+            Voltar
+        </button>
+
+        <button
+            type="submit"
+            id="btn-confirmar-matricula"
+            class="botao-avancar-form"
+            style="color: #E3AC6C; border-color: #E3AC6C;"
+        >
+            Confirmar Matrícula
+        </button>
+
+    </div>
+
+</div>
+</form>
+
+<!-- ==========================================
+     MODAL PIX — TAXA DE MATRÍCULA
+========================================== -->
+
+<div id="modalPixMatricula" class="modal-pix-matricula-overlay">
+
+    <div class="modal-pix-matricula-conteudo">
+
+        <button
+            type="button"
+            class="btn-fechar-pix-matricula"
+            id="btnFecharPixMatricula"
+            aria-label="Fechar pagamento via Pix"
+        >
+            &times;
+        </button>
+
+
+        <h2 class="titulo-modal-pix-matricula">
+            Pagamento via Pix
+        </h2>
+
+
+        <p class="subtitulo-modal-pix-matricula">
+            Taxa de Matrícula — R$ 130,00
+        </p>
+
+
+        <p class="vencimento-modal-pix">
+            Vencimento: 20/02/2027
+        </p>
+
+
+        <!-- ==========================================
+             QR CODE
+        ========================================== -->
+
+        <div class="container-qrcode-matricula">
+
+            <!-- ==================================================
+                 FUTURO BACKEND/PHP:
+
+                 O código abaixo é provisório e estático.
+
+                 No futuro, o PHP deverá fornecer o código Pix
+                 correspondente à taxa de matrícula deste aluno.
+
+                 O QR Code deverá ser gerado a partir desse
+                 código individual.
+            ================================================== -->
+
+            <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026"
+                alt="QR Code para pagamento da taxa de matrícula via Pix"
+                class="img-qrcode-matricula"
+            >
+
+        </div>
+
+
+        <p class="instrucao-pix-matricula">
+            Escaneie o QR Code acima com o aplicativo do seu banco
+            ou copie o código Pix abaixo.
+        </p>
+
+
+        <!-- ==========================================
+             PIX COPIA E COLA
+        ========================================== -->
+
+        <div class="caixa-codigo-pix-matricula">
+
+            <!-- ==================================================
+                 FUTURO BACKEND/PHP:
+
+                 Este código Pix é provisório.
+
+                 No sistema real, ele deverá ser fornecido pelo
+                 backend de acordo com a matrícula e o pagamento
+                 correspondente ao aluno.
+            ================================================== -->
+
+            <input
+                type="text"
+                id="chavePixMatricula"
+                value="00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026"
+                readonly
+            >
+
+        </div>
+
+
+        <button
+            type="button"
+            id="btnCopiarPixMatricula"
+            class="btn-copiar-pix-matricula"
+        >
+            Copiar código Pix
+        </button>
+
+    </div>
+
+</div>
+</div>
+</main>
+
+<script src="matricula.js"></script>
+</body>
+</html>

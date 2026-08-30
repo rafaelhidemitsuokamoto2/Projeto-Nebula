@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #050912;
+overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tela-cadastro {
+background: transparent;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 0;
+border-radius: 0;
+display:flex;
+align-items:center;
+gap:95px;
+color: white;
+}
+
+input{
+width:280px;
+padding:12px;
+background:transparent;
+border:1px solid rgba(255,255,255,.7);
+color:white;
+text-align:center;
+font-size:14px;
+outline:none;
+/* Efeito de luzinha */
+transition: .3s;
+}
+/* Efeito de luzinha parte 2 */
+input:focus{
+    border-color:#E7B6E6;
+    box-shadow:
+        0 0 8px rgba(231,182,230,.35),
+        0 0 18px rgba(197,117,204,.2);
+}
+
+input::placeholder{
+    color:#d6d6d6;
+}
+
+.botao-sair{
+
+    width:110px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.botao-sair:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.botao-cadastro{
+width:305px;
+padding:12px;
+background:transparent;
+color:rgb(150, 97, 146);
+border:1px solid rgb(197, 117, 204);
+transition:all .35s ease;
+}
+
+.botao-cadastro:hover{
+cursor:pointer;
+color:white;
+background:rgba(179, 84, 255, .12);
+border-color:#d57fff;
+box-shadow:
+0 0 8px rgba(197,117,204,.5),
+0 0 20px rgba(197,117,204,.35),
+0 0 35px rgba(197,117,204,.2);
+}
+
+.nebula {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.20;
+z-index: -1;
+}
+
+.lado-esquerdo{
+    display:flex;
+    align-items:center;
+}
+
+
+.ftan-frase{
+    width: 330px;
+    margin-top: 90px;
+}
+
+.linha-cadastro{
+    width:2px;
+    height:340px;
+    background:#E7B6E6;
+    margin-top: 90px;
+    opacity:.7;
+}
+
+.lado-direito{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.logo-cadastro {
+  width: 110px;
+  cursor: pointer;
+  /* Faz a logo dar uma subidinha */
+  transition: .35s;
+}
+/* Faz a logo dar uma subidinha parte 2*/
+.logo-cadastro:hover{
+    transform:scale(1.05);
+}
+
+.titulo-cadastro{
+    color:#E7B6E6;
+    font-size: 45px;
+    font-weight:bold;  
+    font-family: "Sora", sans-serif;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.esqueci-senha{
+
+    text-align:right;
+
+    margin-top:-10px;
+    margin-bottom:8px;
+
+    font-size:13px;
+}
+
+.esqueci-senha a{
+
+    color:#d6d6d6;
+
+    text-decoration:underline;
+
+    text-underline-offset:3px;
+    text-decoration-thickness:1px;
+
+    transition:.3s;
+}
+
+.esqueci-senha a:hover{
+
+    color:#E7B6E6;
+}
+
+.separador{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:10px 0;
+}
+
+.linha-ou{
+
+    flex:1;
+
+    height:1px;
+
+    background:#b7b7b7;
+}
+
+.separador span{
+
+    color:white;
+
+    font-size:16px;
+}
+
+.botao-social{
+
+    width:305px;
+
+    padding:12px;
+
+    background:transparent;
+
+    border:1px solid #c575cc;
+
+    color:#E7B6E6;
+
+    transition:.3s;
+}
+
+.botao-social:hover{
+
+    cursor:pointer;
+
+    background:rgba(197,117,204,.12);
+
+    color:white;
+
+    box-shadow:
+        0 0 10px rgba(197,117,204,.3);
+}
+
+.campo-senha{
+    position: relative;
+    width:305px;
+}
+
+.campo-senha input{
+    width:100%;
+    padding:12px;
+    padding-right:45px;
+    padding-left: 45px;
+    box-sizing:border-box;
+}
+
+.olho{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#d6d6d6;
+    transition:.3s;
+}
+
+.olho:hover{
+    color:#E7B6E6;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Home.html">
+    <img src="logo-ucen.png" class="logo-cadastro" alt="FTAN">
+    </a>
+     <a href="Home.html" class="botao-sair">
+        Sair
+    </a>
+    </header>
+    
+
+    <div class="tela-cadastro">
+    <div class="lado-esquerdo">
+    <img src="ftan-frase-cadastro.png" class="ftan-frase">
+    </div>
+    <div class="linha-cadastro"></div>
+
+    <form class="lado-direito" action="cadastro-acao-nebula.php" method="post" autocomplete="on">
+    <h1 class="titulo-cadastro">Cadastre-se</h1>
+
+    <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Nome Completo">
+    <input type="email" id="email" name="email" autocomplete="email" placeholder="E-mail">
+
+    <div class="campo-senha">
+    <input type="password" id="senha" name="senha" autocomplete="new-password" placeholder="Senha">
+
+    <span class="olho" id="icone-olho">
+        <i class="fa-regular fa-eye"></i>
+    </span>
+</div>
+    <p class="esqueci-senha">
+    <a href="login.html">Já possui uma conta?</a></p>
+<div class="campo-senha">
+    <input type="password" id="confirmar_Senha" name="confirmar_Senha" autocomplete="new-password" placeholder="Confirmar Senha">
+
+    <span class="olho" id="icone-olho2">
+        <i class="fa-regular fa-eye"></i>
+    </span>
+</div>
+
+    <button class="botao-cadastro" type="submit">
+        Criar conta
+    </button>
+
+    <div class="separador">
+    <div class="linha-ou"></div>
+    <span>ou</span>
+    <div class="linha-ou"></div>
+    </div>
+
+    <button class="botao-social" type="button">
+    Receber código por E-mail
+    </button>
+
+    <button class="botao-social" type="button">
+    Continuar com Google
+    </button>
+
+    </form>
+
+    </div>
+
+    <section>
+    
+    <img src="fundo-nebula-pequena.jpg" class="nebula" alt="fundo-estelar">
+
+    </section>
+    
+<script>
+
+// Campo Senha
+const senha = document.getElementById("senha");
+const olho = document.getElementById("icone-olho");
+
+olho.addEventListener("click", function () {
+
+    if (senha.type === "password") {
+        senha.type = "text";
+        olho.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+    } else {
+        senha.type = "password";
+        olho.innerHTML = '<i class="fa-regular fa-eye"></i>';
+    }
+
+});
+
+// Campo Confirmar Senha
+const confirmarSenha = document.getElementById("confirmar_Senha");
+const olho2 = document.getElementById("icone-olho2");
+
+olho2.addEventListener("click", function () {
+
+    if (confirmarSenha.type === "password") {
+        confirmarSenha.type = "text";
+        olho2.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+    } else {
+        confirmarSenha.type = "password";
+        olho2.innerHTML = '<i class="fa-regular fa-eye"></i>';
+    }
+
+});
+
+</script>
+
+</body>
+</html>

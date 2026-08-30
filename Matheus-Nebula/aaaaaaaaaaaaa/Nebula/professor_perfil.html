@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Meu Perfil - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_perfil.css">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu ativo" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - MEU PERFIL
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna perfil-container" data-conteudo="perfil">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">CONTA</span>
+                    <div class="titulo-linha">
+                        <h1>Meu Perfil</h1>
+                        <span></span>
+                    </div>
+                    <p>Gerencie seus dados pessoais, contato e preferências da conta.</p>
+                </div>
+
+                <section class="perfil-header-card">
+
+                    <label for="upload-foto" class="avatar-wrapper" id="avatar-container">
+                        <div class="avatar-placeholder" id="avatar-placeholder">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <img src="" alt="Foto de Perfil" id="foto-perfil-img" style="display: none;">
+
+                        <input type="file" id="upload-foto" accept="image/*" style="display: none;">
+
+                        <div class="btn-alterar-foto" title="Alterar Foto">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                    </label>
+
+                    <div class="perfil-header-info">
+                        <div class="nome-status-wrapper">
+                            <h2>Israel Dias</h2>
+                            <span class="badge-status ativo">Docente Ativo</span>
+                        </div>
+                        <p class="meta-info"><i class="fa-solid fa-chalkboard-user"></i> Departamento de Ciências da Computação</p>
+                        <p class="meta-info"><i class="fa-solid fa-id-card"></i> Matrícula Funcional: <strong>PRF-00427</strong></p>
+                    </div>
+
+                </section>
+
+                <!-- Bloco: Acesso & Segurança -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Acesso & Segurança</h3>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label>E-mail de Login</label>
+                            <input type="email" value="israel.dias@ucen.edu.br" readonly class="input-bloqueado">
+                        </div>
+                        <div class="input-group btn-align-bottom">
+                            <button type="button" class="btn-secundario" id="btn-alterar-senha">
+                                <i class="fa-solid fa-key"></i> Alterar Senha
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bloco: Dados Pessoais -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo-com-alerta">
+                        <div class="secao-titulo">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                            <h3>Dados Pessoais</h3>
+                        </div>
+                        <div class="alerta-secretaria">
+                            <i class="fa-solid fa-lock"></i> Dados alteráveis apenas via Secretaria
+                        </div>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <div class="input-group span-2">
+                            <label>Nome Completo</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="ISRAEL DIAS SANTOS" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>CPF</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="332.184.760-05" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>RG / Documento</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="41.223.905-2" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Data de Admissão</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="02/03/2019" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Regime de Trabalho</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Tempo Parcial - Noturno" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bloco: Informações Profissionais -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h3>Informações Profissionais</h3>
+                    </div>
+
+                    <div class="form-grid-3" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>Titulação</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Mestre em Ciência da Computação" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Departamento</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Ciências da Computação" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Coordenação</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Prof. Marcelo Andrade" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label style="font-size:12px; font-family:'Sora',sans-serif; color:rgba(255,255,255,0.7); font-weight:500; margin-bottom:10px; display:block;">
+                        Disciplinas que leciona
+                    </label>
+                    <div class="tags-disciplinas">
+                        <span class="tag-disciplina">Banco de Dados - 3º Semestre</span>
+                        <span class="tag-disciplina">Programação - 2º Semestre</span>
+                        <span class="tag-disciplina">Engenharia de Software - 5º Semestre</span>
+                    </div>
+                </section>
+
+                <!-- Bloco: Contato & Endereço -->
+                <section class="perfil-secao-card">
+                    <form id="form-contato-endereco">
+                        <div class="secao-titulo">
+                            <i class="fa-solid fa-address-book"></i>
+                            <h3>Contato & Endereço</h3>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="input-group">
+                                <label for="celular">Celular (WhatsApp)</label>
+                                <input type="text" id="celular" value="(11) 98765-4321" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="input-group">
+                                <label for="tel-recado">Telefone Residencial / Recado</label>
+                                <input type="text" id="tel-recado" value="" placeholder="(00) 0000-0000">
+                            </div>
+                            <div class="input-group">
+                                <label for="email-secundario">E-mail Pessoal / Secundário</label>
+                                <input type="email" id="email-secundario" value="" placeholder="exemplo@email.com">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" value="01311-000" placeholder="00000-000">
+                            </div>
+                            <div class="input-group span-2">
+                                <label for="logradouro">Logradouro / Rua</label>
+                                <input type="text" id="logradouro" value="AV PAULISTA">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" value="1578">
+                            </div>
+                            <div class="input-group">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento" value="" placeholder="Apt, Bloco, etc.">
+                            </div>
+                            <div class="input-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" value="BELA VISTA">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" value="SÃO PAULO">
+                            </div>
+                            <div class="input-group">
+                                <label for="uf">Estado (UF)</label>
+                                <select id="uf">
+                                    <option value="SP" selected>São Paulo (SP)</option>
+                                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                                    <option value="MG">Minas Gerais (MG)</option>
+                                    <option value="PR">Paraná (PR)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-principal">
+                                <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Bloco: Configurações -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo">
+                        <i class="fa-solid fa-gear"></i>
+                        <h3>Configurações</h3>
+                    </div>
+
+                    <div class="lista-configuracoes">
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Notificações por e-mail</h4>
+                                <p>Receber avisos sobre entregas, prazos e mensagens de alunos.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Lembrete de aulas</h4>
+                                <p>Receber um lembrete 30 minutos antes de cada aula.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Alertas de frequência baixa</h4>
+                                <p>Ser notificado quando um aluno ficar abaixo da frequência mínima.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Perfil visível para alunos</h4>
+                                <p>Permitir que os alunos vejam suas informações de contato profissional.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Modal para Visualizar Foto em Destaque -->
+                <div id="modal-foto-perfil" class="modal-foto-overlay">
+                    <div class="modal-foto-content">
+                        <img id="img-modal-zoom" src="" alt="Foto de Perfil Ampliada">
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_perfil.js" defer></script>
+</body>
+</html>

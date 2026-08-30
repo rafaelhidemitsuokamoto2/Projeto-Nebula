@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Início - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_inicio.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         BANNER PRINCIPAL
+    ========================================== -->
+
+    <section class="banner-portal">
+
+        <div class="box-portal">
+
+            <div class="titulo-inicio">
+
+                <span class="titulo-um">
+                    SEXTA-FEIRA, 21 DE AGOSTO DE 2026
+                </span>
+
+                <span class="titulo-dois">
+                    Olá, Professor Israel!
+                </span>
+
+                <span class="titulo-tres">
+                    Acompanhe os principais assuntos das suas turmas hoje!
+                </span>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu ativo" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - INÍCIO
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-inicio">
+
+                <div class="conteudo-inicio">
+
+                    <!-- Card Próxima Aula -->
+                    <div class="card-proxima-aula">
+                        <span class="subtitulo-card">PRÓXIMA AULA</span>
+                        <h2 class="titulo-materia">Banco de Dados</h2>
+                        <p class="horario-aula">Hoje, 19h às 22h - Sala: 25 - 3º Semestre</p>
+
+                        <div class="botao-vestibular">
+                            <a href="professor_agenda.html" id="btnVerAgenda" class="btn-inscricao">
+                                Ver Agenda
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card Próximas Avaliações -->
+                    <div class="card-avaliacoes">
+                        <div class="cabecalho-avaliacoes">
+                            <div>
+                                <span class="subtitulo-card">ACOMPANHE</span>
+                                <h2 class="titulo-avaliacoes">Próximas Avaliações</h2>
+                            </div>
+                            <a href="professor_calendario.html" id="btnVerTodasAvaliações" class="btn-link-calendario">
+                                Ver mais
+                            </a>
+                        </div>
+
+                        <hr class="divisor-card">
+
+                        <div class="lista-avaliacoes">
+                            <div class="item-avaliacao">
+                                <div class="data-badge">
+                                    <span class="dia">11</span>
+                                    <span class="mes">NOV</span>
+                                </div>
+                                <div class="info-materia">
+                                    <h3>Prova - Banco de Dados</h3>
+                                    <p>19:00 - Sala: 25 - 3º Semestre</p>
+                                </div>
+                            </div>
+
+                            <hr class="divisor-item">
+
+                            <div class="item-avaliacao">
+                                <div class="data-badge">
+                                    <span class="dia">20</span>
+                                    <span class="mes">NOV</span>
+                                </div>
+                                <div class="info-materia">
+                                    <h3>Entrega - Trabalho de Programação</h3>
+                                    <p>23:59 - Envio online - 2º Semestre</p>
+                                </div>
+                            </div>
+
+                            <hr class="divisor-item">
+
+                            <div class="item-avaliacao">
+                                <div class="data-badge">
+                                    <span class="dia">03</span>
+                                    <span class="mes">DEZ</span>
+                                </div>
+                                <div class="info-materia">
+                                    <h3>Apresentação - Engenharia de Software</h3>
+                                    <p>19:00 - Sala: 25 - 5º Semestre</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Avisos Importantes -->
+                    <div class="card-avisos">
+                        <span class="subtitulo-card">FIQUE ATENTO</span>
+                        <h2 class="titulo-avisos">Avisos Importantes</h2>
+
+                        <div class="lista-avisos">
+
+                            <div class="item-aviso urgente">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div class="texto-aviso">
+                                    <h4>Lançamento de notas do P2 encerra em 3 dias</h4>
+                                    <p>Turmas: Banco de Dados e Programação - prazo até 24/11.</p>
+                                </div>
+                            </div>
+
+                            <div class="item-aviso">
+                                <i class="fa-solid fa-bell"></i>
+                                <div class="texto-aviso">
+                                    <h4>Reunião pedagógica de fim de semestre</h4>
+                                    <p>Sala de reuniões da coordenação - 27/11 às 18h.</p>
+                                </div>
+                            </div>
+
+                            <div class="item-aviso">
+                                <i class="fa-solid fa-file-circle-check"></i>
+                                <div class="texto-aviso">
+                                    <h4>3 alunos abaixo da frequência mínima</h4>
+                                    <p>Verifique a aba Notas e Frequência da turma de Engenharia de Software.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Resumo das Turmas -->
+                    <div class="secao-resumo-turmas">
+                        <h2>Resumo das Turmas</h2>
+
+                        <div class="grid-resumo-turmas">
+
+                            <a class="card-resumo-turma" href="professor_turmas.html?turma=bd">
+                                <span class="semestre-tag">3º SEMESTRE</span>
+                                <h3>Banco de Dados</h3>
+                                <div class="mini-stats-turma">
+                                    <div><strong>28</strong>Alunos</div>
+                                    <div><strong>8.4</strong>Média</div>
+                                    <div><strong>94%</strong>Frequência</div>
+                                </div>
+                            </a>
+
+                            <a class="card-resumo-turma" href="professor_turmas.html?turma=prog">
+                                <span class="semestre-tag">2º SEMESTRE</span>
+                                <h3>Programação</h3>
+                                <div class="mini-stats-turma">
+                                    <div><strong>32</strong>Alunos</div>
+                                    <div><strong>7.9</strong>Média</div>
+                                    <div><strong>91%</strong>Frequência</div>
+                                </div>
+                            </a>
+
+                            <a class="card-resumo-turma" href="professor_turmas.html?turma=es">
+                                <span class="semestre-tag">5º SEMESTRE</span>
+                                <h3>Engenharia de Software</h3>
+                                <div class="mini-stats-turma">
+                                    <div><strong>24</strong>Alunos</div>
+                                    <div><strong>7.2</strong>Média</div>
+                                    <div><strong>85%</strong>Frequência</div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_inicio.js" defer></script>
+</body>
+</html>

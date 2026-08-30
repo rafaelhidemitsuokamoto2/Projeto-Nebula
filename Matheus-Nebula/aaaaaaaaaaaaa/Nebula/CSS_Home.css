@@ -1,0 +1,1984 @@
+        /* =======================================================
+         (Sempre organizem desta forma caso vocês queiram mudar algo)
+        1. BARRA DE ROLAGEM (SCROLLBAR) (NÃO MEXER NESTE TRECO!!!)
+          ======================================================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050912;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #8a2be2;
+            border-radius: 6px;
+            border: 2px solid #050912;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #9932cc;
+        }
+
+
+        /* ==============================
+           2. RESET BÁSICO E ESTILOS GERAIS 
+           ============================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* ================================
+           3. CABEÇALHO (HEADER) E NAVEGAÇÃO 
+           ================================*/
+        header {
+            background-color: #050912;
+            padding: 8px 40px;
+
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .logo img {
+           width: 125px;
+           height: auto;
+           display: block;
+           /* Faz a logo dar uma subidinha */
+           transition: .35s ease;
+        }
+        /* Faz a logo dar uma subidinha - parte 2 */
+        .logo img:hover {
+           transform: translateY(-4px) scale(1.05);
+        }
+
+        .user-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .caixa-pesquisa {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 5px 10px;
+
+            position:relative;
+            z-index:1000;
+        }
+
+        .caixa-pesquisa input {
+            border: none;
+            background: transparent;
+            color: white;
+            outline: none;
+        }
+
+        .caixa-pesquisa i{
+
+            color:#888;
+            font-size:15px;
+            margin-left:6px;
+
+        }
+
+        .account-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        .account-links a {
+            font-family: 'Sora', sans-serif; 
+            text-decoration: none;
+            color: white;
+            
+            font-size: 18px;
+        }
+
+        .account-links a:hover {
+            color: #cccccc;
+            text-decoration: underline;
+        }
+
+        .main-navigation ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            padding-left: 135px;
+        }
+
+        .main-navigation a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Sora', serif;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .main-navigation a:hover {
+            color: #cccccc;
+        }
+
+
+        /* ===========================================
+           4. SEÇÃO PRINCIPAL (HERO) - VÍDEO E PESQUISA
+           ============================================ */
+    .hero-section{
+
+        position:relative;
+
+        width:100%;
+        min-height:100vh;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        overflow:visible;
+    }
+        .bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .caixa-pesquisa-grande {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ffffff;
+            background-color: rgba(5, 9, 18, 0.4);
+            padding: 15px 25px;
+            border-radius: 4px;
+        }
+
+        .caixa-pesquisa-grande input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: white;
+            outline: none;
+            font-size: 22px; 
+            font-family: sans-serif;
+        }
+
+        .caixa-pesquisa-grande input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .lupa-grande{
+
+           font-size:28px;
+           color:white;
+           margin-right:15px;
+        } 
+
+        .pesquisa-home {
+            position: relative;
+        }
+
+/* ===========================
+    Pesquisa Cabeçalho 
+   =========================== */
+.overlay-pesquisa{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:5000;
+
+}
+.overlay-pesquisa.ativo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+.painel-pesquisa{
+
+    width:100%;
+
+    background:#050912;
+
+    padding:35px;
+
+    transform:translateY(-30px);
+
+    transition:.35s;
+
+}
+.overlay-pesquisa.ativo .painel-pesquisa{
+
+    transform:translateY(0);
+
+}
+.barra-expandida{
+
+    display:flex;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:50px;
+
+    padding:15px 25px;
+
+}
+.barra-expandida input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-size:20px;
+
+    margin:0 15px;
+
+}
+#fecharPesquisa{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+.resultado-pesquisa{
+
+    margin-top:30px;
+    display:none;
+
+}
+.resultado-pesquisa li{
+
+    list-style:none;
+
+    color: #e47de4d9;
+
+    padding:12px;
+
+    cursor:pointer;
+    transition:background-color .25s ease;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    transition:
+        background-color .25s,
+        padding-left .25s;
+
+}
+
+.resultado-pesquisa li:hover{
+
+    background:#111d33;
+    padding-left:20px;
+}
+/* Esconde os resultados inicialmente */
+.resultado-pesquisa{
+    margin-top:30px;
+    display:none;
+}
+
+#lista-header li{
+    display: none;
+}
+
+#mensagem-header{
+
+    display:none;
+
+    padding:18px 12px;
+
+    color:#9b9b9b;
+
+    font-family:"Sora", sans-serif;
+
+    font-size:16px;
+
+}
+.barra-expandida i{
+
+    font-size:22px;
+
+    color:#666;
+
+}
+
+
+/* Container da busca precisa ser relativo para alinhar o dropdown ..............................................................*/
+/* Caixa preta suspensa com altura fixa */
+.dropdown-simples {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    height: 290px; /* Mantém a caixa grande mesmo quando vazia */
+
+    background-color: #242323; /* Fundo preto */
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 10px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.45);
+    z-index: 10;
+    overflow-y: auto; /* Adiciona rolagem se a lista passar do tamanho */
+}
+/* Exibe o dropdown quando ativo */
+.dropdown-simples.ativo {
+    display: block;
+}
+
+/* Estilo da Lista */
+.dropdown-simples ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.dropdown-simples li {
+
+    padding: 12px 20px;
+    color: #e47de4d9;
+    font-family: 'Sora', serif;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    transition:
+        background-color .25s,
+        padding-left .25s;
+
+}
+
+/* Efeito ao passar o mouse por cima do item */
+.dropdown-simples li:hover {
+
+    background-color: #111d33;
+    padding-left: 28px;
+
+}
+
+/* Mensagem caso nada seja encontrado */
+.mensagem-vazia {
+
+    padding: 18px 20px;
+    color: #9b9b9b;
+    font-family: sans-serif;
+    font-size: 15px;
+
+}
+
+
+        /* =====================
+           5. SEÇÃO DO UNIVERSO
+           ===================== */
+        .universo-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;          
+            padding: 100px 80px;       
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;       
+            overflow: hidden;
+            background-color: #050912;
+        }
+
+        .universo-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;         
+            opacity: 0.15;            
+            z-index: 1;                
+        }
+
+        .universo-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1300px;         
+            display: flex;
+            flex-direction: column;    
+            align-items: flex-start;
+            padding-left: 150px;
+        }
+
+        .universo-content h2.titulo-topo {
+            font-family: sans-serif;   
+            color: #E7B6E6;            
+            font-size: 44px;           
+            line-height: 1.2;          
+            text-align: left;
+            margin-bottom: 20px;       
+            padding-left: 0;           
+        }
+
+        .universo-corpo-layout {
+            display: flex;
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        .universo-titulo-container {
+            flex-shrink: 0;            
+            width: 200px;              
+        }
+
+        .universo-titulo-container h2.titulo-destaque {
+            font-family: sans-serif;   
+            color: #E7B6E6;            
+            font-size: 44px;           
+            line-height: 1.2;          
+            text-align: left;
+            margin: 0;
+        }
+
+        .universo-texto-container {
+            max-width: 700px;          
+            margin: 0 auto;            
+        }
+
+        .universo-texto-container p {
+            font-family: sans-serif;   
+            color: #ffffff;            
+            font-size: 20px;           
+            line-height: 1.8;          
+            margin-bottom: 24px;       
+            text-align: left;          
+        }
+
+        .universo-texto-container p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* ========================
+           6. PÁGINA DE GRADUAÇÕES 
+           ========================*/
+        .graduacoes-page {
+            position: relative;
+            width: 100%;
+            min-height: 220vh; 
+            padding: 80px 20px;
+            background-color: #050912;
+            overflow: hidden;
+        }
+
+        .graduacoes-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .graduacoes-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-principal {
+            font-family: sans-serif;
+            color: #E7B6E6;
+            font-size: 70px;
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .info-subtitulo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 80px;
+        }
+
+        .linha-decorativa {
+            display: inline-block;
+            width: 80px;
+            height: 2px;
+            background-color: #E3AC6C;
+        }
+
+        .texto-subtitulo {
+            font-family: sans-serif;
+            color: #E3AC6C;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .area-bloco {
+            margin-bottom: 120px;
+            width: 100%;
+        }
+
+
+        /* =======================================
+           7. CABEÇALHOS DAS ÁREAS (ALINHAMENTOS) 
+           ======================================= */
+        .header-centro {
+            text-align: center;
+            width: 100%;
+        }
+
+        .header-esquerda {
+            text-align: left;
+            width: 100%;
+            padding-left: 8%;
+        }
+
+        .header-centro-direita {
+            text-align: center;
+            width: 100%;
+            padding-right: 8%;
+            position: relative; /* Adicionado para servir de base para a linha-vertical-c */
+        }
+
+        /* TÍTULO 1: Ciências Espaciais */
+        .area-titulo {
+            font-family: sans-serif;
+            color: #E3AC6C;
+            font-size: 40px;
+            margin-bottom: 2px;
+            display: inline-block; 
+            position: relative;
+            top: 13px;
+        }
+
+        /* TÍTULO 2: Engenharias */
+        .area-titulo-engenharias {
+            font-family: sans-serif;
+            color: #E3AC6C;
+            font-size: 40px;
+            display: inline-block; 
+            position: relative;
+            top: 35px;
+        }
+
+        /* TÍTULO 3: Ciências Exatas */
+        .area-titulo-exatas {
+          font-family: sans-serif;
+          color: #E3AC6C;
+          font-size: 40px;
+          display: inline-block; 
+          position: relative; 
+          top: 35px;
+          left: 180px; 
+        }
+
+        /* Linha Decorativa: Ciências Espaciais */
+        .container-linha-espacial {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-225px); 
+            margin-top: 4px;
+        }
+
+        .container-linha-espacial .linha-com-bandeira {
+            position: relative;
+            width: 140px; 
+            height: 2px; 
+            background-color: #E3AC6C;
+        }
+
+        .icone-bandeira {
+            position: absolute;
+            bottom: 2px; 
+            left: 0;  
+            height: 22px;
+            width: auto;
+        }
+
+
+        /* =============================================
+           8. MAPA DE CONSTELAÇÃO (ESTRUTURA DOS CARDS) 
+           ============================================= */
+        .constelacao-mapa {
+            position: relative;
+            width: 100%;
+            height: 480px; 
+        }
+
+        .curso-no {
+            display: flex;            
+            flex-direction: column;   
+            align-items: flex-start;  
+            text-align: left;         
+            text-decoration: none;    
+            padding: 15px 20px;       
+            background-color: transparent; 
+            border-radius: 4px;      
+            max-width: 600px;         
+            position: absolute;       
+            transition: background-color 0.2s ease;
+        }
+
+        .curso-no:hover {
+            background-color: rgba(255, 255, 255, 0.07); 
+        }
+
+        .curso-no:hover h3 {
+            text-decoration: underline; 
+            text-underline-offset: 5px;
+        }
+
+        .curso-no h3 {
+            font-family: sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #FFCD7B; 
+            margin: 0 0 8px 0;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap; 
+            gap: 8px;            
+        }
+
+        .seta-curso {
+            color: #FFCD7B; 
+            font-weight: normal;
+            display: inline-block;
+        }
+
+        .curso-no p {
+            font-family: sans-serif;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+
+        /* ==========================
+           9. LINHAS DAS ENGENHARIAS 
+           ========================== */
+
+        /* Aeroespacial - Linha Vertical */
+        .pos-eng-1 .linha-vertical {
+            position: absolute;
+            left: 15px;          
+            top: 18px;
+            bottom: 18px;
+            width: 2px;          
+            background-color: #E3AC6C; 
+        }
+
+        /* Engenharia Elétrica - Linha Horizontal */
+        .pos-eng-2 .linha-horizontal-eletrica {
+            position: absolute;
+            right: 100%;         
+            top: 30px;           
+            width: 250px;        
+            height: 2px;         
+            background-color: #E3AC6C;
+        }
+
+        /* Engenharia de Telecomunicações - Linha Horizontal */
+        .pos-eng-3 .linha-horizontal-telecom {
+            position: absolute;
+            right: 100%;         
+            top: 30px;           
+            width: 250px;        
+            height: 2px;         
+            background-color: #E3AC6C;
+        }
+
+
+        /* =============================== 
+           10. LINHAS DAS CIÊNCIAS EXATAS 
+           =============================== */
+
+        /* Linha Vertical diretamente abaixo do 'C' de Ciências Exatas */
+        .linha-vertical-c {
+          position: absolute;
+          top: 76px;             
+          left: 49%;
+          width: 2px;            
+          height: 110px;         
+          background-color: #E3AC6C; 
+        }
+
+        /* Física - Linha Vertical */
+        .pos-exatas-fisica .linha-vertical-fisica {
+            position: absolute;
+            left: 15px;          
+            top: 18px;
+            bottom: 18px;
+            width: 2px;
+            background-color: #E3AC6C;
+        }
+
+        /* Ciências da Computação - Linha Horizontal */
+        .pos-exatas-computacao .linha-horizontal-computacao {
+            position: absolute;
+            right: 100%;         
+            top: 30px;           
+            width: 220px;        
+            height: 2px;
+            background-color: #E3AC6C;
+        }
+
+
+        /* ======================
+           11.CIÊNCIAS ESPACIAIS 
+           ====================== */
+        .pos-astronomia {
+            top: 40px;
+            left: 8%;
+        }
+
+        .pos-astrofisica {
+            top: 70px;
+            right: 12%;
+        }
+
+        .pos-geofisica {
+            bottom: 90px;
+            left: 14%;
+        }
+
+        .pos-atmosfericas {
+            bottom: 60px;
+            right: 8%;
+            max-width: 350px; 
+        }
+
+
+        /* ================
+           12. ENGENHARIAS 
+           ================ */
+        .pos-eng-1 { 
+            top: 40px; 
+            left: 8%; 
+            padding-left: 55px; /* Afasta o texto do risco vertical */
+        }
+
+        .pos-eng-2 {
+            top: 140px;
+            right: 4%;
+            max-width: 320px;
+        }
+
+        .pos-eng-3 {
+            bottom: 60px;
+            left: 23%;
+            max-width: 480px;
+        }
+
+
+        /* ====================
+           13. CIÊNCIAS EXATAS 
+           ==================== */
+        
+        /* Física: Bem à esquerda (com padding para não cobrir a linha decorativa) */
+        .pos-exatas-fisica { 
+            top: 140px; 
+            left: 6%; 
+            padding-left: 55px; 
+        }
+
+        /* Matemática: Topo superior direito */
+        .pos-exatas-matematica {
+            top: 40px;
+            right: 5%;
+            max-width: 350px;
+        }
+
+        /* Ciências da Computação: Canto inferior direito */
+        .pos-exatas-computacao {
+            bottom: 40px;
+            right: 18%;
+            max-width: 420px;
+        }
+        
+
+        /* ========================
+           14. Imagens decorativas 
+           ======================== */
+        .icone-decorativo {
+            position: absolute;
+            z-index: 1;
+            width: 60px; 
+            height: auto;
+        }
+
+        .icone-satelite {
+            top: 67%;
+            left: 58%;
+            transform: translate(-50%, -50%); 
+        }
+
+        .icone-eletrico {
+            top: 60%;
+            left: 85%;
+        }
+
+        .icone-mouse {
+            bottom: 2%;
+            right: 20%;
+        }
+
+        .icone-fisica {
+            top: 60%;
+            left: 9%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .telescopio-solo {
+            /* Altera a altura para ocupar 100% da tela do navegador */
+            height: 100vh; 
+            width: 100%;
+
+            /* Define o caminho da imagem de fundo para o CSS aplicar as propriedades de background */
+            background-image: url('telescopio-solo.jpg');
+
+            /* O efeito parallax estático */
+            background-attachment: fixed;
+
+            /* Centraliza o telescópio perfeitamente na tela */
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            /* Preenche todo o espaço disponível sem distorcer a imagem */
+            background-size: cover;
+  
+            margin: 0;
+        }
+
+/* Responsividade teste */
+@media (max-width: 768px) {
+  .telescopio-solo {
+    background-attachment: scroll; /* Desativa o efeito fixo no celular */
+    height: 250px; /* Diminui um pouco a altura em telas menores */
+  }
+}
+
+       .secao-modalidades {
+        position: relative; /* Necessário para alinhar a imagem absoluta dentro dele */
+        width: 100%;
+        padding: 80px 0; 
+        overflow: hidden; /* Garante que a imagem não vaze para fora da seção */
+        }
+
+        /* Configuração da imagem que veio do HTML */
+      .bg-modalidades {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Faz a imagem cobrir toda a área sem distorcer */
+        z-index: -1;       /* Envia a imagem para trás do conteúdo */
+        opacity: 0.25;     /* Aplica os 25% de opacidade desejados */
+        pointer-events: none; /* Garante que o usuário não consiga "arrastar" a imagem sem querer */
+        }
+
+      .container-modalidades {
+        position: relative; /* Garante que o conteúdo fique por cima do fundo */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        }
+
+      .titulo-modalidades {
+       color: #E7B6E6; 
+       font-size: 2.5rem;
+       font-weight: bold;
+       margin-bottom: 40px;
+       text-align: left;
+       }
+
+.titulo-modalidades-container{
+    position: relative;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.titulo-modalidades{
+    color: #E7B6E6;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+}
+
+.linha-modalidades{
+    position: absolute;
+    left: 130px;
+    top: 45px;
+    width: 150px;
+    height: 2px;
+    background-color: #E7B6E6;
+}
+
+/* Container que alinha os cards */
+.cards-modalidades {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch; /* Garante que todos os cards fiquem com a mesma altura */
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+/* O Card Individual */
+.card-modalidade {
+  background-color: #121111;
+  border-radius: 12px;
+  padding: 35px 25px;
+  width: 420px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* 1. SOMBRA INICIAL(8% de opacidade) */
+  box-shadow: 0 10px 30px rgba(190, 168, 100, 0.08); 
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFEITO BONITINHO AO PASSAR O MOUSE (:hover) */
+.card-modalidade:hover {
+  transform: translateY(-5px);
+  
+  /* Sombra Ativa: Mais forte e espalhada com a sua cor #BEA864 (30% de opacidade) */
+  box-shadow: 0 15px 35px rgba(190, 168, 100, 0.30);
+}
+
+/* Cabeçalho do Card (Ícone + Título) */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-title {
+  color: #E7B6E6; 
+  font-family: 'Georgia', serif; 
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Texto descritivo interno */
+.card-text {
+  color: #ffffff;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 30px 0;
+  opacity: 0.9;
+
+  justify-content: center; /* Centraliza o texto */
+
+}
+
+/* Link "Saiba mais" 
+.card-link {
+  color: #C29A4F; 
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+*/
+    /* Controla o tamanho e alinhamento da imagem de escola */
+    .card-icon-img {
+     width: 32px;  
+     height: auto;
+     object-fit: contain;
+     color: #E7B6E6;
+     font-size: 23px;
+    }
+
+ /* =====================
+    Sessão Vestibular
+    ===================== */
+.secao-vestibular{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+}
+
+.bg-vestibular{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.15;
+}
+.container-vestibular{
+    position: relative;
+    z-index: 2;
+}
+.caixa-vestibular{
+    position:relative;
+    width: 1000px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.88);
+    margin: 0 auto;
+    border-radius: 10px;
+}
+/* Rente a caixa */
+.logo-frase{
+    position: absolute;
+    left: 70px;
+    bottom: 160px;
+    width: 230px;
+}
+/* Título do Vestibular*/
+.titulo-vestibular-container{
+    position: absolute;
+    top: 50px;
+    left: 180px;
+}
+
+.titulo-vestibular{
+    color:#E7B6E6;
+    font-size:3.5rem;
+    margin:0;
+    display:inline-block;
+}
+
+.linha-vestibular{
+    position:absolute;
+    left:130px;
+    top:55px;
+    width:160px;
+    height:2px;
+    background:#E7B6E6;
+}
+
+/* Texto dentro da caixa */
+.info-vestibular{
+    margin-top: 60px;
+    margin-left: 180px;
+}
+
+.status-vestibular{
+    color: #E7B6E6;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.modalidade-vestibular{
+    color: #E7B6E6;
+    font-size: 1rem;
+    margin-top: 8px;
+    margin-left: 400px;
+}
+.datas-vestibular{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 320px;
+}
+
+.titulo-data{
+    color: #E7B6E6;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.texto-data{
+    color: white;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+/* Caixa arrumada com espaço para os 04 textos */
+.datas-vestibular{
+    margin-top: 50px;
+    margin-left: 210px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.linha-info{
+    display: flex;
+    gap: 140px;
+}
+
+.item-info{
+    width: 250px;
+}
+
+.titulo-data{
+    color:#E7B6E6;
+    font-size:1.4rem;
+    margin-bottom:8px;
+}
+
+.texto-data{
+    color:white;
+    font-size:1rem;
+    line-height:1.5;
+}
+
+/* Botão Inscreva-se */
+.botao-vestibular{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-inscricao{
+    display: inline-block;
+    padding: 15px 45px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    background: transparent;
+    color: #E7B6E6;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-inscricao:hover{
+    background: rgba(231,182,230,0.22);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(231,182,230,0.35);
+}
+
+/* PARCERIAS */
+
+.secao-parcerias{
+    position: relative;
+    width:100%;
+    min-height:100vh;
+    padding:100px 0;
+    overflow:hidden;
+}
+
+.bg-parcerias{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.18;
+    z-index:-1;
+}
+
+.container-parcerias{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.titulo-parcerias{
+    color:#E7A351;
+    font-size:3rem;
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.linha-parcerias{
+    position:absolute;
+    left:820px;
+    top:155px;
+    width:160px;
+    height:2px;
+    background:#E7A351;
+}
+
+.marquee{
+
+    width:100%;
+    height:260px;
+    overflow:hidden;
+    position:relative;
+
+}
+
+.marquee-track{
+
+    position:absolute;
+    display:flex;
+    align-items:center;
+    gap:120px;
+    width:max-content;
+    left:0;
+    top:20px;
+    will-change:transform;
+
+}
+.marquee-track img{
+
+    width:280px;
+    height:180px;
+    object-fit:contain;
+    background:white;
+    border-radius:8px;
+    padding:20px;
+    flex-shrink:0;
+    transition:.3s;
+
+}
+
+.marquee-track img:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* ========================================= 
+   15. RODAPÉ COM O FOOTER (html semântico) 
+   ========================================= */
+
+footer{
+
+    width:100%;
+    background:#151515;
+
+}
+
+.footer-superior{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:50px 70px;
+
+}
+
+.footer-esquerda{
+
+    display:flex;
+    flex-direction:column;
+
+}
+.logo-footer {
+    width: 120px;
+}
+
+.footer-direita{
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+.footer-esquerda img{
+
+    width:80px;
+    margin-bottom:25px;
+
+}
+
+.titulo-footer{
+
+    color:#D78EDB;
+    font-size:2rem;
+    margin-bottom:20px;
+    font-weight:normal;
+
+}
+
+.texto-footer{
+
+    color:white;
+    font-size:1.1rem;
+    line-height:1.7;
+    font-weight:normal;
+
+}
+
+.footer-inferior{
+
+    border-top:1px solid #5d5d5d;
+    background:#101010;
+    text-align:center;
+    padding:28px 20px;
+
+}
+
+.copyright{
+
+    color:#d6d6d6;
+    font-size:1rem;
+    font-weight:normal;
+    line-height:1.5;
+
+}
+
+/* ================================================ 
+   16. SCROLL AUTOMÁTICO EM GRADUAÇÕES E VESTIBULAR 
+   ================================================ */
+html{
+    scroll-behavior: smooth;
+}
+
+/* =======================
+   17. NOTA 5 NO MEC
+   ======================= */
+.banner-mec{
+    position: relative;
+    width: 100%;
+    height: 120vh; /* É onde aumenta a tela, vh representa um aumento de 1% da altura total da área visível do navegador */
+    overflow: hidden;
+}
+.conteudo-mec{
+    position: absolute;
+    top: 170px;
+    left: 225px;
+    width: 550px;
+    z-index: 2;
+}
+.bg-video-sol{
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: .40;
+}
+.titulo-mec{
+
+    display: flex;
+    flex-direction: column;
+
+}
+.titulo-nota{
+
+    font-family: "Sora", sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 300;
+
+    color: white;
+
+    letter-spacing: 12px;
+
+    text-transform: uppercase;
+
+}
+.titulo-maxima{
+
+    font-family: "Sora", sans-serif;
+
+    font-size: 60px;
+
+    font-weight: 800;
+
+    color: #E7B6E6;
+
+    line-height: .95;
+
+    text-transform: uppercase;
+
+}
+.titulo-mec-texto{
+
+    font-family: "Sora", sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: white;
+
+    text-transform: uppercase;
+
+    text-align: center;
+
+    margin-top: 10px;
+
+}
+.texto-mec{
+
+    color: white;
+
+    font-size: 20px;
+
+    margin-top: 35px;
+
+    line-height: 1.6;
+
+}
+
+/* ================================
+   18. Marquee/keyframe Networking
+   ================================ */
+.networking-section{
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+}
+
+.bg-networking{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    opacity: .23;
+    z-index: 0;
+}
+.marquee-networking{
+
+    position:absolute;
+
+    top:70px;
+    left:0;
+
+    width:100%;
+
+    overflow:hidden;
+
+}
+.track-networking{
+
+    display:flex;
+
+    gap:35px;
+
+    width:max-content;
+
+    white-space:nowrap;
+
+    animation: networking-scroll 25s linear infinite;
+
+}
+.track-networking span{
+
+    font-family:"Sora", sans-serif;
+
+    font-size:35px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+.branco{
+
+    color:rgb(255, 255, 255);
+
+}
+.cinza{
+
+    color:#777777;
+
+}
+.bolinhaNet{
+
+    color:#ffffff;
+
+}
+@keyframes networking-scroll{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-50%);
+
+    }
+
+}
+/* ==============================================
+   19. Layout do Networking
+   ============================================== */
+
+/* Mantém o container responsivo e centralizado */
+.fiap-grid-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 40px auto 0 auto;
+    padding: 15% 5%;
+    box-sizing: border-box;
+}
+
+/* Estrutura base de cada bloco e linha separadora */
+.fiap-block {
+    position: relative; /* Necessário para posicionar o rótulo UCEN em relação ao bloco */
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória horizontal */
+    padding: 60px 0;
+}
+
+/* Cria o texto "UCEN" na ponta esquerda inferior de cada linha */
+.fiap-block::after {
+    content: "UCEN";
+    position: absolute;
+    bottom: -8px; /* Ajusta a altura para alinhar com a linha */
+    left: 0;
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #777777; /* Cor cinza sutil; ajuste conforme necessário */
+    letter-spacing: 1.5px;
+    background-color: #000; /* Previne que a linha corte por trás do texto (ajuste para a cor do seu fundo) */
+    padding-right: 8px;
+}
+
+/* Esconde a linha e o rótulo do último bloco */
+.fiap-block:last-child {
+    border-bottom: none;
+}
+
+.fiap-block:last-child::after {
+    display: none;
+}
+
+.fiap-content {
+    max-width: 540px;
+}
+
+/* Tipografia */
+.fiap-content strong {
+    display: block;
+    font-family: "Sora", sans-serif;
+    font-size: 32px;
+    color: rgb(224, 224, 224);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.fiap-content h3 {
+    font-family: "Sora", sans-serif;
+    font-size: 15px;
+    color: #969696;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.85;
+}
+
+/* --- Posicionamento dos Blocos em Escada --- */
+
+/* Bloco 1: Esquerda */
+.block-left {
+    text-align: left;
+}
+
+.block-left .fiap-content {
+    margin-right: auto;
+}
+
+/* Bloco 2: Direita */
+.block-right {
+    text-align: left;
+}
+
+.block-right .fiap-content {
+    margin-left: auto; /* Empurra o bloco de texto para a direita */
+}
+
+/* Bloco 3: Centro */
+.block-center {
+    text-align: left;
+}
+
+.block-center .fiap-content {
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o bloco na página */
+}
+
+/* Posicionamento base para a imagem do globo */
+.globo-bg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    opacity: 0.5; /* Ajuste a transparência */
+    pointer-events: none; /* Evita que a imagem interfira na seleção de texto */
+}
+
+/* --- Seria uma ótima ideia fazer a responsividade por página, sempre ao final de cada uma --- */
+
+/* ==========================
+   19. BOTÃO DA IA SIRIUS
+========================== */
+
+.sirius-container{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    z-index:9999;
+
+}
+
+.sirius-btn{
+
+    width:72px;
+
+    height:72px;
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.sirius-btn img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.sirius-btn:hover{
+
+    transform:translateY(-5px) scale(1.06);
+
+}
+/* Teste layout da sirius */
+.janela-sirius{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:115px;
+
+    width:340px;
+
+    height:500px;
+
+    background:#0b1020;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    display:none;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    z-index:9999;
+
+    box-shadow:0 0 35px rgba(90,150,255,.18);
+
+}
+.topo-sirius{
+
+    height:60px;
+
+    background:#12192d;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+/* Novas regras para o topo em Flexbox */
+.perfil-sirius {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a foto e o texto */
+}
+
+.rosto-ia {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #221f1f;
+    border: none;
+}
+
+.rosto-ia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-ia {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nome-ia {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* O subtítulo dourado solicitado */
+.subtitulo-dourado {
+    color: #b5a63d; 
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Alteração pontual para adicionar o balão/borda na mensagem */
+.mensagem-ia {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    line-height: 1.4;
+    font-size: 14px;
+    background: transparent;
+    
+    /* ADICIONE ESSAS LINHAS ABAIXO */
+    max-width: 85%; /* Limita a largura do balão para não ocupar a tela toda */
+    margin-right: auto; /* Empurra o balão para a ESQUERDA (padrão de mensagens recebidas) */
+}
+.mensagens-sirius{
+
+    flex:1;
+
+    padding:20px;
+
+    color:white;
+
+    overflow-y:auto;
+
+}
+.entrada-sirius{
+
+    display:flex;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+.entrada-sirius input{
+
+    flex:1;
+
+    background:#11182b;
+
+    color:white;
+
+    border:none;
+
+    outline:none;
+
+    padding:16px;
+
+}
+.entrada-sirius button{
+
+    width:90px;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+#fecharSirius{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+.mensagem-usuario{
+
+    background:#2b3b72;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-top:12px;
+
+    max-width:85%;
+
+    margin-left:auto;
+
+    word-break:break-word;
+
+}
+
+/* ==========================================================
+   Histórico de pesquisa (itens dentro do dropdown-simples
+   e do resultado-pesquisa, tipo o histórico do Google)
+   ========================================================== */
+
+.item-historico {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 20px;
+
+    color: #e47de4d9;
+    font-family: 'Sora', serif;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    transition:
+        background-color .25s,
+        padding-left .25s;
+
+}
+
+.item-historico:hover {
+
+    background-color: #111d33;
+    padding-left: 28px;
+
+}
+
+.item-historico .icone-relogio {
+
+    color: #888;
+    font-size: 15px;
+    flex-shrink: 0;
+
+}
+
+.item-historico .texto-historico {
+
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.item-historico .botao-apagar-historico {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    color: #ccc;
+    font-size: 13px;
+
+    opacity: 0;
+    transition: opacity .2s, background-color .2s, color .2s;
+
+}
+
+/* O X só aparece quando o mouse passa em cima do item */
+.item-historico:hover .botao-apagar-historico {
+
+    opacity: 1;
+
+}
+
+.item-historico .botao-apagar-historico:hover {
+
+    background-color: rgba(231,182,230,.18);
+    color: #E7B6E6;
+
+}

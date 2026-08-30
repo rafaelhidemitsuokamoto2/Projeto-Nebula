@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Agenda - Portal do Professor - UCEN</title>
+    <link rel="stylesheet" href="professor_agenda.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu ativo" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - AGENDA
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="agenda">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">PLANEJAMENTO</span>
+                    <div class="titulo-linha">
+                        <h1>Agenda</h1>
+                        <span></span>
+                    </div>
+                    <p>Suas aulas, provas, trabalhos e reuniões da semana.</p>
+                </div>
+
+                <!-- SEMANA -->
+                <div class="semana-agenda">
+                    23 - 27 de novembro de 2026
+                </div>
+
+                <!-- AGENDA -->
+                <div class="agenda-semanal" id="agendaSemanal">
+
+                    <div class="coluna-horas">
+                        <div class="topo-vazio"></div>
+                        <div class="hora">19h</div>
+                        <div class="hora">20h</div>
+                        <div class="hora">21h</div>
+                        <div class="hora">22h</div>
+                    </div>
+
+                    <!-- As 5 colunas de dias (Seg a Sex) são geradas pelo JavaScript,
+                         incluindo as aulas já cadastradas e os espaços clicáveis
+                         para adicionar novos compromissos -->
+
+                </div>
+
+                <p style="color:#a0a0a0; font-size:13px; margin-top:14px;">
+                    <i class="fa-solid fa-circle-info"></i> Clique em um espaço vazio da grade para adicionar um compromisso.
+                </p>
+
+                <!-- LEGENDA DA AGENDA -->
+                <div class="legenda-agenda">
+                    <h3>Tipos de compromisso:</h3>
+
+                    <div class="grid-legenda">
+
+                        <div class="item-legenda">
+                            <div class="cabecalho-item">
+                                <span class="quadradinho azul-legenda"></span>
+                                <strong>Reunião / Evento</strong>
+                            </div>
+                            <p>Reuniões pedagógicas, colegiados e eventos institucionais.</p>
+                        </div>
+
+                        <div class="item-legenda">
+                            <div class="cabecalho-item">
+                                <span class="quadradinho vermelho-legenda"></span>
+                                <strong>Prova</strong>
+                            </div>
+                            <p>Avaliações formais aplicadas em sala com peso na média.</p>
+                        </div>
+
+                        <div class="item-legenda">
+                            <div class="cabecalho-item">
+                                <span class="quadradinho verde-legenda"></span>
+                                <strong>Entrega de trabalho</strong>
+                            </div>
+                            <p>Prazos de entrega de atividades e trabalhos das turmas.</p>
+                        </div>
+
+                        <div class="item-legenda">
+                            <div class="cabecalho-item">
+                                <span class="quadradinho branco-legenda"></span>
+                                <strong>Aula regular</strong>
+                            </div>
+                            <p>Encontros normais de sala de aula, sem avaliação.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL: NOVO COMPROMISSO -->
+    <div id="modalCompromisso" class="modal-generico-overlay">
+        <div class="modal-generico-conteudo">
+            <button type="button" class="btn-fechar-modal" id="fecharModalCompromisso">&times;</button>
+            <h2>Novo compromisso</h2>
+            <p class="info-modal-compromisso" id="infoModalCompromisso"></p>
+            <form id="formCompromisso">
+                <div class="input-group">
+                    <label for="tituloCompromisso">Título</label>
+                    <input type="text" id="tituloCompromisso" placeholder="Ex: Prova - Banco de Dados" required>
+                </div>
+                <div class="input-group">
+                    <label for="horarioCompromisso">Horário</label>
+                    <input type="text" id="horarioCompromisso" placeholder="Ex: 19:00 - 20:30" required>
+                </div>
+                <div class="input-group">
+                    <label for="localCompromisso">Sala / Local</label>
+                    <input type="text" id="localCompromisso" placeholder="Ex: Sala 25" required>
+                </div>
+                <div class="input-group">
+                    <label>Cor (tipo de compromisso)</label>
+                    <div class="opcoes-cor-compromisso" id="opcoesCorCompromisso">
+                        <button type="button" class="opcao-cor azul" data-cor="azul" title="Reunião / Evento"></button>
+                        <button type="button" class="opcao-cor vermelho" data-cor="vermelho" title="Prova"></button>
+                        <button type="button" class="opcao-cor verde" data-cor="verde" title="Entrega de trabalho"></button>
+                        <button type="button" class="opcao-cor branco ativo" data-cor="branco" title="Aula regular"></button>
+                    </div>
+                    <input type="hidden" id="corCompromisso" value="branco">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-principal"><i class="fa-solid fa-check"></i> Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ucen@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_agenda.js" defer></script>
+</body>
+</html>

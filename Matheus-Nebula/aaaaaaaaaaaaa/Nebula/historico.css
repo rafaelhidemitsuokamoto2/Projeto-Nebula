@@ -1,0 +1,84 @@
+/* ==========================================================
+   Histórico de pesquisa (itens dentro do dropdown-simples
+   e do resultado-pesquisa, tipo o histórico do Google)
+   ========================================================== */
+
+.item-historico {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 20px;
+
+    color: #e47de4d9;
+    font-family: 'Sora', serif;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    transition:
+        background-color .25s,
+        padding-left .25s;
+
+}
+
+.item-historico:hover {
+
+    background-color: #111d33;
+    padding-left: 28px;
+
+}
+
+.item-historico .icone-relogio {
+
+    color: #888;
+    font-size: 15px;
+    flex-shrink: 0;
+
+}
+
+.item-historico .texto-historico {
+
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.item-historico .botao-apagar-historico {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    color: #ccc;
+    font-size: 13px;
+
+    opacity: 0;
+    transition: opacity .2s, background-color .2s, color .2s;
+
+}
+
+/* O X só aparece quando o mouse passa em cima do item */
+.item-historico:hover .botao-apagar-historico {
+
+    opacity: 1;
+
+}
+
+.item-historico .botao-apagar-historico:hover {
+
+    background-color: rgba(231,182,230,.18);
+    color: #E7B6E6;
+
+}

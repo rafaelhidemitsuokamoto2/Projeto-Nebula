@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title> Acesso ao banco de dados </title>
+    <link rel="stylesheet" type="text/css" href="css_cliente.css">
+</head>
+<body>
+ 
+<div id="conteudo_principal">
+    <h1 class="titulos"> Cadastro do cliente  </h1>
+    <div class="postagens">
+        <h1 class="titulos"> </h1>
+ 
+ 
+            <div id="cadastro">
+        <form method="post" action="atualiza_cliente.php">
+ 
+          <table class="containerCliente">
+        <tr>
+        <td>Nome :</td>
+        <td><input type="text" name="nome" maxlength="40" class="txt" placeholder="Nome completo" required></td><br>
+        </tr>
+ 
+        <tr>
+        <td>Email :</td>
+        <td><input type="text" name="email" maxlength="255" class="txt"></td><br>
+        </tr>
+ 
+        <tr>
+        <td>Senha :</td>
+        <td><input type="password" name="senha" id="senha" maxlength="255" class="txt"></td><br>
+        </tr>
+ 
+        <tr>
+        <td>Repetir senha :</td>
+        <td><input type="password" name="senha2" id="senha2" maxlength="255" class="txt"></td><br>
+        </tr>
+ 
+        <tr>
+        <td>Telefone :</td>
+        <td><input type="text" name="telefone" maxlength="11" class="txt"></td><br>
+        </tr>
+ 
+        <tr>
+        <td>CPF :</td>
+        <td><input type="text" name="cpf" maxlength="11" class="txt"></td><br>
+        </tr>
+ 
+        <tr>
+        <td>Data de nascimento :</td>
+        <td><input type="date" name="dataNascimento" maxlength="13" class="txt"></td>
+        </tr>
+ 
+        <tr>
+        <td>Gênero :</td>
+        <td><input type="text" name="genero" maxlength="13" class="txt"></td>
+        </tr>
+ 
+        <tr>
+        <td><input type="submit" value="Enviar"></td>
+        </tr>
+ 
+       
+        </table>
+    </form>
+</div>
+</div>
+ 
+<script>
+ 
+    document.addEventListener('DOMContentLoaded', function () {
+        const senha = document.getElementById('senha');
+        const repetirSenha = document.getElementById('senha2');
+        function validarSenhas(mostrarAviso = false) {
+            if (repetirSenha.value && senha.value !== repetirSenha.value) {
+                repetirSenha.setCustomValidity('As senhas não são iguais.');
+                if (mostrarAviso) {
+                    repetirSenha.reportValidity();
+                }
+                return false;
+            }
+            repetirSenha.setCustomValidity('');
+            return true;
+        }
+        repetirSenha.addEventListener('blur', function () {
+            validarSenhas(true);
+        });
+        repetirSenha.addEventListener('input', function () {
+            validarSenhas(false);
+        });
+        senha.addEventListener('input', function () {
+            validarSenhas(false);
+        });
+        const formulario = senha.closest('form');
+        if (formulario) {
+            formulario.addEventListener('submit', function (event) {
+                if (!validarSenhas(true)) {
+                    event.preventDefault();
+                    repetirSenha.focus();
+                }
+            });
+        }
+    });
+ 
+ 
+</script>
+ 
+</body>
+</html>

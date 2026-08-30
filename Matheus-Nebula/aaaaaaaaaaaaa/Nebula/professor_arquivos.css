@@ -1,0 +1,827 @@
+/* ==========================================================
+   PORTAL DO PROFESSOR - ARQUIVOS
+   Estilos base (header, menu, rodapé) + estilos da página Arquivos
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo img {
+    width: 125px;
+    height: auto;
+    display: block;
+    transition: .35s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* ==========================================
+   BARRA DE ROLAGEM
+========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050912;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8a2be2;
+    border-radius: 6px;
+    border: 2px solid #050912;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9932cc;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cabecalho {
+    width: 100%;
+    height: 90px;
+    background-color: #050505;
+    display: flex;
+    align-items: center;
+    z-index: 900;
+    border-bottom: 1px solid #292929;
+}
+
+.barra-portal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* ==========================================
+   PESQUISA
+========================================== */
+
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    width: min(400px, 90%);
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.caixa-pesquisa input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: black;
+    outline: none;
+    font-size: 16px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: #777;
+}
+
+.caixa-pesquisa i {
+    color: #888;
+    font-size: 15px;
+    margin-left: 6px;
+}
+
+.overlay-pesquisa {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+    z-index: 5000;
+}
+
+.overlay-pesquisa.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.painel-pesquisa {
+    width: 100%;
+    background: #050912;
+    padding: 35px;
+    transform: translateY(-30px);
+    transition: .35s;
+}
+
+.overlay-pesquisa.ativo .painel-pesquisa {
+    transform: translateY(0);
+}
+
+.barra-expandida {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+}
+
+.barra-expandida input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+#fecharPesquisa {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.resultado-pesquisa {
+    margin-top: 30px;
+    display: none;
+}
+
+.resultado-pesquisa li {
+    list-style: none;
+    color: #e47de4d9;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    transition: background-color .25s, padding-left .25s;
+}
+
+.resultado-pesquisa li:hover {
+    background: #111d33;
+    padding-left: 20px;
+}
+
+#lista-header li {
+    display: none;
+}
+
+#mensagem-header {
+    display: none;
+    padding: 18px 12px;
+    color: #9b9b9b;
+    font-family: "Sora", sans-serif;
+    font-size: 16px;
+}
+
+.barra-expandida i {
+    font-size: 22px;
+    color: #666;
+}
+
+/* ==========================================
+   PERFIL
+========================================== */
+.perfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+    background-color: #240D31;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 249, 63, 0.25);
+}
+
+/* ==========================================
+   MENU LATERAL FIXO
+========================================== */
+
+.menu {
+    position: fixed;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 91px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 45px;
+    background-color: #303030;
+    z-index: 1000;
+    transition: width 0.45s ease, height 0.45s ease, border-radius 0.45s ease;
+}
+
+.menu.aberto {
+    width: 325px;
+    height: 555px;
+    border-radius: 30px;
+}
+
+.menu-cabecalho {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #f28cff;
+    font-family: 'Sora', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.menu-cabecalho span {
+    margin-left: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.menu.aberto .menu-cabecalho span {
+    opacity: 1;
+    transition-delay: 0.25s;
+}
+
+.botao-menu-fechar {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    color: #f28cff;
+    cursor: pointer;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu.aberto .botao-menu-fechar {
+    display: flex;
+}
+
+.menu-navegacao {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 25px 48px;
+}
+
+.item-menu {
+    width: 100%;
+    padding: 12px 22px;
+    border: none;
+    background: transparent;
+    color: #c9c9c9;
+    font-family: 'Sora', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    border-left: 3px solid transparent;
+    transition: .25s;
+}
+
+.item-menu.ativo {
+    background: #3d3d3d;
+    color: #E3AC6C;
+    border-left-color: #E3AC6C;
+}
+
+.menu.aberto .item-menu {
+    opacity: 1;
+}
+
+.item-menu:hover {
+    color: #E3AC6C;
+    transform: translateX(4px);
+
+    background: rgb(71, 71, 71);
+    border-left-color: #E3AC6C; /* barra rosa */
+}
+
+.menu:not(.aberto) .menu-navegacao {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.area-conteudo {
+    width: 100%;
+}
+
+.pagina {
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Sora', sans-serif;
+}
+
+/* Correção: cada seção agora é seu próprio HTML, então a página
+   precisa nascer visível (antes dependia de um JS de troca de
+   página que não existe mais nesse modelo com arquivos separados) */
+.pagina-interna {
+    display: block;
+    min-height: calc(100vh - 90px);
+    padding: 35px 8% 40px 180px;
+    background-color: transparent;
+}
+
+/* ==========================================
+   CABEÇALHO DA PÁGINA
+========================================== */
+
+.cabecalho-pagina {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+}
+
+.categoria-pagina {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    text-align: left;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+}
+
+.titulo-linha {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-linha h1 {
+    margin: 0;
+    color: #E3AC6C;
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.titulo-linha span {
+    height: 1px;
+    flex: 1;
+    max-width: 420px;
+    background-color: #E3AC6C;
+    opacity: 0.8;
+}
+
+.cabecalho-pagina p {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   RODAPÉ COM O FOOTER
+   ========================================= */
+footer {
+    width: 100%;
+    background: #151515;
+    margin-top: 210px;
+}
+
+.footer-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 70px;
+}
+
+.footer-esquerda {
+    display: flex;
+    flex-direction: column;
+    margin-left: 105px;
+}
+
+.footer-direita {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: -65px;
+}
+
+.footer-esquerda img {
+    width: 80px;
+    margin-bottom: 25px;
+}
+
+.titulo-footer {
+    color: #D78EDB;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.texto-footer {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: normal;
+}
+
+.footer-inferior {
+    border-top: 1px solid #5d5d5d;
+    background: #101010;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.copyright {
+    color: #d6d6d6;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   ARQUIVOS (específico desta página)
+========================================== */
+
+.filtro-turma-arquivos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 40px 0 0 0;
+}
+
+.btn-turma-notas {
+    background-color: #121214;
+    color: #ffffff;
+    border: 0.5px solid #646464;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-turma-notas:hover {
+    border-color: #E879F9;
+}
+
+.btn-turma-notas.ativo {
+    background-color: #4c005c;
+    border-color: #E879F9;
+}
+
+/* Caixa principal */
+.materiais-box {
+    background: #091729;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.materiais-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.materiais-topo h3 {
+    color: #E3AC6C;
+    font-size: 26px;
+    font-family: "Sora", sans-serif;
+}
+
+.topo-acoes-arquivos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-nova-pasta,
+.btn-adicionar-arquivo {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 9px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: .2s;
+}
+
+.btn-nova-pasta:hover,
+.btn-adicionar-arquivo:hover {
+    background: rgba(232, 121, 249, 0.15);
+    border-color: #E879F9;
+    color: #f28cff;
+}
+
+.ascendente {
+    color: #E3AC6C;
+}
+
+#chevron {
+    color: #E3AC6C;
+}
+
+.btn-ordenar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-ordenar i {
+    transition: .25s;
+}
+
+.btn-ordenar.desc i {
+    transform: rotate(180deg);
+}
+
+.breadcrumb-arquivos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a0a0a0;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.breadcrumb-arquivos span {
+    cursor: pointer;
+}
+
+.breadcrumb-arquivos span:hover,
+.breadcrumb-arquivos span:last-child {
+    color: #f28cff;
+}
+
+/* Cabeçalho da lista */
+.cabecalho-arquivos {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    color: #CFCFCF;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.cabecalho-arquivos.professor {
+    grid-template-columns: 2fr 1fr 1fr 90px;
+}
+
+.lista-arquivos {
+    display: flex;
+    flex-direction: column;
+}
+
+.arquivo-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 16px 14px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    transition: .2s;
+}
+
+.arquivo-item.professor {
+    grid-template-columns: 2fr 1fr 1fr 90px;
+}
+
+.arquivo-item:hover {
+    background: rgba(255,255,255,.03);
+}
+
+.arquivo-item.clicavel {
+    cursor: pointer;
+}
+
+.info-arquivo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.info-arquivo i {
+    color: #F2C94C;
+    font-size: 26px;
+}
+
+.info-arquivo span {
+    color: #fff;
+    font-weight: 600;
+}
+
+.data-arquivo {
+    color: #D9D9D9;
+}
+
+.professor-tag {
+    justify-self: start;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff;
+    font-size: 14px;
+}
+
+.acoes-arquivo {
+    display: flex;
+    gap: 10px;
+    justify-self: end;
+}
+
+.btn-icone-acao {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.btn-icone-acao:hover {
+    color: #f28cff;
+}
+
+.btn-icone-acao.excluir:hover {
+    color: #ff5a5a;
+}
+
+.sem-arquivos-msg {
+    color: #a0a0a0;
+    font-size: 14px;
+    padding: 30px 14px;
+    text-align: center;
+}
+
+/* ---------- MODAL GENÉRICO (nova pasta / adicionar arquivo) ---------- */
+.modal-generico-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 6000;
+}
+
+.modal-generico-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-generico-conteudo {
+    background: #16161a;
+    border: 1px solid #2e2e35;
+    border-radius: 20px;
+    padding: 30px;
+    width: min(420px, 90%);
+    position: relative;
+}
+
+.modal-generico-conteudo h2 {
+    color: #E3AC6C;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-fechar-modal {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-fechar-modal:hover {
+    color: #ffffff;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    font-size: 12px;
+    font-family: 'Sora', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Sora', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #E879F9;
+}
+
+.form-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-principal {
+    background: #b57b2b;
+    color: #071b35;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-principal:hover {
+    background: #c98a32;
+}

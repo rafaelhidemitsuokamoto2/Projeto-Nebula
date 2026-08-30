@@ -1,0 +1,807 @@
+/* ==========================================================
+   PORTAL DO PROFESSOR - CALENDÁRIO
+   Estilos base (header, menu, rodapé) + estilos da página Calendário
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo img {
+    width: 125px;
+    height: auto;
+    display: block;
+    transition: .35s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* ==========================================
+   BARRA DE ROLAGEM
+========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050912;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8a2be2;
+    border-radius: 6px;
+    border: 2px solid #050912;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9932cc;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cabecalho {
+    width: 100%;
+    height: 90px;
+    background-color: #050505;
+    display: flex;
+    align-items: center;
+    z-index: 900;
+    border-bottom: 1px solid #292929;
+}
+
+.barra-portal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* ==========================================
+   PESQUISA
+========================================== */
+
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    width: min(400px, 90%);
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.caixa-pesquisa input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: black;
+    outline: none;
+    font-size: 16px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: #777;
+}
+
+.caixa-pesquisa i {
+    color: #888;
+    font-size: 15px;
+    margin-left: 6px;
+}
+
+.overlay-pesquisa {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+    z-index: 5000;
+}
+
+.overlay-pesquisa.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.painel-pesquisa {
+    width: 100%;
+    background: #050912;
+    padding: 35px;
+    transform: translateY(-30px);
+    transition: .35s;
+}
+
+.overlay-pesquisa.ativo .painel-pesquisa {
+    transform: translateY(0);
+}
+
+.barra-expandida {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+}
+
+.barra-expandida input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+#fecharPesquisa {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.resultado-pesquisa {
+    margin-top: 30px;
+    display: none;
+}
+
+.resultado-pesquisa li {
+    list-style: none;
+    color: #e47de4d9;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    transition: background-color .25s, padding-left .25s;
+}
+
+.resultado-pesquisa li:hover {
+    background: #111d33;
+    padding-left: 20px;
+}
+
+#lista-header li {
+    display: none;
+}
+
+#mensagem-header {
+    display: none;
+    padding: 18px 12px;
+    color: #9b9b9b;
+    font-family: "Sora", sans-serif;
+    font-size: 16px;
+}
+
+.barra-expandida i {
+    font-size: 22px;
+    color: #666;
+}
+
+/* ==========================================
+   PERFIL
+========================================== */
+.perfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+    background-color: #240D31;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 249, 63, 0.25);
+}
+
+/* ==========================================
+   MENU LATERAL FIXO
+========================================== */
+
+.menu {
+    position: fixed;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 91px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 45px;
+    background-color: #303030;
+    z-index: 1000;
+    transition: width 0.45s ease, height 0.45s ease, border-radius 0.45s ease;
+}
+
+.menu.aberto {
+    width: 325px;
+    height: 555px;
+    border-radius: 30px;
+}
+
+.menu-cabecalho {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #f28cff;
+    font-family: 'Sora', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.menu-cabecalho span {
+    margin-left: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.menu.aberto .menu-cabecalho span {
+    opacity: 1;
+    transition-delay: 0.25s;
+}
+
+.botao-menu-fechar {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    color: #f28cff;
+    cursor: pointer;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu.aberto .botao-menu-fechar {
+    display: flex;
+}
+
+.menu-navegacao {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 25px 48px;
+}
+
+.item-menu {
+    width: 100%;
+    padding: 12px 22px;
+    border: none;
+    background: transparent;
+    color: #c9c9c9;
+    font-family: 'Sora', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    border-left: 3px solid transparent;
+    transition: .25s;
+}
+
+.item-menu.ativo {
+    background: rgb(71, 71, 71);
+    color: #E3AC6C;
+    border-left-color: #E3AC6C;
+}
+
+.menu.aberto .item-menu {
+    opacity: 1;
+}
+
+.item-menu:hover {
+    color: #E3AC6C;
+    transform: translateX(4px);
+
+    background: rgb(71, 71, 71);
+    border-left-color: #E3AC6C; /* barra rosa */
+}
+
+.menu:not(.aberto) .menu-navegacao {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.area-conteudo {
+    width: 100%;
+}
+
+.pagina {
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Sora', sans-serif;
+}
+
+/* Correção: cada seção agora é seu próprio HTML, então a página
+   precisa nascer visível (antes dependia de um JS de troca de
+   página que não existe mais nesse modelo com arquivos separados) */
+.pagina-interna {
+    display: block;
+    min-height: calc(100vh - 90px);
+    padding: 35px 8% 40px 180px;
+    background-color: transparent;
+}
+
+/* ==========================================
+   CABEÇALHO DA PÁGINA
+========================================== */
+
+.cabecalho-pagina {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+}
+
+.categoria-pagina {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    text-align: left;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+}
+
+.titulo-linha {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-linha h1 {
+    margin: 0;
+    color: #E3AC6C;
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.titulo-linha span {
+    height: 1px;
+    flex: 1;
+    max-width: 420px;
+    background-color: #E3AC6C;
+    opacity: 0.8;
+}
+
+.cabecalho-pagina p {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   RODAPÉ COM O FOOTER
+   ========================================= */
+footer {
+    width: 100%;
+    background: #151515;
+    margin-top: 210px;
+}
+
+.footer-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 70px;
+}
+
+.footer-esquerda {
+    display: flex;
+    flex-direction: column;
+    margin-left: 105px;
+}
+
+.footer-direita {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: -65px;
+}
+
+.footer-esquerda img {
+    width: 80px;
+    margin-bottom: 25px;
+}
+
+.titulo-footer {
+    color: #D78EDB;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.texto-footer {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: normal;
+}
+
+.footer-inferior {
+    border-top: 1px solid #5d5d5d;
+    background: #101010;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.copyright {
+    color: #d6d6d6;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   SEÇÃO CALENDÁRIO DE PROVAS
+========================================== */
+
+.container-calendario-secao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 100px;
+}
+
+/* Lado Esquerdo: Box do Calendário */
+.box-calendario {
+    background: #071b35;
+    border: 1px solid #d9d9d9;
+    border-radius: 22px;
+    padding: 24px;
+    color: #fff;
+}
+
+.topo-calendario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.topo-calendario h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.btn-nav-cal {
+    background: transparent;
+    border: 1px solid #b57b2b;
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-nav-cal:hover {
+    background: #b57b2b;
+}
+
+/* Dias da Semana */
+.dias-semana-cal {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 14px;
+    color: #d7d7d7;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Grade de Dias */
+.grade-dias-cal {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.dia-num {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.dia-num.outro-mes {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.dia-num.domingo {
+    color: #ff6b6b;
+}
+
+/* Destaque para dias com prova/anotação */
+.dia-num.com-evento {
+    background: #1b2430;
+    border: 1px solid #b57b2b;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Lado Direito: Box de Eventos */
+.box-eventos {
+    background: #071b35;
+    border: 1px solid #d9d9d9;
+    border-radius: 22px;
+    padding: 24px;
+}
+
+.lista-eventos-cal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-evento-cal {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(181, 123, 43, 0.3);
+}
+
+.card-evento-cal:last-child {
+    border-bottom: none;
+}
+
+.badge-dia-evento {
+    width: 44px;
+    height: 44px;
+    background: #1b2430;
+    border: 1px solid #b57b2b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.info-evento-cal h4 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 0 4px 0;
+}
+
+.info-evento-cal p {
+    color: #d7d7d7;
+    font-size: 14px;
+    margin: 0;
+}
+
+.sem-eventos-msg {
+    color: #d7d7d7;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ==========================================
+   MODAL DE VISÃO ANUAL
+========================================== */
+
+#mes-ano-titulo{
+    cursor:pointer;
+    padding:6px 14px;
+    border-radius:8px;
+    border:1px dashed transparent;
+    transition:.2s;
+    user-select:none;
+}
+
+#mes-ano-titulo:hover{
+    border-color:#b57b2b;
+    color:#fedebe;
+}
+
+/* Overlay */
+
+.modal-overlay-anual{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(3,10,20,.65);
+    backdrop-filter:blur(8px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:opacity .25s ease, visibility .25s ease;
+
+    z-index:99999;
+}
+
+.modal-overlay-anual.ativo{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* Caixa */
+
+.modal-container-anual{
+    width:90%;
+    max-width:520px;
+
+    background:#091729;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    padding:22px;
+
+    box-shadow:0 24px 60px rgba(0,0,0,.55);
+
+    transform:translateY(10px);
+    transition:transform .25s ease;
+}
+
+.modal-overlay-anual.ativo .modal-container-anual{
+    transform:translateY(0);
+}
+
+/* Header */
+
+.header-modal-anual{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:14px;
+    margin-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.header-modal-anual h2{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+}
+
+.btn-fechar-modal{
+    width:34px;
+    height:34px;
+
+    border:none;
+    border-radius:10px;
+
+    background:transparent;
+    color:rgba(255,255,255,.55);
+
+    cursor:pointer;
+    transition:.2s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-fechar-modal:hover{
+    background:rgba(255,255,255,.08);
+    color:#fff;
+}
+
+/* Grade */
+
+.grid-meses-ano{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 16px;
+}
+
+.card-mes-opcao{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 14px;
+
+    border-radius:10px;
+    border:1px solid transparent;
+
+    cursor:pointer;
+    transition:.2s;
+}
+
+.card-mes-opcao:hover{
+    background:rgba(255,255,255,.05);
+}
+
+.card-mes-opcao h4{
+    margin:0;
+    font-size:15px;
+    font-weight:400;
+    color:rgba(255,255,255,.45);
+}
+
+.card-mes-opcao.com-atividades h4,
+.card-mes-opcao.mes-atual-selecionado h4{
+    color:#fff;
+    font-weight:500;
+}
+
+.card-mes-opcao.mes-atual-selecionado{
+    background:rgba(181,123,43,.15);
+    border-color:rgba(181,123,43,.55);
+}
+
+.badge-qtd-atividades{
+    background:#c58a2b;
+    color:#071b35;
+
+    font-size:11px;
+    font-weight:700;
+
+    padding:3px 8px;
+    border-radius:999px;
+}
