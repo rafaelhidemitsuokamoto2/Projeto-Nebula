@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Professor</title>
+</head>
+<body>
+    <!-- ==========================================
+     ARQUIVOS
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="arquivos">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Arquivos</h1>
+            <span></span>
+        </div>
+        <p>Organize e compartilhe os materiais das suas turmas.</p>
+    </div>
+
+    <!-- FILTRO POR TURMA -->
+    <div class="filtro-turma-arquivos" id="filtroTurmaArquivos">
+        <button type="button" class="btn-turma-notas ativo" data-filtro-turma="todas">Todas as turmas</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="bd">Banco de Dados</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="prog">Programação</button>
+        <button type="button" class="btn-turma-notas" data-filtro-turma="es">Engenharia de Software</button>
+    </div>
+
+    <!-- CAIXA DOS ARQUIVOS -->
+    <div class="materiais-box">
+
+        <div class="materiais-topo">
+            <h3>Materiais</h3>
+
+            <div class="topo-acoes-arquivos">
+                <button id="btnNovaPasta" class="btn-nova-pasta">
+                    <i class="fa-solid fa-folder-plus"></i> Nova pasta
+                </button>
+                <button id="btnAdicionarArquivo" class="btn-adicionar-arquivo">
+                    <i class="fa-solid fa-file-arrow-up"></i> Adicionar arquivo
+                </button>
+                <button id="ordenar-btn" class="btn-ordenar">
+                    <span id="texto-ordem" class="ascendente">Ascendente</span>
+                    <i class="fa-solid fa-chevron-down" id="chevron"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="breadcrumb-arquivos" id="breadcrumbArquivos">
+            <span data-caminho="">Início</span>
+        </div>
+
+        <div class="cabecalho-arquivos professor">
+            <span>Arquivo</span>
+            <span>Modificado</span>
+            <span>Turma</span>
+            <span></span>
+        </div>
+
+        <div id="lista-arquivos" class="lista-arquivos">
+            <!-- JavaScript gera as linhas aqui -->
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MODAL: NOVA PASTA -->
+<div id="modalNovaPasta" class="modal-generico-overlay">
+    <div class="modal-generico-conteudo">
+        <button type="button" class="btn-fechar-modal" id="fecharModalPasta">&times;</button>
+        <h2>Criar nova pasta</h2>
+        <form id="formNovaPasta">
+            <div class="input-group">
+                <label for="nomeNovaPasta">Nome da pasta</label>
+                <input type="text" id="nomeNovaPasta" placeholder="Ex: Slides - Unidade 1" required>
+            </div>
+            <div class="input-group">
+                <label for="turmaNovaPasta">Turma / Disciplina</label>
+                <select id="turmaNovaPasta">
+                    <option value="bd">Banco de Dados</option>
+                    <option value="prog">Programação</option>
+                    <option value="es">Engenharia de Software</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-principal"><i class="fa-solid fa-check"></i> Criar pasta</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- MODAL: ADICIONAR ARQUIVO -->
+<div id="modalAdicionarArquivo" class="modal-generico-overlay">
+    <div class="modal-generico-conteudo">
+        <button type="button" class="btn-fechar-modal" id="fecharModalArquivo">&times;</button>
+        <h2>Adicionar material</h2>
+        <form id="formAdicionarArquivo">
+            <div class="input-group">
+                <label for="nomeArquivo">Nome do arquivo</label>
+                <input type="text" id="nomeArquivo" placeholder="Ex: Slides - Normalização.pdf" required>
+            </div>
+            <div class="input-group">
+                <label for="tipoArquivo">Tipo</label>
+                <select id="tipoArquivo">
+                    <option value="pdf">PDF</option>
+                    <option value="slide">Slides</option>
+                    <option value="atividade">Atividade</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="turmaArquivo">Turma / Disciplina</label>
+                <select id="turmaArquivo">
+                    <option value="bd">Banco de Dados</option>
+                    <option value="prog">Programação</option>
+                    <option value="es">Engenharia de Software</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="uploadArquivo">Arquivo</label>
+                <input type="file" id="uploadArquivo">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-principal"><i class="fa-solid fa-upload"></i> Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

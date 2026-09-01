@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Notas e Frequência - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_notas.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu ativo" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - NOTAS E FREQUÊNCIA
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="notas">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">ACADÊMICO</span>
+                    <div class="titulo-linha">
+                        <h1>Notas e Frequência</h1>
+                        <span></span>
+                    </div>
+                    <p>Lance notas, registre frequência e acompanhe o desempenho da turma.</p>
+                </div>
+
+                <!-- SELEÇÃO DE TURMA -->
+                <div class="selecao-turma-notas" id="selecaoTurmaNotas">
+                    <button type="button" class="btn-turma-notas ativo" data-turma-notas="bd">Banco de Dados - 3º Sem.</button>
+                    <button type="button" class="btn-turma-notas" data-turma-notas="prog">Programação - 2º Sem.</button>
+                    <button type="button" class="btn-turma-notas" data-turma-notas="es">Engenharia de Software - 5º Sem.</button>
+                </div>
+
+                <!-- CARDS DE ESTATÍSTICA -->
+                <div class="grid-cards-estatisticas" id="statsNotas" style="margin-top: 30px;">
+                    <div class="card-estatistica card-roxo">
+                        <span class="subtitulo-estatistica">MÉDIA DA TURMA</span>
+                        <h2 class="valor-estatistica" id="mediaTurmaGeral">8.4</h2>
+                    </div>
+                    <div class="card-estatistica card-roxo">
+                        <span class="subtitulo-estatistica">FREQUÊNCIA MÉDIA</span>
+                        <h2 class="valor-estatistica" id="freqTurmaGeral">94%</h2>
+                    </div>
+                    <div class="card-estatistica card-verde">
+                        <span class="subtitulo-estatistica">ALUNOS MATRICULADOS</span>
+                        <h2 class="valor-estatistica" id="totalAlunosGeral">28</h2>
+                    </div>
+                    <div class="card-estatistica" style="background-color:#2a1414; border-color:#4d2323;">
+                        <span class="subtitulo-estatistica">ABAIXO DA FREQ. MÍNIMA</span>
+                        <h2 class="valor-estatistica" style="color:#ff5a5a;" id="abaixoMinimoGeral">2</h2>
+                    </div>
+                </div>
+
+                <!-- TABELA DE ALUNOS -->
+                <div class="tabela-notas-container">
+                    <table class="tabela-notas">
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th>P1</th>
+                                <th>P2</th>
+                                <th>Média</th>
+                                <th>Frequência</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabelaNotas">
+                            <!-- JS gera as linhas -->
+                        </tbody>
+                    </table>
+
+                    <div class="rodape-tabela-notas">
+                        <button type="button" class="btn-principal" id="btnSalvarNotas">
+                            <i class="fa-solid fa-floppy-disk"></i> Salvar alterações
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_notas.js" defer></script>
+</body>
+</html>

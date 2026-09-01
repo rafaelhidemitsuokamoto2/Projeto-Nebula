@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Arquivos - Portal do Professor - FTAN</title>
+    <link rel="stylesheet" href="professor_arquivos.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/professor.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="professor_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+
+                <input type="text" placeholder="Pesquisar..." readonly>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+
+                <div class="painel-pesquisa">
+
+                    <div class="barra-expandida">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+
+                        <button id="fecharPesquisa">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="resultado-pesquisa">
+
+                        <ul id="lista-header">
+                            <li data-url="professor_inicio.html">Início</li>
+                            <li data-url="professor_turmas.html">Minhas Turmas</li>
+                            <li data-url="professor_arquivos.html">Arquivos</li>
+                            <li data-url="professor_notas.html">Notas e Frequência</li>
+                            <li data-url="professor_agenda.html">Agenda</li>
+                            <li data-url="professor_calendario.html">Calendário</li>
+                            <li data-url="professor_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="professor_perfil.html" class="perfil">
+                I
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+
+        <div class="menu-cabecalho">
+
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <span>Menu</span>
+
+        </div>
+
+        <nav class="menu-navegacao">
+
+            <a class="item-menu" href="professor_inicio.html">
+                Início
+            </a>
+
+            <a class="item-menu" href="professor_turmas.html">
+                Minhas Turmas
+            </a>
+
+            <a class="item-menu ativo" href="professor_arquivos.html">
+                Arquivos
+            </a>
+
+            <a class="item-menu" href="professor_notas.html">
+                Notas e Frequência
+            </a>
+
+            <a class="item-menu" href="professor_agenda.html">
+                Agenda
+            </a>
+
+            <a class="item-menu" href="professor_calendario.html">
+                Calendário
+            </a>
+
+            <a class="item-menu" href="professor_perfil.html">
+                Meu perfil
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - ARQUIVOS
+    ========================================== -->
+
+    <main class="conteudo">
+
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="arquivos">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">ACADÊMICO</span>
+                    <div class="titulo-linha">
+                        <h1>Arquivos</h1>
+                        <span></span>
+                    </div>
+                    <p>Organize e compartilhe os materiais das suas turmas.</p>
+                </div>
+
+                <!-- FILTRO POR TURMA -->
+                <div class="filtro-turma-arquivos" id="filtroTurmaArquivos">
+                    <button type="button" class="btn-turma-notas ativo" data-filtro-turma="todas">Todas as turmas</button>
+                    <button type="button" class="btn-turma-notas" data-filtro-turma="bd">Banco de Dados</button>
+                    <button type="button" class="btn-turma-notas" data-filtro-turma="prog">Programação</button>
+                    <button type="button" class="btn-turma-notas" data-filtro-turma="es">Engenharia de Software</button>
+                </div>
+
+                <!-- CAIXA DOS ARQUIVOS -->
+                <div class="materiais-box">
+
+                    <div class="materiais-topo">
+                        <h3>Materiais</h3>
+
+                        <div class="topo-acoes-arquivos">
+                            <button id="btnNovaPasta" class="btn-nova-pasta">
+                                <i class="fa-solid fa-folder-plus"></i> Nova pasta
+                            </button>
+                            <button id="btnAdicionarArquivo" class="btn-adicionar-arquivo">
+                                <i class="fa-solid fa-file-arrow-up"></i> Adicionar arquivo
+                            </button>
+                            <button id="ordenar-btn" class="btn-ordenar">
+                                <span id="texto-ordem" class="ascendente">Ascendente</span>
+                                <i class="fa-solid fa-chevron-down" id="chevron"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="breadcrumb-arquivos" id="breadcrumbArquivos">
+                        <span data-caminho="">Início</span>
+                    </div>
+
+                    <div class="cabecalho-arquivos professor">
+                        <span>Arquivo</span>
+                        <span>Modificado</span>
+                        <span>Turma</span>
+                        <span></span>
+                    </div>
+
+                    <div id="lista-arquivos" class="lista-arquivos">
+                        <!-- JavaScript gera as linhas aqui -->
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL: NOVA PASTA -->
+    <div id="modalNovaPasta" class="modal-generico-overlay">
+        <div class="modal-generico-conteudo">
+            <button type="button" class="btn-fechar-modal" id="fecharModalPasta">&times;</button>
+            <h2>Criar nova pasta</h2>
+            <form id="formNovaPasta">
+                <div class="input-group">
+                    <label for="nomeNovaPasta">Nome da pasta</label>
+                    <input type="text" id="nomeNovaPasta" placeholder="Ex: Slides - Unidade 1" required>
+                </div>
+                <div class="input-group">
+                    <label for="turmaNovaPasta">Turma / Disciplina</label>
+                    <select id="turmaNovaPasta">
+                        <option value="bd">Banco de Dados</option>
+                        <option value="prog">Programação</option>
+                        <option value="es">Engenharia de Software</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-principal"><i class="fa-solid fa-check"></i> Criar pasta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADICIONAR ARQUIVO -->
+    <div id="modalAdicionarArquivo" class="modal-generico-overlay">
+        <div class="modal-generico-conteudo">
+            <button type="button" class="btn-fechar-modal" id="fecharModalArquivo">&times;</button>
+            <h2>Adicionar material</h2>
+            <form id="formAdicionarArquivo">
+                <div class="input-group">
+                    <label for="nomeArquivo">Nome do arquivo</label>
+                    <input type="text" id="nomeArquivo" placeholder="Ex: Slides - Normalização.pdf" required>
+                </div>
+                <div class="input-group">
+                    <label for="tipoArquivo">Tipo</label>
+                    <select id="tipoArquivo">
+                        <option value="pdf">PDF</option>
+                        <option value="slide">Slides</option>
+                        <option value="atividade">Atividade</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="turmaArquivo">Turma / Disciplina</label>
+                    <select id="turmaArquivo">
+                        <option value="bd">Banco de Dados</option>
+                        <option value="prog">Programação</option>
+                        <option value="es">Engenharia de Software</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="uploadArquivo">Arquivo</label>
+                    <input type="file" id="uploadArquivo">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-principal"><i class="fa-solid fa-upload"></i> Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">
+                    Suporte ao professor
+                </h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ftan@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="professor_arquivos.js" defer></script>
+</body>
+</html>

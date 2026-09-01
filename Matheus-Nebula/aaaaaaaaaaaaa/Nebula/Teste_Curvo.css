@@ -1,0 +1,23 @@
+.arco-texto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Altura necessária para o arco */
+}
+
+.arco-texto span {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  /* Ajusta o ponto de rotação para a base do texto */
+  transform-origin: center bottom; 
+  /* Posiciona o texto para cima e o rotaciona */
+  transform: translateY(50px) rotate(0deg); 
+}
+
+/* Exemplo de letras individuais para um arco perfeito */
+.arco-texto span:nth-child(1) { transform: rotate(-20deg) translateY(20px); }
+.arco-texto span:nth-child(2) { transform: rotate(-10deg) translateY(10px); }
+.arco-texto span:nth-child(3) { transform: rotate(0deg) translateY(0px); }
+.arco-texto span:nth-child(4) { transform: rotate(10deg) translateY(10px); }
+.arco-texto span:nth-child(5) { transform: rotate(20deg) translateY(20px); }

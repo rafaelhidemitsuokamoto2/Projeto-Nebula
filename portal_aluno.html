@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <title>Portal do Aluno - FTAN</title>
-
     <link rel="stylesheet" href="portal_aluno.css">
 
 </head>
 <body>
-
 
     <!-- ==========================================
          HEADER
@@ -26,25 +18,14 @@
     <header class="cabecalho">
 
         <div class="barra-portal">
-            <div class="logo">
+            <div class="logo" id="btnLogoInicio" style="cursor: pointer;">
                 <img src="logo-ucen.png" alt="Logo">
             </div>
-
-            <!-- CAMPUS -->
-
-           <!-- <div class="campus">
-                Campus Avenida das Estrelas
-            </div> --> 
-
-
             <!-- PESQUISA -->
 
             <div class="caixa-pesquisa" id="caixaPesquisa">
 
-                <input
-                    type="text"
-                    placeholder="Pesquisar..." readonly
-                >
+                <input type="text" placeholder="Pesquisar..." readonly>
 
                 <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -58,11 +39,7 @@
 
             <i class="fa-solid fa-magnifying-glass"></i>
 
-            <input
-                type="text"
-                id="pesquisa-header"
-                placeholder="Pesquisar..."
-                autocomplete="off">
+            <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
 
             <button id="fecharPesquisa">
                 <i class="fa-solid fa-xmark"></i>
@@ -93,19 +70,14 @@
 
 </div>
 
-
             <!-- PERFIL -->
 
             <button type="button" class="perfil" onclick="document.querySelector('.item-menu[data-pagina=\'perfil\']').click()">
                 M
             </button>
 
-
         </div>
-
     </header>
-
-
 
     <!-- ==========================================
          BANNER PRINCIPAL
@@ -130,12 +102,8 @@
                 </span>
 
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- ==========================================
          MENU LATERAL
@@ -143,16 +111,11 @@
 
     <aside class="menu" id="menu">
 
-
         <!-- CABEÇALHO DO MENU -->
 
         <div class="menu-cabecalho">
 
-            <button
-                class="botao-menu-fechar"
-                id="botaoMenuFechar"
-                type="button"
-            >
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
 
                 <i class="fa-solid fa-bars"></i>
 
@@ -162,68 +125,44 @@
 
         </div>
 
-
-
         <!-- NAVEGAÇÃO -->
 
         <nav class="menu-navegacao">
-
 
             <button class="item-menu" data-pagina="inicio">
                 Início
             </button>
 
-
             <button class="item-menu" data-pagina="graduacao">
                 Minha Graduação
             </button>
-
 
             <button class="item-menu" data-pagina="pastas">
                 Arquivos
             </button>
 
-
             <button class="item-menu" data-pagina="agenda">
                 Agenda
             </button>
-
 
             <button class="item-menu" data-pagina="calendario">
                 Calendário
             </button>
 
-
             <button class="item-menu" data-pagina="documentos">
                 Documentos
             </button>
-
 
             <button class="item-menu" data-pagina="financeiro">
                 Financeiro
             </button>
 
-
-          <!-- <button class="item-menu" data-pagina="eventos">
-                Eventos
-            </button> --> 
-
-
-           <!-- <button class="item-menu" data-pagina="avisos">
-                Avisos
-            </button> --> 
-
-
             <button class="item-menu" data-pagina="perfil">
                 Meu perfil
             </button>
 
-
         </nav>
-
     </aside>
-
-
 
     <!-- ==========================================
          CONTEÚDO PRINCIPAL
@@ -233,10 +172,9 @@
 
        <div class="area-conteudo" id="areaConteudo">
 
-
-    <!-- ==========================================
-         INÍCIO
-    ========================================== -->
+<!-- ==========================================
+     INÍCIO
+========================================== -->
 
 <section class="pagina pagina-inicio">
 
@@ -245,358 +183,1299 @@
         <!-- Card Próxima Aula -->
         <div class="card-proxima-aula">
             <span class="subtitulo-card">PRÓXIMA AULA</span>
-
             <h2 class="titulo-materia">Banco de Dados</h2>
-
             <p class="horario-aula">Hoje, 19h às 22h - Sala: 25</p>
 
             <div class="botao-vestibular">
-            <button type="button" id="btnVerAgenda" class="btn-inscricao">
-                Ver Agenda
-            </button>
+                <button type="button" id="btnVerAgenda" class="btn-inscricao">
+                    Ver Agenda
+                </button>
             </div>
-
         </div>
 
         <!-- Card Próximas Avaliações -->
         <div class="card-avaliacoes">
-
-        <div class="cabecalho-avaliacoes">
-            <div>
-                <span class="subtitulo-card">ACOMPANHE</span>
-                <h2 class="titulo-avaliacoes">Próximas Avaliações</h2>
+            <div class="cabecalho-avaliacoes">
+                <div>
+                    <span class="subtitulo-card">ACOMPANHE</span>
+                    <h2 class="titulo-avaliacoes">Próximas Avaliações</h2>
+                </div>
+                <button type="button" id="btnVerTodasAvaliações" class="btn-link-calendario">
+                    Ver mais
+                </button>
             </div>
-            <!-- Antigo "Ver Todas" -->
-            <button type="button" id="btnVerTodasAvaliações" class="btn-link-calendario">
-                Ver mais
+
+            <hr class="divisor-card">
+
+            <div class="lista-avaliacoes">
+                <!-- Item 1 -->
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">11</span>
+                        <span class="mes">NOV</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>PHP com MySql</h3>
+                        <p>19:00 - Sala: 25</p>
+                    </div>
+                </div>
+
+                <hr class="divisor-item">
+
+                <!-- Item 2 -->
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">25</span>
+                        <span class="mes">NOV</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>Arquitetura WEb</h3>
+                        <p>20:30 - Sala: 25</p>
+                    </div>
+                </div>
+
+                <hr class="divisor-item">
+
+                <!-- Item 3 -->
+                <div class="item-avaliacao">
+                    <div class="data-badge">
+                        <span class="dia">03</span>
+                        <span class="mes">DEZ</span>
+                    </div>
+                    <div class="info-materia">
+                        <h3>MongoDB</h3>
+                        <p>19:00 - Sala: 25</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Rodapé do Portal -->
+<footer id="contato">
+
+    <div class="footer-superior">
+        <!-- Esquerda -->
+        <div class="footer-esquerda">
+            <img src="logo-ucen.png" alt="Logo">
+            <h3 class="texto-footer">
+                Campus central: Avenida das Estrelas, nº 372,<br>
+                Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+            </h3>
+        </div>
+
+        <!-- Direita -->
+        <div class="footer-direita">
+            <h3 class="titulo-footer">
+                Suporte ao aluno
+            </h3>
+            <h3 class="texto-footer">
+                E-mail: suporte.ftan@gmail.com<br>
+                Telefone: 4006-8947<br>
+                WhatsApp: (11) 94562-2899<br>
+                Horário: Seg à Sex das 08h às 22:30h
+            </h3>
+        </div>
+    </div>
+
+    <div class="footer-inferior">
+        <h3 class="copyright">
+            © 2026 Universidade de Ciências e Exatas Nebula<br>
+            Todos os direitos reservados.
+        </h3>
+    </div>
+
+</footer>
+
+</section> 
+
+
+<!-- ==========================================
+     MINHA GRADUAÇÃO
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="graduacao">
+
+    <div class="cabecalho-pagina">
+        <span class="categoria-pagina">ACADÊMICO</span>
+        <div class="titulo-linha">
+            <h1>Minha Graduação</h1>
+            <span></span>
+        </div>
+        <p>Ciências da Computação - Bacharelado · Noturno</p>
+    </div>
+
+    <!-- BOTOES DE NAVEGAÇÃO -->
+    <div class="container-botoes-graduacao">
+        <button type="button" class="btn-opcao ativo" data-aba="notas">Minhas notas e Semestres</button>
+        <button type="button" class="btn-opcao" data-aba="certificados">Certificados</button>
+    </div>
+
+    <!-- ABA 1: MINHAS NOTAS E SEMESTRES (Contém cards, botões de semestre e tabelas) -->
+    <div class="conteudo-aba ativo" id="aba-notas">
+
+        <div class="grid-cards-estatisticas">
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">MÉDIA GLOBAL (CRA)</span>
+                <h2 class="valor-estatistica">8.92</h2>
+            </div>
+
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">FREQUÊNCIA MÉDIA</span>
+                <h2 class="valor-estatistica">96.4%</h2>
+            </div>
+
+            <div class="card-estatistica card-roxo">
+                <span class="subtitulo-estatistica">CRÉDITOS CONCLUÍDOS</span>
+                <h2 class="valor-estatistica">124/240</h2>
+            </div>
+
+            <div class="card-estatistica card-verde">
+                <span class="subtitulo-estatistica">STATUS DA MATRÍCULA</span>
+                <h2 class="valor-estatistica">Regular</h2>
+            </div>
+        </div>
+
+        <!-- LISTA DE SEMESTRES -->
+        <div class="container-semestres">
+            <button type="button" class="btn-semestre" data-semestre="1">1° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="2">2° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="3">3° Semestre</button>
+            <button type="button" class="btn-semestre" data-semestre="4">4° Semestre</button>
+            <button type="button" class="btn-semestre ativo" data-semestre="5">5° Semestre</button>
+           
+            <button type="button" class="btn-semestre bloqueado" data-semestre="6">
+                6° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
+            </button>
+            <button type="button" class="btn-semestre bloqueado" data-semestre="7">
+                7° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
+            </button>
+            <button type="button" class="btn-semestre bloqueado" data-semestre="8">
+                8° Semestre <img src="cadeado.png" alt="Bloqueado" class="img-cadeado">
+                <span class="tooltip-bloqueado">Aguarde o próximo semestre!</span>
             </button>
         </div>
 
-        <hr class="divisor-card">
+        <!-- CONTEÚDO EXCLUSIVO DO 5º SEMESTRE -->
+        <div class="conteudo-semestre ativo" data-conteudo-semestre="5">
+           
+            <!-- 1ª BOX: DISCIPLINAS OBRIGATÓRIAS -->
+            <div class="box-detalhes-semestre">
+                <div class="cabecalho-box-semestre">
+                    <h2 class="titulo-semestre-materia">
+                        <span class="destaque-rosa">5º Semestre - Mecânica Analítica I</span>
+                    </h2>
+                    <span class="badge-status-curso">Cursando Atualmente</span>
+                </div>
 
-        <div class="lista-avaliacoes">
+                <div class="container-tabela-disciplinas">
+                    <table class="tabela-disciplinas">
+                        <thead>
+                            <tr>
+                                <th class="col-disciplina">DISCIPLINA</th>
+                                <th class="col-tipo">TIPO</th>
+                                <th class="col-nota">NOTA FINAL</th>
+                                <th class="col-frequencia">FREQUÊNCIA</th>
+                                <th class="col-situacao">ACOMPANHAMENTO / SITUAÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Análise, Projeto e Otimização de Algoritmos</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">98%</td>
+                                <td class="situacao-texto">P1: 8.8 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Engenharia de Software Avançada e Arquitetura de Sistemas</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">96%</td>
+                                <td class="situacao-texto">P1: 7.9 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Introdução à Construção de Compiladores</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">95%</td>
+                                <td class="situacao-texto">P1: 8.5 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Sistemas Distribuídos e Computação Paralela</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">92%</td>
+                                <td class="situacao-texto">P1: 7.2 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Métodos Numéricos e Cálculo Computacional</td>
+                                <td><span class="tag-tipo">Obrigatória</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">100%</td>
+                                <td class="situacao-texto">Relatórios: OK</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-        <!-- Item 1 -->
-        <div class="item-avaliacao">
-            <div class="data-badge">
-                <span class="dia">11</span>
-                <span class="mes">NOV</span>
-            </div>
-            <div class="info-materia">
-                <h3>PHP com MySql</h3>
-                <p>19:00 - Sala: 25</p>
-            </div>
-           <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
-                Ver mais
-            </button> --> 
-        </div>
+            <!-- 2ª BOX: DISCIPLINAS OPTATIVAS -->
+            <div class="box-detalhes-semestre box-optativas">
+                <div class="cabecalho-box-semestre cabecalho-optativas">
+                    <span class="badge-optativas">OPTATIVAS</span>
+                </div>
 
-        <hr class="divisor-item">
-
-        <!-- Item 2 -->
-        <div class="item-avaliacao">
-            <div class="data-badge">
-                <span class="dia">25</span>
-                <span class="mes">NOV</span>
+                <div class="container-tabela-disciplinas">
+                    <table class="tabela-disciplinas">
+                        <thead>
+                            <tr>
+                                <th class="col-disciplina">DISCIPLINA</th>
+                                <th class="col-tipo">TIPO</th>
+                                <th class="col-nota">NOTA FINAL</th>
+                                <th class="col-frequencia">FREQUÊNCIA</th>
+                                <th class="col-situacao">ACOMPANHAMENTO / SITUAÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Física do Interior da Terra e Ondas Sísmicas</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">98%</td>
+                                <td class="situacao-texto">P1: 8.8 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Programação Científica Avançada em Python</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em aberta</td>
+                                <td class="frequencia-destaque">--</td>
+                                <td class="situacao-texto">--</td>
+                            </tr>
+                            <tr>
+                                <td>Termodinâmica de Sistemas Fora do Equilíbrio</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em curso</td>
+                                <td class="frequencia-destaque">95%</td>
+                                <td class="situacao-texto">P1: 8.5 | P2: --</td>
+                            </tr>
+                            <tr>
+                                <td>Tópicos de Astronomia de Posição</td>
+                                <td><span class="tag-tipo">Optativa</span></td>
+                                <td class="status-curso">Em aberta</td>
+                                <td class="frequencia-destaque">--</td>
+                                <td class="situacao-texto">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="info-materia">
-                <h3>Arquitetura WEb</h3>
-                <p>20:30 - Sala: 25</p>
-            </div>
-          <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
-                Ver mais
-            </button> -->  
-        </div>
-
-        <hr class="divisor-item">
-
-        <!-- Item 3 -->
-        <div class="item-avaliacao">
-            <div class="data-badge">
-                <span class="dia">03</span>
-                <span class="mes">DEZ</span>
-            </div>
-            <div class="info-materia">
-                <h3>MongoDB</h3>
-                <p>19:00 - Sala: 25</p>
-            </div>
-          <!-- <button type="button" class="btn-link-calendario link-item btn-ver-mais-calendario">
-                Ver mais
-            </button> -->  
         </div>
     </div>
 
+<!-- ABA 2: CERTIFICADOS -->
+<div class="conteudo-aba" id="aba-certificados">
+
+    <div class="container-certificados">
+        <h2 class="titulo-certificados">Seus Certificados:</h2>
+        <p class="subtitulo-certificados">Aqui estão tanto os seus certificados parciais de competência técnica:</p>
+
+        <div class="grid-cards-certificados">
+
+            <!-- Card 1 -->
+            <div class="card-certificado">
+                <div class="barra-lateral-card"></div>
+                <div class="conteudo-card-cert">
+                    <span class="badge-certificacao">Certificação Qualificada</span>
+                    <h3 class="titulo-cert">Assistente de Laboratório de Exatas</h3>
+                    <p class="descricao-cert">
+                        Módulo prático e competência em laboratório validados após a conclusão de Matrizes I, II e III.
+                    </p>
+                    <hr class="divisor-cert">
+                    <div class="rodape-card-cert">
+                        <span class="status-cert">Atualizado à 35 dias.</span>
+                        <a href="certificados/logo%20UCEN.pdf" download="Certificado_Assistente_Fisica.pdf" class="btn-baixar-pdf">Baixar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-certificado">
+                <div class="barra-lateral-card"></div>
+                <div class="conteudo-card-cert">
+                    <span class="badge-certificacao">Certificação Qualificada</span>
+                    <h3 class="titulo-cert">Programador Científico Júnior</h3>
+                    <p class="descricao-cert">
+                        Atribuído pelo cumprimento das matérias de Computação Científica e modelagem aplicada a Bando de Dados.
+                    </p>
+                    <hr class="divisor-cert">
+                    <div class="rodape-card-cert">
+                        <span class="status-cert">Atualizado hoje</span>
+                        <a href="certificados/logo%20UCEN.pdf" download="Certificado_Programador_Cientifico_Junior.pdf" class="btn-baixar-pdf"> Baixar PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-    </div>
-
-        <!-- Página final - Rodapé -->
-    <footer id="contato">
-
-        <div class="footer-superior">
-
-            <!-- Esquerda -->
-            <div class="footer-esquerda">
-
-                <img src="logo-ucen.png" alt="Logo">
-
-                <h3 class="texto-footer">
-                    Campus central: Avenida das Estrelas, nº 372,<br>
-
-
-                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
-                </h3>
-
-            </div>
-
-
-            <!-- Direita -->
-            <div class="footer-direita">
-
-                <h3 class="titulo-footer">
-                    Suporte ao aluno
-                </h3>
-
-                <h3 class="texto-footer">
-                    E-mail: suporte.ftan@gmail.com<br>
-
-
-                    Telefone: 4006-8947<br>
-
-
-                    WhatsApp: (11) 94562-2899<br>
-
-
-                    Horário: Seg à Sex das 08h às 22:30h
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-inferior">
-
-            <h3 class="copyright">
-                © 2026 Universidade de Ciências e Exatas Nebula<br>
-
-
-                Todos os direitos reservados.
-            </h3>
-
-        </div>
-
-    </footer>
-
+</div>
 </section>
 
-    </section>
 
+<!-- =======================
+      ARQUIVOS
+     ======================= -->
+ <section class="pagina pagina-interna" data-conteudo="pastas">
 
+    <div class="cabecalho-pagina">
 
-    <!-- ==========================================
-         MINHA GRADUAÇÃO
-    ========================================== -->
+        <span class="categoria-pagina">ACADÊMICO</span>
 
-    <section class="pagina pagina-interna" data-conteudo="graduacao">
+        <div class="titulo-linha">
+            <h1>Arquivos</h1>
+            <span></span>
+        </div>
 
-        <div class="cabecalho-pagina">
+        <p>Entre nos últimos materiais adicionados!</p>
 
-            <span class="categoria-pagina">
-                ACADÊMICO
-            </span>
+    </div>
 
-            <div class="titulo-linha">
+    <!-- CAIXA DOS ARQUIVOS -->
+    <div class="materiais-box">
 
-                <h1>
-                    Minha Graduação
-                </h1>
+        <div class="materiais-topo">
 
-                <span></span>
+            <h3>Ciência da Computação</h3>
 
-            </div>
-
-            <p>
-                Ciências da Computação - Bacharelado&nbsp; · &nbsp;Noturno
-            </p>
+            <button id="ordenar-btn" class="btn-ordenar">
+                <span id="texto-ordem" class="ascendente">Ascendente</span>
+                <i class="fa-solid fa-chevron-down" id="chevron"></i>
+            </button>
 
         </div>
 
-    </section>
-
-
-
-    <!-- ==========================================
-         ARQUIVOS
-    ========================================== -->
-
-    <section class="pagina pagina-interna" data-conteudo="pastas">
-
-        <div class="cabecalho-pagina">
-
-            <span class="categoria-pagina">
-                ACADÊMICO
-            </span>
-
-            <div class="titulo-linha">
-
-                <h1>
-                    Arquivos
-                </h1>
-
-                <span></span>
-
-            </div>
-
-            <p>
-                Entre nos últimos materiais adicionados!
-            </p>
-
+        <div class="cabecalho-arquivos">
+            <span>Arquivo</span>
+            <span>Modificado</span>
+            <span>Professor</span>
         </div>
 
-    </section>
-
-
-
-    <!-- ==========================================
-         DOCUMENTOS
-    ========================================== -->
-
-    <section class="pagina pagina-interna" data-conteudo="documentos">
-
-        <div class="cabecalho-pagina">
-
-            <span class="categoria-pagina">
-                SECRETARIA
-            </span>
-
-            <div class="titulo-linha">
-
-                <h1>
-                    Documentos
-                </h1>
-
-                <span></span>
-
-            </div>
-
-            <p>
-                Envie solicitações e veja seus documentos de forma online.
-            </p>
-
+        <div id="lista-arquivos" class="lista-arquivos">
+            <!-- JavaScript gera as linhas aqui -->
         </div>
 
-    </section>
+    </div>
 
+</section>
+<!-- ==========================================
+     DOCUMENTOS
+========================================== -->
+<section class="pagina pagina-interna" data-conteudo="documentos">
 
+    <div class="cabecalho-pagina">
+
+        <span class="categoria-pagina">
+            SECRETARIA
+        </span>
+
+        <div class="titulo-linha">
+            <h1>Documentos</h1>
+            <span></span>
+        </div>
+
+        <p>
+            Envie solicitações e veja seus documentos de forma online.
+        </p>
+
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="container-botoes-graduacao">
+        <button type="button" class="btn-opcao-documentos ativo" data-doc="documentos">
+            Documentos
+        </button>
+
+        <button type="button" class="btn-opcao-documentos" data-doc="requisicoes">
+            Requisições
+        </button>
+    </div>
+
+<!-- ABA DOCUMENTOS -->
+<div class="conteudo-documento ativo" id="doc-documentos">
+
+    <div class="container-documentos">
+
+        <h2 class="titulo-documentos">
+            Seus documentos oficiais
+        </h2>
+
+        <p class="subtitulo-documentos">
+            Aqui estão seus documentos acadêmicos solicitados da secretaria:
+        </p>
+
+        <div class="grid-cards-documentos">
+
+            <!-- Documento 1 -->
+            <div class="card-documento">
+
+                <div class="barra-lateral-documento"></div>
+
+                <div class="conteudo-card-documento">
+
+                    <span class="badge-secretaria">
+                        Secretaria
+                    </span>
+
+                    <h3 class="titulo-documento">
+                        Declaração de Matrícula Ativa
+                    </h3>
+
+                    <p class="descricao-documento">
+                        Comprovante oficial com assinatura digital atestando que você possui vínculo regular e ativo no 5º semestre de Ciências da Computação.
+                    </p>
+
+                    <hr class="divisor-documento">
+
+                    <div class="rodape-documento">
+
+                        <span class="status-documento">
+                            Válido por 90 dias
+                        </span>
+
+                        <a href="documentos/historico_certificado.pdf.pdf"
+                           download
+                           class="btn-baixar-documento">
+                            Baixar PDF
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documento 2 -->
+            <div class="card-documento">
+
+                <div class="barra-lateral-documento"></div>
+
+                <div class="conteudo-card-documento">
+
+                    <span class="badge-secretaria">
+                        Secretaria
+                    </span>
+
+                    <h3 class="titulo-documento">
+                        Histórico Escolar
+                    </h3>
+
+                    <p class="descricao-documento">
+                        Documento consolidado contendo todas as notas, frequência e créditos validados do 1º ao 4º semestre.
+                    </p>
+
+                    <hr class="divisor-documento">
+
+                    <div class="rodape-documento">
+
+                        <span class="status-documento">
+                            Atualizado hoje
+                        </span>
+
+                        <a href="documentos/historico_certificado.pdf.pdf"
+                           download
+                           class="btn-baixar-documento">
+                            Baixar PDF
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ABA REQUISIÇÕES -->
+<div class="conteudo-documento" id="doc-requisicoes">
+
+    <div class="container-requisicoes">
+
+        <h2 class="titulo-documentos">
+            Envie seu requerimento
+        </h2>
+
+        <p class="subtitulo-documentos">
+            Envie um requerimento ao e-mail de suporte da Nebula!
+        </p>
+
+        <form class="form-requisicoes">
+
+            <label for="reqNome">Nome:</label>
+            <input type="text" id="reqNome" placeholder="Digite seu nome aqui!" autocomplete="on">
+
+            <label for="reqEmail">E-mail:</label>
+            <input type="email" id="reqEmail" placeholder="Digite seu E-mail aqui!" autocomplete="on">
+
+            <label for="reqAssunto">Assunto:</label>
+            <textarea id="reqAssunto" maxlength="10000" placeholder="Descreva sua solicitação..."></textarea>
+
+            <div class="rodape-requisicoes">
+
+                <p class="contador-documento">
+                    Até <span id="restantesReq">10.000</span> caracteres.
+                    <span id="limiteReq">Limite de caracteres atingido.</span>
+                </p>
+
+                <button type="submit" class="btn-enviar-requisicao">
+                    Enviar
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+</section>
 
     <!-- ==========================================
          FINANCEIRO
     ========================================== -->
 
-    <section class="pagina pagina-interna" data-conteudo="financeiro">
 
-        <div class="cabecalho-pagina">
+<section class="pagina pagina-interna" data-conteudo="financeiro">
 
-            <span class="categoria-pagina">
-                FINANCEIRO
-            </span>
+    <div class="cabecalho-pagina">
 
-            <div class="titulo-linha">
+        <span class="categoria-pagina">
+            FINANCEIRO
+        </span>
 
-                <h1>
-                    Financeiro
-                </h1>
+        <div class="titulo-linha">
 
-                <span></span>
+            <h1>
+                Financeiro
+            </h1>
+        </div>
 
+        <p>
+            Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.
+        </p>
+    </div>
+
+    <!-- BOX DE SALDO EM ABERTO -->
+    <div class="card-saldo-financeiro">
+        <div class="info-saldo">
+            <span class="subtitulo-saldo">SALDO EM ABERTO</span>
+            <h2 class="valor-saldo">R$ 1.200,00</h2>
+            <p class="vencimento-saldo">Próximo vencimento: 10/09/2026</p>
+        </div>
+        <button type="button" id="btnPagarMensalidade" class="btn-pagar-mensalidade">
+            Pagar mensalidade
+        </button>
+    </div>
+
+    <!-- MODAL PAGAMENTO VIA PIX (ADICIONAR AQUI) -->
+    <div id="modalPix" class="modal-pix-overlay">
+        <div class="modal-pix-conteudo">
+            <button type="button" class="btn-fechar-modal" id="btnFecharPix">&times;</button>
+           
+            <h2 class="titulo-modal-pix">Pagamento via Pix</h2>
+            <p class="subtitulo-modal-pix">Mensalidade Setembro/2026 - R$ 1.200,00</p>
+           
+            <!-- Área do QR Code -->
+            <div class="container-qrcode">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" alt="QR Code Pix" class="img-qrcode">
+            </div>
+           
+            <p class="instrucao-pix">
+                Escaneie o QR Code acima com o app do seu banco<br>ou copie o código Pix abaixo:
+            </p>
+           
+            <div class="caixa-codigo-pix">
+                <input type="text" id="chavePixInput" value="00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" readonly>
+            </div>
+           
+            <button type="button" id="btnCopiarPix" class="btn-copiar-pix">
+                Copiar chave pix
+            </button>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO DE MENSALIDADES -->
+<div class="container-historico-mensalidades">
+    <h2 class="titulo-historico">Histórico de Mensalidades:</h2>
+
+    <!-- Item 1: Em Aberto -->
+    <div class="card-historico em-aberto">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Novembro 2026</strong>
             </div>
 
-            <p>
-                Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.
-            </p>
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/11/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status em-aberto">Em aberto</span>
+            </div>
+
+            <div class="coluna-acao">
+                <!-- Botão que abre o Modal Pix -->
+                <button type="button" class="btn-acao-historico btn-abrir-pix">Pagar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 2: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Outubro 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/10/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 3: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Setembro 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/09/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item 4: Pago -->
+    <div class="card-historico pago">
+        <div class="barra-status"></div>
+        <div class="conteudo-historico">
+            <div class="coluna-historico">
+                <span class="label-historico">REFERÊNCIA</span>
+                <strong class="valor-coluna">Agosto 2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VENCIMENTO</span>
+                <strong class="valor-coluna">20/08/2026</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">VALOR</span>
+                <strong class="valor-coluna">R$ 1.200,00</strong>
+            </div>
+
+            <div class="coluna-historico">
+                <span class="label-historico">STATUS</span>
+                <span class="badge-status pago">Pago</span>
+            </div>
+
+            <div class="coluna-acao">
+                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ==========================================
+     AGENDA
+========================================== -->
+
+<section class="pagina pagina-interna" data-conteudo="agenda">
+
+    <div class="cabecalho-pagina">
+
+        <span class="categoria-pagina">
+            PLANEJAMENTO
+        </span>
+
+        <div class="titulo-linha">
+            <h1>Agenda</h1>
+            <span></span>
+        </div>
+
+        <p>
+            Seu horário, avaliações e compromissos acadêmicos.
+        </p>
+
+    </div>
+
+    <!-- SEMANA -->
+    <div class="semana-agenda">
+        23 - 27 de novembro de 2026
+    </div>
+
+    <!-- AGENDA -->
+    <div class="agenda-semanal">
+
+        <!-- Horários -->
+        <div class="coluna-horas">
+
+            <div class="topo-vazio"></div>
+
+            <div class="hora">19h</div>
+            <div class="hora">20h</div>
+            <div class="hora">21h</div>
+            <div class="hora">22h</div>
 
         </div>
 
-    </section>
+        <!-- SEGUNDA -->
+        <div class="dia-agenda">
 
-
-
-    <!-- ==========================================
-         AGENDA
-    ========================================== -->
-
-    <section class="pagina pagina-interna" data-conteudo="agenda">
-
-        <div class="cabecalho-pagina">
-
-            <span class="categoria-pagina">
-                PLANEJAMENTO
-            </span>
-
-            <div class="titulo-linha">
-
-                <h1>
-                    Agenda
-                </h1>
-
-                <span></span>
-
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Seg.</span>
+                    <strong>23</strong>
+                </div>
             </div>
 
-            <p>
-                Seu horário, avaliações e compromissos acadêmicos.
-            </p>
+            <div class="aula linha19">
+                <h4>Banco de dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula vermelho"></div>
+            </div>
+
+            <div class="aula linha21">
+                <h4>PHP com MySQL</h4>
+                <p>21:00 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula verde"></div>
+            </div>
 
         </div>
 
-    </section>
+        <!-- TERÇA -->
+        <div class="dia-agenda">
 
-
-
-    <!-- ==========================================
-         CALENDÁRIO DE PROVAS
-    ========================================== -->
-
-    <section class="pagina pagina-interna" data-conteudo="calendario">
-
-        <div class="cabecalho-pagina">
-
-            <span class="categoria-pagina">
-                PLANEJAMENTO
-            </span>
-
-            <div class="titulo-linha">
-
-                <h1>
-                    Calendário de Provas
-                </h1>
-
-                <span></span>
-
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Ter.</span>
+                    <strong>24</strong>
+                </div>
             </div>
 
-            <p>
-                Seu horário, avaliações e compromissos acadêmicos.
-            </p>
+            <div class="aula linha19">
+                <h4>Banco de dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
 
         </div>
 
-    </section>
+        <!-- QUARTA -->
+        <div class="dia-agenda">
+
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Quar.</span>
+                    <strong>25</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de dados</h4>
+                <p>19:00 - 20:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha20">
+                <h4>GIT e GITHUB</h4>
+                <p>20:30 - 21:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>PHP com MySQL</h4>
+                <p>21:30 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+        </div>
+
+        <!-- QUINTA -->
+        <div class="dia-agenda">
+
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Quin.</span>
+                    <strong>26</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>PHP com MySQL</h4>
+                <p>19:00 - 20:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>Engenharia de Software</h4>
+                <p>20:30 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+        </div>
+
+        <!-- SEXTA -->
+        <div class="dia-agenda">
+
+            <div class="cabecalho-dia">
+                <div class="badge-dia">
+                    <span>Sex.</span>
+                    <strong>27</strong>
+                </div>
+            </div>
+
+            <div class="aula linha19">
+                <h4>Banco de dados</h4>
+                <p>19:00 - 20:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula azul"></div>
+            </div>
+
+            <div class="aula linha21">
+                <h4>GIT e GITHUB</h4>
+                <p>21:00 - 21:30</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+            <div class="aula linha22">
+                <h4>Engenharia Software</h4>
+                <p>21:30 - 22:00</p>
+                <span>Sala 25</span>
+                <div class="cor-aula branco"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LEGENDA DA AGENDA -->
+<div class="legenda-agenda">
+
+    <h3>Níveis de importância:</h3>
+
+    <div class="grid-legenda">
+
+        <!-- Item 1 -->
+        <div class="item-legenda">
+            <div class="cabecalho-item">
+                <span class="quadradinho azul-legenda"></span>
+                <strong>Peso alto</strong>
+            </div>
+            <p>Provas finais e trabalhos grandes que valem metade ou mais da média.</p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item-legenda">
+            <div class="cabecalho-item">
+                <span class="quadradinho vermelho-legenda"></span>
+                <strong>Peso médio</strong>
+            </div>
+            <p>Provas parciais e listas longas de exercícios do meio do semestre.</p>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item-legenda">
+            <div class="cabecalho-item">
+                <span class="quadradinho verde-legenda"></span>
+                <strong>Peso baixo</strong>
+            </div>
+            <p>tarefas menores, presença ou testes rápidos de leitura.</p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item-legenda">
+            <div class="cabecalho-item">
+                <span class="quadradinho branco-legenda"></span>
+                <strong>Peso zero</strong>
+            </div>
+            <p>Atividades bônus ou opcionais que ajudam a subir pontos extras.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ==========================================
+     CALENDÁRIO DE PROVAS
+========================================== -->
+
+<section class="pagina pagina-interna" data-conteudo="calendario">
+
+    <div class="cabecalho-pagina">
+
+        <span class="categoria-pagina">PLANEJAMENTO</span>
+
+        <div class="titulo-linha">
+            <h1>Calendário de Provas</h1>
+            <span></span>
+        </div>
+
+        <p>Seu horário, avaliações e compromissos acadêmicos.</p>
+
+    </div>
+
+    <div class="container-calendario-secao">
+
+        <!-- CALENDÁRIO -->
+        <div class="box-calendario">
+
+            <div class="topo-calendario">
+                <button class="btn-nav-cal" id="btn-prev">&lt;</button>
+
+                <h2 id="mes-ano-titulo">Novembro de 2026</h2>
+
+                <button class="btn-nav-cal" id="btn-next">&gt;</button>
+            </div>
+
+            <div class="dias-semana-cal">
+                <span>Dom.</span>
+                <span>Seg.</span>
+                <span>Ter.</span>
+                <span>Qua.</span>
+                <span>Qui.</span>
+                <span>Sex.</span>
+                <span>Sáb.</span>
+            </div>
+
+            <div class="grade-dias-cal" id="grade-dias">
+                <!-- JS -->
+            </div>
+
+        </div>
+
+        <!-- EVENTOS -->
+        <div class="box-eventos">
+
+            <div class="lista-eventos-cal" id="lista-eventos">
+                <!-- JS -->
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     MODAL ANUAL (FORA DA SECTION)
+========================================== -->
+
+<div id="modal-visao-anual" class="modal-overlay-anual">
+
+    <div class="modal-container-anual">
+
+        <div class="header-modal-anual">
+
+            <h2 id="titulo-ano-modal">Ano de 2026</h2>
+
+            <button
+                class="btn-fechar-modal"
+                id="fechar-modal-anual"
+                aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="grid-meses-ano" id="grid-meses-ano">
+            <!-- JavaScript gera os 12 meses -->
+        </div>
+
+    </div>
 
 </div>
 
-    </main>
 
+<!-- ==========================================
+     PERFIL
+========================================== -->
+<section class="pagina pagina-interna perfil-container" data-conteudo="perfil">
+    
+    <!-- Topo / Header do Perfil -->
+    <section class="perfil-header-card">
+        
+        <!-- Avatar Wrapper configurado como Label para acionar o Input File -->
+        <label for="upload-foto" class="avatar-wrapper" id="avatar-container">
+            <!-- Ícone padrão do usuário (exibido enquanto não houver foto) -->
+            <div class="avatar-placeholder" id="avatar-placeholder">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            
+            <!-- Imagem de preview (inicia oculta) -->
+            <img src="" alt="Foto de Perfil" id="foto-perfil-img" style="display: none;">
+            
+            <!-- Input oculto conectado pelo 'for="upload-foto"' da label -->
+            <input type="file" id="upload-foto" accept="image/*" style="display: none;">
+            
+            <!-- Botão visual da câmera -->
+            <div class="btn-alterar-foto" title="Alterar Foto">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+        </label>
 
+        <div class="perfil-header-info">
+            <div class="nome-status-wrapper">
+                <h2>Matheus de Oliveira</h2>
+                <span class="badge-status ativo">Matriculado</span>
+            </div>
+            <p class="meta-info"><i class="fa-solid fa-graduation-cap"></i> Ciências da Computação</p>
+            <p class="meta-info"><i class="fa-solid fa-id-card"></i> Matrícula / RA: <strong>628090055</strong></p>
+        </div>
 
-    <!-- JAVASCRIPT -->
+    </section>
 
-    <script
-        src="portal_aluno.js"
-        defer
-    ></script>
+    <!-- Bloco 1: Acesso & Segurança -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Acesso & Segurança</h3>
+        </div>
+        <div class="form-grid-2">
+            <div class="input-group">
+                <label>E-mail de Login</label>
+                <input type="email" value="matheusdeoliveira25.reciclar@gmail.com" readonly class="input-bloqueado">
+            </div>
+            <div class="input-group btn-align-bottom">
+                <button type="button" class="btn-secundario" id="btn-alterar-senha">
+                    <i class="fa-solid fa-key"></i> Alterar Senha
+                </button>
+            </div>
+        </div>
+    </section>
 
+    <!-- Bloco 2: Dados Pessoais & Documentos -->
+    <section class="perfil-secao-card">
+        <div class="secao-titulo-com-alerta">
+            <div class="secao-titulo">
+                <i class="fa-solid fa-id-card-clip"></i>
+                <h3>Dados Pessoais & Documentos</h3>
+            </div>
+            <div class="alerta-secretaria">
+                <i class="fa-solid fa-lock"></i> Dados alteráveis apenas via Secretaria
+            </div>
+        </div>
 
+        <div class="form-grid-3">
+            <div class="input-group span-2">
+                <label>Nome Completo</label>
+                <div class="input-com-icone">
+                    <input type="text" value="MATHEUS DE OLIVEIRA" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Nome Social</label>
+                <div class="input-com-icone">
+                    <input type="text" value="--" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>CPF</label>
+                <div class="input-com-icone">
+                    <input type="text" value="541.170.248-84" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Data de Nascimento</label>
+                <div class="input-com-icone">
+                    <input type="text" value="25/04/2007" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Gênero</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Masculino" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>RG / Documento</label>
+                <div class="input-com-icone">
+                    <input type="text" value="628090055" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Órgão Emissor / UF</label>
+                <div class="input-com-icone">
+                    <input type="text" value="SSP / SP" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Estado Civil</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Solteiro(a)" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+
+            <div class="input-group span-2">
+                <label>Nome da Mãe</label>
+                <div class="input-com-icone">
+                    <input type="text" value="IVANI PORTO DE OLIVEIRA" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Raça / Etnia</label>
+                <div class="input-com-icone">
+                    <input type="text" value="Sem declaração" readonly class="input-bloqueado">
+                    <i class="fa-solid fa-lock icone-cadeado"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer-solicitacao">
+            <a href="solicitar-alteracao.html" class="btn-secundario-link">
+                <i class="fa-solid fa-file-signature"></i> Solicitar Alteração de Dados
+            </a>
+        </div>
+    </section>
+
+    <!-- Bloco 3: Contato & Endereço -->
+    <section class="perfil-secao-card">
+        <form id="form-contato-endereco">
+            <div class="secao-titulo">
+                <i class="fa-solid fa-address-book"></i>
+                <h3>Contato & Endereço</h3>
+            </div>
+
+            <div class="form-grid-3">
+                <div class="input-group">
+                    <label for="celular">Celular (WhatsApp)</label>
+                    <input type="text" id="celular" value="(11) 99854-5737" placeholder="(00) 00000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="tel-recado">Telefone Residencial / Recado</label>
+                    <input type="text" id="tel-recado" value="" placeholder="(00) 0000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="email-secundario">E-mail Comercial / Secundário</label>
+                    <input type="email" id="email-secundario" value="" placeholder="exemplo@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" value="06246-000" placeholder="00000-000">
+                </div>
+                <div class="input-group span-2">
+                    <label for="logradouro">Logradouro / Rua</label>
+                    <input type="text" id="logradouro" value="R PASCHOAL RANIERI MAZZILI">
+                </div>
+
+                <div class="input-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" value="362">
+                </div>
+                <div class="input-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" value="" placeholder="Apt, Bloco, etc.">
+                </div>
+                <div class="input-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" value="MUNHOZ JUNIOR">
+                </div>
+
+                <div class="input-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" value="OSASCO">
+                </div>
+                <div class="input-group">
+                    <label for="uf">Estado (UF)</label>
+                    <select id="uf">
+                        <option value="SP" selected>São Paulo (SP)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PR">Paraná (PR)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-principal">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Modal para Visualizar Foto em Destaque -->
+    <div id="modal-foto-perfil" class="modal-foto-overlay">
+        <div class="modal-foto-content">
+            <img id="img-modal-zoom" src="" alt="Foto de Perfil Ampliada">
+        </div>
+    </div>
+
+</section>
+</div>
+</main>
+<!-- JAVASCRIPT -->
+<script src="portal_aluno.js" defer></script>
 </body>
-
 </html>
