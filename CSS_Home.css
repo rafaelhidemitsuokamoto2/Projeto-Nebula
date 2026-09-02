@@ -1051,11 +1051,13 @@
   opacity: 0.8;
 }
 */
-    /* Controla o tamanho e alinhamento das suas novas imagens */
+    /* Controla o tamanho e alinhamento da imagem de escola */
     .card-icon-img {
      width: 32px;  
      height: auto;
      object-fit: contain;
+     color: #E7B6E6;
+     font-size: 23px;
     }
 
  /* =====================
@@ -1573,9 +1575,34 @@ html{
 
 /* Estrutura base de cada bloco e linha separadora */
 .fiap-block {
+    position: relative; /* Necessário para posicionar o rótulo UCEN em relação ao bloco */
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória horizontal */
     padding: 60px 0;
+}
+
+/* Cria o texto "UCEN" na ponta esquerda inferior de cada linha */
+.fiap-block::after {
+    content: "UCEN";
+    position: absolute;
+    bottom: -8px; /* Ajusta a altura para alinhar com a linha */
+    left: 0;
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #777777; /* Cor cinza sutil; ajuste conforme necessário */
+    letter-spacing: 1.5px;
+    background-color: #000; /* Previne que a linha corte por trás do texto (ajuste para a cor do seu fundo) */
+    padding-right: 8px;
+}
+
+/* Esconde a linha e o rótulo do último bloco */
+.fiap-block:last-child {
+    border-bottom: none;
+}
+
+.fiap-block:last-child::after {
+    display: none;
 }
 
 .fiap-content {
@@ -1634,9 +1661,16 @@ html{
     margin-right: auto; /* Centraliza o bloco na página */
 }
 
-/* Remove a linha do último bloco da lista */
-.fiap-block:last-child {
-    border-bottom: none;
+/* Posicionamento base para a imagem do globo */
+.globo-bg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    opacity: 0.5; /* Ajuste a transparência */
+    pointer-events: none; /* Evita que a imagem interfira na seleção de texto */
 }
 
 /* --- Seria uma ótima ideia fazer a responsividade por página, sempre ao final de cada uma --- */

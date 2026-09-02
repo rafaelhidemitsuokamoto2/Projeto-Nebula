@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado — Vestibular Unificado Nebula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="resultado.css">
+
+    <!-- Font Awesome, mesmo padrão das outras páginas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<header class="header-graduacao">
+    <a href="Home.html" class="logo-graduacao">
+        <img src="logo-ucen.png" alt="Logo FTAN">
+    </a>
+    <h1 class="titulo-header">
+        Universidade de Ciências Exatas Nebula
+    </h1>
+    <a href="Home.html" class="botao-sair">
+        Sair
+    </a>
+</header>
+
+<main class="conteudo-graduacao">
+   <!-- <img src="fundo_universo.jpg" class="bg-graduacao" alt=""> -->
+
+    <div class="graduacao-container">
+
+        <!-- Cabeçalho da Página -->
+        <div class="titulo-inscricao-container">
+            <h2 class="titulo-principal-form">Resultado — Vestibular Unificado Nebula</h2>
+            <div class="subtitulo-processo-form">
+                <span>Processo Seletivo</span>
+                <span>•</span>
+                <span>Nebula</span>
+            </div>
+        </div>
+
+        <p class="descricao-caixa-form">Confira abaixo a situação da sua inscrição em cada opção de curso.</p>
+
+        <!-- Resumo do candidato, preenchido dinamicamente via JS -->
+        <div class="resumo-candidato" id="resumo-candidato">
+            <div class="resumo-candidato-info">
+                <p><span>Candidato: </span><strong id="resumo-nome">—</strong></p>
+                <p><span>Inscrição: </span><strong id="resumo-inscricao">—</strong></p>
+            </div>
+            <div class="selo-processo" id="resumo-selo">Chamada Regular</div>
+        </div>
+
+        <!-- Container onde os cards de resultado por curso são inseridos pelo JS -->
+        <div class="lista-resultados" id="lista-resultados">
+            <!-- Os cards de "1ª opção de curso", "2ª opção de curso" etc.
+                 são gerados dinamicamente por resultado.js a partir do array
+                 dadosResultado, com base no modelo do Prouni. -->
+        </div>
+
+        <div class="container-botoes-form">
+            <a href="Home.html" class="botao-avancar-form botao-secundario-resultado">Voltar ao Início</a>
+            <a href="matricula.html" class="botao-avancar-form" id="botao-matricula">Realizar Matrícula</a>
+        </div>
+
+    </div>
+</main>
+
+<script src="resultado.js"></script>
+</body>
+</html>

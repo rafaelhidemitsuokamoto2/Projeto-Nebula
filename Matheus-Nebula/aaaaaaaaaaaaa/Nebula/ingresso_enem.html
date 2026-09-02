@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresso Enem - UCEN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="favicon/estudo.svg">
+
+<style>
+        /* NÃO TOCAR NA BARRA DE ROLAGEM POR NADA */
+            ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050912;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #8a2be2;
+            border-radius: 6px;
+            border: 2px solid #050912;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #9932cc;
+        }
+            /* =====================================
+   1. CABEÇALHO DA PÁGINA DE BOLSAS
+      ===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#050912;
+}
+
+.header-enem{
+
+    background:#050912;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 28px;
+
+    border-bottom:1px solid rgba(255,255,255,.25);
+
+}
+.logo-enem img{
+
+    width:90px;
+
+    transition:.35s;
+
+}
+
+.logo-enem img:hover{
+
+    transform:translateY(-3px);
+
+}
+.titulo-header{
+
+    font-family:'Sora', sans-serif;
+
+    color:white;
+
+    font-size:40px;
+
+    font-weight:normal;
+
+}
+
+.botao-sair{
+
+    width:110px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.botao-sair:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+/* Botões + conversa com a home */
+.menu-bolsas a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:2px;
+
+    background:#E3AC6C;
+
+    transition:.3s;
+
+    transform:translateX(-50%);
+
+}
+
+.menu-bolsas a:hover::after{
+
+    width:100%;
+
+}
+.menu-bolsas .ativo{
+
+    color:#E3AC6C;
+
+}
+
+.menu-bolsas .ativo::after{
+
+    width:100%;
+
+}
+.menu-bolsas{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:45px;
+
+    padding:18px 0;
+
+    border-top:1px solid rgba(255,255,255,.10);
+    border-bottom:1px solid rgba(255,255,255,.10);
+
+    background:#050912;
+
+}
+.menu-bolsas a{
+
+    font-family: 'Sora', sans-serif;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:.30s;
+
+    position:relative;
+
+}
+.menu-bolsas a:hover{
+
+    color:#E3AC6C;
+
+}
+.menu-bolsas a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#E3AC6C;
+
+    transform:translateX(-50%);
+
+    transition:.3s;
+
+}
+
+.menu-bolsas a:hover::after{
+
+    width:100%;
+
+}
+.conteudo-enem{
+    position: relative;
+    width:100%;
+    background:#050912;
+}
+
+.bg-enem{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.15;
+    z-index:1;
+    pointer-events:none;
+}
+.enem-container{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+}
+.titulo-enem-container{
+    position:relative;
+    display:inline-block;
+    margin-top:70px;
+    margin-left:-50px;
+}
+
+.titulo-enem{
+    color:#E3AC6C;
+    font-size:40px;
+    font-weight:bold;
+    margin:0;
+}
+.linha-enem{
+    position:absolute;
+    left:100%;
+    top:50%;
+    margin-left:20px;
+
+    width:140px;
+    height:2px;
+
+    background:#E3AC6C;
+}
+.icone-lua{
+    position:absolute;
+    right:0;
+    bottom:2px;
+
+    width:22px;
+    height:auto;
+}
+.subtitulo-enem{
+    display:flex;
+    align-items:center;
+
+    margin-top:55px;
+    margin-left:-50px;
+
+    width:620px;
+    justify-content:space-between;
+}
+
+.subtitulo-enem span{
+    color:white;
+    font-size:2rem;
+}
+.bolinha{
+
+    color:white;
+    margin:0 20px;
+    font-size:1.2rem;
+    line-height:1;
+
+}
+.menu-lateral-enem{
+    margin-top:45px;
+    margin-left:-15px;
+
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.item-menu-enem{
+    color:white;
+    font-size:1.25rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.item-menu-enem::before{
+    content:"•";
+    color:rgba(255, 255, 255, 0.65);
+    margin-right:12px;
+}
+
+.item-menu-enem:hover{
+    color:#E3AC6C;
+}
+
+.item-menu-enem.ativo{
+    color:#E3AC6C;
+    position:relative;
+    padding-left:18px;
+}
+
+.item-menu-enem.ativo::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:2px;
+    height:28px;
+    background:#E3AC6C;
+}
+.secao-enem{
+    width:100%;
+    max-width:980px;
+    margin:70px auto 0;
+}
+.titulo-secao-enem{
+
+    color:#E3AC6C;
+    font-size:2rem;
+    font-weight:normal;
+    margin-bottom:28px;
+}
+.lista-enem{
+
+    margin-left:28px;
+
+}
+
+.lista-enem p{
+
+    color:white;
+    font-size:1.2rem;
+    line-height:1.55;
+    margin-bottom:34px;
+
+}
+
+.lista-enem strong{
+
+    font-weight:normal;
+
+}
+
+/* FAQ das perguntas frequentes */
+.perguntas-frequentes{
+    width:100%;
+    max-width:1000px;
+    margin:80px auto 0;
+}
+.perguntas-frequentes h1{
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #E3AC6C
+}
+.faq {
+    width: 100%;
+    list-style: none;
+}
+.faq li{
+    width: 100%;
+    margin-bottom: 14px;
+}
+.faq li label {
+
+    font-family: Outfit;
+    padding: 15px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(176, 168, 168);
+
+    background:rgba(255,255,255,.10);
+    border-left:4px solid #E3AC6C;
+
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+.faq li label:hover{
+
+    background:rgba(227,172,108,.22);
+
+}
+
+.faq li label span{
+    display: inline-block;
+    padding: 8px;
+
+    background:#E3AC6C;
+    color:#050912;
+    font-weight:bold;
+
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+/* É como se eu criasse um elemento antes do label no html, por ser no css se chama pseudoelemento, aqui é 
+onde o + e - ficarão,  */
+.faq li label::before {
+    content: '+';
+    margin-right: 10px;
+    font-size: 24px;
+
+    color:#E3AC6C;
+    font-weight:bold;
+}
+.faq input[type=checkbox]:checked + label::before {
+    content:'-';
+}
+
+/* Assim todos os inputs do tipo radio (as bolinhas) vão ficar escondidas, mas funcionando. */
+.faq input[type=checkbox]{
+    display:none
+}
+/* Cor da resposta/texto */
+.faq .resposta {
+    color:#acacac;
+    padding: 0 14px;
+    background:rgba(255,255,255,.15);
+    line-height: 32px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s, padding .5s;
+}
+.faq input[type=checkbox]:checked + label + .resposta {
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+/* Nova regra */
+.faq input[type=checkbox]:checked + label{
+
+    background:rgba(227,172,108,.15);
+
+}
+
+.faq input[type=checkbox]:checked + label span {
+    background:#F2C98F;
+}
+
+.botao-inscricao{
+
+    display:flex;
+    justify-content:flex-end;
+
+    margin-top:80px;
+    margin-bottom:120px;
+}
+.botao-inscricao button{
+
+    width:260px;
+
+    height:60px;
+
+    background:transparent;
+
+    color:#F39CFF;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:30px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+.botao-inscricao button:hover{
+
+    background:rgba(243,156,255,.08);
+
+    border-color:#F39CFF;
+
+    color:#F39CFF;
+
+    box-shadow:
+        0 0 12px rgba(243,156,255,.45),
+        0 0 24px rgba(243,156,255,.25);
+
+    transform:translateY(-2px);
+
+}
+/* Botão afundar */
+.botao-inscricao button:active{
+
+    transform:translateY(0);
+
+}
+
+.footer{
+    position:relative;
+    z-index:2;
+    background:#171414;
+    border-top:1px solid rgba(255,255,255,.45);
+    margin-top:0; /* ajuste aqui */
+}
+
+.footer-conteudo{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:48px 24px 38px;
+}
+
+.footer-esquerda img{
+    width:95px;
+    margin-bottom:28px;
+}
+
+.footer-esquerda p,
+.footer-direita p{
+    color:#ECECEC;
+    font-size:1.15rem;
+    line-height:1.7;
+}
+
+.footer-direita h3{
+    color:#F39CFF;
+    font-size:2rem;
+    font-weight:normal;
+    margin-bottom:28px;
+}
+
+.footer-copy{
+    border-top:1px solid rgba(255,255,255,.45);
+    text-align:center;
+    padding:28px 20px;
+    color:#AFAFAF;
+    font-size:1.05rem;
+}
+
+</style>
+</head>
+<body>
+    <header class="header-enem">
+
+    <a href="Home.php" class="logo-enem">
+        <img src="logo-ucen.png" alt="Logo UCEN">
+    </a>
+
+    <h1 class="titulo-header">
+        Universidade de Ciências Exatas Nebula
+    </h1>
+
+    <a href="Home.php" class="botao-sair">
+        Sair
+    </a>
+</header>
+
+<nav class="menu-bolsas">
+<a href="Home.html#graduacoes">Graduações</a>
+<a href="home_bolsas.html">
+    Bolsas
+</a>
+<a href="home_descontos_e_parcelas.html">
+    Descontos e parcelas
+</a>
+<a href="home_contato.html">
+    Contato
+</a>
+<a href="home_ajuda.html">
+    Ajuda
+</a>
+<a href="Home.html#vestibular">Vestibular</a>
+<a href="ingresso_enem.html" class="ativo">Ingresso pelo ENEM</a>
+</nav>
+
+<main class="conteudo-enem">
+    <img src="fundo_universo.jpg"
+         class="bg-enem"
+         alt="">
+
+<div class="enem-container">
+
+        <!-- TODO O CONTEÚDO DA PÁGINA VAI AQUI -->
+    <div class="titulo-enem-container">
+    <h2 class="titulo-enem">
+        INGRESSO VIA ENEM
+    </h2>
+    <div class="linha-enem">
+        <img src="bandeira.png" class="icone-lua" alt="">
+    </div>
+</div>
+
+<div class="subtitulo-enem">
+
+    <span>Modalidade de Ingresso</span>
+    <span class="bolinha">•</span>
+    <span>Nebula</span>
+    </div>
+
+<div class="menu-lateral-enem">
+    <div class="item-menu-enem">
+        Modalidade de Ingresso Alternativo
+    </div>
+
+    <div class="item-menu-enem ativo">
+        Processo de Seleção via ENEM
+    </div>
+</div>
+
+    <section class="secao-enem">
+
+    <h3 class="titulo-secao-enem">
+        Ingressão utilizando a nota do ENEM
+    </h3>
+
+    <div class="lista-enem">
+
+        <p>
+            A Nebula oferece aos candidatos a possibilidade de utilizar a nota obtida no Exame Nacional do
+            Ensino Médio (ENEM) como uma forma alternativa de ingresso nas graduações da instituição.<br>
+            O candidato que realizou o ENEM poderá solicitar a análise de sua pontuação, sem a necessidade de realizar o 
+            Vestibular Unificado Nebula, conforme os critérios estabelecidos para cada curso.<br><BR>
+            </p>
+        </div>
+    </section>
+
+<!-- Dúvidas e Requisitos -->
+<div class="perguntas-frequentes">
+    <h1>Dúvidas Frequentes sobre o Ingresso via ENEM</h1>
+    
+    <ul class="faq">
+
+        <li>
+            <input type="checkbox" name="perguntas" id="primeiro">
+            <label for="primeiro"><span>1</span> Como funciona o ingresso pelo ENEM?</label>
+            <div class="resposta">
+                <p>O candidato deverá enviar seu Boletim de Desempenho Individual do ENEM por meio do formulário 
+                disponibilizado ao final desta página, para análise da instituição.<br>
+
+                A avaliação considera as áreas de conhecimento do exame e a compatibilidade da pontuação obtida 
+                com os requisitos do curso escolhido.<br>
+
+                Após a análise, o candidato receberá a confirmação da aprovação e as orientações para realizar 
+                sua matrícula.</p>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" name="perguntas" id="segundo">
+            <label for="segundo"><span>2</span> Como ingressar na Nebula via ENEM?</label>
+            <div class="resposta">
+                <p>Para utilizar sua nota do ENEM como forma de ingresso, o candidato deve:<br><br>
+                Acessar a plataforma oficial do participante do ENEM;<br>
+                Emitir o boletim de desempenho com as notas obtidas no exame;<br>
+                Enviar o documento solicitado por meio do formulário 
+                disponibilizado ao final desta página;<br>
+                Aguardar a análise da equipe acadêmica.</p>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" name="perguntas" id="terceiro">
+            <label for="terceiro"><span>3</span> Quais edições do ENEM são aceitas?</label>
+            <div class="resposta">
+                <p>São aceitas as notas das três edições mais recentes do ENEM. O candidato deverá apresentar o 
+                Boletim de Desempenho Individual em formato PDF, emitido pela Página do Participante do ENEM, 
+                para análise da instituição.</p>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" name="perguntas" id="quarto">
+            <label for="quarto"><span>4</span> Posso concorrer a bolsas utilizando minha nota do ENEM?</label>
+            <div class="resposta">
+                <p>Sim. Os candidatos que ingressarem utilizando a nota do ENEM poderão participar dos programas 
+                de bolsas, descontos e demais benefícios acadêmicos oferecidos pela Nebula.</p>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" name="perguntas" id="quinto">
+            <label for="quinto"><span>5</span> Preciso fazer o Vestibular Nebula se usar o ENEM?</label>
+            <div class="resposta">
+                <p>Não. Caso o candidato seja aprovado pela modalidade de ingresso utilizando a nota do ENEM, ele poderá realizar 
+                sua matrícula utilizando exclusivamente sua nota do exame, seguindo as etapas de validação 
+                documental.</p>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" name="perguntas" id="sexto">
+            <label for="sexto"><span>6</span> Como saber se fui aprovado?</label>
+            <div class="resposta">
+                <p>Após o envio do Boletim de Desempenho Individual do ENEM e da conclusão do formulário de 
+                inscrição, a equipe acadêmica realizará a análise da documentação. O candidato receberá o resultado 
+                por e-mail e poderá cadastrar-se no portal oficial da Nebula para acessar a Área do Candidato, 
+                onde acompanhará todas as etapas do processo de ingresso.</p>
+            </div>
+        </li>
+
+    </ul>
+</div><br><br>
+<!-- Irá para a página de inscrição_enem -->
+    <div class="botao-inscricao">
+
+    <button onclick="location.href='inscricao_enem.html'">
+        Ingresso via ENEM!
+    </button>
+
+</div>
+</div>
+<!-- Rodapé -->
+<footer class="footer">
+
+    <div class="footer-conteudo">
+
+        <div class="footer-esquerda">
+            <img src="logo-ftan3.png" alt="Logo FTAN">
+
+            <p>
+                Campus central: Avenida das Estrelas, nº 372,
+            </p>
+
+            <p>
+                Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+            </p>
+        </div>
+
+        <div class="footer-direita">
+
+            <h3>Suporte ao aluno</h3>
+
+            <p>E-mail: suporte.ucen@gmail.com</p>
+            <p>Telefone: 4006-8947</p>
+            <p>WhatsApp: (11) 94562-2899</p>
+            <p>Horário: Seg à Sex das 08h às 22:30h</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 Universidade de Ciências Exatas Nebula.<br>
+        Todos os direitos reservados.
+    </div>
+
+</footer>
+</main>
+<script>
+    // Fazer as caixas se fecharem depois de clicar em outra com uma já aberta
+const perguntas = document.querySelectorAll('.faq input[type="checkbox"]');
+
+perguntas.forEach(pergunta => {
+
+    pergunta.addEventListener('change', () => {
+
+        perguntas.forEach(item => {
+
+            if(item !== pergunta){
+                item.checked = false;
+            }
+
+        });
+
+    });
+
+});
+</script>
+</body>
+</html>

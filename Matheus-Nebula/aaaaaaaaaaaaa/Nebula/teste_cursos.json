@@ -1,0 +1,37 @@
+[
+  {
+    "id": "eng-aeroespacial",
+    "nome": "Engenharia Aeroespacial",
+    "grau": "Bacharelado",
+    "duracao": "5 anos (10 semestres)",
+    "modalidade": "Presencial",
+    "turno": "Integral",
+    "descricao": "Curso focado no projeto, desenvolvimento e testes de aeronaves, foguetes, satélites e sistemas de propulsão espacial.",
+    "matriz_curricular": [
+      "Cálculo e Geometria Analítica",
+      "Física Teórica e Experimental",
+      "Mecânica dos Fluidos Espaciais",
+      "Propulsão de Foguetes",
+      "Aerodinâmica de Altas Velocidades",
+      "Sistemas de Controle de Satélites"
+    ],
+    "mercado_de_trabalho": "Agências espaciais, indústrias aeronáuticas, institutos de pesquisa astronômica e desenvolvimento de satélites privados."
+  },
+  {
+    "id": "astrofísica-comp",
+    "nome": "Astrofísica Computacional",
+    "grau": "Bacharelado",
+    "duracao": "4 anos (8 semestres)",
+    "modalidade": "Presencial ou EAD",
+    "turno": "Noturno",
+    "descricao": "Curso voltado para a aplicação de algoritmos, inteligência artificial e supercomputação na análise de dados cosmológicos, simulação de galáxias e corpos celestes.",
+    "matriz_curricular": [
+      "Introdução à Astronomia",
+      "Programação Avançada para Ciência de Dados",
+      "Física Quântica e Relatividade",
+      "Simulações Cosmológicas",
+      "Análise de Sinais de Radiotelescópios"
+    ],
+    "mercado_de_trabalho": "Observatórios astronômicos, laboratórios de análise de dados, institutos de meteorologia espacial e empresas de tecnologia."
+  }
+]

@@ -582,7 +582,7 @@ body {
     padding-left: 20px;
 
 
-    color: #f28cff;
+    color: #E3AC6C;
 
 
     font-family: 'Sora', sans-serif;
@@ -633,7 +633,7 @@ body {
     background: transparent;
 
 
-    color: #f28cff;
+    color: #E3AC6C;
 
 
     cursor: pointer;
@@ -707,7 +707,12 @@ body {
 .item-menu:hover {
     background: #303030;      /* Mesma cor de fundo */
     color: #ffffff;
-    border-left-color: #E879F9; /* barra rosa */
+    border-left-color: #E3AC6C; /* barra rosa */
+    
+    color: #E3AC6C;
+
+
+    transform: translateX(4px);
 }
 
 
@@ -715,11 +720,8 @@ body {
 .item-menu.ativo {
     background: #0D1F4A;
     color: #F08CFF;
-    border-left-color: #E879F9;
+    border-left-color: #E3AC6C;
 }
-
-
-
 
 /* ==========================================
    MOSTRAR ITENS QUANDO ABERTO
@@ -729,24 +731,6 @@ body {
 .menu.aberto .item-menu {
     opacity: 1;
 }
-
-
-
-
-/* ==========================================
-   HOVER DOS ITENS
-========================================== */
-
-
-.item-menu:hover {
-    color: #f28cff;
-
-
-    transform: translateX(4px);
-}
-
-
-
 
 /* ==========================================
    ESCONDER ITENS QUANDO FECHADO
