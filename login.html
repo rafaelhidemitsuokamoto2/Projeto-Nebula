@@ -13,7 +13,9 @@
 body {
 font-family: Arial, Helvetica, sans-serif;
 background: #050912;
-overflow: hidden;
+margin: 0;
+min-height: 100vh;
+overflow-x: hidden;
 }
 
 header {
@@ -47,20 +49,23 @@ header {
 
 .tela-login {
 background: transparent;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-padding: 0;
+position: relative;
+margin: 120px auto 60px;
+padding: 0 20px;
+box-sizing: border-box;
+max-width: 850px;
 border-radius: 0;
 display:flex;
 align-items:center;
+justify-content:center;
 gap:95px;
 color: white;
 }
 
 input{
-width:280px;
+width:100%;
+max-width:305px;
+box-sizing:border-box;
 font-size:12px;
 padding:12px;
 background:transparent;
@@ -84,7 +89,9 @@ input::placeholder{
 }
 
 .botao-logar{
-width:305px;
+width:100%;
+max-width:305px;
+box-sizing:border-box;
 padding:12px;
 background:transparent;
 color:rgb(150, 97, 146);
@@ -126,17 +133,19 @@ z-index: -1;
 }
 
 .linha-login{
-    width:2px;
-    height:240px;
-    background:#E7B6E6;
-    margin-top: 90px;
-    opacity:.7;
+    width: 2px;
+    height: 260px;
+    background: #E7B6E6;
+    margin-top: 100px;
+    opacity: .7;
 }
 
 .lado-direito{
     display:flex;
     flex-direction:column;
-    gap:28px;
+    align-items:center;
+    width:100%;
+    gap:25px;
 }
 
 .logo-login{
@@ -161,7 +170,8 @@ z-index: -1;
 
 .campo-senha{
     position: relative;
-    width:305px;
+    width:100%;
+    max-width:305px;
 }
 
 .campo-senha input{
@@ -172,7 +182,8 @@ z-index: -1;
     box-sizing:border-box;
 }
 .esqueci-senha{
-    width:305px;
+    width:100%;
+    max-width:305px;
     text-align:right;
 
     margin-top:-18px;
@@ -214,6 +225,9 @@ z-index: -1;
 
     gap:12px;
 
+    width:100%;
+    max-width:305px;
+
     margin:10px 0;
 }
 
@@ -235,7 +249,9 @@ z-index: -1;
 
 .botao-social{
 
-    width:305px;
+    width:100%;
+    max-width:305px;
+    box-sizing:border-box;
 
     padding:12px;
 
@@ -260,6 +276,89 @@ z-index: -1;
         0 0 10px rgba(197,117,204,.3);
 }
 
+/* ===== RESPONSIVO ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .tela-login {
+        gap: 50px;
+    }
+    .ftan-frase {
+        width: 180px;
+    }
+    .linha-login {
+        height: 220px;
+    }
+}
+
+/* Empilha tudo (celulares e tablets pequenos), sem remover nenhum elemento */
+@media (max-width: 756px) {
+    header {
+        padding: 15px 20px;
+    }
+    .logo-login {
+        width: 80px;
+    }
+    .botao-sair {
+        width: 90px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .tela-login {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 110px;
+    }
+
+    .lado-esquerdo {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .ftan-frase {
+        width: 0px;
+        margin-top: 0;
+    }
+
+    /* Linha vira horizontal quando empilhado */
+    .linha-login {
+        width: 80%;
+        max-width: 120px;
+        height: 2px;
+        margin-top: 100;
+        margin-bottom: -80px;
+    }
+
+    .lado-direito {
+        width: 100%;
+    }
+
+    .titulo-login {
+        font-size: 32px;
+    }
+
+    input,
+    .campo-senha,
+    .botao-logar,
+    .esqueci-senha,
+    .separador,
+    .botao-social {
+        max-width: 100%;
+    }
+}
+
+/* Celulares bem pequenos */
+@media (max-width: 380px) {
+    .titulo-login {
+        font-size: 26px;
+    }
+    input {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -274,7 +373,7 @@ z-index: -1;
 
     <div class="tela-login">
     <div class="lado-esquerdo">
-    <img src="ftan-frase-logar.png" class="ftan-frase">
+    <img src="frase-nova.png" class="ftan-frase">
     </div>
     <div class="linha-login"></div>
 
@@ -351,3 +450,4 @@ olho.addEventListener("click", function(){
 
 </body>
 </html>
+<!-- finalizado o responsivo ;) -->
