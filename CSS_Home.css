@@ -1897,3 +1897,474 @@ html{
     word-break:break-word;
 
 }
+/* ===================================================================
+   20. RESPONSIVO GERAL (adicionado por seção, do maior para o menor)
+   =================================================================== */
+
+/* -------- Tablets grandes / notebooks pequenos (até 1200px) -------- */
+@media (max-width: 1200px) {
+    .caixa-vestibular {
+        width: 90%;
+    }
+}
+
+/* -------- Tablets (até 992px) -------- */
+@media (max-width: 992px) {
+
+    /* Header e navegação */
+    header {
+        padding: 8px 24px;
+    }
+    .main-navigation ul {
+        padding-left: 0;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    /* Universo */
+    .universo-content {
+        padding-left: 60px;
+    }
+    .universo-corpo-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .universo-titulo-container {
+        width: auto;
+    }
+
+    /* Graduações - títulos e linhas decorativas */
+    .titulo-principal {
+        font-size: 50px;
+    }
+    .header-centro-direita {
+        padding-right: 0;
+    }
+    .area-titulo-exatas {
+        left: 0;
+    }
+
+    /* Vestibular */
+    .datas-vestibular {
+        margin-left: 60px;
+    }
+    .info-vestibular {
+        margin-left: 60px;
+    }
+    .titulo-vestibular-container {
+        left: 60px;
+    }
+    .modalidade-vestibular {
+        margin-left: 0;
+    }
+    .linha-info {
+        gap: 60px;
+    }
+
+    /* Banner MEC */
+    .conteudo-mec {
+        left: 60px;
+        width: 460px;
+    }
+
+    /* Parcerias */
+    .linha-parcerias {
+        display: none;
+    }
+
+    /* Modalidades */
+    .card-modalidade {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* -------- Celulares e tablets pequenos (até 756px) -------- */
+@media (max-width: 756px) {
+
+    /* Header e navegação */
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .user-actions {
+        align-items: flex-start;
+        width: 100%;
+    }
+    .account-links {
+        flex-direction: row;
+        gap: 15px;
+    }
+    .main-navigation ul {
+        gap: 10px 18px;
+    }
+    .main-navigation a {
+        font-size: 15px;
+    }
+
+    /* Hero */
+    .hero-content {
+        max-width: 100%;
+    }
+
+    /* Universo */
+    .universo-section {
+        padding: 60px 24px;
+    }
+    .universo-content {
+        padding-left: 0;
+    }
+    .universo-content h2.titulo-topo,
+    .universo-titulo-container h2.titulo-destaque {
+        font-size: 30px;
+    }
+    .universo-texto-container p {
+        font-size: 16px;
+    }
+
+    /* Graduações - mapa de constelação vira lista empilhada */
+    .graduacoes-page {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+    .titulo-principal {
+        font-size: 34px;
+    }
+    .area-bloco {
+        margin-bottom: 60px;
+    }
+    .header-esquerda,
+    .header-centro,
+    .header-centro-direita {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+    }
+    .area-titulo,
+    .area-titulo-engenharias,
+    .area-titulo-exatas {
+        top: 0;
+        left: 0;
+        font-size: 26px;
+    }
+    .container-linha-espacial,
+    .linha-vertical-c {
+        display: none;
+    }
+    .constelacao-mapa {
+        position: static;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 20px;
+    }
+    .curso-no {
+        position: static;
+        max-width: 100%;
+        padding: 12px 0;
+    }
+    .curso-no .linha-vertical,
+    .curso-no .linha-horizontal-eletrica,
+    .curso-no .linha-horizontal-telecom,
+    .curso-no .linha-vertical-fisica,
+    .curso-no .linha-horizontal-computacao {
+        display: none;
+    }
+    .curso-no h3 {
+        font-size: 19px;
+        white-space: normal;
+    }
+    .curso-no p {
+        font-size: 15px;
+    }
+    .icone-decorativo {
+        display: none;
+    }
+
+    /* Modalidades */
+    .secao-modalidades {
+        padding: 50px 0;
+    }
+    .titulo-modalidades {
+        font-size: 2rem;
+    }
+    .linha-modalidades {
+        display: none;
+    }
+    .card-modalidade {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+    .card-title {
+        font-size: 24px;
+    }
+    .card-text {
+        font-size: 16px;
+    }
+
+    /* Vestibular - reorganiza toda a caixa em fluxo normal */
+    .secao-vestibular {
+        height: auto;
+        padding: 90px 16px;
+    }
+    .caixa-vestibular {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+    }
+    .titulo-vestibular-container {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .titulo-vestibular {
+        font-size: 2.2rem;
+    }
+    .linha-vestibular {
+        display: none;
+    }
+    .info-vestibular {
+        margin: 0 0 20px 0;
+    }
+    .status-vestibular {
+        font-size: 1.4rem;
+    }
+    .datas-vestibular {
+        margin: 0;
+        gap: 24px;
+    }
+    .linha-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .item-info {
+        width: 100%;
+    }
+    .logo-frase {
+        display: none;
+    }
+    .botao-vestibular {
+        margin-top: 30px;
+    }
+
+    /* Banner MEC */
+    .banner-mec {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 24px;
+    }
+    .conteudo-mec {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .titulo-nota {
+        font-size: 20px;
+        letter-spacing: 6px;
+    }
+    .titulo-maxima {
+        font-size: 38px;
+    }
+    .titulo-mec-texto {
+        font-size: 22px;
+    }
+    .texto-mec {
+        font-size: 16px;
+    }
+
+    /* Networking marquee */
+    .track-networking span {
+        font-size: 22px;
+    }
+    .networking-section {
+        min-height: 400px;
+    }
+
+    /* Blocos FIAP (networking em texto) */
+    .fiap-grid-container {
+        padding: 15% 20px;
+    }
+    .fiap-content strong {
+        font-size: 24px;
+    }
+    .fiap-content h3 {
+        font-size: 14px;
+    }
+    .globo-bg {
+        display: none;
+    }
+
+    /* Parcerias */
+    .titulo-parcerias {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    .marquee {
+        height: 180px;
+    }
+    .marquee-track img {
+        width: 180px;
+        height: 120px;
+        padding: 12px;
+    }
+
+    /* Footer */
+    .footer-superior {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 24px;
+    }
+    .footer-direita {
+        align-items: flex-start;
+    }
+
+    /* Chat Sirius */
+    .janela-sirius {
+        width: min(340px, calc(100vw - 30px));
+        right: 15px;
+    }
+    .sirius-container {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* -------- Celulares pequenos (até 380px) -------- */
+@media (max-width: 380px) {
+    .titulo-principal {
+        font-size: 28px;
+    }
+    .curso-no h3 {
+        font-size: 17px;
+    }
+    .curso-no p {
+        font-size: 14px;
+    }
+    .titulo-vestibular {
+        font-size: 1.8rem;
+    }
+    .btn-inscricao {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===================================================================
+   21. MENU HAMBÚRGUER (MOBILE)
+   =================================================================== */
+
+.btn-menu-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+.btn-menu-hamburguer span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 992px) {
+
+    .header-top {
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-menu-hamburguer {
+        display: flex;
+    }
+
+    .user-actions {
+        order: 3;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        transition: max-height .35s ease, opacity .3s ease, margin .35s ease;
+        margin-top: 0;
+    }
+
+    .user-actions.aberto {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 16px;
+    }
+
+    .account-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .main-navigation {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height .35s ease, opacity .3s ease, margin .35s ease;
+    }
+
+    .main-navigation.aberto {
+        max-height: 480px;
+        opacity: 1;
+        margin-top: 10px;
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 16px;
+        padding-left: 0;
+        padding: 14px 0 18px;
+    }
+
+    .main-navigation a {
+        display: block;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 95px;
+    }
+
+    .caixa-pesquisa {
+        width: 100%;
+    }
+
+    .caixa-pesquisa input {
+        width: 100%;
+    }
+}

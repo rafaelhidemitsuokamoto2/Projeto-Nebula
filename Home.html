@@ -24,7 +24,7 @@
                 <img src="logo-ucen.png" alt="Logo">
             </div>
             
-            <div class="user-actions">
+            <div class="user-actions" id="userActions">
                 <div class="caixa-pesquisa" id="caixaPesquisa">
                     <input type="text" placeholder="Pesquisar" readonly>
                     <i class="fa-solid fa-magnifying-glass"></i> <!-- Lupa do Font Awesome -->
@@ -34,9 +34,15 @@
                     <a href="cadastro.html">Cadastre-se</a>
                     <a href="login.html">Login</a>
                 </div>
-            </div> 
+            </div>
+
+            <button class="btn-menu-hamburguer" id="btnMenu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuNavegacao">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <nav class="main-navigation">
+        <nav class="main-navigation" id="menuNavegacao">
             <ul>
                 <li>
                     <a href="#graduacoes">Graduações</a>

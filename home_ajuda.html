@@ -710,6 +710,226 @@ onde o + e - ficarão,  */
 .faq input[type=checkbox]:checked + label span {
     background:#F2C98F;
 }
+
+/* ===========================================
+   RESPONSIVO - PÁGINAS PADRÃO "BOLSAS"
+   =========================================== */
+
+.btn-menu-hamburguer{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:26px;
+    height:18px;
+    background:transparent;
+    border:none;
+    padding:0;
+    cursor:pointer;
+}
+
+.btn-menu-hamburguer span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .3s ease, opacity .3s ease;
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.btn-menu-hamburguer.ativo span:nth-child(2){ opacity:0; }
+.btn-menu-hamburguer.ativo span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+@media (max-width:1240px){
+    .bolsas-container{
+        padding:0 24px;
+    }
+}
+
+@media (max-width:860px){
+
+    .header-bolsas{
+        padding:16px 20px;
+    }
+
+    .titulo-header{
+        font-size:20px;
+    }
+
+    .logo-bolsas img{
+        width:70px;
+    }
+
+    .botao-sair{
+        width:88px;
+        height:40px;
+        font-size:15px;
+    }
+
+    .menu-bolsas{
+        flex-wrap:wrap;
+        justify-content:flex-start;
+        gap:0;
+        padding:14px 20px;
+        position:relative;
+    }
+
+    .btn-menu-hamburguer{
+        display:flex;
+    }
+
+    .menu-bolsas a{
+        display:none;
+        width:100%;
+        padding:8px 0;
+    }
+
+    .menu-bolsas.aberto{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:2px;
+    }
+
+    .menu-bolsas.aberto a{
+        display:block;
+    }
+
+    .titulo-bolsas-container{
+        margin-left:0;
+        margin-top:40px;
+    }
+
+    .titulo-bolsas{
+        font-size:28px;
+    }
+
+    .linha-bolsas{
+        display:none;
+    }
+
+    .subtitulo-bolsas{
+        margin-left:0;
+        width:100%;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:30px;
+    }
+
+    .subtitulo-bolsas span{
+        font-size:1.2rem;
+    }
+
+    .menu-lateral-bolsas{
+        margin-left:0;
+        margin-top:30px;
+        gap:14px;
+    }
+
+    .item-menu-bolsas{
+        font-size:1.05rem;
+    }
+
+    .secao-bolsa{
+        margin-top:45px;
+    }
+
+    .titulo-secao-bolsa{
+        font-size:1.4rem;
+        margin-bottom:18px;
+    }
+
+    .lista-bolsas{
+        margin-left:16px;
+    }
+
+    .lista-bolsas li{
+        font-size:1rem;
+        margin-bottom:22px;
+    }
+
+    .footer-conteudo{
+        flex-direction:column;
+        gap:26px;
+        padding:36px 20px 30px;
+    }
+
+    .footer-direita h3{
+        font-size:1.5rem;
+        margin-bottom:16px;
+    }
+
+    .footer-esquerda p,
+    .footer-direita p{
+        font-size:1rem;
+    }
+}
+
+@media (max-width:420px){
+    .titulo-header{
+        display:none;
+    }
+
+    .header-bolsas{
+        justify-content:space-between;
+    }
+}
+
+@media (max-width:860px){
+
+    .perguntas-frequentes{
+        width:100%;
+    }
+
+    .perguntas-frequentes h1{
+        font-size:1.8rem;
+        margin-bottom:34px;
+    }
+
+    .faq li label{
+        font-size:15px;
+        padding:12px 8px;
+    }
+
+    .faq li label span{
+        padding:6px;
+        margin-right:8px;
+    }
+
+    .faq .resposta{
+        line-height:1.6;
+        font-size:.95rem;
+    }
+
+    .form-suporte{
+        margin:30px auto 0;
+    }
+
+    .form-suporte label{
+        font-size:1.1rem;
+        margin:18px 0 8px;
+    }
+
+    .form-suporte input,
+    .form-suporte textarea{
+        padding:12px;
+        font-size:1rem;
+    }
+
+    .form-suporte input{
+        height:48px;
+    }
+
+    .rodape-form{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+
+    .botao-enviar{
+        width:100%;
+    }
+}
+
 </style>
 
 </head>
@@ -731,7 +951,12 @@ onde o + e - ficarão,  */
 
 </header>
 
-<nav class="menu-bolsas">
+<nav class="menu-bolsas" id="menuBolsas">
+<button class="btn-menu-hamburguer" id="btnMenuBolsas" aria-label="Abrir menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 <a href="Home.html#graduacoes">Graduações</a>
 <a href="home_bolsas.html">
     Bolsas
@@ -993,6 +1218,36 @@ perguntas.forEach(pergunta => {
     });
 
 });
+</script>
+
+<script>
+    const btnMenuBolsas = document.getElementById("btnMenuBolsas");
+    const menuBolsas = document.getElementById("menuBolsas");
+
+    if (btnMenuBolsas && menuBolsas) {
+
+        btnMenuBolsas.addEventListener("click", () => {
+
+            const aberto = menuBolsas.classList.toggle("aberto");
+
+            btnMenuBolsas.classList.toggle("ativo", aberto);
+            btnMenuBolsas.setAttribute("aria-expanded", aberto);
+
+        });
+
+        menuBolsas.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menuBolsas.classList.remove("aberto");
+                btnMenuBolsas.classList.remove("ativo");
+                btnMenuBolsas.setAttribute("aria-expanded", "false");
+
+            });
+
+        });
+
+    }
 </script>
 </body>
 </html>
