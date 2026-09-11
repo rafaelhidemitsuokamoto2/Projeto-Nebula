@@ -30,6 +30,12 @@
             box-sizing: border-box;
         }
 
+
+        html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        }
+
         body {
             background-color: #000000;
             margin: 0;
@@ -2106,13 +2112,20 @@ html{
 
     /* Vestibular - reorganiza toda a caixa em fluxo normal */
     .secao-vestibular {
-        height: auto;
-        padding: 90px 16px;
+        display: flex;
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        align-items: center;    /* Centraliza o título e o card na horizontal */
+        text-align: center;     /* Centraliza o texto */
+        gap: 20px;              /* Espaço entre o título e o card */
     }
     .caixa-vestibular {
-        width: 100%;
+        width: 90%;         /* Ocupa 90% da tela em celulares pequenos */
         height: auto;
-        padding: 30px 20px;
+        padding: 30px 20px;        
+        max-width: 420px;     /* Não passa de 420px em telas maiores */
+        margin: 0 auto;       /* Mantém o card perfeitamente centralizado */
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(1px); /* Desfoca o fundo de trás da caixa */
     }
     .titulo-vestibular-container {
         position: static;
@@ -2297,29 +2310,24 @@ html{
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        row-gap: 14px;
     }
 
     .btn-menu-hamburguer {
         display: flex;
+        order: 2;
     }
 
+    /* Pesquisa + Cadastre-se/Login ficam SEMPRE visíveis,
+       independentes do menu hambúrguer */
     .user-actions {
         order: 3;
         width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
         gap: 14px;
-        transition: max-height .35s ease, opacity .3s ease, margin .35s ease;
-        margin-top: 0;
-    }
-
-    .user-actions.aberto {
-        max-height: 200px;
-        opacity: 1;
-        margin-top: 16px;
     }
 
     .account-links {
@@ -2328,6 +2336,7 @@ html{
         gap: 18px;
     }
 
+    /* Apenas a navegação (links do menu) fica escondida atrás do hambúrguer */
     .main-navigation {
         max-height: 0;
         overflow: hidden;
@@ -2341,12 +2350,35 @@ html{
         margin-top: 10px;
     }
 
+    .main-navigation a {
+    display: block;
+    font-size: 17px;
+    position: relative;
+    padding: 8px 0 8px 16px;
+    transition: color .3s ease, padding-left .3s ease, border-color .3s ease;
+    border-left: 2px solid transparent;
+}
+
+
+    .main-navigation.aberto a:hover {
+    color: #ffd900;
+    padding-left: 26px;
+    border-left: 2px solid #ffae00;
+}
+
+/* opcional: brilho suave atrás do texto ao passar o mouse */
+    .main-navigation.aberto a:hover {
+    text-shadow: 0 0 12px rgba(29, 1, 1, 0.37);
+}
+
+
     .main-navigation ul {
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 16px;
         padding-left: 0;
         padding: 14px 0 18px;
+        
     }
 
     .main-navigation a {
