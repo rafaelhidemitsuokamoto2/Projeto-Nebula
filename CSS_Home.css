@@ -2361,9 +2361,9 @@ html{
 
 
     .main-navigation.aberto a:hover {
-    color: #ffd900;
+    color: #E3AC6C;
     padding-left: 26px;
-    border-left: 2px solid #ffae00;
+    border-left: 2px solid #E3AC6C;
 }
 
 /* opcional: brilho suave atrás do texto ao passar o mouse */

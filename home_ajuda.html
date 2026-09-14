@@ -69,7 +69,9 @@ body{
 .conteudo-bolsas{
     position:relative;
     width:100%;
-    min-height:2000px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
     background:#050912;
 }
@@ -92,6 +94,7 @@ body{
     width:100%;
     max-width:1200px;
     margin:0 auto;
+    flex:1 0 auto;
 }
 
 .logo-bolsas img{
@@ -417,9 +420,7 @@ body{
     font-family: 'Sora', serif;
     font-size: 18px;
 
-    transition:.30s;
-
-    position:relative;
+    transition:.30s;    
 
 }
 .menu-bolsas a:hover{
@@ -620,7 +621,8 @@ body{
 }
 /* FAQ das perguntas frequentes */
 .perguntas-frequentes{
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
 }
 .perguntas-frequentes h1{
     font-size: 3rem;
@@ -753,7 +755,7 @@ onde o + e - ficarão,  */
     }
 
     .titulo-header{
-        font-size:20px;
+        font-size:0px;
     }
 
     .logo-bolsas img{
@@ -776,6 +778,7 @@ onde o + e - ficarão,  */
 
     .btn-menu-hamburguer{
         display:flex;
+        margin-left: 95%;
     }
 
     .menu-bolsas a{
@@ -861,6 +864,12 @@ onde o + e - ficarão,  */
     .footer-esquerda p,
     .footer-direita p{
         font-size:1rem;
+    }
+
+    .menu-bolsas a:hover{
+    color: #E3AC6C;
+    padding-left: 26px;
+    border-left: 2px solid #E3AC6C;
     }
 }
 

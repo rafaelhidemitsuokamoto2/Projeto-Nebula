@@ -62,7 +62,9 @@ body{
 .conteudo-bolsas{
     position:relative;
     width:100%;
-    min-height:1200px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
     background:#050912;
 }
@@ -85,6 +87,7 @@ body{
     width:100%;
     max-width:1200px;
     margin:0 auto;
+    flex:1 0 auto;
 }
 
 .logo-bolsas img{
@@ -158,12 +161,14 @@ body{
 
 .linha-bolsas{
     position:absolute;
-   left:80%;
-   top:110%;
-   margin-left:20px;
-   width:140px;
-   height:2px;
-   background:#E3AC6C;
+    left:100%;
+    top:50%;
+    margin-left:20px;
+
+    width:140px;
+    height:2px;
+
+    background:#E3AC6C;
 }
 
 .icone-lua{
@@ -198,14 +203,9 @@ body{
 }
 
 .bolinha{
-    font-size:1.3rem;
-    margin:0 20px;
-}
-
-.bolinha{
 
     color:white;
-
+    margin:0 20px;
     font-size:1.2rem;
 
     line-height:1;
@@ -400,7 +400,7 @@ body{
 
     transition:.30s;
 
-    position:relative;
+    
 
 }
 .menu-bolsas a:hover{
@@ -416,7 +416,7 @@ body{
 
     left:50%;
 
-    bottom:-6px;
+    bottom:-2px;
 
     width:0;
 
@@ -435,18 +435,7 @@ body{
     width:100%;
 
 }
-/* Página atual */
-.menu-bolsas .ativo{
 
-    color:#E3AC6C;
-
-}
-
-.menu-bolsas .ativo::after{
-
-    width:100%;
-
-}
 
 /* ===========================================
    RESPONSIVO - PÁGINAS PADRÃO "BOLSAS"
@@ -462,6 +451,7 @@ body{
     border:none;
     padding:0;
     cursor:pointer;
+    
 }
 
 .btn-menu-hamburguer span{
@@ -471,6 +461,7 @@ body{
     background:#fff;
     border-radius:2px;
     transition:transform .3s ease, opacity .3s ease;
+    
 }
 
 .btn-menu-hamburguer.ativo span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
@@ -490,7 +481,7 @@ body{
     }
 
     .titulo-header{
-        font-size:20px;
+        font-size:0px;
     }
 
     .logo-bolsas img{
@@ -509,10 +500,12 @@ body{
         gap:0;
         padding:14px 20px;
         position:relative;
+        
     }
 
     .btn-menu-hamburguer{
         display:flex;
+        margin-left: 95%;
     }
 
     .menu-bolsas a{
@@ -529,11 +522,13 @@ body{
 
     .menu-bolsas.aberto a{
         display:block;
+        
     }
 
     .titulo-bolsas-container{
         margin-left:0;
         margin-top:40px;
+        
     }
 
     .titulo-bolsas{
@@ -599,6 +594,12 @@ body{
     .footer-direita p{
         font-size:1rem;
     }
+
+    .menu-bolsas a:hover{
+    color: #E3AC6C;
+    padding-left: 26px;
+    border-left: 2px solid #E3AC6C;
+    }
 }
 
 @media (max-width:420px){
@@ -608,7 +609,10 @@ body{
 
     .header-bolsas{
         justify-content:space-between;
+        
     }
+
+        
 }
 
 </style>
