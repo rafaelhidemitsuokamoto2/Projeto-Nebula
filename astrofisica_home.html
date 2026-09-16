@@ -81,11 +81,12 @@ body{
 
 .graduacao-container{
 
-    width:1180px;
+    width:100%;
+    max-width:1180px;
 
     margin:0 auto;
 
-    padding:0;
+    padding:0 24px;
 
 }
 
@@ -193,7 +194,8 @@ body{
     display:flex;
     align-items:center;
 
-    width:760px;
+    width:100%;
+    max-width:760px;
 
     margin:55px auto 0;
     justify-content:space-between;
@@ -363,7 +365,6 @@ body{
 
     transition:.30s;
 
-    position:relative;
 
 }
 .menu-graduacao a:hover{
@@ -439,7 +440,8 @@ body{
 }
 .secao-matriz{
 
-    width:900px;
+    width:100%;
+    max-width:900px;
 
     margin:70px auto 0;
 
@@ -498,7 +500,8 @@ body{
    Teste semestres 
    ============================*/
 .semestres{
-    width:1180px;
+    width:100%;
+    max-width:1180px;
     margin:90px auto 0;
     font-size:0; /* remove o espaço entre inline-block */
 }
@@ -535,6 +538,219 @@ body{
 .semestre strong{
     color:white;
 }
+
+/* =====================================
+   MENU HAMBÚRGUER (BOTÃO)
+   ===================================== */
+.btn-menu-graduacao{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:26px;
+    height:18px;
+    background:transparent;
+    border:none;
+    padding:0;
+    cursor:pointer;
+}
+
+
+
+
+.btn-menu-graduacao span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .3s ease, opacity .3s ease;
+}
+
+.btn-menu-graduacao.ativo span:nth-child(1){ transform:translateY(8px) rotate(45deg);
+}
+.btn-menu-graduacao.ativo span:nth-child(2){ opacity:0;
+}
+.btn-menu-graduacao.ativo span:nth-child(3){ transform:translateY(-8px) rotate(-45deg);
+}
+
+/* =====================================
+   RESPONSIVO
+   ===================================== */
+@media (max-width:900px){
+
+    .header-graduacao{
+        padding:16px 20px;
+    }
+
+    .titulo-header{
+        display:none;
+    }
+
+    /* A barra do menu fica sempre visível, com o hambúrguer alinhado à direita */
+    .menu-graduacao{
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:14px 20px;
+    }
+
+    .btn-menu-graduacao{
+        display:flex;
+        align-self:flex-end;
+    }
+
+    .menu-graduacao a{
+        display:none;
+        width:100%;
+        padding:10px 0;
+        
+    }
+
+    .menu-graduacao.aberto a{
+        display:block;
+        animation:abrirMenuGraduacao .3s ease;
+        
+        
+    }
+
+    .menu-graduacao.aberto a:hover{
+    color: #E3AC6C;
+    padding-left: 26px;
+    border-left: 2px solid #E3AC6C;
+    }
+
+    .menu-graduacao a::after{
+        display:none;
+        
+    }
+
+    @keyframes abrirMenuGraduacao{
+        from{ opacity:0; transform:translateY(-10px); }
+        to{ opacity:1; transform:translateY(0); }
+    }
+
+    .titulo-graduacao-container{
+        margin:45px auto 0;
+    }
+
+    .titulo-graduacao{
+        font-size:28px;
+    }
+
+    .linha-graduacao{
+        display:none;
+    }
+
+    .subtitulo-graduacao{
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:30px;
+    }
+
+    .subtitulo-graduacao span{
+        font-size:1.3rem;
+    }
+
+    .secao-matriz{
+        margin-top:50px;
+    }
+
+    .titulo-matriz{
+        font-size:18px;
+    }
+
+    /* Tabela da matriz curricular vira empilhada */
+    .cabecalho-tabela{
+        display:none;
+    }
+
+    .coluna-info,
+    .coluna-detalhes{
+        display:block;
+        width:100%;
+    }
+
+    .coluna-info{
+        font-weight:bold;
+        margin-bottom:6px;
+    }
+
+    .linha-tabela{
+        padding:16px 0;
+    }
+
+    .botao-inscricao{
+        margin-right:0;
+        justify-content:center;
+        margin-top:60px;
+    }
+
+    .botao-inscricao button{
+        width:100%;
+        max-width:320px;
+    }
+
+    /* Semestres em coluna única */
+    .semestre,
+    .semestre-direita{
+        display:block;
+        width:100%;
+        margin-left:0;
+        margin-bottom:50px;
+    }
+
+    .semestre h3{
+        font-size:24px;
+    }
+
+    .semestre li{
+        font-size:1.05rem;
+    }
+
+    .footer-conteudo{
+        flex-direction:column;
+        gap:30px;
+        padding:40px 24px 30px;
+    }
+}
+
+@media (max-width:480px){
+
+    .logo-graduacao img{
+        width:58px;
+    }
+
+    .botao-sair{
+        width:90px;
+        height:42px;
+        font-size:.9rem;
+    }
+
+    .titulo-graduacao{
+        font-size:24px;
+    }
+
+    .subtitulo-graduacao span{
+        font-size:1.1rem;
+    }
+
+    .titulo-matriz{
+        font-size:16px;
+    }
+
+    .semestre h3{
+        font-size:20px;
+    }
+
+    .menu-graduacao a:hover{
+
+    color:#E3AC6C;
+    color: #E3AC6C;
+    padding-left: 26px;
+    border-left: 2px solid #E3AC6C;
+
+}
+}
 </style>
 
 </head>
@@ -556,7 +772,12 @@ body{
 
 </header>
 
-<nav class="menu-graduacao">
+<nav class="menu-graduacao" id="menuGraduacao">
+    <button class="btn-menu-graduacao" id="btnMenuGraduacao" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 <a href="astrofisica_home.html"  class="ativo">Astrofísica</a>
 <a href="astronomia_home.html">
     Astronomia
@@ -901,6 +1122,27 @@ body{
 
 
 </main>
+
+<script>
+    const btnMenuGraduacao = document.getElementById('btnMenuGraduacao');
+    const menuGraduacao = document.getElementById('menuGraduacao');
+
+    if (btnMenuGraduacao && menuGraduacao) {
+        btnMenuGraduacao.addEventListener('click', () => {
+            btnMenuGraduacao.classList.toggle('ativo');
+            const aberto = menuGraduacao.classList.toggle('aberto');
+            btnMenuGraduacao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+        });
+
+        menuGraduacao.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                btnMenuGraduacao.classList.remove('ativo');
+                menuGraduacao.classList.remove('aberto');
+                btnMenuGraduacao.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+</script>
 
 </body>
 </html>
