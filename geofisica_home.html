@@ -81,7 +81,9 @@ body{
 
 .graduacao-container{
 
-    width:1180px;
+    width:100%;
+
+    max-width:1180px;
 
     margin:0 auto;
 
@@ -193,7 +195,8 @@ body{
     display:flex;
     align-items:center;
 
-    width:760px;
+    width:100%;
+    max-width:760px;
 
     margin:55px auto 0;
     justify-content:space-between;
@@ -363,7 +366,6 @@ body{
 
     transition:.30s;
 
-    position:relative;
 
 }
 .menu-graduacao a:hover{
@@ -439,7 +441,8 @@ body{
 }
 .secao-matriz{
 
-    width:900px;
+    width:100%;
+    max-width:900px;
 
     margin:70px auto 0;
 
@@ -498,7 +501,8 @@ body{
    Teste semestres 
    ============================*/
 .semestres{
-    width:1180px;
+    width:100%;
+    max-width:1180px;
     margin:90px auto 0;
     font-size:0; /* remove o espaço entre inline-block */
 }
@@ -535,6 +539,202 @@ body{
 .semestre strong{
     color:white;
 }
+
+/* ===========================================
+   RESPONSIVO - PÁGINAS DE GRADUAÇÃO
+   =========================================== */
+
+.btn-menu-hamburguer{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:26px;
+    height:18px;
+    background:transparent;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    margin-left: 95%;
+}
+
+.btn-menu-hamburguer span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .3s ease, opacity .3s ease;
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.btn-menu-hamburguer.ativo span:nth-child(2){ opacity:0; }
+.btn-menu-hamburguer.ativo span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+@media (max-width:1240px){
+    .graduacao-container{
+        padding:0 24px;
+    }
+}
+
+@media (max-width:860px){
+
+    .header-graduacao{
+        padding:16px 20px;
+    }
+
+    .titulo-header{
+        font-size:0px;
+    }
+
+    .logo-graduacao img{
+        width:70px;
+    }
+
+    .botao-sair{
+        width:88px;
+        height:40px;
+        font-size:15px;
+    }
+
+    .menu-graduacao{
+        flex-wrap:wrap;
+        justify-content:flex-start;
+        gap:0;
+        padding:14px 20px;
+        position:relative;
+    }
+
+    .btn-menu-hamburguer{
+        display:flex;
+    }
+
+    .menu-graduacao a{
+        display:none;
+        width:100%;
+        padding:8px 0;
+    }
+
+    .menu-graduacao.aberto{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:2px;
+    }
+
+    .menu-graduacao.aberto a{
+        display:block;
+    }
+
+    .menu-graduacao a:hover{
+        color:#E3AC6C;
+        padding-left:26px;
+        border-left:2px solid #E3AC6C;
+    }
+
+    .subtitulo-graduacao{
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:40px;
+    }
+
+    .subtitulo-graduacao span{
+        font-size:1.2rem;
+    }
+
+    .titulo-graduacao-container{
+        margin-top:30px;
+    }
+
+    .titulo-graduacao{
+        font-size:26px;
+    }
+
+    .linha-graduacao{
+        display:none;
+    }
+
+    .secao-matriz{
+        margin-top:45px;
+    }
+
+    .titulo-matriz{
+        font-size:18px;
+        margin-bottom:30px;
+    }
+
+    .cabecalho-tabela{
+        display:none;
+    }
+
+    .coluna-info,
+    .coluna-detalhes{
+        display:block;
+        width:100%;
+    }
+
+    .coluna-detalhes{
+        margin-top:4px;
+        margin-bottom:6px;
+    }
+
+    .semestres{
+        margin-top:60px;
+    }
+
+    .semestre{
+        display:block;
+        width:100%;
+        margin-bottom:50px;
+    }
+
+    .semestre-direita{
+        margin-left:0;
+    }
+
+    .semestre h3{
+        font-size:22px;
+    }
+
+    .semestre li{
+        font-size:1rem;
+    }
+
+    .botao-inscricao{
+        justify-content:center;
+        margin-right:0;
+        margin-top:50px;
+    }
+
+    .botao-inscricao button{
+        width:100%;
+        max-width:320px;
+    }
+
+    .footer-conteudo{
+        flex-direction:column;
+        gap:26px;
+        padding:36px 20px 30px;
+    }
+
+    .footer-direita h3{
+        font-size:1.5rem;
+        margin-bottom:16px;
+    }
+
+    .footer-esquerda p,
+    .footer-direita p{
+        font-size:1rem;
+    }
+}
+
+@media (max-width:420px){
+    .titulo-header{
+        display:none;
+    }
+
+    .header-graduacao{
+        justify-content:space-between;
+    }
+}
 </style>
 
 </head>
@@ -556,7 +756,12 @@ body{
 
 </header>
 
-<nav class="menu-graduacao">
+<nav class="menu-graduacao" id="menuGraduacao">
+<button class="btn-menu-hamburguer" id="btnMenuGraduacao" aria-label="Abrir menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 <a href="astrofisica_home.html">
     Astrofísica
 </a>
@@ -972,5 +1177,34 @@ body{
 
 </main>
 
+<script>
+    const btnMenuGraduacao = document.getElementById("btnMenuGraduacao");
+    const menuGraduacao = document.getElementById("menuGraduacao");
+
+    if (btnMenuGraduacao && menuGraduacao) {
+
+        btnMenuGraduacao.addEventListener("click", () => {
+
+            const aberto = menuGraduacao.classList.toggle("aberto");
+
+            btnMenuGraduacao.classList.toggle("ativo", aberto);
+            btnMenuGraduacao.setAttribute("aria-expanded", aberto);
+
+        });
+
+        menuGraduacao.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menuGraduacao.classList.remove("aberto");
+                btnMenuGraduacao.classList.remove("ativo");
+                btnMenuGraduacao.setAttribute("aria-expanded", "false");
+
+            });
+
+        });
+
+    }
+</script>
 </body>
 </html>
