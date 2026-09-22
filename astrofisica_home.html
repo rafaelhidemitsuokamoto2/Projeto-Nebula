@@ -365,6 +365,7 @@ body{
 
     transition:.30s;
 
+    position:relative;
 
 }
 .menu-graduacao a:hover{
@@ -609,8 +610,10 @@ body{
     .menu-graduacao.aberto a{
         display:block;
         animation:abrirMenuGraduacao .3s ease;
-        
-        
+    }
+
+    .menu-graduacao a::after{
+        display:none;
     }
 
     .menu-graduacao.aberto a:hover{
