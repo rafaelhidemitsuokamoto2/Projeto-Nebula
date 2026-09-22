@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresso Enem - FTAN</title>
+    <title>Ingresso Enem - UCEN</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,11 +72,11 @@ body{
 }
 .titulo-header{
 
-    font-family:'Rye', serif;
+    font-family:'Sora', serif;
 
     color:white;
 
-    font-size:30px;
+    font-size:40px;
 
     font-weight:normal;
 
@@ -168,7 +168,7 @@ body{
 }
 .menu-bolsas a{
 
-    font-family: 'Rye', sans-serif;
+    font-family: 'Sora', sans-serif;
 
     color:white;
 
@@ -557,6 +557,197 @@ onde o + e - ficarão,  */
     font-size:1.05rem;
 }
 
+/* ===========================================
+   RESPONSIVO
+   =========================================== */
+
+.btn-menu-hamburguer{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:26px;
+    height:18px;
+    background:transparent;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    margin-left: 95%;
+}
+
+.btn-menu-hamburguer span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .3s ease, opacity .3s ease;
+}
+
+.btn-menu-hamburguer.ativo span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.btn-menu-hamburguer.ativo span:nth-child(2){ opacity:0; }
+.btn-menu-hamburguer.ativo span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+@media (max-width:1240px){
+    .enem-container{
+        padding:0 24px;
+    }
+}
+
+@media (max-width:860px){
+
+    .header-enem{
+        padding:16px 20px;
+    }
+
+    .titulo-header{
+        font-size:0px;
+    }
+
+    .logo-enem img{
+        width:70px;
+    }
+
+    .botao-sair{
+        width:88px;
+        height:40px;
+        font-size:15px;
+    }
+
+    .menu-bolsas{
+        flex-wrap:wrap;
+        justify-content:flex-start;
+        gap:0;
+        padding:14px 20px;
+        position:relative;
+    }
+
+    .btn-menu-hamburguer{
+        display:flex;
+    }
+
+    .menu-bolsas a{
+        display:none;
+        width:100%;
+        padding:8px 0;
+    }
+
+    .menu-bolsas.aberto{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:2px;
+    }
+
+    .menu-bolsas.aberto a{
+        display:block;
+    }
+
+    .menu-bolsas a::after{
+        display:none;
+    }
+
+    .menu-bolsas a:hover{
+        color:#E3AC6C;
+        padding-left:26px;
+        border-left:2px solid #E3AC6C;
+    }
+
+    .titulo-enem-container{
+        margin-top:45px;
+        margin-left:0;
+    }
+
+    .titulo-enem{
+        font-size:28px;
+    }
+
+    .linha-enem{
+        display:none;
+    }
+
+    .subtitulo-enem{
+        width:100%;
+        margin-left:0;
+        margin-top:30px;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .subtitulo-enem span{
+        font-size:1.2rem;
+    }
+
+    .menu-lateral-enem{
+        margin-left:0;
+    }
+
+    .secao-enem{
+        margin-top:45px;
+    }
+
+    .titulo-secao-enem{
+        font-size:1.5rem;
+    }
+
+    .lista-enem{
+        margin-left:0;
+    }
+
+    .lista-enem p{
+        font-size:1.05rem;
+    }
+
+    .perguntas-frequentes{
+        margin-top:60px;
+    }
+
+    .perguntas-frequentes h1{
+        font-size:1.8rem;
+        margin-bottom:30px;
+    }
+
+    .faq li label{
+        font-size:15px;
+        padding:12px 8px;
+    }
+
+    .botao-inscricao{
+        justify-content:center;
+        margin-top:50px;
+        margin-bottom:80px;
+    }
+
+    .botao-inscricao button{
+        width:100%;
+        max-width:320px;
+    }
+
+    .footer-conteudo{
+        flex-direction:column;
+        gap:26px;
+        padding:36px 20px 30px;
+    }
+
+    .footer-direita h3{
+        font-size:1.5rem;
+        margin-bottom:16px;
+    }
+
+    .footer-esquerda p,
+    .footer-direita p{
+        font-size:1rem;
+    }
+}
+
+@media (max-width:420px){
+    .titulo-header{
+        display:none;
+    }
+
+    .header-enem{
+        justify-content:space-between;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -575,7 +766,12 @@ onde o + e - ficarão,  */
     </a>
 </header>
 
-<nav class="menu-bolsas">
+<nav class="menu-bolsas" id="menuBolsas">
+    <button class="btn-menu-hamburguer" id="btnMenuBolsas" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 <a href="Home.html#graduacoes">Graduações</a>
 <a href="home_bolsas.html">
     Bolsas
@@ -761,6 +957,35 @@ onde o + e - ficarão,  */
 
 </footer>
 </main>
+<script>
+    const btnMenuBolsas = document.getElementById("btnMenuBolsas");
+    const menuBolsas = document.getElementById("menuBolsas");
+
+    if (btnMenuBolsas && menuBolsas) {
+
+        btnMenuBolsas.addEventListener("click", () => {
+
+            const aberto = menuBolsas.classList.toggle("aberto");
+
+            btnMenuBolsas.classList.toggle("ativo", aberto);
+            btnMenuBolsas.setAttribute("aria-expanded", aberto);
+
+        });
+
+        menuBolsas.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menuBolsas.classList.remove("aberto");
+                btnMenuBolsas.classList.remove("ativo");
+                btnMenuBolsas.setAttribute("aria-expanded", "false");
+
+            });
+
+        });
+
+    }
+</script>
 <script>
     // Fazer as caixas se fecharem depois de clicar em outra com uma já aberta
 const perguntas = document.querySelectorAll('.faq input[type="checkbox"]');
