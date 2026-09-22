@@ -417,10 +417,11 @@ body{
 
     text-decoration:none;
 
-    font-family: 'Sora', serif;
     font-size: 18px;
 
     transition:.30s;    
+
+    position:relative;
 
 }
 .menu-bolsas a:hover{
@@ -795,6 +796,10 @@ onde o + e - ficarão,  */
 
     .menu-bolsas.aberto a{
         display:block;
+    }
+
+    .menu-bolsas a::after{
+        display:none;
     }
 
     .titulo-bolsas-container{

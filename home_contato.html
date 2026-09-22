@@ -400,7 +400,7 @@ body{
 
     transition:.30s;
 
-    
+    position:relative;
 
 }
 .menu-bolsas a:hover{
@@ -520,11 +520,17 @@ body{
         gap:2px;
     }
 
+    /**/
     .menu-bolsas.aberto a{
         display:block;
-        
+    }   
+
+    .menu-bolsas a::after{
+        display:none;
     }
 
+    /**/
+    
     .titulo-bolsas-container{
         margin-left:0;
         margin-top:40px;
