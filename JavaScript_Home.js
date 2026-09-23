@@ -440,7 +440,9 @@ overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
 
         overlay.classList.remove("ativo");
-        document.body.style.overflow = "auto";
+
+        document.body.classList.remove("no-scroll");
+        document.documentElement.classList.remove("no-scroll");
 
     }
 
