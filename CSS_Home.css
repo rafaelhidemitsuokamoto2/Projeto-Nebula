@@ -992,7 +992,9 @@
 
 /* O Card Individual */
 .card-modalidade {
-  background-color: #121111;
+  /*background: rgba(35, 0, 44, 0.49);*/  /*// Roxo */
+  background: rgba(0, 10, 44, 0.49);  /*// Azul */
+  /*background: rgba(0, 0, 0, 0.49); */  /*// Preto */
   border-radius: 12px;
   padding: 35px 25px;
   width: 420px;
@@ -1001,8 +1003,9 @@
   flex-direction: column;
   justify-content: space-between;
   
+  
   /* 1. SOMBRA INICIAL(8% de opacidade) */
-  box-shadow: 0 10px 30px rgba(190, 168, 100, 0.08); 
+  box-shadow: 0 10px 30px rgba(190, 167, 100, 0.089); 
   
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1011,8 +1014,13 @@
 .card-modalidade:hover {
   transform: translateY(-5px);
   
-  /* Sombra Ativa: Mais forte e espalhada com a sua cor #BEA864 (30% de opacidade) */
-  box-shadow: 0 15px 35px rgba(190, 168, 100, 0.30);
+  /* Roxo */
+  box-shadow: 0 15px 35px rgba(209, 1, 209, 0.219);
+  border: #3b0149 solid 1px;
+
+  /* Azul */
+  /*box-shadow: 0 15px 35px rgba(1, 150, 209, 0.219);
+  border: #010e49 solid 1px;*/
 }
 
 /* Cabeçalho do Card (Ícone + Título) */
