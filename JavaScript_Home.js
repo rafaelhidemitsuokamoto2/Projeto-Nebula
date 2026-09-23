@@ -398,7 +398,8 @@ const resultadoPesquisa = document.querySelector(".resultado-pesquisa");
 caixaPesquisa.addEventListener("click", () => {
 
     overlay.classList.add("ativo");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll");
 
     inputHeader.value = "";
     resultadoPesquisa.style.display = "none";
@@ -424,7 +425,8 @@ caixaPesquisa.addEventListener("click", () => {
 fecharPesquisa.addEventListener("click", () => {
 
     overlay.classList.remove("ativo");
-    document.body.style.overflow = "auto";
+    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
 
 });
 

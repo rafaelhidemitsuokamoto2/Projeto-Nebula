@@ -30,12 +30,24 @@
             box-sizing: border-box;
         }
 
+
+        html {
+        
+        overflow-x: hidden;
+        max-width: 100%;
+        }
+
         body {
             background-color: #000000;
             margin: 0;
             padding: 0;
         }
 
+        body.no-scroll,
+        html.no-scroll {
+        overflow: hidden !important;
+        }
+        
 
         /* ================================
            3. CABEÇALHO (HEADER) E NAVEGAÇÃO 
@@ -2106,13 +2118,20 @@ html{
 
     /* Vestibular - reorganiza toda a caixa em fluxo normal */
     .secao-vestibular {
-        height: auto;
-        padding: 90px 16px;
+        display: flex;
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        align-items: center;    /* Centraliza o título e o card na horizontal */
+        text-align: center;     /* Centraliza o texto */
+        gap: 20px;              /* Espaço entre o título e o card */
     }
     .caixa-vestibular {
-        width: 100%;
+        width: 90%;         /* Ocupa 90% da tela em celulares pequenos */
         height: auto;
-        padding: 30px 20px;
+        padding: 30px 20px;        
+        max-width: 420px;     /* Não passa de 420px em telas maiores */
+        margin: 0 auto;       /* Mantém o card perfeitamente centralizado */
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(1px); /* Desfoca o fundo de trás da caixa */
     }
     .titulo-vestibular-container {
         position: static;
@@ -2337,12 +2356,35 @@ html{
         margin-top: 10px;
     }
 
+    .main-navigation a {
+    display: block;
+    font-size: 17px;
+    position: relative;
+    padding: 8px 0 8px 16px;
+    transition: color .3s ease, padding-left .3s ease, border-color .3s ease;
+    border-left: 2px solid transparent;
+}
+
+
+    .main-navigation.aberto a:hover {
+    color: #E3AC6C;
+    padding-left: 26px;
+    border-left: 2px solid #E3AC6C;
+}
+
+/* opcional: brilho suave atrás do texto ao passar o mouse */
+    .main-navigation.aberto a:hover {
+    text-shadow: 0 0 12px rgba(29, 1, 1, 0.37);
+}
+
+
     .main-navigation ul {
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 16px;
         padding-left: 0;
         padding: 14px 0 18px;
+        
     }
 
     .main-navigation a {
