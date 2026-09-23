@@ -582,3 +582,35 @@ listaHeader.forEach(item => {
     });
 
 });
+
+// ===============================================
+// Lógica do Menu Hambúrguer Responsivo
+// ===============================================
+// ===============================================
+// Controle de Ocultar/Exibir Menu Responsivo
+// ===============================================
+const btnMenu = document.getElementById('btnMenu');
+const menuNavegacao = document.getElementById('menuNavegacao');
+
+if (btnMenu && menuNavegacao) {
+  btnMenu.addEventListener('click', () => {
+    // Alterna a animação do botão X
+    btnMenu.classList.toggle('ativo');
+
+    // Alterna a exibição apenas dos links de navegação.
+    // Pesquisa e Cadastre-se/Login ficam sempre visíveis, fora do hambúrguer.
+    const aberto = menuNavegacao.classList.toggle('aberto');
+    btnMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  });
+
+  // Fecha o menu de navegação ao clicar em qualquer link
+  const linksMenu = menuNavegacao.querySelectorAll('a');
+  linksMenu.forEach(link => {
+    link.addEventListener('click', () => {
+      btnMenu.classList.remove('ativo');
+      menuNavegacao.classList.remove('aberto');
+      btnMenu.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
