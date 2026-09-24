@@ -60,7 +60,8 @@
     }
 
     .graduacao-container {
-        width: 1180px;
+        width: 100%;
+        max-width: 1180px;
         margin: 0 auto;
         padding: 0 20px;
         position: relative;
@@ -468,4 +469,150 @@
 }
 #campo-nome-social{
     margin-top:25px;
+}
+
+/* ===========================================
+   RESPONSIVO - FICHA DE INSCRIÇÃO ENEM
+   =========================================== */
+
+@media (max-width:860px){
+
+    .header-graduacao{
+        padding:16px 20px;
+    }
+
+    .titulo-header{
+        font-size:0px;
+    }
+
+    .logo-graduacao img{
+        width:60px;
+    }
+
+    .botao-sair{
+        width:88px;
+        height:40px;
+        font-size:15px;
+    }
+
+    .titulo-inscricao-container{
+        margin:35px auto 30px;
+    }
+
+    .titulo-principal-form{
+        font-size:24px;
+        margin-bottom:14px;
+    }
+
+    .subtitulo-processo-form{
+        font-size:1.1rem;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .subtitulo-abaixo{
+        font-size:1.2rem;
+        margin-top:30px;
+    }
+
+    .descricao-caixa-form{
+        font-size:1.05rem;
+    }
+
+    .formulario-container{
+        margin:35px auto 0;
+    }
+
+    .titulo-etapa{
+        font-size:1.4rem;
+        margin-bottom:25px;
+    }
+
+    /* Rótulo em cima, campo embaixo, em vez de lado a lado com largura fixa */
+    .campo-formulario{
+        flex-wrap:wrap;
+        row-gap:8px;
+    }
+
+    .campo-formulario label{
+        width:100%;
+        flex-shrink:1;
+        margin-right:0;
+        white-space:normal;
+    }
+
+    .campo-formulario input,
+    .campo-formulario select{
+        flex:1 1 100%;
+    }
+
+    .campo-formulario::before{
+        display:none;
+    }
+
+    .rotulo-grupo{
+        font-size:1.1rem;
+    }
+
+    .lista-opcoes{
+        padding-left:0;
+    }
+
+    .opcao-radio{
+        font-size:1.05rem;
+    }
+
+    .caixa-informacoes{
+        font-size:1.05rem;
+        padding:16px;
+    }
+
+    .lista-atencao{
+        padding-left:18px;
+    }
+
+    .titulo-upload{
+        font-size:1.15rem;
+    }
+
+    .area-dropzone{
+        padding:18px;
+        font-size:1.1rem;
+    }
+
+    .status-upload{
+        flex-wrap:wrap;
+        gap:6px;
+        font-size:.85rem;
+    }
+
+    /* Empilha os botões (Voltar/Avançar) e ignora o justify-content inline */
+    .container-botoes-form{
+        flex-direction:column;
+        align-items:stretch;
+        justify-content:flex-start !important;
+        gap:14px;
+        margin-top:40px;
+        margin-bottom:60px;
+    }
+
+    .botao-avancar-form{
+        width:100%;
+        min-width:0;
+    }
+}
+
+@media (max-width:420px){
+
+    .titulo-header{
+        display:none;
+    }
+
+    .header-graduacao{
+        justify-content:space-between;
+    }
+
+    .titulo-principal-form{
+        font-size:20px;
+    }
 }
