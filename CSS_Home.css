@@ -81,7 +81,8 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 8px;
+        /*  gap: 8px;   */  /* medidas antigas do espasamento da barra de pesquisas com o login e cadastro */
+            gap: 11px;
         }
 
         .caixa-pesquisa {
@@ -119,13 +120,33 @@
             font-family: 'Sora', sans-serif; 
             text-decoration: none;
             color: white;
-            
-            font-size: 18px;
+            font-size: 19px;
+            transition:.30s;
+            position:relative;
         }
 
         .account-links a:hover {
             color: #cccccc;
-            text-decoration: underline;
+            /*text-decoration: underline;*/
+        }
+
+        .account-links a::after{
+            content:"";
+            position:absolute;
+            left:50%;
+            bottom:-1px;
+            width:0;
+            height:2px;
+            background:#cccccc;
+            transform:translateX(-50%);
+            transition:.3s;
+
+        }
+
+        .account-links a:hover::after{
+
+            width:100%;
+
         }
 
         .main-navigation ul {
@@ -139,12 +160,42 @@
             color: white;
             text-decoration: none;
             font-family: 'Sora', serif;
-            font-size: 18px;
-            transition: color 0.2s;
+            font-size: 19px;
+            transition:.30s;
+            position:relative;
         }
 
+
         .main-navigation a:hover {
-            color: #cccccc;
+            color: #E3AC6C;
+        }
+
+        .main-navigation a::after{
+
+            content:"";
+
+            position:absolute;
+
+            left:50%;
+
+            bottom:-3px;
+
+            width:0;
+
+            height:2px;
+
+            background:#E3AC6C;
+
+            transform:translateX(-50%);
+
+            transition:.3s;
+
+        }
+
+        .main-navigation a:hover::after{
+
+            width:100%;
+
         }
 
 
@@ -2372,6 +2423,14 @@ html{
     transition: color .3s ease, padding-left .3s ease, border-color .3s ease;
     border-left: 2px solid transparent;
 }
+
+    .main-navigation.aberto a{
+        display:block;
+    }
+
+    .main-navigation a::after{
+        display:none;
+    }   
 
 
     .main-navigation.aberto a:hover {
