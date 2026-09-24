@@ -479,9 +479,21 @@
 
 }
 
+        /* =====================
+           5. Missão - VISÃO - VALORES
+           ===================== */
+
+        .fundoT1 {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;         
+            opacity: 0.15;           
+        }
+
 
         /* =====================
-           5. SEÇÃO DO UNIVERSO
+           6. SEÇÃO DO UNIVERSO
            ===================== */
         .universo-section {
             position: relative;
@@ -567,7 +579,7 @@
 
 
         /* ========================
-           6. PÁGINA DE GRADUAÇÕES 
+           7. PÁGINA DE GRADUAÇÕES 
            ========================*/
         .graduacoes-page {
             position: relative;
@@ -633,7 +645,7 @@
 
 
         /* =======================================
-           7. CABEÇALHOS DAS ÁREAS (ALINHAMENTOS) 
+           8. CABEÇALHOS DAS ÁREAS (ALINHAMENTOS) 
            ======================================= */
         .header-centro {
             text-align: center;
@@ -710,7 +722,7 @@
 
 
         /* =============================================
-           8. MAPA DE CONSTELAÇÃO (ESTRUTURA DOS CARDS) 
+           9. MAPA DE CONSTELAÇÃO (ESTRUTURA DOS CARDS) 
            ============================================= */
         .constelacao-mapa {
             position: relative;
@@ -769,7 +781,7 @@
 
 
         /* ==========================
-           9. LINHAS DAS ENGENHARIAS 
+           10. LINHAS DAS ENGENHARIAS 
            ========================== */
 
         /* Aeroespacial - Linha Vertical */
@@ -804,7 +816,7 @@
 
 
         /* =============================== 
-           10. LINHAS DAS CIÊNCIAS EXATAS 
+           11. LINHAS DAS CIÊNCIAS EXATAS 
            =============================== */
 
         /* Linha Vertical diretamente abaixo do 'C' de Ciências Exatas */
@@ -839,7 +851,7 @@
 
 
         /* ======================
-           11.CIÊNCIAS ESPACIAIS 
+           12.CIÊNCIAS ESPACIAIS 
            ====================== */
         .pos-astronomia {
             top: 40px;
@@ -864,7 +876,7 @@
 
 
         /* ================
-           12. ENGENHARIAS 
+           13. ENGENHARIAS 
            ================ */
         .pos-eng-1 { 
             top: 40px; 
@@ -886,7 +898,7 @@
 
 
         /* ====================
-           13. CIÊNCIAS EXATAS 
+           14. CIÊNCIAS EXATAS 
            ==================== */
         
         /* Física: Bem à esquerda (com padding para não cobrir a linha decorativa) */
@@ -912,7 +924,7 @@
         
 
         /* ========================
-           14. Imagens decorativas 
+           15. Imagens decorativas 
            ======================== */
         .icone-decorativo {
             position: absolute;
@@ -1369,7 +1381,7 @@
 }
 
 /* ========================================= 
-   15. RODAPÉ COM O FOOTER (html semântico) 
+   16. RODAPÉ COM O FOOTER (html semântico) 
    ========================================= */
 
 footer{
@@ -1450,14 +1462,14 @@ footer{
 }
 
 /* ================================================ 
-   16. SCROLL AUTOMÁTICO EM GRADUAÇÕES E VESTIBULAR 
+   17. SCROLL AUTOMÁTICO EM GRADUAÇÕES E VESTIBULAR 
    ================================================ */
 html{
     scroll-behavior: smooth;
 }
 
 /* =======================
-   17. NOTA 5 NO MEC
+   18. NOTA 5 NO MEC
    ======================= */
 .banner-mec{
     position: relative;
@@ -1546,7 +1558,7 @@ html{
 }
 
 /* ================================
-   18. Marquee/keyframe Networking
+   19. Marquee/keyframe Networking
    ================================ */
 .networking-section{
     position: relative;
@@ -1632,7 +1644,7 @@ html{
 
 }
 /* ==============================================
-   19. Layout do Networking
+   20. Layout do Networking
    ============================================== */
 
 /* Mantém o container responsivo e centralizado */
@@ -1747,7 +1759,7 @@ html{
 /* --- Seria uma ótima ideia fazer a responsividade por página, sempre ao final de cada uma --- */
 
 /* ==========================
-   19. BOTÃO DA IA SIRIUS
+   21. BOTÃO DA IA SIRIUS
 ========================== */
 
 .sirius-container{
@@ -1969,7 +1981,7 @@ html{
 
 }
 /* ===================================================================
-   20. RESPONSIVO GERAL (adicionado por seção, do maior para o menor)
+   22. RESPONSIVO GERAL (adicionado por seção, do maior para o menor)
    =================================================================== */
 
 /* -------- Tablets grandes / notebooks pequenos (até 1200px) -------- */
@@ -2330,7 +2342,7 @@ html{
 }
 
 /* ===================================================================
-   21. MENU HAMBÚRGUER (MOBILE)
+   23. MENU HAMBÚRGUER (MOBILE)
    =================================================================== */
 
 .btn-menu-hamburguer {
