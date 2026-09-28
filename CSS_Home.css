@@ -479,17 +479,219 @@
 
 }
 
-        /* =====================
-           5. Missão - VISÃO - VALORES
-           ===================== */
+            /* ============================================
+                    5. MISSÃO - VISÃO - VALORES (MVV)
+            ============================================ */
 
-        .fundoT1 {
 
-            width: 100%;
-            height: 100%;
-            object-fit: cover;         
-            opacity: 0.15;           
-        }
+.mvv-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 60px;
+    background-color: #050912;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mvv-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.mvv-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ---------- Cabeçalho ---------- */
+.mvv-header {
+    position: relative;
+    margin-bottom: 70px;
+    text-align: left;
+}
+
+.mvv-titulo-topo {
+    font-family: "Sora", sans-serif;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.mvv-titulo-destaque {
+    font-family: "Sora", sans-serif;
+    color: #E7B6E6;
+    font-size: 64px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    display: inline-block;
+}
+
+.mvv-linha {
+    display: block;
+    width: 180px;
+    height: 2px;
+    background-color: #E7B6E6;
+    margin-top: 20px;
+}
+
+.mvv-linha2 {
+    display: block;
+    width: 180px;
+    height: 2px;
+    background-color: #E7B6E6;
+    margin-top: 20px;
+}
+
+/* ---------- Grid dos Cards ---------- */
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+/* ---------- Card Individual ---------- */
+.mvv-card {
+    position: relative;
+    background: rgba(0, 10, 44, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 45px 35px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    backdrop-filter: blur(2px);
+}
+
+.mvv-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(231, 182, 230, 0.4);
+    box-shadow: 0 20px 45px rgba(231, 182, 230, 0.15);
+}
+
+/* Ícone */
+.mvv-card-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(231, 182, 230, 0.08);
+    border: 1px solid rgba(231, 182, 230, 0.3);
+    margin-bottom: 28px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.mvv-card-icon i {
+    font-size: 26px;
+    color: #E7B6E6;
+}
+
+.mvv-card:hover .mvv-card-icon {
+    background: rgba(231, 182, 230, 0.18);
+    transform: scale(1.08);
+}
+
+/* Título do Card */
+.mvv-card-titulo {
+    font-family: "Sora", sans-serif;
+    color: #E3AC6C;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 22px 0;
+}
+
+/* Texto do Card */
+.mvv-card-texto {
+    font-family: "Sora", sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* ---------- Responsividade ---------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .mvv-section {
+        padding: 80px 40px;
+    }
+    .mvv-titulo-destaque {
+        font-size: 48px;
+    }
+    .mvv-titulo-topo {
+        font-size: 24px;
+    }
+    .mvv-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .mvv-card:last-child {
+        grid-column: 1 / -1; /* Último card ocupa a linha toda */
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* Celulares */
+@media (max-width: 756px) {
+    .mvv-section {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+    .mvv-header {
+        margin-bottom: 45px;
+    }
+    .mvv-titulo-topo {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+    .mvv-titulo-destaque {
+        font-size: 38px;
+    }
+    .mvv-linha {
+        width: 120px;
+        margin-top: 14px;
+    }
+    .mvv-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .mvv-card,
+    .mvv-card:last-child {
+        max-width: 100%;
+        min-height: auto;
+        padding: 35px 25px;
+    }
+    .mvv-card-titulo {
+        font-size: 24px;
+    }
+    .mvv-card-texto {
+        font-size: 15px;
+    }
+}   
 
 
         /* =====================
