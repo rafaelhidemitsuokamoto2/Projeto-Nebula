@@ -636,6 +636,7 @@
 .mvv-card-titulo {
     font-family: "Sora", sans-serif;
     color: #E3AC6C;
+    /*color: #eb6eeb;*/
     font-size: 30px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1295,6 +1296,7 @@
   /*background: rgba(35, 0, 44, 0.49);*/  /*// Roxo */
   background: rgba(0, 10, 44, 0.49);  /*// Azul */
   /*background: rgba(0, 0, 0, 0.49); */  /*// Preto */
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 35px 25px;
   width: 420px;
@@ -1305,18 +1307,25 @@
   
   
   /* 1. SOMBRA INICIAL(8% de opacidade) */
-  box-shadow: 0 10px 30px rgba(190, 167, 100, 0.089); 
+  box-shadow: 0 10px 30px rgba(95, 47, 185, 0.116); 
   
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* EFEITO BONITINHO AO PASSAR O MOUSE (:hover) */
 .card-modalidade:hover {
-  transform: translateY(-5px);
+
+    transform: translateY(-10px);
+    border: rgba(231, 182, 230, 0.4) solid 1px;
+    box-shadow: 0 20px 45px rgba(231, 182, 230, 0.15);
+
+
+
+  /*transform: translateY(-5px);*/
   
   /* Roxo */
-  box-shadow: 0 15px 35px rgba(209, 1, 209, 0.219);
-  border: #3b0149 solid 1px;
+  /*box-shadow: 0 15px 35px rgba(209, 1, 209, 0.219);
+  border: #3b0149 solid 1px;*/
 
   /* Azul */
   /*box-shadow: 0 15px 35px rgba(1, 150, 209, 0.219);
