@@ -139,6 +139,19 @@
         text-align: left;
     }
 
+/*     Ícone do calendário branco */
+.campo-formulario input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.campo-formulario input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+
     /* =====================================
        2. SEÇÃO DO FORMULÁRIO (ETAPA 1)
        ===================================== */
