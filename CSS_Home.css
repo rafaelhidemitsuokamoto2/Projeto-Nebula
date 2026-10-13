@@ -151,9 +151,11 @@
 
         .main-navigation ul {
             display: flex;
+            justify-content: center;   /* centraliza os links no meio da tela */
+            flex-wrap: wrap;           /* se faltar espaço, quebra linha sem sair do centro */
             list-style: none;
-            gap: 35px;
-            padding-left: 460px;
+            gap: 12px 35px;
+            padding-left: 0;           /* antes era 460px, o que empurrava tudo para a direita */
         }
 
         .main-navigation a {

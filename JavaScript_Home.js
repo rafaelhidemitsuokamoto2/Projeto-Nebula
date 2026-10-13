@@ -224,6 +224,14 @@ document.addEventListener("click", () => {
 });
 
 // Animação ScrollReveal
+// Proteção: se a biblioteca não carregar (internet instável, bloqueio, offline),
+// cria uma versão "vazia" para o resto do código (inclusive o menu hambúrguer) continuar funcionando.
+if (typeof ScrollReveal === 'undefined') {
+    window.ScrollReveal = function () {
+        return { reveal: function () {} };
+    };
+}
+
 const sr = ScrollReveal({
     distance: '60px',
     duration: 900,
