@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Financeiro - Portal do Aluno - UCEN</title>
+    <link rel="stylesheet" href="aluno_financeiro.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/aluno.svg">
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+        <div class="barra-portal">
+            <a class="logo" href="aluno_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+                <input type="text" placeholder="Pesquisar..." readonly>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+                <div class="painel-pesquisa">
+                    <div class="barra-expandida">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+                        <button id="fecharPesquisa" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="resultado-pesquisa">
+                        <ul id="lista-header">
+                            <li data-url="aluno_inicio.html">Início</li>
+                            <li data-url="aluno_graduacao.html">Minha Graduação</li>
+                            <li data-url="aluno_arquivos.html">Arquivos</li>
+                            <li data-url="aluno_agenda.html">Agenda</li>
+                            <li data-url="aluno_calendario.html">Calendário</li>
+                            <li data-url="aluno_documentos.html">Documentos</li>
+                            <li data-url="aluno_financeiro.html">Financeiro</li>
+                            <li data-url="aluno_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="aluno_perfil.html" class="perfil">M</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+        <div class="menu-cabecalho">
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <span>Menu</span>
+        </div>
+
+        <nav class="menu-navegacao">
+            <a class="item-menu" href="aluno_inicio.html">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+            <a class="item-menu" href="aluno_graduacao.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Minha Graduação
+            </a>
+            <a class="item-menu" href="aluno_arquivos.html">
+                <i class="fa-solid fa-folder-open"></i>
+                Arquivos
+            </a>
+            <a class="item-menu" href="aluno_agenda.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Agenda
+            </a>
+            <a class="item-menu" href="aluno_calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Calendário
+            </a>
+            <a class="item-menu" href="aluno_documentos.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Documentos
+            </a>
+            <a class="item-menu ativo" href="aluno_financeiro.html">
+                <i class="fa-solid fa-sack-dollar"></i>
+                Financeiro
+            </a>
+            <a class="item-menu" href="aluno_perfil.html">
+                <i class="fa-solid fa-user"></i>
+                Meu perfil
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - FINANCEIRO
+    ========================================== -->
+
+    <main class="conteudo">
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="financeiro">
+
+                <!-- CABEÇALHO DA PÁGINA -->
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">FINANCEIRO</span>
+                    <div class="titulo-linha">
+                        <h1>Financeiro</h1>
+                    </div>
+                    <p class="subtitulo-pagina">Acompanhe suas mensalidades, faturas pendentes e histórico de pagamentos.</p>
+                </div>
+
+                <!-- SALDO EM ABERTO -->
+                <div class="card-saldo-financeiro">
+                    <div class="info-saldo">
+                        <div class="rotulo-saldo">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Saldo em aberto</span>
+                        </div>
+                        <h2 class="valor-saldo">R$ 1.200,00</h2>
+                        <p class="vencimento-saldo">Próximo vencimento: 10/09/2026</p>
+                    </div>
+
+                    <button type="button" id="btnPagarMensalidade" class="btn-pagar-mensalidade">
+                        Pagar mensalidade
+                    </button>
+                </div>
+
+                <!-- HISTÓRICO DE MENSALIDADES -->
+                <div class="secao-historico">
+                    <h2 class="titulo-historico">Histórico de mensalidades</h2>
+
+                    <div class="painel-historico">
+
+                        <div class="cabecalho-historico">
+                            <span>Referência</span>
+                            <span>Vencimento</span>
+                            <span>Valor</span>
+                            <span>Status</span>
+                            <span></span>
+                        </div>
+
+                        <div class="linha-historico">
+                            <span class="col-referencia" data-label="Referência">Novembro 2026</span>
+                            <span class="col-vencimento" data-label="Vencimento">20/11/2026</span>
+                            <span class="col-valor" data-label="Valor">R$ 1.200,00</span>
+                            <span data-label="Status"><span class="badge-status em-aberto">Em aberto</span></span>
+                            <div class="col-acao">
+                                <button type="button" class="btn-acao-historico btn-abrir-pix">Pagar</button>
+                            </div>
+                        </div>
+
+                        <div class="linha-historico">
+                            <span class="col-referencia" data-label="Referência">Outubro 2026</span>
+                            <span class="col-vencimento" data-label="Vencimento">20/10/2026</span>
+                            <span class="col-valor" data-label="Valor">R$ 1.200,00</span>
+                            <span data-label="Status"><span class="badge-status pago">Pago</span></span>
+                            <div class="col-acao">
+                                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+                            </div>
+                        </div>
+
+                        <div class="linha-historico">
+                            <span class="col-referencia" data-label="Referência">Setembro 2026</span>
+                            <span class="col-vencimento" data-label="Vencimento">20/09/2026</span>
+                            <span class="col-valor" data-label="Valor">R$ 1.200,00</span>
+                            <span data-label="Status"><span class="badge-status pago">Pago</span></span>
+                            <div class="col-acao">
+                                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+                            </div>
+                        </div>
+
+                        <div class="linha-historico">
+                            <span class="col-referencia" data-label="Referência">Agosto 2026</span>
+                            <span class="col-vencimento" data-label="Vencimento">20/08/2026</span>
+                            <span class="col-valor" data-label="Valor">R$ 1.200,00</span>
+                            <span data-label="Status"><span class="badge-status pago">Pago</span></span>
+                            <div class="col-acao">
+                                <button type="button" class="btn-acao-historico btn-recibo">Recibo</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         MODAL PAGAMENTO VIA PIX
+    ========================================== -->
+
+    <div id="modalPix" class="modal-pix-overlay">
+        <div class="modal-pix-conteudo">
+            <button type="button" class="btn-fechar-modal" id="btnFecharPix" aria-label="Fechar">&times;</button>
+
+            <h2 class="titulo-modal-pix">Pagamento via Pix</h2>
+            <p class="subtitulo-modal-pix">Mensalidade Setembro/2026 - R$ 1.200,00</p>
+
+            <div class="container-qrcode">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" alt="QR Code Pix" class="img-qrcode">
+            </div>
+
+            <p class="instrucao-pix">
+                Escaneie o QR Code com o app do seu banco<br>ou copie o código Pix abaixo:
+            </p>
+
+            <div class="caixa-codigo-pix">
+                <input type="text" id="chavePixInput" value="00020126580014br.gov.bcb.pix0136a62c-8822-4416-831e-univ-portal-2026" readonly aria-label="Código Pix">
+            </div>
+
+            <button type="button" id="btnCopiarPix" class="btn-copiar-pix">
+                Copiar código Pix
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">Suporte ao aluno</h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ucen@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="aluno_financeiro.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Meu perfil - Portal do Aluno - UCEN</title>
+    <link rel="stylesheet" href="aluno_perfil.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon/aluno.svg">
+
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <div class="barra-portal">
+            <a class="logo" href="aluno_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+                <input type="text" placeholder="Pesquisar..." readonly>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+                <div class="painel-pesquisa">
+                    <div class="barra-expandida">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+                        <button id="fecharPesquisa" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="resultado-pesquisa">
+                        <ul id="lista-header">
+                            <li data-url="aluno_inicio.html">Início</li>
+                            <li data-url="aluno_graduacao.html">Minha Graduação</li>
+                            <li data-url="aluno_arquivos.html">Arquivos</li>
+                            <li data-url="aluno_agenda.html">Agenda</li>
+                            <li data-url="aluno_calendario.html">Calendário</li>
+                            <li data-url="aluno_documentos.html">Documentos</li>
+                            <li data-url="aluno_financeiro.html">Financeiro</li>
+                            <li data-url="aluno_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERFIL -->
+            <a href="aluno_perfil.html" class="perfil">M</a>
+
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+        <div class="menu-cabecalho">
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <span>Menu</span>
+        </div>
+
+        <nav class="menu-navegacao">
+            <a class="item-menu" href="aluno_inicio.html">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+            <a class="item-menu" href="aluno_graduacao.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Minha Graduação
+            </a>
+            <a class="item-menu" href="aluno_arquivos.html">
+                <i class="fa-solid fa-folder-open"></i>
+                Arquivos
+            </a>
+            <a class="item-menu" href="aluno_agenda.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Agenda
+            </a>
+            <a class="item-menu" href="aluno_calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Calendário
+            </a>
+            <a class="item-menu" href="aluno_documentos.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Documentos
+            </a>
+            <a class="item-menu" href="aluno_financeiro.html">
+                <i class="fa-solid fa-sack-dollar"></i>
+                Financeiro
+            </a>
+            <a class="item-menu ativo" href="aluno_perfil.html">
+                <i class="fa-solid fa-user"></i>
+                Meu perfil
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+
+    <main class="conteudo">
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna perfil-container" data-conteudo="perfil">
+
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">Conta</span>
+                    <div class="titulo-linha">
+                        <h1>Meu Perfil</h1>
+                    </div>
+                    <p class="saudacao-aluno">Gerencie seus dados pessoais, contato e preferências da conta.</p>
+                </div>
+
+                <section class="perfil-header-card">
+
+                    <div class="avatar-wrapper" id="avatar-container">
+                        <label for="upload-foto" class="avatar-clicavel">
+                            <div class="avatar-placeholder" id="avatar-placeholder">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+
+                            <img src="" alt="Foto de Perfil" id="foto-perfil-img" style="display: none;">
+
+                            <input type="file" id="upload-foto" accept="image/*" style="display: none;">
+
+                            <div class="btn-alterar-foto" title="Alterar Foto">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                        </label>
+
+                        <button type="button" class="btn-remover-foto" id="btn-remover-foto" title="Remover foto" aria-label="Remover foto" style="display: none;">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="perfil-header-info">
+                        <div class="nome-status-wrapper">
+                            <h2>Matheus de Oliveira</h2>
+                            <span class="badge-status ativo">Matriculado</span>
+                        </div>
+                        <p class="meta-info"><i class="fa-solid fa-graduation-cap"></i> Ciências da Computação</p>
+                        <p class="meta-info"><i class="fa-solid fa-id-card"></i> Matrícula / RA: <strong>628090055</strong></p>
+                    </div>
+
+                </section>
+
+                <!-- Bloco: Acesso &amp; Segurança -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Acesso &amp; Segurança</h3>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label>E-mail de Login</label>
+                            <input type="email" value="matheusdeoliveira25.reciclar@gmail.com" readonly class="input-bloqueado">
+                        </div>
+                        <div class="input-group btn-align-bottom">
+                            <button type="button" class="btn-secundario" id="btn-alterar-senha">
+                                <i class="fa-solid fa-key"></i> Alterar Senha
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bloco: Dados Pessoais &amp; Documentos -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo-com-alerta">
+                        <div class="secao-titulo">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                            <h3>Dados Pessoais &amp; Documentos</h3>
+                        </div>
+                        <div class="alerta-secretaria">
+                            <i class="fa-solid fa-lock"></i> Dados alteráveis apenas via Secretaria
+                        </div>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <div class="input-group span-2">
+                            <label>Nome Completo</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="MATHEUS DE OLIVEIRA" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Nome Social</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="--" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>CPF</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="541.170.248-84" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Data de Nascimento</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="25/04/2007" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Gênero</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Masculino" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>RG / Documento</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="628090055" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Órgão Emissor / UF</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="SSP / SP" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Estado Civil</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Solteiro(a)" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+
+                        <div class="input-group span-2">
+                            <label>Nome da Mãe</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="IVANI PORTO DE OLIVEIRA" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Raça / Etnia</label>
+                            <div class="input-com-icone">
+                                <input type="text" value="Sem declaração" readonly class="input-bloqueado">
+                                <i class="fa-solid fa-lock icone-cadeado"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer-solicitacao">
+                        <a href="solicitar-alteracao.html" class="btn-secundario-link">
+                            <i class="fa-solid fa-file-signature"></i> Solicitar Alteração de Dados
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Bloco: Contato &amp; Endereço -->
+                <section class="perfil-secao-card">
+                    <form id="form-contato-endereco">
+                        <div class="secao-titulo">
+                            <i class="fa-solid fa-address-book"></i>
+                            <h3>Contato &amp; Endereço</h3>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="input-group">
+                                <label for="celular">Celular (WhatsApp)</label>
+                                <input type="text" id="celular" value="(11) 99854-5737" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="input-group">
+                                <label for="tel-recado">Telefone Residencial / Recado</label>
+                                <input type="text" id="tel-recado" value="" placeholder="(00) 0000-0000">
+                            </div>
+                            <div class="input-group">
+                                <label for="email-secundario">E-mail Comercial / Secundário</label>
+                                <input type="email" id="email-secundario" value="" placeholder="exemplo@email.com">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" value="06246-000" placeholder="00000-000">
+                            </div>
+                            <div class="input-group span-2">
+                                <label for="logradouro">Logradouro / Rua</label>
+                                <input type="text" id="logradouro" value="R PASCHOAL RANIERI MAZZILI">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" value="362">
+                            </div>
+                            <div class="input-group">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento" value="" placeholder="Apt, Bloco, etc.">
+                            </div>
+                            <div class="input-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" value="MUNHOZ JUNIOR">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" value="OSASCO">
+                            </div>
+                            <div class="input-group">
+                                <label for="uf">Estado (UF)</label>
+                                <select id="uf">
+                                    <option value="SP" selected>São Paulo (SP)</option>
+                                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                                    <option value="MG">Minas Gerais (MG)</option>
+                                    <option value="PR">Paraná (PR)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-principal">
+                                <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Bloco: Configurações -->
+                <section class="perfil-secao-card">
+                    <div class="secao-titulo">
+                        <i class="fa-solid fa-gear"></i>
+                        <h3>Configurações</h3>
+                    </div>
+
+                    <div class="lista-configuracoes">
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Notificações por e-mail</h4>
+                                <p>Receber avisos sobre notas, prazos de atividades e comunicados.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="chk-notif-email" data-campo="notificacoes_email" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Lembrete de aulas</h4>
+                                <p>Receber um lembrete 30 minutos antes de cada aula.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="chk-lembrete-aulas" data-campo="lembrete_aulas" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-configuracao">
+                            <div class="texto-configuracao">
+                                <h4>Alertas de frequência baixa</h4>
+                                <p>Ser notificado quando sua frequência em uma disciplina estiver próxima do mínimo.</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="chk-alerta-frequencia" data-campo="alerta_frequencia" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Modal para Visualizar Foto em Destaque -->
+                <div id="modal-foto-perfil" class="modal-foto-overlay">
+                    <div class="modal-foto-content">
+                        <img id="img-modal-zoom" src="" alt="Foto de Perfil Ampliada">
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">Suporte ao aluno</h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ucen@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+    </footer>
+
+    <script src="aluno_perfil.js" defer></script>
+</body>
+</html>

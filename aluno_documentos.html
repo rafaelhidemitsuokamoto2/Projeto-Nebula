@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Documentos - Portal do Aluno - UCEN</title>
+    <link rel="stylesheet" href="aluno_documentos.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/aluno.svg">
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cabecalho">
+        <div class="barra-portal">
+            <a class="logo" href="aluno_inicio.html">
+                <img src="logo-ucen.png" alt="Logo">
+            </a>
+
+            <!-- PESQUISA -->
+
+            <div class="caixa-pesquisa" id="caixaPesquisa">
+                <input type="text" placeholder="Pesquisar..." readonly>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="overlay-pesquisa" id="overlayPesquisa">
+                <div class="painel-pesquisa">
+                    <div class="barra-expandida">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="pesquisa-header" placeholder="Pesquisar..." autocomplete="off">
+                        <button id="fecharPesquisa" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="resultado-pesquisa">
+                        <ul id="lista-header">
+                            <li data-url="aluno_inicio.html">Início</li>
+                            <li data-url="aluno_graduacao.html">Minha Graduação</li>
+                            <li data-url="aluno_arquivos.html">Arquivos</li>
+                            <li data-url="aluno_agenda.html">Agenda</li>
+                            <li data-url="aluno_calendario.html">Calendário</li>
+                            <li data-url="aluno_documentos.html">Documentos</li>
+                            <li data-url="aluno_financeiro.html">Financeiro</li>
+                            <li data-url="aluno_perfil.html">Meu perfil</li>
+                        </ul>
+
+                        <div id="mensagem-header">
+                            Nenhum resultado encontrado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERFIL -->
+
+            <a href="aluno_perfil.html" class="perfil">M</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MENU LATERAL
+    ========================================== -->
+
+    <aside class="menu" id="menu">
+        <div class="menu-cabecalho">
+            <button class="botao-menu-fechar" id="botaoMenuFechar" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <span>Menu</span>
+        </div>
+
+        <nav class="menu-navegacao">
+            <a class="item-menu" href="aluno_inicio.html">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+            <a class="item-menu" href="aluno_graduacao.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Minha Graduação
+            </a>
+            <a class="item-menu" href="aluno_arquivos.html">
+                <i class="fa-solid fa-folder-open"></i>
+                Arquivos
+            </a>
+            <a class="item-menu" href="aluno_agenda.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Agenda
+            </a>
+            <a class="item-menu" href="aluno_calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Calendário
+            </a>
+            <a class="item-menu ativo" href="aluno_documentos.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Documentos
+            </a>
+            <a class="item-menu" href="aluno_financeiro.html">
+                <i class="fa-solid fa-sack-dollar"></i>
+                Financeiro
+            </a>
+            <a class="item-menu" href="aluno_perfil.html">
+                <i class="fa-solid fa-user"></i>
+                Meu perfil
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL - DOCUMENTOS
+    ========================================== -->
+
+    <main class="conteudo">
+        <div class="area-conteudo" id="areaConteudo">
+
+            <section class="pagina pagina-interna" data-conteudo="documentos">
+
+                <!-- CABEÇALHO DA PÁGINA -->
+                <div class="cabecalho-pagina">
+                    <span class="categoria-pagina">SECRETARIA</span>
+                    <div class="titulo-linha">
+                        <h1>Documentos</h1>
+                    </div>
+                    <p class="subtitulo-pagina">Envie solicitações e veja seus documentos de forma online.</p>
+                </div>
+
+                <!-- ABAS -->
+                <div class="container-botoes-documentos">
+                    <button type="button" class="btn-opcao ativo" data-doc="documentos">Documentos</button>
+                    <button type="button" class="btn-opcao" data-doc="requisicoes">Requisições</button>
+                </div>
+
+                <!-- ABA DOCUMENTOS -->
+                <div class="conteudo-documento ativo" id="doc-documentos">
+
+                    <h2 class="titulo-documentos">Seus documentos oficiais</h2>
+                    <p class="subtitulo-documentos">Documentos acadêmicos emitidos pela secretaria.</p>
+
+                    <div class="grid-cards-documentos">
+
+                        <div class="card-documento">
+                            <span class="badge-secretaria">Secretaria</span>
+                            <h3 class="titulo-documento">Declaração de Matrícula Ativa</h3>
+                            <p class="descricao-documento">Comprovante oficial com assinatura digital atestando que você possui vínculo regular e ativo no 5º semestre de Ciências da Computação.</p>
+                            <div class="rodape-documento">
+                                <span class="status-documento">Válido por 90 dias</span>
+                                <a href="documentos/historico_certificado.pdf.pdf" download class="btn-baixar-documento">
+                                    <i class="fa-solid fa-download"></i> Baixar PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-documento">
+                            <span class="badge-secretaria">Secretaria</span>
+                            <h3 class="titulo-documento">Histórico Escolar</h3>
+                            <p class="descricao-documento">Documento consolidado contendo todas as notas, frequência e créditos validados do 1º ao 4º semestre.</p>
+                            <div class="rodape-documento">
+                                <span class="status-documento">Atualizado hoje</span>
+                                <a href="documentos/historico_certificado.pdf.pdf" download class="btn-baixar-documento">
+                                    <i class="fa-solid fa-download"></i> Baixar PDF
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ABA REQUISIÇÕES -->
+                <div class="conteudo-documento" id="doc-requisicoes">
+
+                    <h2 class="titulo-documentos">Envie seu requerimento</h2>
+                    <p class="subtitulo-documentos">Ele será enviado ao e-mail de suporte da Nebula.</p>
+
+                    <form class="form-requisicoes">
+
+                        <label for="reqNome">Nome</label>
+                        <input type="text" id="reqNome" placeholder="Digite seu nome" autocomplete="name" required>
+
+                        <label for="reqEmail">E-mail</label>
+                        <input type="email" id="reqEmail" placeholder="Digite seu e-mail" autocomplete="email" required>
+
+                        <label for="reqAssunto">Assunto</label>
+                        <textarea id="reqAssunto" maxlength="10000" placeholder="Descreva sua solicitação..." required></textarea>
+
+                        <div class="rodape-requisicoes">
+                            <p class="contador-documento">
+                                Restam <span id="restantesReq">10.000</span> caracteres.
+                                <span id="limiteReq">Limite de caracteres atingido.</span>
+                            </p>
+
+                            <button type="submit" class="btn-enviar-requisicao">Enviar</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- Rodapé do Portal -->
+    <footer id="contato">
+        <div class="footer-superior">
+            <div class="footer-esquerda">
+                <img src="logo-ucen.png" alt="Logo">
+                <h3 class="texto-footer">
+                    Campus central: Avenida das Estrelas, nº 372,<br>
+                    Jardim Primavera, Cidade Altas Flores/SP - CEP 14797-000
+                </h3>
+            </div>
+
+            <div class="footer-direita">
+                <h3 class="titulo-footer">Suporte ao aluno</h3>
+                <h3 class="texto-footer">
+                    E-mail: suporte.ucen@gmail.com<br>
+                    Telefone: 4006-8947<br>
+                    WhatsApp: (11) 94562-2899<br>
+                    Horário: Seg à Sex das 08h às 22:30h
+                </h3>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <h3 class="copyright">
+                © 2026 Universidade de Ciências e Exatas Nebula<br>
+                Todos os direitos reservados.
+            </h3>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="aluno_documentos.js" defer></script>
+</body>
+</html>

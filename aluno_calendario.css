@@ -1,0 +1,824 @@
+/* ==========================================================
+   PORTAL DO ALUNO - CALENDÁRIO
+   Mesma base visual do Portal do Professor
+   (header, pesquisa, menu, rodapé) + estilos da página Calendário
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo img {
+    width: 125px;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================
+   BARRA DE ROLAGEM
+========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050912;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8a2be2;
+    border-radius: 6px;
+    border: 2px solid #050912;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9932cc;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cabecalho {
+    width: 100%;
+    height: 90px;
+    background-color: #050505;
+    display: flex;
+    align-items: center;
+    z-index: 900;
+    border-bottom: 1px solid #292929;
+}
+
+.barra-portal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* ==========================================
+   PESQUISA
+========================================== */
+
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    width: min(400px, 90%);
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.caixa-pesquisa input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: black;
+    outline: none;
+    font-size: 16px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: #777;
+}
+
+.caixa-pesquisa i {
+    color: #888;
+    font-size: 15px;
+    margin-left: 6px;
+}
+
+.overlay-pesquisa {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+    z-index: 5000;
+}
+
+.overlay-pesquisa.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.painel-pesquisa {
+    width: 100%;
+    background: #050912;
+    padding: 35px;
+    transform: translateY(-30px);
+    transition: .35s;
+}
+
+.overlay-pesquisa.ativo .painel-pesquisa {
+    transform: translateY(0);
+}
+
+.barra-expandida {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+}
+
+.barra-expandida input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+#fecharPesquisa {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.resultado-pesquisa {
+    margin-top: 30px;
+    display: none;
+}
+
+.resultado-pesquisa li {
+    list-style: none;
+    color: #e47de4d9;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    transition: background-color .25s, padding-left .25s;
+}
+
+.resultado-pesquisa li:hover {
+    background: #111d33;
+    padding-left: 20px;
+}
+
+#lista-header li {
+    display: none;
+}
+
+#mensagem-header {
+    display: none;
+    padding: 18px 12px;
+    color: #9b9b9b;
+    font-family: "Sora", sans-serif;
+    font-size: 16px;
+}
+
+.barra-expandida i {
+    font-size: 22px;
+    color: #666;
+}
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+.perfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+    background-color: #240D31;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 249, 63, 0.25);
+}
+
+/* ==========================================
+   MENU LATERAL FIXO
+========================================== */
+
+.menu {
+    position: fixed;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 91px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 45px;
+    background-color: #303030;
+    z-index: 1000;
+    transition: width 0.45s ease, height 0.45s ease, border-radius 0.45s ease;
+}
+
+.menu.aberto {
+    width: 340px;
+    height: auto;
+    max-height: min(640px, 88vh);
+    border-radius: 30px;
+    overflow-y: auto;
+}
+
+.menu-cabecalho {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #E3AC6C;
+    font-family: 'Sora', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.menu-cabecalho span {
+    margin-left: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.menu.aberto .menu-cabecalho span {
+    opacity: 1;
+    transition-delay: 0.25s;
+}
+
+.botao-menu-fechar {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    color: #E3AC6C;
+    cursor: pointer;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu-navegacao {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 25px 48px;
+}
+
+.item-menu {
+    width: 100%;
+    padding: 12px 22px;
+    border: none;
+    background: transparent;
+    color: #c9c9c9;
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-left: 3px solid transparent;
+    transition: .25s;
+}
+
+.item-menu i {
+    width: 22px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.item-menu.ativo {
+    background: rgb(71, 71, 71);
+    color: #E3AC6C;
+    border-left-color: #E3AC6C;
+}
+
+.item-menu:hover {
+    color: #E3AC6C;
+    transform: translateX(4px);
+    background: rgb(71, 71, 71);
+    border-left-color: #E3AC6C;
+}
+
+.menu:not(.aberto) .menu-navegacao {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.area-conteudo {
+    width: 100%;
+}
+
+.pagina {
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Sora', sans-serif;
+}
+
+.pagina-interna {
+    display: block;
+    min-height: calc(100vh - 90px);
+    padding: 35px 8% 40px 180px;
+    background-color: transparent;
+}
+
+/* ==========================================
+   CABEÇALHO DA PÁGINA
+========================================== */
+
+.cabecalho-pagina {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.categoria-pagina {
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    color: #8b8b93;
+    text-align: left;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.titulo-linha {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-linha h1 {
+    margin: 0;
+    color: #E3AC6C;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.subtitulo-pagina {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #cfcfcf;
+    text-align: left;
+}
+
+
+/* ==========================================
+   FOCO VISÍVEL (teclado)
+========================================== */
+
+.btn-nav-cal:focus-visible,
+.btn-fechar-modal:focus-visible,
+#mes-ano-titulo:focus-visible {
+    outline: 2px solid #E3AC6C;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   LAYOUT: calendário à esquerda, avaliações do mês à direita
+========================================== */
+
+.container-calendario-secao {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.box-calendario,
+.box-eventos {
+    background: #131316;
+    border: 1px solid #26262c;
+    border-radius: 14px;
+    padding: 25px;
+    color: #fff;
+}
+
+/* ==========================================
+   CALENDÁRIO
+========================================== */
+
+.topo-calendario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.topo-calendario h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #E3AC6C;
+}
+
+.btn-nav-cal {
+    background: none;
+    border: 0;
+    color: #aaa;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 16px;
+    transition: color .2s ease;
+}
+
+.btn-nav-cal:hover {
+    color: #fff;
+}
+
+/* Título do mês clicável (abre a visão anual) */
+#mes-ano-titulo {
+    cursor: pointer;
+    padding: 4px 14px;
+    border: 1px dashed transparent;
+    border-radius: 10px;
+    transition: color .2s, border-color .2s, background-color .2s;
+    user-select: none;
+}
+
+#mes-ano-titulo:hover {
+    color: #F3D5B0;
+    border-color: rgba(227, 172, 108, .75);
+    background: rgba(227, 172, 108, .06);
+}
+
+.dias-semana-cal,
+.grade-dias-cal {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.dias-semana-cal span {
+    text-align: center;
+    color: #8b8b93;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 0;
+}
+
+.dia-num {
+    position: relative;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #282830;
+    border-radius: 10px;
+    background: #101014;
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dia-num.outro-mes {
+    background: transparent;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.dia-num.domingo {
+    color: #ff5a5a;
+}
+
+/* Dia com prova: borda dourada + pontinho */
+.dia-num.com-evento {
+    border-color: rgba(227, 172, 108, .45);
+    color: #fff;
+    font-weight: 600;
+}
+
+.dia-num.com-evento::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #E3AC6C;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* NOVO: destaca o dia de hoje no calendário */
+.dia-num.hoje {
+    background: rgba(227, 172, 108, 0.14);
+    border-color: #E3AC6C;
+    color: #E3AC6C;
+    font-weight: 700;
+}
+
+/* ==========================================
+   AVALIAÇÕES DO MÊS
+========================================== */
+
+.cabecalho-painel {
+    border-bottom: 1px solid #2a2a32;
+    padding-bottom: 18px;
+    margin-bottom: 15px;
+}
+
+.cabecalho-painel h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #E3AC6C;
+}
+
+.lista-eventos-cal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-evento-cal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px;
+    background: #101014;
+    border-radius: 12px;
+}
+
+.badge-dia-evento {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(227, 172, 108, 0.1);
+    border-radius: 10px;
+    color: #E3AC6C;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.info-evento-cal {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-evento-cal h4 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.info-evento-cal p {
+    color: #888;
+    font-size: 12px;
+    margin: 4px 0 0 0;
+}
+
+.sem-eventos-msg {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    padding: 35px 20px;
+    border: 1px dashed #333;
+    border-radius: 12px;
+}
+
+/* ==========================================
+   MODAL DE VISÃO ANUAL
+========================================== */
+
+.modal-overlay-anual {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .72);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+    z-index: 99999;
+}
+
+.modal-overlay-anual.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-container-anual {
+    width: 90%;
+    max-width: 560px;
+    background: #131316;
+    border: 1px solid #26262c;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+    color-scheme: dark;
+    transform: translateY(10px);
+    transition: transform .25s ease;
+}
+
+.modal-overlay-anual.ativo .modal-container-anual {
+    transform: translateY(0);
+}
+
+.header-modal-anual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #2a2a32;
+}
+
+.header-modal-anual h2 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn-fechar-modal {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #8b8b93;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-fechar-modal:hover {
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+}
+
+.grid-meses-ano {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card-mes-opcao {
+    background: #101014;
+    border: 1px solid #282830;
+    border-radius: 12px;
+    padding: 16px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .2s ease;
+}
+
+.card-mes-opcao:hover {
+    border-color: #E3AC6C;
+}
+
+.card-mes-opcao.mes-atual-selecionado {
+    border-color: #E3AC6C;
+    background: rgba(227, 172, 108, 0.12);
+}
+
+.card-mes-opcao h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.badge-qtd-atividades {
+    display: block;
+    margin-top: 6px;
+    color: #E3AC6C;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media (max-width: 1000px) {
+    .container-calendario-secao {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-meses-ano {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+footer {
+    width: 100%;
+    background: #151515;
+    margin-top: 210px;
+}
+
+.footer-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 70px;
+}
+
+.footer-esquerda {
+    display: flex;
+    flex-direction: column;
+    margin-left: 105px;
+}
+
+.footer-direita {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: -65px;
+}
+
+.footer-esquerda img {
+    width: 80px;
+    margin-bottom: 25px;
+}
+
+.titulo-footer {
+    color: #D78EDB;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.texto-footer {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: normal;
+}
+
+.footer-inferior {
+    border-top: 1px solid #5d5d5d;
+    background: #101010;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.copyright {
+    color: #d6d6d6;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+}
