@@ -51,6 +51,8 @@ body {
 ========================================== */
 
 .cabecalho {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 90px;
     background-color: #050505;
@@ -848,4 +850,290 @@ footer {
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.5;
+}
+
+/* ==========================================================
+   PESQUISA EXPANDIDA x MENU
+   O cabeçalho fixo cria um contexto próprio de empilhamento,
+   então, com a pesquisa aberta, o menu é desativado para não
+   ficar por cima do overlay (nem por toque, nem por teclado).
+   ========================================================== */
+
+body:has(.overlay-pesquisa.ativo) .menu {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+/* ---------- Notebooks pequenos (até 1100px) ---------- */
+@media (max-width: 1100px) {
+    .barra-portal { padding: 0 25px; }
+    .pagina-interna { padding: 35px 40px 40px 145px; }
+    .menu { left: 25px; }
+    .footer-superior { padding: 50px 45px; }
+    .footer-esquerda { margin-left: 40px; }
+    .footer-direita { left: 0; }
+}
+
+/* ---------- Tablets (até 900px) ---------- */
+@media (max-width: 900px) {
+    .pagina-interna { padding: 30px 35px 40px 130px; }
+    .titulo-linha h1 { font-size: 36px; }
+    .valor-saldo { font-size: 28px; }
+}
+
+/* ---------- Tablets pequenos / celulares grandes (até 768px) ---------- */
+@media (max-width: 768px) {
+
+    /* ---------- HEADER FIXO ---------- */
+    .cabecalho {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 70px;
+        z-index: 900;
+    }
+
+    .barra-portal {
+        position: relative;
+        height: 70px;
+        padding: 0 14px;
+        justify-content: flex-end;
+        gap: 12px;
+    }
+
+    /* Logo à esquerda, depois do hambúrguer */
+    .logo {
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    .logo img { width: 84px; }
+
+    /* Pesquisa vira só o ícone */
+    .caixa-pesquisa {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        margin-left: auto;
+        justify-content: center;
+        border: 1px solid #333;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .caixa-pesquisa input { display: none; }
+
+    .caixa-pesquisa i {
+        margin: 0;
+        color: #E3AC6C;
+        font-size: 18px;
+    }
+
+    .perfil {
+        width: 44px;
+        height: 44px;
+        font-size: 15px;
+    }
+
+    /* ---------- MENU MOBILE (hambúrguer) ---------- */
+    .menu {
+        position: fixed;
+        top: 13px;
+        left: 10px;
+        width: 44px;
+        height: 44px;
+        transform: none;
+        overflow: hidden;
+        border-radius: 22px;
+        background-color: transparent;
+        z-index: 1100;
+        transition: width .3s ease, border-radius .3s ease, background-color .3s ease;
+    }
+
+    .menu-cabecalho {
+        height: 44px;
+        padding-left: 0;
+        font-size: 20px;
+    }
+
+    .botao-menu-fechar {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+    }
+
+    .menu-cabecalho span { margin-left: 6px; }
+
+    .menu.aberto {
+        width: min(300px, calc(100vw - 20px));
+        height: auto;
+        max-height: calc(100vh - 26px);
+        border-radius: 22px;
+        background-color: #303030;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .55);
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 1200;
+    }
+
+    .menu.aberto .menu-navegacao {
+        opacity: 1;
+        pointer-events: auto;
+        padding: 8px 12px 16px 12px;
+        max-height: calc(100vh - 82px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .menu.aberto .item-menu {
+        font-size: 16px;
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .menu.aberto .item-menu i { font-size: 17px; }
+
+    .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s ease, visibility .3s ease;
+        z-index: 1150;
+    }
+
+    .menu-overlay.ativo {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ---------- CONTEÚDO ---------- */
+    .conteudo { padding-top: 70px; }
+
+    .pagina-interna {
+        min-height: auto;
+        padding: 28px 20px 40px;
+    }
+
+    .categoria-pagina { font-size: 11px; }
+
+    .titulo-linha h1 {
+        font-size: clamp(28px, 8vw, 36px);
+        white-space: normal;
+        line-height: 1.15;
+    }
+
+    .subtitulo-pagina {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Saldo em aberto */
+    .card-saldo-financeiro {
+        margin-top: 24px;
+        padding: 20px;
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .valor-saldo { font-size: 26px; }
+    .vencimento-saldo { font-size: 12.5px; }
+
+    .btn-pagar-mensalidade {
+        width: 100%;
+        padding: 13px 20px;
+    }
+
+    /* Histórico de mensalidades */
+    .secao-historico { margin-top: 36px; }
+
+    .titulo-historico {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .painel-historico { padding: 10px 14px 4px; }
+
+    .linha-historico { padding: 16px 6px; }
+
+    /* Modal do PIX */
+    .modal-pix-conteudo {
+        width: min(420px, calc(100% - 28px));
+        padding: 24px 20px;
+    }
+
+    .titulo-modal-pix { padding-right: 28px; }
+
+    /* Pesquisa expandida */
+    .painel-pesquisa { padding: 18px 14px; }
+    .barra-expandida { padding: 12px 16px; }
+    .barra-expandida input { font-size: 16px; margin: 0 10px; }
+    #fecharPesquisa { font-size: 20px; }
+
+    /* ---------- RODAPÉ ---------- */
+    footer { margin-top: 70px; }
+
+    .footer-superior {
+        flex-direction: column;
+        gap: 35px;
+        padding: 40px 24px;
+    }
+
+    .footer-esquerda,
+    .footer-direita {
+        margin-left: 0;
+        left: auto;
+        width: 100%;
+    }
+
+    .footer-esquerda img { width: 65px; margin-bottom: 18px; }
+    .titulo-footer { font-size: 1.4rem; margin-bottom: 14px; }
+    .texto-footer { font-size: .9rem; line-height: 1.6; }
+    .footer-inferior { padding: 22px 16px; }
+    .copyright { font-size: .8rem; }
+}
+
+/* ---------- Celulares (até 480px) ---------- */
+@media (max-width: 480px) {
+
+    .barra-portal { padding: 0 12px; gap: 8px; }
+
+    .logo { left: 60px; }
+    .logo img { width: 64px; }
+
+    .caixa-pesquisa { width: 38px; height: 38px; }
+    .caixa-pesquisa i { font-size: 16px; }
+
+    .perfil { width: 38px; height: 38px; font-size: 14px; }
+
+    .pagina-interna { padding: 24px 16px 35px; }
+
+    .titulo-linha h1 { font-size: 26px; }
+
+    .card-saldo-financeiro { padding: 18px 16px; }
+    .valor-saldo { font-size: 24px; }
+
+    .painel-historico { padding: 8px 12px 2px; }
+
+    .linha-historico { column-gap: 8px; }
+
+    .img-qrcode {
+        width: 170px;
+        height: 170px;
+    }
+
+    .footer-superior { padding: 32px 18px; }
+    .titulo-footer { font-size: 1.25rem; }
 }
